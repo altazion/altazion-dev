@@ -2,3 +2,5 @@
 
 [!include[validationcommande](ecommerce.validationcommande.autogen.md)]
 
+
+
