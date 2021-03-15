@@ -6,3 +6,11 @@
   href: ../hub/index.md
 - name: Altazion Orchestrator
   href: ../orchestrator/index.md      
+- name: Spécifique OnPremise
+  items:
+    - name: Accès aux données
+      href: data-framework.md
+    - name: Modèle objet
+      href: architecture.md
+    - name: Logs
+      href: logs-traces.md
