@@ -1,5 +1,18 @@
 - name: Altazion Hub
   href: index.md
+- name: Modules
+  items:
+    - name: CRM
+      href: modules/crm/index.md
+    - name: Logistique
+      href: modules/inventory/index.md
+    - name: Migration
+      href: modules/migration/index.md
+      items:
+      - name: Magento
+        href: modules/migration/magento.md
+    - name: Point de ventes
+      href: modules/pos/index.md
 - name: Référence 
   items:
     - name: API
