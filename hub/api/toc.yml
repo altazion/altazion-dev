@@ -123,8 +123,9 @@
   - name: Logistique
     href: serveur/logistique/index.md
     items: 
-    - name: Saisie préparation
-      href: serveur/logistique/index.md#saisiepreparation
+    - name: Préparation
+      href: serveur/logistique/preparation.md
+      items: 
   - name: Commercial
     href: serveur/commercial/index.md
     items: 
