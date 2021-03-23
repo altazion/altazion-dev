@@ -1,4 +1,0 @@
-# Annonce
-
-[!include[publicationduneannonce](annonce.publicationduneannonce.autogen.md)]
-
