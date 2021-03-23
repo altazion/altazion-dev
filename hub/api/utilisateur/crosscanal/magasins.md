@@ -23,3 +23,18 @@
 
 
 
+
+[!include[nouvellezonemagasin](magasins.nouvellezonemagasin.autogen.md)]
+
+[!include[editzonemagasin](magasins.editzonemagasin.autogen.md)]
+
+[!include[listelesservicesmagasin](magasins.listelesservicesmagasin.autogen.md)]
+
+[!include[listeleszonesmagasin](magasins.listeleszonesmagasin.autogen.md)]
+
+[!include[unservicemagasin](magasins.unservicemagasin.autogen.md)]
+
+[!include[unezonemagasin](magasins.unezonemagasin.autogen.md)]
+
+[!include[deletezonemagasin](magasins.deletezonemagasin.autogen.md)]
+

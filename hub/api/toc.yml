@@ -56,6 +56,12 @@
     - name: Publicités
       href: utilisateur/commercial/publicites.md
       items: 
+  - name: Prospection
+    href: utilisateur/prospection/index.md
+    items: 
+    - name: Prospects
+      href: utilisateur/prospection/prospects.md
+      items: 
   - name: Catalogue
     href: utilisateur/catalogue/index.md
     items: 
@@ -114,6 +120,11 @@
     - name: Produits
       href: serveur/crosscanal/produits.md
       items: 
+  - name: Logistique
+    href: serveur/logistique/index.md
+    items: 
+    - name: Saisie préparation
+      href: serveur/logistique/index.md#saisiepreparation
   - name: Commercial
     href: serveur/commercial/index.md
     items: 
@@ -125,6 +136,12 @@
       items: 
     - name: Publicités
       href: serveur/commercial/publicites.md
+      items: 
+  - name: Prospection
+    href: serveur/prospection/index.md
+    items: 
+    - name: Prospects
+      href: serveur/prospection/prospects.md
       items: 
   - name: Catalogue
     href: serveur/catalogue/index.md

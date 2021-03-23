@@ -1,0 +1,20 @@
+# Prospects
+
+[!include[archiveunecampagne](prospects.archiveunecampagne.autogen.md)]
+
+[!include[obtenircampagnes](prospects.obtenircampagnes.autogen.md)]
+
+[!include[obtenirunecampagne](prospects.obtenirunecampagne.autogen.md)]
+
+[!include[inscritunnouveaulead](prospects.inscritunnouveaulead.autogen.md)]
+
+[!include[archiverrecruteur](prospects.archiverrecruteur.autogen.md)]
+
+[!include[creerrecruteurs](prospects.creerrecruteurs.autogen.md)]
+
+[!include[obtenirrecruteurs](prospects.obtenirrecruteurs.autogen.md)]
+
+[!include[modifierrecruteurs](prospects.modifierrecruteurs.autogen.md)]
+
+[!include[obtenirrecruteur](prospects.obtenirrecruteur.autogen.md)]
+

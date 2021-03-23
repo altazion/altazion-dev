@@ -1,0 +1,49 @@
+## <span id='obtenircampagnes'>Campagnes (liste)</span>
+
+Créé une nouvelle campagne de prospection
+
+Url :`[GET] api/prospection/campagnes`
+
+Paramètres : 
+
+- Cette url n'accepte aucun paramètre
+
+Url :`[GET] api/prospection/recruteurs/{guidRecruteur:guid}/campagnes`
+
+Paramètres : 
+
+- **guidRecruteur** (Guid) : L'identifiant du recruteur
+
+Url :`[PUT] api/prospection/recruteurs/{guidRecruteur:guid}/campagnes`
+
+Paramètres : 
+
+- **guidRecruteur** (Guid) : L'identifiant du recruteur
+- en tant que body, un objet CampagneRecrutementCreationData
+
+Type de retour : `CampagneRecrutement`
+
+Type(s) de données :
+
+```csharp
+class CampagneRecrutement
+{
+	Guid Guid { get; set; }
+	Guid RecruteurGuid { get; set; }
+	string Libelle { get; set; }
+	string Type { get; set; }
+	DateTime? Debut { get; set; }
+	DateTime? Fin { get; set; }
+	Guid? CampagneCommercialGuid { get; set; }
+}
+
+class CampagneRecrutementCreationData
+{
+	string Libelle { get; set; }
+	string Type { get; set; }
+	DateTime? Debut { get; set; }
+	DateTime? Fin { get; set; }
+	Guid? CampagneCommercialGuid { get; set; }
+}
+
+```
