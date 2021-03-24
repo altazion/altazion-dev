@@ -13,6 +13,13 @@
         href: modules/migration/magento.md
     - name: Point de ventes
       href: modules/pos/index.md
+- name: Extensibilité
+  href: extensibility/index.md
+  items:
+    - name: Financier
+      items:
+        - name: Mode de règlement
+          href: extensibility/crm/ICustomersRepositoryExt.md      
 - name: Référence 
   items:
     - name: API
