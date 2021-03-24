@@ -16,9 +16,9 @@
 - name: Extensibilité
   href: extensibility/index.md
   items:
-    - name: Financier
+    - name: CRM
       items:
-        - name: Mode de règlement
+        - name: Base client
           href: extensibility/crm/ICustomersRepositoryExt.md      
 - name: Référence 
   items:
