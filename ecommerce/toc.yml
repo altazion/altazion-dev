@@ -13,7 +13,7 @@
         - name: Paiement
           href: extensibility/code/business/paiement.md
         - name: Panier
-          href: extensibility/code/business/Panier.md
+          href: extensibility/code/business/panier.md
         - name: Promotions
           href: extensibility/code/business/promotions.md
         - name: Recherche (catalogue)
