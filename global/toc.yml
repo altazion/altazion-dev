@@ -1,12 +1,19 @@
 - name: Etendre la solution
   href: index.md
+  items:
+  - name: Premiers pas
+    items:
+    - name: Environnement SaaS
+      href: firststepsaas.md
+    - name: Environnement OnPremise
+      href: firststeponprem.md
 - name: Altazion Office
   href: ../office/index.md
   items:
   - name: Personnalisation
     href: ../office/customize/modeles/index.md
   - name: Extensibilité (SaaS)
-    href: ../office/extensibility/events/toc.yml
+    href: ../office/extensibility/events/index.md
   - name: Extensibilité (onpremise)
     href: ../office/extensions/financier/modereglement.md
 - name: Altazion Hub
@@ -30,9 +37,4 @@
       href: architecture.md
     - name: Logs
       href: logs-traces.md
-- name: Premiers pas
-  items:
-  - name: Environnement SaaS
-    href: fiststepsaas.md
-  - name: Environnement SaaS
-    href: fiststeponprem.md
+
