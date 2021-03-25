@@ -16,3 +16,6 @@
       href: ecommerce-confirmprocess.md            
     - name: Recu Commande
       href: ecommerce-recuprocess.md                  
+- name: Références des contrôles
+  href: ../controls/toc.yml
+  topicHref: ../controls/Altazion.ECommerce.Controls.html

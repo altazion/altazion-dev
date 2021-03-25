@@ -3,5 +3,25 @@
 - name: Personnalisation
   href: personnalisation/toc.yml
   topicHref: personnalisation.md
-- name: Controles
-  href: controls/Altazion.ECommerce.Controls.html
+- name: Extensibilité (onpremise)
+  items:
+    - name: Règles métier
+      href: extensibility/code/business/index.md
+      items:
+        - name: Livraison
+          href: extensibility/code/business/livraison.md
+        - name: Paiement
+          href: extensibility/code/business/paiement.md
+        - name: Panier
+          href: extensibility/code/business/Panier.md
+        - name: Promotions
+          href: extensibility/code/business/promotions.md
+        - name: Recherche (catalogue)
+          href: extensibility/code/business/recherche.md
+        - name: SEO
+          href: extensibility/code/business/seo.md
+        - name: Session
+          href: extensibility/code/business/session.md
+        - name: Stocks
+          href: extensibility/code/business/stocks.md
+                    
