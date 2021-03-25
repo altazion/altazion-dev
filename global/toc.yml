@@ -2,8 +2,24 @@
   href: index.md
 - name: Altazion Office
   href: ../office/index.md
+  items:
+  - name: Personnalisation
+    href: ../office/customize/modeles/index.md
+  - name: Extensibilité (SaaS)
+    href: ../office/extensibility/events/toc.yml
+  - name: Extensibilité (onpremise)
+    href: ../office/extensions/financier/modereglement.md
 - name: Altazion Hub
   href: ../hub/index.md
+  items:
+  - name: Modules
+    href: ../hub/modules/crm/index.md
+  - name: Extensibilité
+    href: ../hub/extensibility/index.md
+  - name: Référence 
+    items:
+    - name: API
+      href: ../hub/api/index.md
 - name: Altazion Orchestrator
   href: ../orchestrator/index.md      
 - name: Spécifique OnPremise
