@@ -95,4 +95,18 @@ Si toutes les modifications de prix ont pu être validées, vous recevrez en ret
 * si votre JSON ne correspond pas au bon format (mais qu'il reste un JSON valide), le message d'erreur en http 400 est plus générique que celui de Magento
 * le message lors d'une erreur sur le SKU contient une information supplémentaire pour préciser le problème
 
+#### Utiliser le module
+
+Si vous souhaitez déployer par vous même le module (par exemple sur un environnement de test), vous pouvez :
+
+- soit utiliser les cmdlets powershell pour déployer le module sur un serveur Windows ou Linux exécutant Altazion Hub Server
+
+```Powershell
+Get-AltazionHubModule Altazion.Hub.Magento.Products | Deploy-AltazionHubModule -Server localhost
+```
+
+La configuration et les connexions seront automatiquement récupérées depuis les paramètres du serveur.
+
+- soit utilliser le container `altazion/hub-migration-magento-products`([lien docker hub](https://hub.docker.com/r/altazion/hub-migration-magento-products))
+
 ## Module Commande
