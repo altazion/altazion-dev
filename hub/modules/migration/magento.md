@@ -1,10 +1,67 @@
 # Migration Magento
 
+Les modules de migration proposent des points API vous permettant de conserver vos appels inchangés lors d'une migration depuis Magento 2.x.
+
 ## Module Stock
 
-## Module Prix 
+Il inclut les points suivants :
 
-Le module `Altazion.Hub.Magento.Products` inclut des points API vous permettant de conserver vos appels inchangés lors d'une migration depuis Magento 2.x.
+- `V1/stockItems/lowStock/` : [Obtenir tous les articles avec un stock "inférieur à"](https://devdocs.magento.com/redoc/2.2/#tag/stockItemslowStock) \[Expérimental\]
+- `V1/stockItems/` : Fonctionnalité supplémentaire commune à de nombreuses extensions et permettant de mettre à jour les stocks des articles
+
+### Gestion du stock
+
+```text
+GET /V1/stockItems/{productSku}
+```
+vous permet de récupérer le stock d'un article
+```text
+{
+
+    "item_id": 0,
+    "product_id": 0,
+    "stock_id": 0,
+    "qty": 0,
+    "is_in_stock": true,
+    "is_qty_decimal": true,
+    "show_default_notification_message": true,
+    "use_config_min_qty": true,
+    "min_qty": 0,
+    "use_config_min_sale_qty": 0,
+    "min_sale_qty": 0,
+    "use_config_max_sale_qty": true,
+    "max_sale_qty": 0,
+    "use_config_backorders": true,
+    "backorders": 0,
+    "use_config_notify_stock_qty": true,
+    "notify_stock_qty": 0,
+    "use_config_qty_increments": true,
+    "qty_increments": 0,
+    "use_config_enable_qty_inc": true,
+    "enable_qty_increments": true,
+    "use_config_manage_stock": true,
+    "manage_stock": true,
+    "low_stock_date": "string",
+    "is_decimal_divided": true,
+    "stock_status_changed_auto": 0,
+}
+```
+
+Certaines données sont figées, soit parce que cette notion n'est pas reprise dans Alatzion, soit parce que le mode de fonctionnement diffère :
+- `use_config_notify_stock_qty` , `notify_stock_qty` & `low_stock_date` : les notifications de "stock bas" sont gérés dans la partie "approvisionnement" et suivent des règles spécifiques
+- `use_config_enable_qty_inc` & `enable_qty_increments` : bien que gérée, la notion "d'unité commandable", n'est pas disponible au travers de l'API Magento
+- `stock_status_changed_auto` : toujours à `true` 
+
+> [!WARNING]
+> Dans nos solutions, l'identifant d'article est un Guid. Les identifants fournis dans les différents points retournant un item_id ne doit pas être utilisé en dehors des APIs de migration Magento.
+
+#### Différences notables avec l'API Magento
+
+TBD.
+
+## Module Produits
+
+Ce module vous permet d'obtenir ou de définir une partie des informations produits en utilisants le formalisme de Magento.
 
 Il inclut les points suivants :
 
