@@ -6,8 +6,8 @@ Les modules de migration proposent des points API vous permettant de conserver v
 
 Il inclut les points suivants :
 
-- `V1/stockItems/{productSku}` : [Obtenir les infos de stock d'un article](https://devdocs.magento.com/redoc/2.2/#tag/stockItemsproductSku)
-- `V1/stockItems/lowStock/` : [Obtenir tous les articles avec un stock "inférieur à"](https://devdocs.magento.com/redoc/2.2/#tag/stockItemslowStock) \[Expérimental\]
+- `V1/stockItems/{productSku}` : Obtenir les infos de stock d'un article [(doc magento)](https://devdocs.magento.com/redoc/2.2/#tag/stockItemsproductSku)
+- `V1/stockItems/lowStock/` : Obtenir tous les articles avec un stock "inférieur à" [(doc magento)](https://devdocs.magento.com/redoc/2.2/#tag/stockItemslowStock) \[Expérimental\]
 - `V1/stockItems/` : Fonctionnalité supplémentaire commune à de nombreuses extensions et permettant de mettre à jour les stocks des articles
 
 ### Gestion du stock
@@ -68,11 +68,11 @@ Ce module vous permet d'obtenir ou de définir une partie des informations produ
 
 Il inclut les points suivants :
 
-* `V1/products/base-prices-information` : [obtenir les informations de prix "hors promo" pour des articles](https://devdocs.magento.com/redoc/2.2/#tag/productsbase-prices)
-* `V1/products/base-prices` : [modifier le prix "hors promo" d'un ensemble de produit sur un ensemble de canaux de ventes e-commerce](https://devdocs.magento.com/redoc/2.2/#tag/productsbase-prices-information)
-* `V1/products/special-price-information` : [obtenir les informations de prix promotionnels pour un ensemble d'article](https://devdocs.magento.com/redoc/2.2/#tag/productsspecial-price-information)
-* `V1/products/special-price` : [modifier le prix promotionnel (et les dates) d'un ensemble de produit sur un ensemble de canaux de ventes e-commerce](https://devdocs.magento.com/redoc/2.2/#tag/productsspecial-price)
-* `V1/products/special-price-delete` : [supprime le prix promotionnel pour un ensemble de produits.](https://devdocs.magento.com/redoc/2.2/#tag/productsspecial-price-delete)
+* `V1/products/base-prices-information` : obtenir les informations de prix "hors promo" pour des articles [(doc magento)](https://devdocs.magento.com/redoc/2.2/#tag/productsbase-prices)
+* `V1/products/base-prices` : modifier le prix "hors promo" d'un ensemble de produit sur un ensemble de canaux de ventes e-commerce [(doc magento)](https://devdocs.magento.com/redoc/2.2/#tag/productsbase-prices-information)
+* `V1/products/special-price-information` : obtenir les informations de prix promotionnels pour un ensemble d'article [(doc magento)](https://devdocs.magento.com/redoc/2.2/#tag/productsspecial-price-information)
+* `V1/products/special-price` : modifier le prix promotionnel (et les dates) d'un ensemble de produit sur un ensemble de canaux de ventes e-commerce [(doc magento)](https://devdocs.magento.com/redoc/2.2/#tag/productsspecial-price)
+* `V1/products/special-price-delete` : supprime le prix promotionnel pour un ensemble de produits. [(doc magento)](https://devdocs.magento.com/redoc/2.2/#tag/productsspecial-price-delete)
 
 ### Gestion des prix de base
 
