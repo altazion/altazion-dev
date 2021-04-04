@@ -137,9 +137,10 @@ ou en cas d'erreurs :
 |`Invalid attribute %fieldName = %fieldValue. -------` : la référence n'est pas reconnue|
 |`SKU ---- id not associated with supplier ---` : le produit n'est associé à ce fournisseur|
 
-#### Différences notables avec l'API Magento
+### Différences notables avec l'API Magento
 
-TBD.
+* Le point api d'obtention des informations produits présente des spécificités (cf. ci-dessus) dues aux différences entre Magento et Altazion.
+* Des points API supplémentaires, respectant le formalisme général de Magento ont été ajouté pour gérer les stocks en dépot ou les stocks des fournisseurs.
 
 ## Module Produits
 
