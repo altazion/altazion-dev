@@ -18,12 +18,12 @@ vous permet de récupérer le stock d'un article
 ```text
 {
 
-    "item_id": 0,
-    "product_id": 0,
-    "stock_id": 0,
-    "qty": 0,
+    "item_id": 14741,
+    "product_id": 14741,
+    "stock_id": 1,
+    "qty": 13,
     "is_in_stock": true,
-    "is_qty_decimal": true,
+    "is_qty_decimal": false,
     "show_default_notification_message": true,
     "use_config_min_qty": true,
     "min_qty": 0,
@@ -42,7 +42,7 @@ vous permet de récupérer le stock d'un article
     "use_config_manage_stock": true,
     "manage_stock": true,
     "low_stock_date": "string",
-    "is_decimal_divided": true,
+    "is_decimal_divided": false,
     "stock_status_changed_auto": 0,
 }
 ```
@@ -50,7 +50,7 @@ vous permet de récupérer le stock d'un article
 Certaines données sont figées, soit parce que cette notion n'est pas reprise dans Alatzion, soit parce que le mode de fonctionnement diffère :
 - `use_config_notify_stock_qty` , `notify_stock_qty` & `low_stock_date` : les notifications de "stock bas" sont gérés dans la partie "approvisionnement" et suivent des règles spécifiques
 - `use_config_enable_qty_inc` & `enable_qty_increments` : bien que gérée, la notion "d'unité commandable", n'est pas disponible au travers de l'API Magento
-- `stock_status_changed_auto` : toujours à `true` 
+- `stock_status_changed_auto` : toujours à `0` 
 
 > [!WARNING]
 > Dans nos solutions, l'identifant d'article est un Guid. Les identifants fournis dans les différents points retournant un item_id ne doit pas être utilisé en dehors des APIs de migration Magento.
@@ -139,20 +139,67 @@ ou en cas d'erreurs :
 ]
 ```
 
-Si toutes les modifications de prix ont pu être validées, vous recevrez en retour un tableau vide. Vous pouvez aussi recevoir une ou plusieurs erreurs pour chaque produits.
+Si toutes les modifications de prix ont pu être validées, vous recevrez en retour un tableau vide. Vous pouvez aussi recevoir une ou plusieurs erreurs pour chaque produits. Tous les changements de prix valides sont pris en compte, même si votre flux comporte des erreurs : seuls les enregistrements invalides seront ignorés.
 
 |erreurs|
 |---|
 |`Requested store is not found. Row ID: SKU = ------, Store ID: -` : le magasin n'existe pas|
-|`Invalid attribute %fieldName = %fieldValue. -------` : la référence n'est pas reconnue|
+|`Invalid attribute %fieldName = %fieldValue. -------` : la référence n'est pas reconnue ou le prix est invalide ( < 0 par exemple)|
 
-#### Différences notables avec l'API Magento
+### Gestion des prix spéciaux
+
+```text
+POST /V1/products/special-price-information
+{ 
+    "skus":[
+        "ref1",
+        "ref2"
+    ]
+}
+```
+vous permet de récupérer les prix "promos"
+```text
+[
+     {
+        "price": 12.00,
+        "store_id": 1,
+        "sku": "ref1",
+        "price_from": "2017-06-05 00:00:00",
+        "price_to": "2029-06-16 23:59:00"
+    },
+    {
+        "price": 12.10,
+        "store_id": 2,
+        "sku": "ref1",
+        "price_from": "2017-06-20 00:00:00",
+        "price_to": "2028-02-03 23:59:00"
+    },
+]
+```
+
+Vous récupérerez un item pour chaque prix promo défini pour un canal de vente e-commerce. Si un article n'a pas de prix promotionnel, il ne sera pas présent dans le flux de retour.
+
+
+|erreurs|
+|---|
+|`Requested store is not found. Row ID: SKU = ------, Store ID: -` : le magasin n'existe pas|
+|`Invalid attribute %fieldName = %fieldValue. -------` : la référence n'est pas reconnue ou le prix est invalide ( < 0 par exemple)|
+|`Invalid date range for special-price.` : la plage de date est invalide (date de début < date de fin par exemple)|
+
+### Différences notables avec l'API Magento
 
 * lorsque votre JSON est invalide, vous recevrez un message provenant du framework .net vous expliquant les anomalies
 * si votre JSON ne correspond pas au bon format (mais qu'il reste un JSON valide), le message d'erreur en http 400 est plus générique que celui de Magento
 * le message lors d'une erreur sur le SKU contient une information supplémentaire pour préciser le problème
+* lors de l'utilisation d'un special-price, les plages de dates invalides sont retournées comme des erreurs.
+* les prix spéciaux expirés sont nettoyés de façon régulière des tables et peuvent donc ne plus être retourné par le point `special-price-information` quelques heures après la fin de leur période d'application.
 
-#### Utiliser le module
+> [!WARNING]
+> Attention, les prix que vous importez par ce module ne sont pas appliqués en temps réel : un décalage de quelques secondes est à prendre en compte après l'envoi de données via un point API pour voir les données modifiées dans Altazion Office ou dans Altazion Commerce.
+>
+> Les points API sont, eux, par contre synchronisés de façon à fournir un résultat cohérent si vous appelez (par exemple) `base-prices-information` après avoir envoyé des données à `base-prices`.
+
+### Utiliser le module
 
 Si vous souhaitez déployer par vous même le module (par exemple sur un environnement de test), vous pouvez :
 
