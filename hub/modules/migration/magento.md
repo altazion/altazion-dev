@@ -8,7 +8,8 @@ Il inclut les points suivants :
 
 - `V1/stockItems/{productSku}` : Obtenir les infos de stock d'un article [(doc magento)](https://devdocs.magento.com/redoc/2.2/#tag/stockItemsproductSku)
 - `V1/stockItems/lowStock/` : Obtenir tous les articles avec un stock "inférieur à" [(doc magento)](https://devdocs.magento.com/redoc/2.2/#tag/stockItemslowStock) \[Expérimental\]
-- `V1/stockItems/` : Fonctionnalité supplémentaire commune à de nombreuses extensions et permettant de mettre à jour les stocks des articles
+- `V1/stockItems/depot/{depotId}` : Point API suivant un formalisme Magento et permettant de définir le stock propre d'un produit
+- `V1/stockItems/supplier/{supplierId}` : Point API suivant un formalisme Magento et permettant de définir le stock externalisé (drop shipping, ou préparation sur stock du groupe) d'un produit
 
 ### Gestion du stock
 
@@ -57,6 +58,84 @@ Certaines données sont figées, soit parce que cette notion n'est pas reprise d
 > Dans nos solutions, l'identifant d'article est un Guid. Les identifants fournis dans les différents points retournant un item_id ne doit pas être utilisé en dehors des APIs de migration Magento.
 >
 > Le stock retourné pour ce point API correspond à la somme de tous les stocks pour les zones de préparation activées pour le e-commerce.
+
+
+```text
+POST /V1/stockItems/depot/{depotId}
+{ 
+    "stockItems":[
+        {
+            "sku":"ref1",
+            "qty":3 
+        },
+        {
+            "sku":"ref2",
+            "qty":3 
+        }
+        ...
+    ]
+}
+```
+modifie les stocks des articles dans le dépot donné
+```text
+[]
+```
+ou en cas d'erreurs :
+```text
+[
+    {
+        "message": "Invalid attribute %fieldName = %fieldValue. SKU not found.",
+        "parameters": [
+            "SKU",
+            "INEXISTANT"
+        ]
+    }
+]
+```
+
+|erreurs|
+|---|
+|`Invalid attribute %fieldName = %fieldValue. -------` : la référence n'est pas reconnue|
+|`SKU ----- id not configured to be in a depot` : le produit n'est pas en mode "stocké"|
+
+
+```text
+POST /V1/stockItems/supplier/{supplierId}
+{ 
+    "stockItems":[
+        {
+            "sku":"ref1",
+            "qty":3 
+        },
+        {
+            "sku":"ref2",
+            "qty":3 
+        }
+        ...
+    ]
+}
+```
+modifie les stocks des articles pour le fournisseur donné
+```text
+[]
+```
+ou en cas d'erreurs :
+```text
+[
+    {
+        "message": "Invalid attribute %fieldName = %fieldValue. SKU not found.",
+        "parameters": [
+            "SKU",
+            "INEXISTANT"
+        ]
+    }
+]
+```
+
+|erreurs|
+|---|
+|`Invalid attribute %fieldName = %fieldValue. -------` : la référence n'est pas reconnue|
+|`SKU ---- id not associated with supplier ---` : le produit n'est associé à ce fournisseur|
 
 #### Différences notables avec l'API Magento
 
