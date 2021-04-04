@@ -6,6 +6,7 @@ Les modules de migration proposent des points API vous permettant de conserver v
 
 Il inclut les points suivants :
 
+- `V1/stockItems/{productSku}` : [Obtenir les infos de stock d'un article](https://devdocs.magento.com/redoc/2.2/#tag/stockItemsproductSku)
 - `V1/stockItems/lowStock/` : [Obtenir tous les articles avec un stock "inférieur à"](https://devdocs.magento.com/redoc/2.2/#tag/stockItemslowStock) \[Expérimental\]
 - `V1/stockItems/` : Fonctionnalité supplémentaire commune à de nombreuses extensions et permettant de mettre à jour les stocks des articles
 
@@ -52,8 +53,10 @@ Certaines données sont figées, soit parce que cette notion n'est pas reprise d
 - `use_config_enable_qty_inc` & `enable_qty_increments` : bien que gérée, la notion "d'unité commandable", n'est pas disponible au travers de l'API Magento
 - `stock_status_changed_auto` : toujours à `0` 
 
-> [!WARNING]
+> [!NOTE]
 > Dans nos solutions, l'identifant d'article est un Guid. Les identifants fournis dans les différents points retournant un item_id ne doit pas être utilisé en dehors des APIs de migration Magento.
+>
+> Le stock retourné pour ce point API correspond à la somme de tous les stocks pour les zones de préparation activées pour le e-commerce.
 
 #### Différences notables avec l'API Magento
 
