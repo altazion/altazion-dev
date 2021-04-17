@@ -39,3 +39,4 @@
 
 [!include[deletezonemagasin](magasins.deletezonemagasin.autogen.md)]
 
+
