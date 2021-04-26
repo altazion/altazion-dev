@@ -7,6 +7,14 @@
       href: firststepsaas.md
     - name: Environnement OnPremise
       href: firststeponprem.md
+  - name: Compiler et déployer
+    items:
+      - name: une extension (OnPrem)
+          href: build-extension-onprem.md
+        - name: une extension (SaaS)
+          href: build-extension-saas.md
+        - name: un développement spécifique
+          href: build-specifique-onprem.md
 - name: Altazion Office
   href: ../office/index.md
   items:
