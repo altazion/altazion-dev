@@ -68,37 +68,21 @@ En complément des packages nugets vous permettant de développer, vous trouvere
 - la documentation des classes métier qui composent notre solution
 - le descriptif de la base de données.
 
-
 ### Déployer
 
 Une fois l'interface implémentée, ajoutez une balise d'export signalant qu'elle doit être utilisée, compilez puis déployez l'assembly correspondante dans le dossier d'extensibilité.
 
 La solution possède deux paths "importants" en configuration OnPremise :
+
 - le(s) dossier(s) où se trouvent installés les différents modules de l'application (en règle générale : %ProgramFiles%\simplement-e\apps\{nom du module})
 - le dossier sous lequel sera regroupé toutes les informations de configuration, et les fichiers spécifique à l'instance de la solution (en règle générale %ALLUSERSPROFILE%\Cpoint\[e]).
 
-Le dossier se trouvant dans %ALLUSERSPROFILE% permet de configurer et personnaliser l'application, là où le dossier se trouvant sous %Program Files% contient notre applicatif "éditeur". 
+Le dossier se trouvant dans %ALLUSERSPROFILE% permet de configurer et personnaliser l'application, là où le dossier se trouvant sous %Program Files% contient notre applicatif "éditeur".
 
-#### Dossier extensibilité client
+Pour plus de renseignement sur la procédure de déploiement, vous pouvez vous référer à :
 
-Lorsque vous développez des extensions, vous devez les déposer dans un dossier connu de la solution se trouvant sous la racine : 
-
-**$ROOTEXTFOLDER$** = %ALLUSERSPROFILE%\Cpoint\\\[e]\ext
-
-> [!NOTE]
-> Le dossier `ext` peut être défini dans un autre emplacement en modifiant la configuration, si vous souhaitez, par exemple, placer un environnement de tests et un environnement de production sur le même serveur. Contactez notre service de support pour plus d'informations.
-
-A l'intérieur de cette racine, vous pourrez déposer votre extensions dans l'un des sous dossiers suivants, en fonction du module que vous voulez étendre.
-
-Module|Chemin|
----|---|
-Altazion Office (ERP et Back Office) | **$ROOTEXTFOLDER$**\services |
-Altazion e-commerce | **$ROOTEXTFOLDER$**\ecommerce |
-Altazion Orchestrator (OMS et Batchs) | **$ROOTEXTFOLDER$**\logistique |
-Altazion Store & Signage | **$ROOTEXTFOLDER$**\POSCentral |
-
-> [!WARNING]
-> Vous ne devez en aucun cas déposer vos extensions dans le dossier d'installation du programme. Le programme de mise à jour, permettant l'installation des nos nouvelles versions, supprime tous les fichiers qu'il ne reconnait pas lors de la mise à jour.
+- pour l'installation d'une extension (ajout d'une fonctionnalité dans nos outils standard) : [consultez la procédure de build et de déploiement](build-extension-onprem.md)
+- pour l'installation d'un développement spécifique (application complète utilisant notre SDK) : [la procédure de build et de déploiement est différente](build-specifique-onprem.md)
 
 ## Exemples
 
