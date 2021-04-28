@@ -1,17 +1,21 @@
 # Migration Magento
 
-Les modules de migration proposent des points API vous permettant de conserver vos appels inchangés lors d'une migration depuis Magento 2.x.
+Les modules de migration proposent des points API vous permettant de conserver vos appels relativement inchangés lors d'une migration depuis Magento 2.x.
 
-## Module Stock
+L'utilisation de ces points API nécessite l'obtention d'un token d'application connectée. Vous pouvez obtenir ce token en utilisant la fontion d'application connectée se trouvant dans les paramètres d'Altazion Office.
 
-Il inclut les points suivants :
+## Module Produits
+
+### Stocks
+
+Ces points API incluent les fonctionnalités suivantes :
 
 - `V1/stockItems/{productSku}` : Obtenir les infos de stock d'un article [(doc magento)](https://devdocs.magento.com/redoc/2.2/#tag/stockItemsproductSku)
 - `V1/stockItems/lowStock/` : Obtenir tous les articles avec un stock "inférieur à" [(doc magento)](https://devdocs.magento.com/redoc/2.2/#tag/stockItemslowStock) \[Expérimental\]
 - `V1/stockItems/depot/{depotId}` : Point API suivant un formalisme Magento et permettant de définir le stock propre d'un produit
 - `V1/stockItems/supplier/{supplierId}` : Point API suivant un formalisme Magento et permettant de définir le stock externalisé (drop shipping, ou préparation sur stock du groupe) d'un produit
 
-### Gestion du stock
+#### Gestion du stock
 
 ```text
 GET /V1/stockItems/{productSku}
@@ -137,12 +141,12 @@ ou en cas d'erreurs :
 |`Invalid attribute %fieldName = %fieldValue. -------` : la référence n'est pas reconnue|
 |`SKU ---- id not associated with supplier ---` : le produit n'est associé à ce fournisseur|
 
-### Différences notables avec l'API Magento
+#### Différences notables avec l'API Magento
 
 * Le point api d'obtention des informations produits présente des spécificités (cf. ci-dessus) dues aux différences entre Magento et Altazion.
-* Des points API supplémentaires, respectant le formalisme général de Magento ont été ajouté pour gérer les stocks en dépot ou les stocks des fournisseurs.
+* Des points API supplémentaires, respectant le formalisme général de Magento ont été ajoutés pour gérer les stocks en dépot ou les stocks des fournisseurs.
 
-## Module Produits
+### Module Prix
 
 Ce module vous permet d'obtenir ou de définir une partie des informations produits en utilisants le formalisme de Magento.
 
@@ -154,7 +158,7 @@ Il inclut les points suivants :
 * `V1/products/special-price` : modifier le prix promotionnel (et les dates) d'un ensemble de produit sur un ensemble de canaux de ventes e-commerce [(doc magento)](https://devdocs.magento.com/redoc/2.2/#tag/productsspecial-price)
 * `V1/products/special-price-delete` : supprime le prix promotionnel pour un ensemble de produits. [(doc magento)](https://devdocs.magento.com/redoc/2.2/#tag/productsspecial-price-delete)
 
-### Gestion des prix de base
+#### Gestion des prix de base
 
 ```text
 POST /V1/products/base-prices-information
@@ -190,12 +194,21 @@ vous permet de récupérer les prix de bases
 Pour chaque article, vous aurez en retour une ligne pour chaque canal de vente  e-commerce (pour chaque site) configuré. Les articles non publiés, archivés ou en élaboration sont retournés par cette API. Les articles dont le mode _utilisable sur Internet_ n'est pas activé sont ignorés.
 
 ```text
-POST /V1/products/base-prices-information
-{ 
-    "skus":[
-        "ref1",
-        "ref2"
-    ]
+POST /V1/products/base-prices
+ 
+{
+  "prices": [
+    {
+      "price": 14.02,
+      "store_id": 1,
+      "sku": "ref1"
+    },
+    {
+      "price": 14.02,
+      "store_id": 1,
+      "sku": "ref2"
+    }
+  ]
 }
 ```
 modifie les prix de base des articles
@@ -229,7 +242,18 @@ Si toutes les modifications de prix ont pu être validées, vous recevrez en ret
 |`Requested store is not found. Row ID: SKU = ------, Store ID: -` : le magasin n'existe pas|
 |`Invalid attribute %fieldName = %fieldValue. -------` : la référence n'est pas reconnue ou le prix est invalide ( < 0 par exemple)|
 
-### Gestion des prix spéciaux
+#### Gestion des prix spéciaux
+
+La gestion des prix spéciaux est directement connectée à la gestion des prix promotionnel par canal de vente dans nos solutions. Ces points API permettront donc de mettre à jour les informations de prix promotionnel pour les sites ecommerce. 
+
+> [!NOTE]
+> Les prix promos expirent automatiquement dans les 2 jours suivants la date de leur fin d'applications, vous n'avez pas besoin de réaliser un appel API pour traiter les promotions expirées.
+>
+> Vous pouvez définir des prix promos sur un article qui est encore en cours de création (ou qui n'a pas encore été importé si vous utilisez les échanges EDI avec un système tiers) : les informations de prix seront conservées et appliquée lorsque cette référence sera validée/importée.
+
+> [!WARNING]
+> Attention, les prix spéciaux définit par ce point API peuvent être "surchargés" par d'autres conditions tarifaires, comme par exemple une grille de tarif.
+
 
 ```text
 POST /V1/products/special-price-information
@@ -268,6 +292,84 @@ Vous récupérerez un item pour chaque prix promo défini pour un canal de vente
 |`Requested store is not found. Row ID: SKU = ------, Store ID: -` : le magasin n'existe pas|
 |`Invalid attribute %fieldName = %fieldValue. -------` : la référence n'est pas reconnue ou le prix est invalide ( < 0 par exemple)|
 |`Invalid date range for special-price.` : la plage de date est invalide (date de début < date de fin par exemple)|
+
+```text
+POST /V1/products/special-price
+ 
+{
+  "prices": [
+    {
+      "price": 11.00,
+      "store_id": 1,
+      "sku": "ref1",
+      "price_from":"2020-01-01 00:00:00",
+      "price_tp":"2040-01-01 00:00:00",
+    }
+  ]
+}
+```
+modifie les prix promotionnels d'un ensemble de produits
+```text
+[]
+```
+ou en cas d'erreurs :
+```text
+[
+    {
+        "message": "Invalid attribute %fieldName = %fieldValue. SKU not found.",
+        "parameters": [
+            "SKU",
+            "INEXISTANT"
+        ]
+    },
+    {
+        "message": "Requested store is not found. Row ID: SKU = INEXISTANT, Store ID: 7",
+        "parameters": [
+            null,
+            "7"
+        ]
+    }
+]
+```
+
+
+```text
+POST /V1/products/special-price-delete
+ 
+{
+  "prices": [
+    {
+      "store_id": 1,
+      "sku": "ref1",
+    }
+  ]
+}
+```
+retire les prix promotionnels sur toutes les références fournies
+```text
+[]
+```
+ou en cas d'erreurs :
+```text
+[
+    {
+        "message": "Invalid attribute %fieldName = %fieldValue. SKU not found.",
+        "parameters": [
+            "SKU",
+            "INEXISTANT"
+        ]
+    },
+    {
+        "message": "Requested store is not found. Row ID: SKU = INEXISTANT, Store ID: 7",
+        "parameters": [
+            null,
+            "7"
+        ]
+    }
+]
+```
+
+
 
 ### Différences notables avec l'API Magento
 
