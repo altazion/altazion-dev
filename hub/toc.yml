@@ -11,6 +11,13 @@
       items:
       - name: Magento
         href: modules/migration/magento.md
+        items:
+          - name: Data
+            href: modules/migration/magento-data.md
+          - name: API - Orders
+            href: modules/migration/magento-api-orders.md
+          - name: API - Products
+            href: modules/migration/magento-api-products.md
     - name: Point de ventes
       href: modules/pos/index.md
 - name: Extensibilité
