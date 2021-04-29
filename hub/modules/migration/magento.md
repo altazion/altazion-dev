@@ -13,7 +13,7 @@ Ces points API incluent les fonctionnalités suivantes :
 - `V1/stockItems/{productSku}` : Obtenir les infos de stock d'un article [(doc magento)](https://devdocs.magento.com/redoc/2.2/#tag/stockItemsproductSku)
 - `V1/stockItems/lowStock/` : Obtenir tous les articles avec un stock "inférieur à" [(doc magento)](https://devdocs.magento.com/redoc/2.2/#tag/stockItemslowStock) \[Expérimental\]
 - `V1/stockItems/depot/{depotId}` : Point API suivant un formalisme Magento et permettant de définir le stock propre d'un produit
-- `V1/stockItems/supplier/{supplierId}` : Point API suivant un formalisme Magento et permettant de définir le stock externalisé (drop shipping, ou préparation sur stock du groupe) d'un produit
+- `V1/stockItems/external/{supplierId}` : Point API suivant un formalisme Magento et permettant de définir le stock externalisé (drop shipping, ou préparation sur stock du groupe) d'un produit
 
 #### Gestion du stock
 
@@ -104,7 +104,7 @@ ou en cas d'erreurs :
 
 
 ```text
-POST /V1/stockItems/supplier/{supplierId}
+POST /V1/stockItems/external/{supplierId}
 { 
     "stockItems":[
         {
