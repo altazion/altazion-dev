@@ -7,6 +7,9 @@
       href: firststepsaas.md
     - name: Environnement OnPremise
       href: firststeponprem.md
+      items:
+        - name: Connexion au SDK
+          href: use-github-packages.md
   - name: Compiler et déployer
     items:
       - name: une extension (OnPrem)
