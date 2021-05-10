@@ -7,3 +7,11 @@
   items:
     - name: Templates
       href: interactivesignage/templates.md
+- name: API & SDK
+  items:
+    - name: REST API (Documentation Altazion Hub)
+      href: ../hub/api/phygital/index.md
+    - name: Etendre l'API
+      href: extensibility/index.md
+      - name: Partie Catalogue
+        href: extensibility/api-catalogue.md
