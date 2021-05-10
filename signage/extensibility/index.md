@@ -4,7 +4,8 @@
 
 Vous pouvez ajouter vos propres règles métiers ou traitements dans les éléments suivants :
 
-- [Api Catalogue](api-catalogue.md)
+- [API Catalogue](api-catalogue.md)
+- [API Commande](api-commande.md)
 
 ## SDK
 

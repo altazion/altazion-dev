@@ -13,5 +13,6 @@
       href: ../hub/api/phygital/index.md
     - name: Etendre l'API
       href: extensibility/index.md
+      items:
       - name: Partie Catalogue
         href: extensibility/api-catalogue.md
