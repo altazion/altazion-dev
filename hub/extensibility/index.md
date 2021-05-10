@@ -37,12 +37,25 @@ namespace Altazion.Hub.Modules.Exemple
 
 ### Créer le projet
 
-=> .net standard 2.0
-=> Bibliothèque de classe
+Depuis la version 3.0, les modules Hub sont uniquement des composants développés en .net standard 2.0 et supérieur. Pour créer un nouveau module, créez tout simplement un projet assembly .net standard 2.0.
+
+Dans Visual Studio, vous pouvez créer un projet de "Bibilothèque de classe .net standard 2.0".
+
+![visual studio](index-visualstudio-hubproject.PNG)
+
+Si vous utilisez un autre IDE, la commande 
+
+```powershell
+dotnet new classlib -f netstandard2.0
+```
+
+vous permettra de créer le projet.
+
+![dotnet new classlig](index-dotnetnew-hubproject.PNG)
 
 ### Réferencer les nugets
 
-
+Vous devrez ensuite ajouter les nugets Altazion Hub à votre projet.
 
 ### Implémenter l'interface
 
@@ -64,6 +77,13 @@ ENTRYPOINT ["dotnet", "Altazion.Hub.Host.dll"]
 ```
 
 #### Pour service Windows ou SystemD linux
+
+## Ajouter un service API
+
+### Implémenter l'interface supplémentaire
+
+### Ajouter le(s) controleur(s)
+
 
 ## Implémenter une fonctionnalité spécifique
 
