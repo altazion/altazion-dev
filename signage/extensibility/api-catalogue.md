@@ -32,3 +32,14 @@ par exemple :
     }
 
 ```
+
+Vous devez implémenter au moins l'une des méthodes suivantes :
+- `AddInfoToDetails` : permet d'ajouter des informations dans l'objet de la fiche produit complète
+- `AddInfoToList`: permet de compléter les articles dans les descentes produits et dans les listes telles que les produits associés.
+
+## Informations de fiche produit
+
+
+
+## Information de liste
+
