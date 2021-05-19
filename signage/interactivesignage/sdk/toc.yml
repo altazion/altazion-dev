@@ -1,3 +1,16 @@
 - name: Présentation
   href: index.md
-- name: 
+- name: Animation commerciale
+  href: animationtools.md
+- name: Catalogue
+  href: producttools.md
+- name: Commande
+  href: commandetools.md
+- name: DigitalSignage
+  href: digisigntools.md
+- name: Magasins
+  href: magasintools.md
+- name: Panier
+  href: carttools.md
+- name: Utilisateurs
+  href: usertools.md
