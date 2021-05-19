@@ -7,7 +7,9 @@
   items:
     - name: Templates
       href: interactivesignage/templates.md
-- name: API & SDK
+    - name: SDK
+      href: interactivesignage/sdk/toc.yml
+- name: API (personnalisation avancée)
   items:
     - name: REST API (Documentation Altazion Hub)
       href: ../hub/api/phygital/index.md

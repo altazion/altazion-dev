@@ -54,10 +54,16 @@ Soit, dans le SDK, les données de :
 - `Phygital.ProductTools.ProductManager.getFromRef`
 - la propriété `article` du scope associé au controleur `FicheProduitPage`
 
+> [!NOTE]
+> Lorsque vous demandez une fiche produit, la méthode de complétion des informations sur une liste de produits est déclenchées :
+> - pour les articles associés
+> - pour les instances si vous êtes dans le cadre d'un produit générique / déclinable.
+
+
 > [!WARNING]
 > Si vous modifiez les informations de disponibilités (`DisponibleCommande`, `DisponibleCentrale`, `DisponibleMagasin`) pour rendre un produit non disponible, vous devrez aussi ajouter un module de vérification de disponibilité (stock ou commandable) qui effectue les mêmes vérifications pour vous assurer que le produit ne puisse pas être ajouté au panier.
 
-### Informations des descentes produits
+### Informations des liste de produits
 
 En modifiant les items dans la méthode `AddInfoToList`, vous impacterez les points API suivants :
 
@@ -68,3 +74,8 @@ Ainsi que quelques points connextes :
 
 - [Obtenir les infos principales d'un produit](https://www.altazion.dev/hub/api/phygital/catalogue/articles.html#span-idobtenirquickobtenir-les-infos-principales-dun-produitspan)
 - [Obtenir un produit dépublié](https://www.altazion.dev/hub/api/phygital/catalogue/articles.html#span-idfichearticledepubliefiche-article-d%C3%A9publi%C3%A9span)
+
+Soit, dans le SDK, les données de :
+
+- `Phygital.ProductTools.ProductManager.search`
+- la propriété `current` du scope associé au controleur `DescentePage`
