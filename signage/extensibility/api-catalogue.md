@@ -1,5 +1,15 @@
 # API Catalogue
 
+## Implémenter un moteur de recherche.
+
+Le process d'implémentation est exactement le même [que pour la partie e-commerce](../../ecommerce/extensibility/code/business/recherche.md) (vous pouvez d'ailleurs totalement partager le même module pour les deux outils).
+
+[!include[moteurrecherche](../../ecommerce/extensibility/code/business/moteurrecherche.partial.md)]
+
+### Spécificités Signage
+
+
+
 ## Compléter les informations produits
 
 Vous pouvez ajouter ou modifier des informations en créant un composants MEF implémentant l'interface `CPointSoftware.Equihira.Extensibility.IProvideMoreProductData` (dans le nuget altazion-signage) :
