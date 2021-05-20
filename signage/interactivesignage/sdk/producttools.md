@@ -4,6 +4,11 @@
 
 La classe statique `Phygital.ProductTools.ProductManager` contient les opérations métiers associées à la manipulation des articles
 
+### Configuration & Marques
+
+- `getMarques (success: (data: FacetData[]) => void)`
+- `getConfig (success: (data: CatalogueConfig) => void)`
+
 ### Recherche
 
 - `search(search: Partial<ContexteRechercheValeur>, id: string, success: (data: RechercheArticleResultat, id: string) => void, startIndex: number = 0, count: number = 200)`
@@ -74,3 +79,15 @@ Par exemple, pour réaliser une recherche sur la segmentation d'identifiant 1375
         }
     );
 ```
+
+
+## Fiche produit
+
+- `getFromBase(article: ArticleBase, success: (data: ArticleDetail) => void)`
+- `getFromGuid(guid: string, success: (data: ArticleDetail) => void)`
+- `getFromRef(reference: string, success: (data: ArticleDetail) => void)`
+
+
+### Filtrer les produits associés
+
+- 
