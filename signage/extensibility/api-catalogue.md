@@ -8,7 +8,17 @@ Le process d'implémentation est exactement le même [que pour la partie e-comme
 
 ### Spécificités Signage
 
+Lorsque vous êtes en mode Signage, votre device est forcément connecté à un magasin : les méthodes ne permettant pas de réaliser une recherche avec un magasin peuvent être ignorées si vous implémentez une interface précédant la `IRechercheProvider4`.
 
+Si vous souhaitez réaliser un traitement légèrement différents entre le module Commerce et le module Signage, tout en conservant une grande partie commune, vous pouvez déterminer si votre classe de recherche est appelée via Signage en utilisant la propriété `ECommerceServer.SiteContentType` :
+
+```csharp
+    if(ECommerceServer.SiteContentType == SiteContentType.Phygital
+    || ECommerceServer.SiteContentType == SiteContentType.Pos)
+    {
+        // vous êtes sur le module Signage ou le module Store
+    }
+```
 
 ## Compléter les informations produits
 
