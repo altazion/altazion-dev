@@ -80,14 +80,38 @@ Par exemple, pour réaliser une recherche sur la segmentation d'identifiant 1375
     );
 ```
 
+- `getSuggestions(searchString: string, id: string, success: (id: string, data: Array<CatalogSearchSuggestion>) => void)`
+- `getArticlePartialRef(searchString: string, id: string, success: (id: string, data: Array<CatalogSearchSuggestion>) => void)`
 
-## Fiche produit
+### Fiche produit
 
 - `getFromBase(article: ArticleBase, success: (data: ArticleDetail) => void)`
 - `getFromGuid(guid: string, success: (data: ArticleDetail) => void)`
 - `getFromRef(reference: string, success: (data: ArticleDetail) => void)`
 
+### Helpers
 
-### Filtrer les produits associés
+- `parseFacets(facets: string, success: (data: Phygital.ProductTools.ContexteRechercheValeur) => void)`
+- `sendShareMail(mails: Array<string>, body: string, sujet: string)`
+ 
+ 
 
-- 
+## Appliquer un post-traitement aux données
+
+Une bonne partie des méthodes de ce SDK vous permettent d'appliquer un post-traitement à réception des données.
+
+### Filtrer la recherche
+
+Vous pouvez intervenir sur la liste des facets à afficher en implémentant une méthode respectant la signature suivante :
+
+```typescript
+filterFacets: (tousLesCriteres: Array<CritereRechercheArticle>) => Array<CritereRechercheArticle>
+```
+
+Cette méthode sera appelé après chaque appel à la méthode `search` avec les facets récupérées de l'API : il vous suffit de retourner la liste après éventuelles modifications pour changer le comportement.
+
+### Filtrer les fiches produit
+
+```typescript
+filterAssociatedProducts: (tousLesTypes: any) => Array<ArticleAssocie>;
+```

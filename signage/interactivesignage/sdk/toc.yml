@@ -1,16 +1,22 @@
 - name: Présentation
   href: index.md
-- name: Animation commerciale
-  href: animationtools.md
-- name: Catalogue
-  href: producttools.md
-- name: Commande
-  href: commandetools.md
-- name: DigitalSignage
-  href: digisigntools.md
-- name: Magasins
-  href: magasintools.md
-- name: Panier
-  href: carttools.md
-- name: Utilisateurs
-  href: usertools.md
+- name: Référence de classes
+  items:
+  - name: Animation commerciale
+    href: animationtools.md
+  - name: Catalogue
+    href: producttools.md
+  - name: Commande
+    href: commandetools.md
+  - name: Device
+    href: devicetools.md
+  - name: DigitalSignage
+    href: digisigntools.md
+  - name: Magasins
+    href: magasintools.md
+  - name: Panier
+    href: carttools.md
+  - name: Utilisateurs
+    href: usertools.md
+- name: Notifications web-socket
+  href: signalr.md
