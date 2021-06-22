@@ -10,7 +10,6 @@
 
 - `getCommandeClient(cmdGuid: string, success: (data: BonCommandeDetails) => void)`
 
-
 ## SuiviCommandeManager (Commandes en attente)
 
 ### Liste des commandes
