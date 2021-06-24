@@ -23,17 +23,19 @@
 
 ### ForceRefresh
 
-`$rootScope.$broadcast('invokeScreen', data:string);`
+`$rootScope.$broadcast('invokeScreen', data:string)`
 
 La chaine de caractères `data` est normalement vide (`""`), n'a pas de signification particulière et peut être ignorée.
 
 ### BotResponse
 
-`$rootScope.$broadcast('botResponse', data:string);`
+`$rootScope.$broadcast('botResponse', data:string)`
 
 ### HelpNeeded
 
-`$rootScope.$broadcast('displayHelpNotification', data:string);`
+Ce message est envoyé depuis une borne ou un smartphone vendeur. Il ne vous sera utile que si vous développez une template "back-office" ou similaire.
+
+`$rootScope.$broadcast('displayHelpNotification', data:string)`
 
 La chaine de caractères `data` contient le message saisi (ou associé au bouton d'aide) dans l'application appelante.
 
