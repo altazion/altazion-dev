@@ -246,6 +246,8 @@ La gestion des prix spéciaux est directement connectée à la gestion des prix 
 > Les prix promos expirent automatiquement dans les 2 jours suivants la date de leur fin d'applications, vous n'avez pas besoin de réaliser un appel API pour traiter les promotions expirées.
 >
 > Vous pouvez définir des prix promos sur un article qui est encore en cours de création (ou qui n'a pas encore été importé si vous utilisez les échanges EDI avec un système tiers) : les informations de prix seront conservées et appliquée lorsque cette référence sera validée/importée.
+>
+> Pour cela, ajoutez un paramètre `ignoreUnknownRefs=true` aux appels, par exemple `/V1/products/base-prices?ignoreUnknownRefs=true`
 
 > [!WARNING]
 > Attention, les prix spéciaux définit par ce point API peuvent être "surchargés" par d'autres conditions tarifaires, comme par exemple une grille de tarif.
