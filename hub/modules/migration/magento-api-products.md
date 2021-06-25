@@ -189,6 +189,11 @@ vous permet de récupérer les prix de bases
 
 Pour chaque article, vous aurez en retour une ligne pour chaque canal de vente  e-commerce (pour chaque site) configuré. Les articles non publiés, archivés ou en élaboration sont retournés par cette API. Les articles dont le mode _utilisable sur Internet_ n'est pas activé sont ignorés.
 
+> [!NOTE]
+> Vous pouvez définir des prix sur un article qui est encore en cours de création (ou qui n'a pas encore été importé si vous utilisez les échanges EDI avec un système tiers) : les informations de prix seront conservées et appliquées lorsque cette référence sera validée/importée.
+>
+> Pour cela, ajoutez un paramètre `ignoreUnknownRefs=true` aux appels, par exemple `/V1/products/base-prices?ignoreUnknownRefs=true`
+
 ```text
 POST /V1/products/base-prices
  
@@ -245,7 +250,7 @@ La gestion des prix spéciaux est directement connectée à la gestion des prix 
 > [!NOTE]
 > Les prix promos expirent automatiquement dans les 2 jours suivants la date de leur fin d'applications, vous n'avez pas besoin de réaliser un appel API pour traiter les promotions expirées.
 >
-> Vous pouvez définir des prix promos sur un article qui est encore en cours de création (ou qui n'a pas encore été importé si vous utilisez les échanges EDI avec un système tiers) : les informations de prix seront conservées et appliquée lorsque cette référence sera validée/importée.
+> Vous pouvez définir des prix promos sur un article qui est encore en cours de création (ou qui n'a pas encore été importé si vous utilisez les échanges EDI avec un système tiers) : les informations de prix seront conservées et appliquées lorsque cette référence sera validée/importée.
 >
 > Pour cela, ajoutez un paramètre `ignoreUnknownRefs=true` aux appels, par exemple `/V1/products/base-prices?ignoreUnknownRefs=true`
 
