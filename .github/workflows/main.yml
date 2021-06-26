@@ -16,17 +16,6 @@ jobs:
       name: Compilation DocFX
       with: 
         args: docfx.json
-    - name: Azure Storage Action
-      uses: lauchacarro/Azure-Storage-Action@v1.1
-      with:
-        # Connection String of the Azure Storage Container
-        connection-string: ${{ secrets.AZSTRAGE_CNSTRING }}
-        # Folder what contains the files for upload to Storage Container
-        folder: _site
-        # Name of Blob Container Storage
-        blob-container-name: aide-dev
-        # Enabled static website
-        enabled-static-website: false
     - uses: maxheld83/ghpages@master
       name: Publication sur la branche gh-pages
       env:
