@@ -374,7 +374,7 @@ ou en cas d'erreurs :
 
 
 
-## Différences notables avec l'API Magento
+### Différences notables avec l'API Magento
 
 * lorsque votre JSON est invalide, vous recevrez un message provenant du framework .net vous expliquant les anomalies
 * si votre JSON ne correspond pas au bon format (mais qu'il reste un JSON valide), le message d'erreur en http 400 est plus générique que celui de Magento
