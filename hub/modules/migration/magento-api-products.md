@@ -142,6 +142,11 @@ ou en cas d'erreurs :
 * Le point api d'obtention des informations produits présente des spécificités (cf. ci-dessus) dues aux différences entre Magento et Altazion.
 * Des points API supplémentaires, respectant le formalisme général de Magento ont été ajoutés pour gérer les stocks en dépot ou les stocks des fournisseurs.
 
+> [!NOTE]
+> Vous pouvez désactiver les erreurs de type "produits inconnus" et/ou "non associé à ...".
+>
+> Pour cela, ajoutez un paramètre `ignoreUnknownRefs=true` aux appels, par exemple `/V1/products/base-prices?ignoreUnknownRefs=true`
+
 ## Module Prix
 
 Ce module vous permet d'obtenir ou de définir une partie des informations produits en utilisants le formalisme de Magento.

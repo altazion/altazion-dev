@@ -91,6 +91,11 @@ ENTRYPOINT ["dotnet", "Altazion.Hub.Host.dll"]
 
 ### Implémenter l'interface supplémentaire
 
+Pour déclarer votre module comme exportant une API, il vous faudra implémenter une seconde interface au niveau de votre module : `Altazion.Hub.Common.IAltazionHubWebModule`
+
+>[!WARNING]
+> Vous devez impérativement implémenter les deux interfaces sur la même classe.
+
 ### Ajouter le(s) controleur(s)
 
 Vous aurez ensuite simplement besoin d'ajouter vos controlleurs Web API :
