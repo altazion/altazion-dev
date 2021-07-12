@@ -143,9 +143,9 @@ ou en cas d'erreurs :
 * Des points API supplémentaires, respectant le formalisme général de Magento ont été ajoutés pour gérer les stocks en dépot ou les stocks des fournisseurs.
 
 > [!NOTE]
-> Vous pouvez désactiver les erreurs de type "produits inconnus" et/ou "non associé à ...".
+> Vous pouvez désactiver les erreurs de type "produits inconnus" et/ou "non associés à ...".
 >
-> Pour cela, ajoutez un paramètre `ignoreUnknownRefs=true` aux appels, par exemple `/V1/products/base-prices?ignoreUnknownRefs=true`
+> Pour cela, ajoutez un paramètre `ignoreUnknownRefs=true` aux appels, par exemple `/V1/stockItems/depot/147?ignoreUnknownRefs=true`
 
 ## Module Prix
 
