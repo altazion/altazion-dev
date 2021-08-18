@@ -7,10 +7,16 @@
 - `getData(success: (data: Panier) => void, force: boolean = false)`
 Obtient l’état du panier actuel 
 
+- `getGroupesArticlesAssocies(lignesPanier: Array<LignePanier>, success: (data: Array<LignePanier>) => void)`
+Récupére un groupe d’articles associés  
+
 ### Manipuler le panier
 
 - `addToCart(art: ProductTools.ArticleBase, preferLocal: boolean, success: (data: Panier) => void, extras: ExtrasArticle = new ExtrasArticle())`
 Ajouter un article au panier, en local ou en commande en fonction des disponibilités 
+
+- `addGroupeAssocie(articleParent: string, assoc: string, success: (data: Panier) => void)`
+Ajoute au panier un groupe d’articles associés 
 
 - `removeLine(ligneId: string, success: (data: Panier) => void)`
 Retire une ligne du panier 

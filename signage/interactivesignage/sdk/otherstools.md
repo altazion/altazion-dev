@@ -2,22 +2,25 @@
 
 - `convertDate(date: Date)`
 
--`getData(module: string, guid: string, success: (data: DsGeneriqueData) => void)`
+- `getData(module: string, guid: string, success: (data: DsGeneriqueData) => void)`
 
--`HandleConnectionString(data: string): void`
+- `HandleConnectionString(data: string): void`
 
--`weightFilter($sce)`
+- `weightFilter($sce)`
 Affichage du poids 
 
--`currencyFilter($sce)`
+- `currencyFilter($sce)`
 Affichage monétaire 
 
--`defaultFormatCurrency(value, emplacement): string`
+- `defaultFormatCurrency(value, emplacement): string`
 
--`defaultFormatWeight(value, emplacement): string`
+- `defaultFormatWeight(value, emplacement): string`
 
--`cleanHtmlx: any`
+- `cleanHtmlx: any`
 
--`cleanHtml($sce)`
+- `cleanHtml($sce)`
 
--`selectOnClick()`
+- `selectOnClick()`
+
+- `getCookieTool(name: string): string | null` 
+Récupére les cookies  
