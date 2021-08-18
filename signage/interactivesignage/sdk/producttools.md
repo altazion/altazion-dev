@@ -117,7 +117,7 @@ Vous pouvez intervenir sur la liste des facets à afficher en implémentant une 
 filterFacets: (tousLesCriteres: Array<CritereRechercheArticle>) => Array<CritereRechercheArticle>
 ```
 
-Cette méthode sera appelé après chaque appel à la méthode `search` avec les facets récupérées de l'API : il vous suffit de retourner la liste après éventuelles modifications pour changer le comportement.
+Cette méthode sera appelée après chaque appel à la méthode `search` avec les facets récupérées de l'API : il vous suffit de retourner la liste après éventuelles modifications pour changer le comportement.
 
 ### Filtrer les fiches produit
 
