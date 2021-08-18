@@ -7,6 +7,10 @@ La classe statique `Phygital.ProductTools.ProductManager` contient les opératio
 ### Configuration & Marques
 
 - `getMarques (success: (data: FacetData[]) => void)`
+
+-`getMarques(success: (data: any) => void)`
+Obtient la marque 
+
 - `getConfig (success: (data: CatalogueConfig) => void)`
 
 ### Recherche
@@ -86,8 +90,13 @@ Par exemple, pour réaliser une recherche sur la segmentation d'identifiant 1375
 ### Fiche produit
 
 - `getFromBase(article: ArticleBase, success: (data: ArticleDetail) => void)`
+Obtient une fiche produit depuis un article d’une descente 
+
 - `getFromGuid(guid: string, success: (data: ArticleDetail) => void)`
+Obtient une fiche produit depuis le GUID de l’article 
+
 - `getFromRef(reference: string, success: (data: ArticleDetail) => void)`
+Obtient une fiche produit depuis une référence
 
 ### Helpers
 
