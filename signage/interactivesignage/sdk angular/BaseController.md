@@ -40,7 +40,7 @@ Déclenche une navigation vers la descente produits (un AdPanel décrivant la desc
 - `onAskForHelpClicked(msg: string)`
 
 
-##Scopes 
+##Manipulation des Scopes 
 - `allPageScope(): IAllPageModel`
 Obtient le scope associé à l’ensemble des pages 
 

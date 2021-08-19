@@ -1,5 +1,17 @@
 #FicheProduitPage
 
+##Scope
+
+ export interface IFicheProduitModel extends NGTools.IScope {
+        loading: boolean;
+        activeTab: string;
+        article: Phygital.ProductTools.ArticleBase;
+        articleDetail: Phygital.ProductTools.ArticleDetail;
+        cartOperationInProgress: boolean;
+        lignePanier: Phygital.CartTools.LignePanier;
+    }
+
+
 - `clear(): void`
 
 ###Affichage 

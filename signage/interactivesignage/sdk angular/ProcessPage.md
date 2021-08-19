@@ -1,5 +1,15 @@
 #ProcessPage
 
+##Scope
+  export interface IProcessPageModel extends IPanierPageModel {
+        processStatus: CartTools.ResumeProcess;
+        processClient: CartTools.CompteEtAdresseClientProcess;
+        mDate: Date;
+        payable: boolean;
+        login: boolean;
+    }
+
+
 - `invoke(source: string, data: any)`
 Appelé lorsque la page est affichée 
 

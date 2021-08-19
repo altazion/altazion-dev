@@ -1,5 +1,16 @@
 #DescentePage
 
+##Scope 
+   export interface IDescentePageModel extends NGTools.IScope {
+        currentDisplay: string;
+        currentSearch: Phygital.ProductTools.ContexteRechercheValeur;
+        current: Phygital.ProductTools.RechercheArticleResultat;
+        loading: boolean;
+        detailsDisplayedGuid: string;
+
+    }
+
+
 ###Affichage
 - `invoke(source: string, data: any)`
 Prépare l’affichage en fonction de la raison (affichage de la descente) 

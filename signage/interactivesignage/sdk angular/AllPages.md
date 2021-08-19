@@ -1,5 +1,25 @@
 #AllPages 
 
+##Scope
+
+ export interface IAllPageModel extends NGTools.IScope {
+        config: ApplicationConfigData;
+        catalogConfig: Phygital.ProductTools.CatalogueConfig;
+        device: Phygital.DeviceTools.DeviceConfigData;
+        store: Phygital.DeviceTools.MagasinData;
+        currentPage: string;
+        cart: Phygital.CartTools.Panier;
+        searchString: string;
+        isStartupFinished: boolean;
+        activeSearch: ActiveSearchData;
+        animatedMessageTimeout: Array<number>;
+
+
+        suggestions: Array<ProductTools.CatalogSearchSuggestion>;
+        cartIsBusy: boolean;
+        isNetworkConnected: boolean;
+    }
+
 ###Animations
 - `animateText(content: string, pageName: string, btn: Bouton[] = null): void`
 

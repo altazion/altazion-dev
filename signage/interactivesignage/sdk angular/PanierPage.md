@@ -1,5 +1,15 @@
 #PanierPage
 
+##Scope 
+ export interface IPanierPageModel extends NGTools.IScope {
+        cart: Phygital.CartTools.Panier;
+        erreur: Phygital.CartTools.ErreurPanier;
+        previousErreur: Phygital.CartTools.ErreurPanier;
+        cartToolTimeout: number;
+        livraisonsPossibles: Array<Phygital.CartTools.ChoixModeLivraison>;
+    }
+
+
 
 - `invoke(source: string, data: any)`
 Appelé lorsque la page est affichée
