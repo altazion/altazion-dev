@@ -61,6 +61,15 @@ Vous devrez ensuite ajouter les nugets Altazion Hub à votre projet.
 
 ### Ecrire le fichier manifeste
 
+Vous devrez ensuite écrire un fichier manisfest en json pour déclarer votre module auprès du service de déploiement. Ce fichier est nécessaire à la fois pour un déploiement sur un service Windows, un daemon Linux ou pour un déploiement via Docker, bien que son rôle soit légèrement différent en fonction de l'environnement.
+
+Si vous utilisez Visual Studio, vous pouvez ajouter le catalogue de schéma de nos solutions dans votre IDE afin de pouvoir profiter d'Intellisense. Pour cela, allez dans le menu **Outils**>**Options** puis dans **Editeur de texte** > **JSON** > **Schémas**, et ajoutez notre catalogue de schémas :
+
+![visual studio](index-visualstudio-schemaconfig.PNG)
+
+`https://schemas.altazion.com/schema-catalog.json`
+
+
 ### Packager et déployer
 
 #### Pour Docker
@@ -82,8 +91,29 @@ ENTRYPOINT ["dotnet", "Altazion.Hub.Host.dll"]
 
 ### Implémenter l'interface supplémentaire
 
+Pour déclarer votre module comme exportant une API, il vous faudra implémenter une seconde interface au niveau de votre module : `Altazion.Hub.Common.IAltazionHubWebModule`
+
+>[!WARNING]
+> Vous devez impérativement implémenter les deux interfaces sur la même classe.
+
 ### Ajouter le(s) controleur(s)
 
+Vous aurez ensuite simplement besoin d'ajouter vos controlleurs Web API :
+
+- Ajoutez une référence au nuget `Microsoft.AspNetCore.Mvc.Core` afin d'importer tous les types nécessaires
+- Puis créez une ou plusieurs classe(s) de type _controleur Web API_ :
+
+```csharp
+[Route("api/demo"), ApiController]
+public class MonController : ControllerBase
+{
+    [Route("methode1"), HttpGet]
+    public string Methode1()
+    {
+        return "OK";
+    }
+}
+```
 
 ## Implémenter une fonctionnalité spécifique
 
