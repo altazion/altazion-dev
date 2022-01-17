@@ -1,6 +1,6 @@
 # API Catalogue
 
-## Implémenter un moteur de recherche.
+## Implémenter un moteur de recherche
 
 Le process d'implémentation est exactement le même [que pour la partie e-commerce](../../ecommerce/extensibility/code/business/recherche.md) (vous pouvez d'ailleurs totalement partager le même module pour les deux outils).
 

@@ -7,6 +7,12 @@
   items:
     - name: Templates
       href: interactivesignage/templates.md
+      items:
+        - name: Bornes de ventes
+          href: interactivesignage/vending/templates-vending.md
+          items:
+            - name: Pages
+              href: interactivesignage/vending/templates-pages.md
     - name: SDK
       href: interactivesignage/sdk/toc.yml
 - name: API (personnalisation avancée)

@@ -1,0 +1,1 @@
+# Template pour l'application de vente sur Bornes

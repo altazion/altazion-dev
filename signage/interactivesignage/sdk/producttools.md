@@ -15,7 +15,7 @@ La classe statique `Phygital.ProductTools.ProductManager` contient les opératio
 
 Cette méthode permet de lancer une recherche sur un ensemble de critères, et d'appeler une méthode en retour en cas de succès. Le paramètre id vous permet de passer un identifiant de requêtes afin de gérer l'ordonnancement des appels dans le cas où vous lanceriez plusieurs reqûetes à la suite et où le serveur ne répondrait pas dans l'ordre.
 
-Le comportement est assez simple : la méthode appelle simplement le point API de recherche 
+Le comportement est assez simple : la méthode appelle simplement le point API de recherche. 
 
 Pour définir vos critères de recherche, vous pouvez utiliser la classe ci-dessous. Pour la plupart des critères, vous pourrez récupérer les valeurs à utiliser à partir :
 
