@@ -4,7 +4,8 @@
 
 1) Créer un projet à partir du template github correspondant à votre application. Par exemple pour les bornes de vente : [template-interactivesignage-vending](https://github.com/altazion/template-interactivesignage-vending).
 
-![Nouveau template](nouveau-template-1.png)
+![Nouveau template, étape 1  : Cliquez sur Use This Template](nouveau-template-1.png)
+![Nouveau template, étappe 2 : Créez votre repo](nouveau-template-2.png)
 
 2) ce template contient les fichiers minimaux pour réaliser un template :
 
