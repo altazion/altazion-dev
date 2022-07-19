@@ -30,7 +30,9 @@ Pour l'instant, l'accès à notre SDK _OnPremise_ est uniquement possible après
 
 - ouvrez visual studio
 - ouvrez les options et cherchez le groupe "Sources de packages nugets"
-- Ajoutez une ligne dans les sources avec les informations qui vous seront fournies lors de votre acceptation au programme Partenaires.
+- Ajoutez une ligne dans les sources avec les informations suivantes :
+ -  Nom : Altazion
+ -  Source : https://nuget.pkg.github.com/altazion/index.json
 
 ![options pat](use-github-packages-4.png)
 
