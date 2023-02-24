@@ -15,12 +15,12 @@ Type(s) de données :
 ```csharp
 class DefinitionTodo
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	int RjsId { get; set; }
-	Guid MessageGuid { get; set; }
+	System.Guid MessageGuid { get; set; }
 	bool RemiseAUnGroupe { get; set; }
 	Guid? GrpGuid { get; set; }
-	Guid Uxid { get; set; }
+	System.Guid Uxid { get; set; }
 	string Parametre { get; set; }
 	string ClasseBatch { get; set; }
 	string ClasseInteractive { get; set; }

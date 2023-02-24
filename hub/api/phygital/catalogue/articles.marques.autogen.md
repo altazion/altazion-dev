@@ -19,7 +19,7 @@ class FacetData
 	string Groupe { get; set; }
 	string Id { get; set; }
 	bool IsArborescent { get; set; }
-	FacetKind Kind { get; set; }
+	CreoIgnem.Phygital.Tools.FacetKind Kind { get; set; }
 	CreoIgnem.Phygital.Tools.FacetValueData[] Values { get; set; }
 }
 

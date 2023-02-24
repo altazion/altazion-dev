@@ -6,8 +6,8 @@ Url :`[POST] api/magasins/{mag_guid}/evenements/crosscanal/{evc_guid}`
 
 Paramètres : 
 
-- **evc_guid** (Guid)
-- **mag_guid** (Guid)
+- **evc_guid** (System.Guid)
+- **mag_guid** (System.Guid)
 
 Type de retour : `bool`
 

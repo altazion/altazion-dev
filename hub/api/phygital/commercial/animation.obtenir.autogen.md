@@ -16,7 +16,7 @@ Type(s) de données :
 class AnimationData
 {
 	DateTime? TestDate { get; set; }
-	HomePageSettings Home { get; set; }
+	PhygitalSite.Commercial.AnimationController+HomePageSettings Home { get; set; }
 	PhygitalSite.Commercial.AnimationController+AdPanel[] HomePageAds { get; set; }
 	PhygitalSite.Commercial.AnimationController+AdPanel[] ScreenSaverAds { get; set; }
 	PhygitalSite.Commercial.AnimationController+AdPanel[] InteractiveCatalogs { get; set; }
@@ -28,20 +28,22 @@ class HomePageSettings
 	string Title { get; set; }
 	string BackgroundColor { get; set; }
 	PhygitalSite.Commercial.AnimationController+HomePagePanel[] Panels { get; set; }
-	HomePagePanel HeroView { get; set; }
+	PhygitalSite.Commercial.AnimationController+HomePagePanel HeroView { get; set; }
 }
 
 class HomePagePanel
 {
 	string Label { get; set; }
-	LinkType PanelType { get; set; }
-	ContexteRechercheValeur Search { get; set; }
+	PhygitalSite.Commercial.AnimationController+LinkType PanelType { get; set; }
+	CPointSoftware.Equihira.Extensibility.ContexteRechercheValeur Search { get; set; }
 	string Url { get; set; }
 	string ImageBigUrl { get; set; }
 	string ImageSmallUrl { get; set; }
-	Guid Guid { get; set; }
-	Guid ProductGuid { get; set; }
-	Guid TargetGuid { get; set; }
+	System.Guid Guid { get; set; }
+	System.Guid ProductGuid { get; set; }
+	System.Guid TargetGuid { get; set; }
+	string DateDebut { get; set; }
+	string DateFin { get; set; }
 }
 
 enum LinkType
@@ -66,14 +68,14 @@ class ContexteRechercheValeur
 class RechercheCritereValeur
 {
 	string ValueLabel { get; set; }
-	Guid ValueGuid { get; set; }
+	System.Guid ValueGuid { get; set; }
 	decimal? MinValue { get; set; }
 	decimal? MaxValue { get; set; }
 	int Ordre { get; set; }
 	string UrlPerso { get; set; }
 	int Count { get; set; }
 	int Importance { get; set; }
-	Guid CritereGuid { get; set; }
+	System.Guid CritereGuid { get; set; }
 	string ValueText { get; set; }
 	string AtvValeur { get; set; }
 	string CriType { get; set; }
@@ -101,24 +103,26 @@ class RechercheMarque
 class AdPanel
 {
 	string Label { get; set; }
-	LinkType AdType { get; set; }
-	ContexteRechercheValeur Search { get; set; }
+	PhygitalSite.Commercial.AnimationController+LinkType AdType { get; set; }
+	CPointSoftware.Equihira.Extensibility.ContexteRechercheValeur Search { get; set; }
 	string Url { get; set; }
 	string ImageUrl { get; set; }
-	Guid ProductGuid { get; set; }
-	Guid Guid { get; set; }
-	Guid TargetGuid { get; set; }
+	System.Guid ProductGuid { get; set; }
+	System.Guid Guid { get; set; }
+	System.Guid TargetGuid { get; set; }
 	string Emplacement { get; set; }
-	AdPanelContext Context { get; set; }
+	PhygitalSite.Commercial.AnimationController+AdPanelContext Context { get; set; }
+	string DateDebut { get; set; }
+	string DateFin { get; set; }
 }
 
 class AdPanelContext
 {
-	String[] Keywords { get; set; }
+	System.String[] Keywords { get; set; }
 	decimal? SegmentId { get; set; }
 	Dictionary<System.Guid,System.Guid> Facets { get; set; }
 	System.Int32? BrandId { get; set; }
-	Guid[] ProductGuids { get; set; }
+	System.Guid[] ProductGuids { get; set; }
 }
 
 ```

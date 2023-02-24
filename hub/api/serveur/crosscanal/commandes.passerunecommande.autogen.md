@@ -7,7 +7,7 @@ Url :`[PUT] app/crosscanal/commandes/{siteId:int}/instore/{magasinGuid:guid}`
 Paramètres : 
 
 - **siteId** (int) : L'identifiant du catalogue
-- **magasinGuid** (Guid) : L'identifiant du magasin dans lequel sera envoyée la commande
+- **magasinGuid** (System.Guid) : L'identifiant du magasin dans lequel sera envoyée la commande
 - en tant que body, un objet Commande : Le contenu de la commande
 
 Type de retour : `Guid`
@@ -18,8 +18,8 @@ Type(s) de données :
 class Commande
 {
 	string NomLivraison { get; set; }
-	ArticleQuantite[] Produits { get; set; }
-	TypeCommande TypeCommande { get; set; }
+	GestomWebApi.CrossCanal.CommandesForAppController+ArticleQuantite[] Produits { get; set; }
+	GestomWebApi.CrossCanal.CommandesForAppController+TypeCommande TypeCommande { get; set; }
 	Guid? ClientGuid { get; set; }
 	Guid? AdresseLivraisonGuid { get; set; }
 	GestomWebApi.CrossCanal.CommandesForAppController+Reglement[] Reglements { get; set; }
@@ -27,14 +27,14 @@ class Commande
 
 class ArticleQuantite
 {
-	Guid ArticleGuid { get; set; }
+	System.Guid ArticleGuid { get; set; }
 	decimal Quantite { get; set; }
 	GestomWebApi.CrossCanal.CommandesForAppController+ArticleQuantiteDependant[] ArticlesDependant { get; set; }
 }
 
 class ArticleQuantiteDependant
 {
-	Guid ArticleGuid { get; set; }
+	System.Guid ArticleGuid { get; set; }
 	decimal Quantite { get; set; }
 }
 
@@ -48,7 +48,7 @@ enum TypeCommande
 class Reglement
 {
 	decimal Montant { get; set; }
-	Guid ModeReglementGuid { get; set; }
+	System.Guid ModeReglementGuid { get; set; }
 	string NumeroTransaction { get; set; }
 	string CodeEtat { get; set; }
 }

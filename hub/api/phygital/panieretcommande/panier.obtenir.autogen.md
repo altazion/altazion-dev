@@ -15,18 +15,18 @@ Type(s) de données :
 ```csharp
 class Panier
 {
-	LignePanier[] Lignes { get; set; }
-	LignePanier FraisPort { get; set; }
-	LignePanier[] Avantages { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Lignes { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier FraisPort { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Avantages { get; set; }
 	bool EstValidable { get; set; }
 	bool DemandeFraisPort { get; set; }
 	string DestinationPrevueCodePostal { get; set; }
 	string DestinationPrevueCodePays { get; set; }
-	ErreurPanier ErreurPanier { get; set; }
+	CPointSoftware.Equihira.Extensibility.ECommerce.ErreurPanier ErreurPanier { get; set; }
 	string Incitation { get; set; }
 	string ModeLivraisonIdentifiant { get; set; }
 	bool ModeLivraisonEstPointRetrait { get; set; }
-	Guid ClientGuid { get; set; }
+	System.Guid ClientGuid { get; set; }
 	string ClientNom { get; set; }
 	bool EstClientConnecte { get; set; }
 	decimal MontantTTCAvecMagasin { get; set; }
@@ -34,18 +34,19 @@ class Panier
 	decimal MontantTTC { get; set; }
 	string MontantTTCFormate { get; set; }
 	string ProcessAPrivilegier { get; set; }
-	PanierGroupe[] Groupes { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.PanierGroupe[] Groupes { get; set; }
 	string CodeAvantageActif { get; set; }
+	decimal TotalRemisePromos { get; set; }
 }
 
 class LignePanier
 {
-	MetaTypeArticle TypeArticle { get; set; }
+	CPointSoftware.Equihira.Common.MetaTypeArticle TypeArticle { get; set; }
 	string Identifiant { get; set; }
 	string IdentifiantLigneParent { get; set; }
 	string Libelle { get; set; }
 	string Reference { get; set; }
-	Guid ArticleGuid { get; set; }
+	System.Guid ArticleGuid { get; set; }
 	decimal Quantite { get; set; }
 	string GroupePanier { get; set; }
 	decimal PuOriginalHT { get; set; }
@@ -60,14 +61,18 @@ class LignePanier
 	string PrixFormate { get; set; }
 	string PrixOriginalFormate { get; set; }
 	string RemiseFormatee { get; set; }
+	string PctPromo { get; set; }
 	Guid? MagasinGuid { get; set; }
 	string Groupe { get; set; }
 	bool NonModifiable { get; set; }
-	String[] AttributsDifferentiants { get; set; }
-	String[] DonneesPersonnalisees { get; set; }
-	String[] DetailsFraisAnnexes { get; set; }
+	System.String[] AttributsDifferentiants { get; set; }
+	System.String[] DonneesPersonnalisees { get; set; }
+	System.String[] DetailsFraisAnnexes { get; set; }
 	System.Boolean? DisponibleMagasin { get; set; }
+	decimal? QuantiteDisponibleMagasin { get; set; }
 	System.Boolean? DisponibleCentrale { get; set; }
+	decimal? QuantiteDisponibleCentrale { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.GroupeArticlesAssocies[] GroupesArticlesAssocies { get; set; }
 }
 
 enum MetaTypeArticle
@@ -83,10 +88,19 @@ enum MetaTypeArticle
 	LicenceEtBrevet, // =8
 }
 
+class GroupeArticlesAssocies
+{
+	string Libelle { get; set; }
+	decimal Prix { get; set; }
+	string Image { get; set; }
+	System.Guid GuidParent { get; set; }
+	System.Guid[] GuidProduits { get; set; }
+}
+
 class ErreurPanier
 {
 	int ErrorCode { get; set; }
-	GraviteErreurPanier Gravite { get; }
+	CPointSoftware.Equihira.Extensibility.ECommerce.GraviteErreurPanier Gravite { get; }
 	string Message { get; set; }
 	bool EstBloquante { get; set; }
 	string MessageCorrection { get; set; }

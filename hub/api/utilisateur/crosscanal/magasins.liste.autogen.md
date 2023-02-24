@@ -19,7 +19,7 @@ class MagasinInfo
 	CPointSoftware.Equihira.Common.MagasinInfo+Service[] Services { get; set; }
 	decimal Lattitude { get; set; }
 	decimal Longitude { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	string Code { get; set; }
 	string CodePostal { get; set; }
@@ -37,10 +37,10 @@ class Horaire
 {
 	string Jour { get; set; }
 	bool Ouvert { get; set; }
-	TimeSpan Ouverture { get; set; }
+	System.TimeSpan Ouverture { get; set; }
 	System.TimeSpan? FermertureMidi { get; set; }
 	System.TimeSpan? ReouvertureMidi { get; set; }
-	TimeSpan Fermeture { get; set; }
+	System.TimeSpan Fermeture { get; set; }
 }
 
 class Service

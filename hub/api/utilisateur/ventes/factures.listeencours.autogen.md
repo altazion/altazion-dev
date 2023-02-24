@@ -35,7 +35,7 @@ class FactureData
 	bool EstEnRetard { get; }
 	string ReferencesClient { get; set; }
 	string MessageEtat { get; }
-	EtatReglement EtatReglement { get; }
+	CPointSoftware.Equihira.Common.EtatReglement EtatReglement { get; }
 }
 
 class LigneFacture

@@ -16,7 +16,7 @@ Type(s) de données :
 class OpeCatalogueBase
 {
 	string Libelle { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string TypeOpe { get; set; }
 	DateTime DateDebut { get; set; }
 	DateTime DateFin { get; set; }

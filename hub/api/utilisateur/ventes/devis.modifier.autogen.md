@@ -52,7 +52,7 @@ class DevisInsert
 	string Client_Email { get; set; }
 	DateTime Date_Maximum_Validite { get; set; }
 	string Libelle { get; set; }
-	ProduitsDevis[] Produits { get; set; }
+	GestomWebApi.Ventes.DevisController+ProduitsDevis[] Produits { get; set; }
 }
 
 ```

@@ -2,11 +2,11 @@
 
 Valide une publicité, afin qu'elle puisse être affichée.
 
-Url :`[GET] ?guid={guid:Guid}`
+Url :`[GET] ?guid={guid:System.Guid}`
 
 Paramètres : 
 
-- **guid** (Guid)
+- **guid** (System.Guid)
 
 Type de retour : `bool`
 

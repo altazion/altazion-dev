@@ -29,8 +29,9 @@ class ChoixModeLivraison
 	string PrixOriginalFormate { get; set; }
 	string RemiseFormatee { get; set; }
 	DateTime DateEstimee { get; set; }
-	TypeDestinationLivraison TypeDestination { get; set; }
-	TypeServiceLivraison TypeService { get; set; }
+	string DateEstimeeFormate { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.TypeDestinationLivraison TypeDestination { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.TypeServiceLivraison TypeService { get; set; }
 	bool EstActif { get; set; }
 }
 

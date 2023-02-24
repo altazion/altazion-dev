@@ -16,7 +16,7 @@ Type(s) de données :
 ```csharp
 class StatistiquesCommande
 {
-	ModeCommande ModeCommande { get; set; }
+	PhygitalSite.Clients.ModeCommande ModeCommande { get; set; }
 	int Count { get; set; }
 }
 

@@ -24,7 +24,7 @@ class ClientProspectSearchResult
 {
 	string Civilite { get; set; }
 	string Nom { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Type { get; set; }
 	string Email { get; set; }
 	string CodePostal { get; set; }

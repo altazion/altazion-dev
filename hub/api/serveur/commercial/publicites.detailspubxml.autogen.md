@@ -6,7 +6,7 @@ Url :`[GET] app/commercial/opecom/publicite/{opeGuid:guid}/xml`
 
 Paramètres : 
 
-- **opeGuid** (Guid) : L'identifiant de la publicité
+- **opeGuid** (System.Guid) : L'identifiant de la publicité
 
 Type de retour : `PubliciteXmlData`
 
@@ -17,7 +17,7 @@ class PubliciteXmlData
 {
 	GestomWebApi.Commercial.OpeCommController+PubliciteXmlTemplateData[] Templates { get; set; }
 	bool EstValide { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	DateTime DateDebut { get; set; }
 	DateTime DateFin { get; set; }
 	string Libelle { get; set; }
@@ -30,7 +30,7 @@ class PubliciteXmlTemplateData
 	string TemplateCode { get; set; }
 	string Libelle { get; set; }
 	GestomWebApi.Commercial.OpeCommController+PubliciteXmlParametre[] Parametres { get; set; }
-	PubliciteXmlItem NewElement { get; set; }
+	GestomWebApi.Commercial.OpeCommController+PubliciteXmlItem NewElement { get; set; }
 }
 
 class PubliciteXmlParametre

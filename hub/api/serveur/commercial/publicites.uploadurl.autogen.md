@@ -6,7 +6,7 @@ Url :`[GET] app/commercial/opecom/helper/getuploadurl/{opeGuid:guid}/{extension}
 
 Paramètres : 
 
-- **opeGuid** (Guid) : L'identifiant de l'opération
+- **opeGuid** (System.Guid) : L'identifiant de l'opération
 - **extension** (string) : L'extension (sans le point) du fichier
 - **etape** (int) : L'identifiant de l'étape / de la page
 

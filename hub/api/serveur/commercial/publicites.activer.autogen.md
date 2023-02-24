@@ -6,7 +6,7 @@ Url :`[GET] app/commercial/opecom/publicite/{guid:guid}/valider`
 
 Paramètres : 
 
-- **guid** (Guid)
+- **guid** (System.Guid)
 
 Type de retour : `bool`
 

@@ -16,20 +16,20 @@ Type(s) de données :
 ```csharp
 class DeviceData
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Name { get; set; }
 	string StoreName { get; set; }
 	string StoreCode { get; set; }
 	Guid? StoreGuid { get; set; }
-	PosteTypeEcran Kind { get; set; }
+	CPointSoftware.Equihira.Business.PointOfSale.PosteTypeEcran Kind { get; set; }
 	string DeviceCode { get; set; }
 }
 
 class DeviceCreationData
 {
 	string DeviceName { get; set; }
-	Guid StoreGuid { get; set; }
-	Guid DeviceTypeGuid { get; set; }
+	System.Guid StoreGuid { get; set; }
+	System.Guid DeviceTypeGuid { get; set; }
 }
 
 ```

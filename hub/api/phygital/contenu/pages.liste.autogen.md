@@ -15,12 +15,12 @@ Type(s) de données :
 ```csharp
 class PageData
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Titre { get; set; }
 	string Path { get; set; }
 	string Description { get; set; }
-	Guid TemplateGuid { get; set; }
-	Guid DestinationGuid { get; set; }
+	System.Guid TemplateGuid { get; set; }
+	System.Guid DestinationGuid { get; set; }
 	System.String[] CapacitesRequises { get; set; }
 	bool EstPublique { get; set; }
 }

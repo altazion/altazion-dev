@@ -6,7 +6,7 @@ Url :`[GET] v2/orders/{bcdGuid:guid}`
 
 Paramètres : 
 
-- **bcdGuid** (Guid) : L'identifiant de la commande
+- **bcdGuid** (System.Guid) : L'identifiant de la commande
 
 Url :`[GET] v2/orders/{bcd_numero}?numero={numero:string}`
 
@@ -22,13 +22,13 @@ Type(s) de données :
 class BonCommandeDetails
 {
 	string OrigineLibelle { get; set; }
-	AdresseClientProcess AdresseLivraison { get; set; }
-	PointLivraisonProcess PointDeLivraison { get; set; }
+	CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+	CreoIgnem.Phygital.Tools.PointLivraisonProcess PointDeLivraison { get; set; }
 	PhygitalSite.Clients.BonCommandeLigne[] Lignes { get; set; }
 	PhygitalSite.Clients.BonCommandeColis[] Colis { get; set; }
 	string MetaType { get; set; }
 	string ModeCommande { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	DateTime Date { get; set; }
 	string Origine { get; set; }
 	string Etat { get; set; }

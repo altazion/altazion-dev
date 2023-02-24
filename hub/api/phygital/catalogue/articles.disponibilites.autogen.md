@@ -6,31 +6,31 @@ Url :`[GET] v2/catalogue/get/{guid:guid}/dispos`
 
 Paramètres : 
 
-- **guid** (Guid) : L'identifiant du produit
+- **guid** (System.Guid) : L'identifiant du produit
 
 Url :`[GET] v2/catalogue/get/{guid:guid}/dispos/centrale`
 
 Paramètres : 
 
-- **guid** (Guid) : L'identifiant du produit
+- **guid** (System.Guid) : L'identifiant du produit
 
 Url :`[GET] v2/catalogue/get/{guid:guid}/dispos/magasins`
 
 Paramètres : 
 
-- **guid** (Guid) : L'identifiant du produit
+- **guid** (System.Guid) : L'identifiant du produit
 
 Url :`[GET] v2/catalogue/get/{guid:guid}/dispos/locale`
 
 Paramètres : 
 
-- **guid** (Guid) : L'identifiant du produit
+- **guid** (System.Guid) : L'identifiant du produit
 
 Url :`[GET] v2/catalogue/get/{guid:guid}/dispos/{zonegeo}`
 
 Paramètres : 
 
-- **guid** (Guid) : L'identifiant du produit
+- **guid** (System.Guid) : L'identifiant du produit
 - **zonegeo** (string) : La zone géographique des magasins dont vous souhaitez récupérer les stocks
 
 Type de retour : `ArticleDispoDigiSign[]`
@@ -40,14 +40,15 @@ Type(s) de données :
 ```csharp
 class ArticleDispoPhygitalDetail
 {
-	TypeDisponibilite TypeDispo { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.TypeDisponibilite TypeDispo { get; set; }
 	Guid? MagasinGuid { get; set; }
 	string MagasinLibelle { get; set; }
-	Guid ArticleGuid { get; set; }
+	System.Guid ArticleGuid { get; set; }
 	string ArticleReference { get; set; }
-	NiveauDisponibilite Disponibilite { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.NiveauDisponibilite Disponibilite { get; set; }
 	string Commentaire { get; set; }
 	decimal? Stock { get; set; }
+	string CodeStatus { get; set; }
 }
 
 enum TypeDisponibilite

@@ -6,7 +6,7 @@ Url :`[GET] v2/device/send/{deviceGuid:guid}/cart`
 
 Paramètres : 
 
-- **deviceGuid** (Guid) : L'identifiant du device destinataire
+- **deviceGuid** (System.Guid) : L'identifiant du device destinataire
 
 Type de retour : `bool`
 

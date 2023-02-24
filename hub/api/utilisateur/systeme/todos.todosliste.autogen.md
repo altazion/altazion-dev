@@ -15,8 +15,8 @@ Type(s) de données :
 ```csharp
 class Todo
 {
-	Guid Guid { get; set; }
-	Guid TypeGuid { get; set; }
+	System.Guid Guid { get; set; }
+	System.Guid TypeGuid { get; set; }
 	string Libelle { get; set; }
 	string Details { get; set; }
 	string UrlAssociee { get; set; }

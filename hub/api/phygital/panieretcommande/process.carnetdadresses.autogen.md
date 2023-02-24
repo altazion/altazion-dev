@@ -15,7 +15,7 @@ Type(s) de données :
 ```csharp
 class AdresseClientProcess
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Civilite { get; set; }
 	string Nom { get; set; }
 	string Prenom { get; set; }

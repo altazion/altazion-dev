@@ -16,7 +16,7 @@ Type(s) de données :
 class MagasinData
 {
 	string Nom { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Code { get; set; }
 	string MessageAccueil { get; set; }
 	string Responsable { get; set; }

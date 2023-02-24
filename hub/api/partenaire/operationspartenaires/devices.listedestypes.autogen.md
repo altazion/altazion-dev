@@ -16,9 +16,9 @@ Type(s) de données :
 ```csharp
 class TypeDevice
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Label { get; set; }
-	PosteTypeEcran Kind { get; set; }
+	CPointSoftware.Equihira.Business.PointOfSale.PosteTypeEcran Kind { get; set; }
 }
 
 enum PosteTypeEcran

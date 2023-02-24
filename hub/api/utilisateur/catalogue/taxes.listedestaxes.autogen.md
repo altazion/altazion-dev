@@ -15,7 +15,7 @@ Type(s) de données :
 ```csharp
 class TaxeData
 {
-	Guid Id { get; set; }
+	System.Guid Id { get; set; }
 	string Libelle { get; set; }
 	bool EstFixe { get; set; }
 	decimal Taux { get; set; }

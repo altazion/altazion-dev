@@ -15,7 +15,7 @@ Type(s) de données :
 ```csharp
 class CampagneData
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	DateTime? DateDebut { get; set; }
 	DateTime? DateFin { get; set; }

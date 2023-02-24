@@ -6,7 +6,7 @@ Url :`[GET] v2/process/livraison/relais/{mlvGuid:guid}/{cp}?ville={ville:string}
 
 Paramètres : 
 
-- **mlvGuid** (Guid)
+- **mlvGuid** (System.Guid)
 - **cp** (string)
 - **ville** (string)
 - **pays** (string)
@@ -18,7 +18,7 @@ Type(s) de données :
 ```csharp
 class PointLivraisonProcess
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Civilite { get; set; }
 	string Nom { get; set; }
 	string Adresse { get; set; }
@@ -27,8 +27,8 @@ class PointLivraisonProcess
 	string CP { get; set; }
 	string Email { get; set; }
 	string Indication { get; set; }
-	String[] Services { get; set; }
-	GeoLocalisationPointLivraisonProcess Localisation { get; set; }
+	System.String[] Services { get; set; }
+	CreoIgnem.Phygital.Tools.GeoLocalisationPointLivraisonProcess Localisation { get; set; }
 	bool EstActif { get; set; }
 }
 

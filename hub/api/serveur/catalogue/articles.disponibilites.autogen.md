@@ -15,7 +15,7 @@ Type(s) de données :
 ```csharp
 class ArticleDispo
 {
-	Guid ArticleGuid { get; set; }
+	System.Guid ArticleGuid { get; set; }
 	Guid? MagasinGuid { get; set; }
 	string Libelle { get; set; }
 	bool EstDisponible { get; set; }

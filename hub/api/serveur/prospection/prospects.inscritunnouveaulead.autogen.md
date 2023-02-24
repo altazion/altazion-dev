@@ -2,11 +2,11 @@
 
 Inscrit un nouveau lead
 
-Url :`[POST] ?guidCampagne={guidCampagne:Guid}`
+Url :`[POST] ?guidCampagne={guidCampagne:System.Guid}`
 
 Paramètres : 
 
-- **guidCampagne** (Guid) : L'identifiant de la campagne de recrutement
+- **guidCampagne** (System.Guid) : L'identifiant de la campagne de recrutement
 - en tant que body, un objet LeadCreationData : Les informations du lead
 
 Type de retour : `LeadData`
@@ -16,7 +16,7 @@ Type(s) de données :
 ```csharp
 class LeadData
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Email { get; set; }
 	string Name { get; set; }
 	string FirstName { get; set; }

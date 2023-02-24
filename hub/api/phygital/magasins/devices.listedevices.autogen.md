@@ -15,7 +15,7 @@ Type(s) de données :
 ```csharp
 class Device
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Name { get; set; }
 	string TypeDevice { get; set; }
 	string ConnexionID { get; set; }

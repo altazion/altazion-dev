@@ -20,8 +20,8 @@ class GroupeChoixModeLivraison
 	decimal? MontantMaxi { get; set; }
 	DateTime? DateLivraisonPlusProche { get; set; }
 	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ChoixModeLivraison[] Modes { get; set; }
-	TypeDestinationLivraison DestinationGroupe { get; set; }
-	TypeServiceLivraison TypeLivraisonGroupe { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.TypeDestinationLivraison DestinationGroupe { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.TypeServiceLivraison TypeLivraisonGroupe { get; set; }
 }
 
 class ChoixModeLivraison
@@ -40,8 +40,9 @@ class ChoixModeLivraison
 	string PrixOriginalFormate { get; set; }
 	string RemiseFormatee { get; set; }
 	DateTime DateEstimee { get; set; }
-	TypeDestinationLivraison TypeDestination { get; set; }
-	TypeServiceLivraison TypeService { get; set; }
+	string DateEstimeeFormate { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.TypeDestinationLivraison TypeDestination { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.TypeServiceLivraison TypeService { get; set; }
 	bool EstActif { get; set; }
 }
 

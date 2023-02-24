@@ -6,7 +6,7 @@ Url :`[DELETE] app/magasins/zones/{zmg_guid}`
 
 Paramètres : 
 
-- **zmg_guid** (Guid)
+- **zmg_guid** (System.Guid)
 
 Type de retour : `bool`
 

@@ -15,12 +15,12 @@ Type(s) de données :
 ```csharp
 class ResumeProcess
 {
-	Guid ClientGuid { get; set; }
+	System.Guid ClientGuid { get; set; }
 	decimal MontantTTC { get; set; }
 	string MontantTTCFormate { get; set; }
 	decimal MontantTTCRestant { get; set; }
 	string MontantTTCRestantFormate { get; set; }
-	Guid ModeLivraisonGuid { get; set; }
+	System.Guid ModeLivraisonGuid { get; set; }
 	string ModeLivraison { get; set; }
 	decimal ModeLivraisonMontantTTC { get; set; }
 	DateTime DateLivraisonPrevue { get; set; }
@@ -31,17 +31,17 @@ class ResumeProcess
 	bool EstValidable { get; set; }
 	bool EstTerminee { get; set; }
 	string NumeroCommande { get; set; }
-	Guid GuidCommande { get; set; }
-	String[] Tags { get; set; }
-	AdresseClientProcess AdresseLivraison { get; set; }
-	AdresseClientProcess AdresseFacturation { get; set; }
-	PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
-	ReglementProcess[] Reglements { get; set; }
+	System.Guid GuidCommande { get; set; }
+	System.String[] Tags { get; set; }
+	CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+	CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+	CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+	CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
 }
 
 class AdresseClientProcess
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Civilite { get; set; }
 	string Nom { get; set; }
 	string Prenom { get; set; }
@@ -57,9 +57,9 @@ class AdresseClientProcess
 
 class PointLivraisonDetailProcess
 {
-	PointLivraisonHoraireProcess[] Horaires { get; set; }
+	CreoIgnem.Phygital.Tools.PointLivraisonHoraireProcess[] Horaires { get; set; }
 	string Commentaires { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Civilite { get; set; }
 	string Nom { get; set; }
 	string Adresse { get; set; }
@@ -68,8 +68,8 @@ class PointLivraisonDetailProcess
 	string CP { get; set; }
 	string Email { get; set; }
 	string Indication { get; set; }
-	String[] Services { get; set; }
-	GeoLocalisationPointLivraisonProcess Localisation { get; set; }
+	System.String[] Services { get; set; }
+	CreoIgnem.Phygital.Tools.GeoLocalisationPointLivraisonProcess Localisation { get; set; }
 	bool EstActif { get; set; }
 }
 
@@ -90,9 +90,9 @@ class GeoLocalisationPointLivraisonProcess
 
 class ReglementProcess
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Reference { get; set; }
-	Guid ModeReglementGuid { get; set; }
+	System.Guid ModeReglementGuid { get; set; }
 	decimal Montant { get; set; }
 	bool EstValide { get; set; }
 }

@@ -30,7 +30,7 @@ Paramètres :
 
 - **nbMaxHours** (int)
 - **uniquementLocal** (bool)
-- **guidMagasin** (Guid) : Identifiant du magasin
+- **guidMagasin** (System.Guid) : Identifiant du magasin
 
 Type de retour : `EbcCommandeEnAttente[]`
 
@@ -39,16 +39,16 @@ Type(s) de données :
 ```csharp
 class EbcCommandeEnAttente
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	DateTime Date { get; set; }
 	string Numero { get; set; }
 	string NomLivraison { get; set; }
 	string Tags { get; set; }
-	EbcEtatCommande Etat { get; set; }
+	PhygitalSite.Clients.EbcEtatCommande Etat { get; set; }
 	string DestinationLivraison { get; set; }
 	string IdentifiantPreparation { get; set; }
 	bool EstProcessComplet { get; set; }
-	EbcEtatPreparation ResultatPreparation { get; set; }
+	PhygitalSite.Clients.EbcEtatPreparation ResultatPreparation { get; set; }
 }
 
 enum EbcEtatCommande

@@ -6,7 +6,7 @@ Url :`[GET] api/mediations/definitions/{mediationDefinitionGuid:guid}/enable`
 
 Paramètres : 
 
-- **mediationDefinitionGuid** (Guid) : L'identifiant de la définition
+- **mediationDefinitionGuid** (System.Guid) : L'identifiant de la définition
 
 Type de retour : `bool`
 

@@ -15,7 +15,7 @@ Type(s) de données :
 ```csharp
 class VendorDetails
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Name { get; set; }
 	string Email { get; set; }
 	string Telephone { get; set; }

@@ -6,7 +6,7 @@ Url :`[GET] api/catalogue/selections/{guid:Guid}/content`
 
 Paramètres : 
 
-- **guid** (Guid) : Identifiant de la vitrine
+- **guid** (System.Guid) : Identifiant de la vitrine
 
 Type de retour : `VitrineContentData`
 
@@ -16,7 +16,7 @@ Type(s) de données :
 class VitrineContentData
 {
 	GestomWebApi.Catalogue.SelectionsController+ArticleDetailDansVitrineData[] Articles { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	string Code { get; set; }
 	string Groupe { get; set; }
@@ -27,7 +27,7 @@ class VitrineContentData
 class ArticleDetailDansVitrineData
 {
 	string ArticleLibelle { get; set; }
-	Guid ArticleGuid { get; set; }
+	System.Guid ArticleGuid { get; set; }
 	decimal Pertinence { get; set; }
 }
 

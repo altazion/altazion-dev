@@ -6,7 +6,7 @@ Url :`[GET] app/commercial/opecom/publicite/{opeGuid:guid}/base`
 
 Paramètres : 
 
-- **opeGuid** (Guid) : L'identifiant de la publicité
+- **opeGuid** (System.Guid) : L'identifiant de la publicité
 
 Type de retour : `PubliciteData`
 
@@ -16,7 +16,7 @@ Type(s) de données :
 class PubliciteData
 {
 	bool EstValide { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	DateTime DateDebut { get; set; }
 	DateTime DateFin { get; set; }
 	string Libelle { get; set; }

@@ -6,7 +6,7 @@ Url :`[POST] v2/customers/prospects/add/{campagneGuid:guid}`
 
 Paramètres : 
 
-- **campagneGuid** (Guid)
+- **campagneGuid** (System.Guid)
 - en tant que body, un objet ProspectData
 
 Type de retour : `bool`
@@ -26,7 +26,7 @@ class ProspectData
 	string PayPk { get; set; }
 	string Telephone { get; set; }
 	string Telephone2 { get; set; }
-	Int32[] NewslettersTypeAbonnementID { get; set; }
+	System.Int32[] NewslettersTypeAbonnementID { get; set; }
 }
 
 ```

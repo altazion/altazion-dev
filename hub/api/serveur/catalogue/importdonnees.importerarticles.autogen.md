@@ -22,7 +22,7 @@ class ArticleImportData
 	string Description { get; set; }
 	GestomWebApi.Catalogue.CatalogImporterController+ArticleImportImageData[] Images { get; set; }
 	Dictionary<System.String,System.String> Proprietes { get; set; }
-	ArticleImportDimensionsData Dimensions { get; set; }
+	GestomWebApi.Catalogue.CatalogImporterController+ArticleImportDimensionsData Dimensions { get; set; }
 }
 
 class ArticleImportImageData

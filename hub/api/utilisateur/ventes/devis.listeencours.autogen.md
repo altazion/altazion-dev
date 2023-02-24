@@ -43,7 +43,7 @@ class Devis
 class LigneDevis
 {
 	decimal Id { get; set; }
-	MetaTypeArticle TypeLigne { get; set; }
+	CPointSoftware.Equihira.Common.MetaTypeArticle TypeLigne { get; set; }
 	decimal DevisId { get; set; }
 	long ArticleId { get; set; }
 	string ArticleLibelle { get; set; }

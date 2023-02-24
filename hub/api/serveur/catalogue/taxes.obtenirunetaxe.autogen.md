@@ -6,7 +6,7 @@ Url :`[GET] app/catalogue/articles/taxes/{articleId:guid}`
 
 Paramètres : 
 
-- **articleId** (Guid)
+- **articleId** (System.Guid)
 
 Url :`[GET] app/catalogue/articles/taxes/{articleRef}`
 
@@ -21,7 +21,7 @@ Type(s) de données :
 ```csharp
 class TaxeData
 {
-	Guid Id { get; set; }
+	System.Guid Id { get; set; }
 	string Libelle { get; set; }
 	bool EstFixe { get; set; }
 	decimal Taux { get; set; }

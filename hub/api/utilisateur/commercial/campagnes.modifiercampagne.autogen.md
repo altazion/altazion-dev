@@ -21,7 +21,7 @@ Type(s) de données :
 ```csharp
 class CampagnesData
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	string Type { get; set; }
 	string TypeLibelle { get; set; }

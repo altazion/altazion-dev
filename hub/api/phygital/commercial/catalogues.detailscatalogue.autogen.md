@@ -6,7 +6,7 @@ Url :`[GET] v2/animation/catalogue/{cataGuid:guid}`
 
 Paramètres : 
 
-- **cataGuid** (Guid) : L'identifiant du catalogue
+- **cataGuid** (System.Guid) : L'identifiant du catalogue
 
 Type de retour : `OpeCatalogue`
 
@@ -19,7 +19,7 @@ class OpeCatalogue
 	PhygitalSite.Commercial.AnimationController+AdPanel[] Publicites { get; set; }
 	bool EstValide { get; set; }
 	string Libelle { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string TypeOpe { get; set; }
 	DateTime DateDebut { get; set; }
 	DateTime DateFin { get; set; }
@@ -36,7 +36,7 @@ class OpeCataloguePageCustom
 
 class OpeCataloguePageItem
 {
-	Guid ArticleGuid { get; set; }
+	System.Guid ArticleGuid { get; set; }
 	string ArticleLibelle { get; set; }
 	decimal Pertinence { get; set; }
 }
@@ -44,15 +44,17 @@ class OpeCataloguePageItem
 class AdPanel
 {
 	string Label { get; set; }
-	LinkType AdType { get; set; }
-	ContexteRechercheValeur Search { get; set; }
+	PhygitalSite.Commercial.AnimationController+LinkType AdType { get; set; }
+	CPointSoftware.Equihira.Extensibility.ContexteRechercheValeur Search { get; set; }
 	string Url { get; set; }
 	string ImageUrl { get; set; }
-	Guid ProductGuid { get; set; }
-	Guid Guid { get; set; }
-	Guid TargetGuid { get; set; }
+	System.Guid ProductGuid { get; set; }
+	System.Guid Guid { get; set; }
+	System.Guid TargetGuid { get; set; }
 	string Emplacement { get; set; }
-	AdPanelContext Context { get; set; }
+	PhygitalSite.Commercial.AnimationController+AdPanelContext Context { get; set; }
+	string DateDebut { get; set; }
+	string DateFin { get; set; }
 }
 
 ```

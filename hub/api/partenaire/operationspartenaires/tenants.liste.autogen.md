@@ -18,29 +18,29 @@ class TenantData
 	int TenantId { get; set; }
 	string Name { get; set; }
 	string Code { get; set; }
-	Guid MainLicenceGuid { get; set; }
+	System.Guid MainLicenceGuid { get; set; }
 	GestomWebApi.Integrations.PartenairesController+TenantStoreData[] Stores { get; set; }
 	GestomWebApi.Integrations.PartenairesController+TenantCatalogData[] CatalogDatas { get; set; }
-	TenantGlobalData GlobalData { get; set; }
+	GestomWebApi.Integrations.PartenairesController+TenantGlobalData GlobalData { get; set; }
 }
 
 class TenantStoreData
 {
-	Guid StoreGuid { get; set; }
+	System.Guid StoreGuid { get; set; }
 	string StoreName { get; set; }
 	string StoreCode { get; set; }
-	TenantInStoreData InStoreData { get; set; }
+	GestomWebApi.Integrations.PartenairesController+TenantInStoreData InStoreData { get; set; }
 }
 
 class TenantInStoreData
 {
 	string UrlPosCentral { get; set; }
-	String[] DeployedComponents { get; set; }
+	System.String[] DeployedComponents { get; set; }
 }
 
 class TenantCatalogData
 {
-	CatalogKind Kind { get; set; }
+	GestomWebApi.Integrations.PartenairesController+CatalogKind Kind { get; set; }
 	string Name { get; set; }
 	string Url { get; set; }
 	int Id { get; set; }
@@ -57,7 +57,7 @@ class TenantGlobalData
 {
 	string UrlErp { get; set; }
 	string UrlPosCentral { get; set; }
-	String[] DeployedComponents { get; set; }
+	System.String[] DeployedComponents { get; set; }
 }
 
 ```

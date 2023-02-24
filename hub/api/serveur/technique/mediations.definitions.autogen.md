@@ -15,7 +15,7 @@ Type(s) de données :
 ```csharp
 class MediationDefinition
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Label { get; set; }
 	DateTime? LastRun { get; set; }
 	string LastRunResult { get; set; }

@@ -20,7 +20,7 @@ class MagasinInfo
 	CPointSoftware.Equihira.Common.MagasinInfo+Service[] Services { get; set; }
 	decimal Lattitude { get; set; }
 	decimal Longitude { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	string Code { get; set; }
 	string CodePostal { get; set; }

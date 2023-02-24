@@ -6,7 +6,7 @@ Url :`[GET] v2/animation/catalogue/fromproduct/{artGuid:guid}`
 
 Paramètres : 
 
-- **artGuid** (Guid) : L'identifiant de l'article
+- **artGuid** (System.Guid) : L'identifiant de l'article
 
 Type de retour : `OpeCatalogueContainer[]`
 
@@ -15,11 +15,11 @@ Type(s) de données :
 ```csharp
 class OpeCatalogueContainer
 {
-	Guid CatalogueGuid { get; set; }
+	System.Guid CatalogueGuid { get; set; }
 	string CatalogueLibelle { get; set; }
 	DateTime DateDebut { get; set; }
 	DateTime DateFin { get; set; }
-	Guid EtapeGuid { get; set; }
+	System.Guid EtapeGuid { get; set; }
 	int EtapeOrder { get; set; }
 }
 

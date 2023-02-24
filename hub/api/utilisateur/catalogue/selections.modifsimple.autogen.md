@@ -2,11 +2,11 @@
 
 Modifier une selection.
 
-Url :`[POST] api/catalogue/selections?data={data:VitrineEditData}`
+Url :`[POST] api/catalogue/selections?data={data:GestomWebApi.Catalogue.SelectionsController+VitrineEditData}`
 
 Paramètres : 
 
-- **data** (VitrineEditData) : Le détail de la vitrine
+- **data** (GestomWebApi.Catalogue.SelectionsController+VitrineEditData) : Le détail de la vitrine
 
 Type de retour : `VitrineContentData`
 
@@ -16,7 +16,7 @@ Type(s) de données :
 class VitrineContentData
 {
 	GestomWebApi.Catalogue.SelectionsController+ArticleDetailDansVitrineData[] Articles { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	string Code { get; set; }
 	string Groupe { get; set; }
@@ -26,7 +26,7 @@ class VitrineContentData
 
 class VitrineEditData
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	string Code { get; set; }
 	string Groupe { get; set; }
@@ -36,7 +36,7 @@ class VitrineEditData
 
 class ArticleDansVitrineData
 {
-	Guid ArticleGuid { get; set; }
+	System.Guid ArticleGuid { get; set; }
 	decimal Pertinence { get; set; }
 }
 

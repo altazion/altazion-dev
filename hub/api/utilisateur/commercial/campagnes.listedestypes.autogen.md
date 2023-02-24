@@ -15,12 +15,12 @@ Type(s) de données :
 ```csharp
 class TypeOpeComm
 {
-	MetaTypeOperation MetaType { get; set; }
-	Guid Guid { get; set; }
+	GestomWebApi.Commercial.OpeCommController+MetaTypeOperation MetaType { get; set; }
+	System.Guid Guid { get; set; }
 	string Code { get; set; }
 	string Namespace { get; set; }
 	string Libelle { get; set; }
-	Guid DestinationGuid { get; set; }
+	System.Guid DestinationGuid { get; set; }
 	string DestinationLibelle { get; set; }
 }
 

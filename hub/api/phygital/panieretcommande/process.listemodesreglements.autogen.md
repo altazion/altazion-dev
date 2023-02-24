@@ -15,13 +15,13 @@ Type(s) de données :
 ```csharp
 class ModeReglementProcess
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	bool AvecDetails { get; set; }
 	bool AvecCoupons { get; set; }
 	string ModuleLocal { get; set; }
 	string XmlData { get; set; }
-	TypeReglement TypeReglement { get; set; }
+	CPointSoftware.Equihira.Common.TypeReglement TypeReglement { get; set; }
 }
 
 enum TypeReglement

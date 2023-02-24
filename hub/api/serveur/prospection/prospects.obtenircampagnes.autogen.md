@@ -12,13 +12,13 @@ Url :`[GET] app/prospection/recruteurs/{guidRecruteur:guid}/campagnes`
 
 Paramètres : 
 
-- **guidRecruteur** (Guid) : L'identifiant du recruteur
+- **guidRecruteur** (System.Guid) : L'identifiant du recruteur
 
 Url :`[PUT] app/prospection/recruteurs/{guidRecruteur:guid}/campagnes`
 
 Paramètres : 
 
-- **guidRecruteur** (Guid) : L'identifiant du recruteur
+- **guidRecruteur** (System.Guid) : L'identifiant du recruteur
 - en tant que body, un objet CampagneRecrutementCreationData
 
 Type de retour : `CampagneRecrutement`
@@ -28,8 +28,8 @@ Type(s) de données :
 ```csharp
 class CampagneRecrutement
 {
-	Guid Guid { get; set; }
-	Guid RecruteurGuid { get; set; }
+	System.Guid Guid { get; set; }
+	System.Guid RecruteurGuid { get; set; }
 	string Libelle { get; set; }
 	string Type { get; set; }
 	DateTime? Debut { get; set; }

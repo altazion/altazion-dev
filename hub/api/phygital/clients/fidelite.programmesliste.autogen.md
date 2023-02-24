@@ -16,8 +16,8 @@ Type(s) de données :
 ```csharp
 class LoyaltyProgram
 {
-	Guid Guid { get; set; }
-	LoyaltyKind Kind { get; set; }
+	System.Guid Guid { get; set; }
+	PhygitalSite.Crm.LoyaltyController+LoyaltyKind Kind { get; set; }
 	string Label { get; set; }
 }
 

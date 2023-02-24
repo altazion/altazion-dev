@@ -6,7 +6,7 @@ Url :`[GET] v2/customers/{guid:guid}`
 
 Paramètres : 
 
-- **guid** (Guid)
+- **guid** (System.Guid)
 
 Type de retour : `ClientProspectData`
 
@@ -25,7 +25,7 @@ class ClientProspectData
 	PhygitalSite.Clients.ClientsProspectsController+AdresseData[] ToutesLesAdresses { get; set; }
 	string Civilite { get; set; }
 	string Nom { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Type { get; set; }
 	string Email { get; set; }
 	string CodePostal { get; set; }
@@ -49,7 +49,7 @@ class NewsletterInfo
 
 class AdresseData
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Civilite { get; set; }
 	string Nom { get; set; }
 	bool EstPrincipale { get; set; }

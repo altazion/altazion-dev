@@ -6,7 +6,7 @@ Url :`[GET] api/mediations/{mediationGuid:guid}/ignore`
 
 Paramètres : 
 
-- **mediationGuid** (Guid)
+- **mediationGuid** (System.Guid)
 
 Type de retour : `bool`
 

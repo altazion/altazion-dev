@@ -13,7 +13,7 @@ Url :`[GET] app/crosscanal/commandes/enattente/{siteId:int}/instore/{magasinGuid
 Paramètres : 
 
 - **siteId** (int) : L'identifiant du catalogue
-- **magasinGuid** (Guid) : L'identifiant du magasin
+- **magasinGuid** (System.Guid) : L'identifiant du magasin
 
 Type de retour : `CommandeEnAttente[]`
 
@@ -22,16 +22,16 @@ Type(s) de données :
 ```csharp
 class CommandeEnAttente
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	DateTime Date { get; set; }
 	string Numero { get; set; }
 	string NomLivraison { get; set; }
 	string Tags { get; set; }
-	CommandeEtat Etat { get; set; }
+	GestomWebApi.CrossCanal.CommandesForAppController+CommandeEtat Etat { get; set; }
 	string DestinationLivraison { get; set; }
 	string IdentifiantPreparation { get; set; }
 	bool EstProcessComplet { get; set; }
-	EtatPreparation ResultatPreparation { get; set; }
+	GestomWebApi.CrossCanal.CommandesForAppController+EtatPreparation ResultatPreparation { get; set; }
 }
 
 enum CommandeEtat

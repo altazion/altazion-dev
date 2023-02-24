@@ -12,13 +12,13 @@ Url :`[GET] api/parametres/magasins/{guid:Guid}`
 
 Paramètres : 
 
-- **guid** (Guid) : L'identifiant du magasin
+- **guid** (System.Guid) : L'identifiant du magasin
 
 Url :`[GET] api/magasins/{magasin_guid:Guid}/evenements`
 
 Paramètres : 
 
-- **magasin_guid** (Guid) : L'identifiant du magasin
+- **magasin_guid** (System.Guid) : L'identifiant du magasin
 
 Url :`[GET] api/magasins/evenements/crosscanal?date1={date1:DateTime?}&date2={date2:DateTime?}`
 
@@ -38,7 +38,7 @@ class MagasinInfo
 	CPointSoftware.Equihira.Common.MagasinInfo+Service[] Services { get; set; }
 	decimal Lattitude { get; set; }
 	decimal Longitude { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	string Code { get; set; }
 	string CodePostal { get; set; }
@@ -54,7 +54,7 @@ class MagasinInfo
 
 class MagasinBase
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	string Code { get; set; }
 	string CodePostal { get; set; }
@@ -70,15 +70,15 @@ class MagasinBase
 
 class EvenementMagasin
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	string Description { get; set; }
-	EvenementCrossCanalBase InfoEventCrossCanal { get; set; }
+	GestomWebApi.PointOfSale.MagasinsController+EvenementCrossCanalBase InfoEventCrossCanal { get; set; }
 }
 
 class EvenementCrossCanalBase
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	string Url { get; set; }
 	DateTime Date { get; set; }
@@ -91,7 +91,7 @@ class EvenementCrossCanal
 	string Descriptif { get; set; }
 	bool ObligatoirePourIntegres { get; set; }
 	bool ObligatoirePourAffilies { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	string Url { get; set; }
 	DateTime Date { get; set; }

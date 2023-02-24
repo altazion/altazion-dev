@@ -17,15 +17,15 @@ Type(s) de données :
 ```csharp
 class OperationData
 {
-	MetaTypeOperation MetaType { get; set; }
-	Guid Guid { get; set; }
+	GestomWebApi.Commercial.OpeCommController+MetaTypeOperation MetaType { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	string TypeOperation { get; set; }
-	Guid DestinationGuid { get; set; }
+	System.Guid DestinationGuid { get; set; }
 	string Destination { get; set; }
 	DateTime DateDebut { get; set; }
 	DateTime DateFin { get; set; }
-	Guid CampagneGuid { get; set; }
+	System.Guid CampagneGuid { get; set; }
 	string CampagneLibelle { get; set; }
 	bool Valide { get; set; }
 }

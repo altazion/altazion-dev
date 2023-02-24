@@ -6,7 +6,7 @@ Url :`[POST] api/system/todos/realiserAction/{guidTodo}/{code}?parameter={parame
 
 Paramètres : 
 
-- **guidTodo** (Guid) : L'identifiant de la todo
+- **guidTodo** (System.Guid) : L'identifiant de la todo
 - **code** (string) : Le code de l'action à réaliser
 - **parameter** (string) : Le paramètre pour l'action
 

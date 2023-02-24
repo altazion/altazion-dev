@@ -6,7 +6,7 @@ Url :`[GET] app/mediations/{mediationGuid:guid}/status`
 
 Paramètres : 
 
-- **mediationGuid** (Guid) : L'identifiant de la médiation
+- **mediationGuid** (System.Guid) : L'identifiant de la médiation
 
 Type de retour : `MediationStatus`
 
@@ -17,8 +17,8 @@ class MediationStatus
 {
 	string DefinitionLibelle { get; set; }
 	Guid? DefinitionStandardGuid { get; set; }
-	Guid DefinitionGuid { get; set; }
-	Guid MediationGuid { get; set; }
+	System.Guid DefinitionGuid { get; set; }
+	System.Guid MediationGuid { get; set; }
 	DateTime Debut { get; set; }
 	string Etat { get; set; }
 	string EtatDetails { get; set; }
@@ -30,7 +30,7 @@ class MediationMessage
 {
 	DateTimeOffset Date { get; set; }
 	string Message { get; set; }
-	MediationMessageKind Kind { get; set; }
+	GestomWebApi.Technique.MediationsController+MediationMessageKind Kind { get; set; }
 }
 
 enum MediationMessageKind

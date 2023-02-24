@@ -6,7 +6,7 @@ Url :`[GET] v2/process/reglement/modes/{modeGuid:guid}/coupons`
 
 Paramètres : 
 
-- **modeGuid** (Guid) : L'identifiant du mode de règlement
+- **modeGuid** (System.Guid) : L'identifiant du mode de règlement
 
 Type de retour : `AvantageClient[]`
 
@@ -15,7 +15,7 @@ Type(s) de données :
 ```csharp
 class AvantageClient
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Reference { get; set; }
 	bool EstUtilisable { get; set; }
 	string Libelle { get; set; }
@@ -31,7 +31,7 @@ class AvantageClient
 	string TypeBlocage { get; set; }
 	Guid? IdBlocage { get; set; }
 	DateTime? DateBlocage { get; set; }
-	EtatAvantageClient Etat { get; set; }
+	CPointSoftware.Equihira.Extensibility.Process.EtatAvantageClient Etat { get; set; }
 	Guid? IdClient { get; set; }
 }
 

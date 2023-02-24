@@ -22,7 +22,7 @@ Type(s) de données :
 ```csharp
 class Recruteur
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	bool EstRectruteurInterne { get; set; }
 }

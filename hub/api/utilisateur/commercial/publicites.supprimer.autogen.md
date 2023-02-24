@@ -2,11 +2,11 @@
 
 Supprime une publicité.
 
-Url :`[DELETE] ?guid={guid:Guid}`
+Url :`[DELETE] ?guid={guid:System.Guid}`
 
 Paramètres : 
 
-- **guid** (Guid) : L'identifiant de la publicité
+- **guid** (System.Guid) : L'identifiant de la publicité
 
 Type de retour : `bool`
 

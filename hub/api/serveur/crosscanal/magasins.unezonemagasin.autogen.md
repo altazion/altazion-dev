@@ -6,7 +6,7 @@ Url :`[GET] app/magasins/zones/{zmg_guid}`
 
 Paramètres : 
 
-- **zmg_guid** (Guid)
+- **zmg_guid** (System.Guid)
 
 Type de retour : `ZonesMagasin`
 
@@ -15,7 +15,7 @@ Type(s) de données :
 ```csharp
 class ZonesMagasin
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	string Code { get; set; }
 	string PayPk { get; set; }

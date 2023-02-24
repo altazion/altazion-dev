@@ -17,7 +17,7 @@ Type(s) de données :
 ```csharp
 class Message
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	Guid? Uxid { get; set; }
 	Guid? GroupeGuid { get; set; }
 	string Sujet { get; set; }

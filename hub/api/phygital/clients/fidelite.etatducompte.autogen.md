@@ -6,7 +6,7 @@ Url :`[GET] v2/fidelite/{clientGuid:guid}`
 
 Paramètres : 
 
-- **clientGuid** (Guid) : L'identifiant du client
+- **clientGuid** (System.Guid) : L'identifiant du client
 
 Type de retour : `LoyaltyStatus[]`
 
@@ -15,8 +15,8 @@ Type(s) de données :
 ```csharp
 class LoyaltyStatus
 {
-	LoyaltyKind TypeCompte { get; set; }
-	Guid ProgrammeGuid { get; set; }
+	PhygitalSite.Crm.LoyaltyController+LoyaltyKind TypeCompte { get; set; }
+	System.Guid ProgrammeGuid { get; set; }
 	decimal Balance { get; set; }
 	PhygitalSite.Crm.LoyaltyController+CouponData[] Coupons { get; set; }
 	PhygitalSite.Crm.LoyaltyController+LoyaltyAccount[] Accounts { get; set; }
@@ -30,7 +30,7 @@ enum LoyaltyKind
 
 class CouponData
 {
-	CouponKind TypeCoupon { get; set; }
+	PhygitalSite.Crm.LoyaltyController+CouponKind TypeCoupon { get; set; }
 	string TypeAvantage { get; set; }
 	Guid? AvantageGuid { get; set; }
 	string Groupe { get; set; }

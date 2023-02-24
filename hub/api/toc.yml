@@ -14,6 +14,12 @@
     - name: Factures
       href: utilisateur/ventes/factures.md
       items: 
+  - name: ECommerce
+    href: utilisateur/ecommerce/index.md
+    items: 
+    - name: Configuration
+      href: utilisateur/ecommerce/configuration.md
+      items: 
   - name: Technique
     href: utilisateur/technique/index.md
     items: 
@@ -44,6 +50,18 @@
     - name: Magasins
       href: utilisateur/crosscanal/magasins.md
       items: 
+  - name: Logistique
+    href: utilisateur/logistique/index.md
+    items: 
+    - name: Stocks
+      href: utilisateur/logistique/stocks.md
+      items: 
+  - name: System
+    href: utilisateur/system/index.md
+    items: 
+    - name: Paramètres généraux
+      href: utilisateur/system/parametresgeneraux.md
+      items: 
   - name: Commercial
     href: utilisateur/commercial/index.md
     items: 
@@ -55,6 +73,12 @@
       items: 
     - name: Publicités
       href: utilisateur/commercial/publicites.md
+      items: 
+  - name: Prospection
+    href: utilisateur/prospection/index.md
+    items: 
+    - name: Prospects
+      href: utilisateur/prospection/prospects.md
       items: 
   - name: Catalogue
     href: utilisateur/catalogue/index.md
@@ -97,8 +121,6 @@
     items: 
     - name: Raison juridique
       href: serveur/parametres/index.md#raisonjuridique
-    - name: Sites webs
-      href: serveur/parametres/index.md#siteswebs
     - name: Options
       href: serveur/parametres/options.md
       items: 
@@ -114,6 +136,24 @@
     - name: Produits
       href: serveur/crosscanal/produits.md
       items: 
+  - name: Logistique
+    href: serveur/logistique/index.md
+    items: 
+    - name: Devices
+      href: serveur/logistique/devices.md
+      items: 
+    - name: Préparation
+      href: serveur/logistique/preparation.md
+      items: 
+    - name: Stocks
+      href: serveur/logistique/stocks.md
+      items: 
+  - name: System
+    href: serveur/system/index.md
+    items: 
+    - name: Paramètres généraux
+      href: serveur/system/parametresgeneraux.md
+      items: 
   - name: Commercial
     href: serveur/commercial/index.md
     items: 
@@ -125,6 +165,12 @@
       items: 
     - name: Publicités
       href: serveur/commercial/publicites.md
+      items: 
+  - name: Prospection
+    href: serveur/prospection/index.md
+    items: 
+    - name: Prospects
+      href: serveur/prospection/prospects.md
       items: 
   - name: Catalogue
     href: serveur/catalogue/index.md

@@ -45,7 +45,7 @@ class FacetData
 	string Groupe { get; set; }
 	string Id { get; set; }
 	bool IsArborescent { get; set; }
-	FacetKind Kind { get; set; }
+	CreoIgnem.Phygital.Tools.FacetKind Kind { get; set; }
 	CreoIgnem.Phygital.Tools.FacetValueData[] Values { get; set; }
 }
 
@@ -54,7 +54,7 @@ class AttributeData
 	string Name { get; set; }
 	string Group { get; set; }
 	string Id { get; set; }
-	AttributeType Type { get; set; }
+	CreoIgnem.Phygital.Tools.AttributeType Type { get; set; }
 	bool IsInstanceSpecific { get; set; }
 }
 
@@ -85,7 +85,7 @@ class LanguageData
 class TagDescriptionData
 {
 	string Title { get; set; }
-	Guid LabelGuid { get; set; }
+	System.Guid LabelGuid { get; set; }
 	bool IsOldTag { get; set; }
 	CreoIgnem.Phygital.Tools.TagValueData[] Values { get; set; }
 }
@@ -93,7 +93,7 @@ class TagDescriptionData
 class TagValueData
 {
 	string TextData { get; set; }
-	Guid ValueGuid { get; set; }
+	System.Guid ValueGuid { get; set; }
 	string HtmlData { get; set; }
 	string ImageUrl { get; set; }
 	string ColorData { get; set; }

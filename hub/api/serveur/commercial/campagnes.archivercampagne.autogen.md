@@ -6,7 +6,7 @@ Url :`[DELETE] app/commercial/campagnes/{guid:guid}`
 
 Paramètres : 
 
-- **guid** (Guid)
+- **guid** (System.Guid)
 
 Type de retour : `bool`
 

@@ -8,12 +8,12 @@ Paramètres :
 
 - **reference** (string)
 
-Url :`[GET] v2/catalogue/get/{reference}/reviews?articleGuid={articleGuid:Guid}`
+Url :`[GET] v2/catalogue/get/{reference}/reviews?articleGuid={articleGuid:System.Guid}`
 
 Paramètres : 
 
 - **reference** (string)
-- **articleGuid** (Guid)
+- **articleGuid** (System.Guid)
 
 Type de retour : `AvisClient[]`
 
@@ -22,8 +22,8 @@ Type(s) de données :
 ```csharp
 class AvisClient
 {
-	Guid Guid { get; set; }
-	Guid ArticleGuid { get; set; }
+	System.Guid Guid { get; set; }
+	System.Guid ArticleGuid { get; set; }
 	string Nom { get; set; }
 	string Message { get; set; }
 	Guid? ClientGuid { get; set; }

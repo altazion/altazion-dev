@@ -6,7 +6,7 @@ Url :`[GET] api/commercial/opecom/catalogue/{opeGuid:guid}`
 
 Paramètres : 
 
-- **opeGuid** (Guid) : L'identifiant du catalogue
+- **opeGuid** (System.Guid) : L'identifiant du catalogue
 
 Type de retour : `OpeCatalogueData`
 
@@ -17,7 +17,7 @@ class OpeCatalogueData
 {
 	bool EstValide { get; set; }
 	string Libelle { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string TypeOpe { get; set; }
 	DateTime DateDebut { get; set; }
 	DateTime DateFin { get; set; }

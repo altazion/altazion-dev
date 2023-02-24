@@ -16,7 +16,7 @@ Type(s) de données :
 class OpeCatalogue
 {
 	string Libelle { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string TypeOpe { get; set; }
 	DateTime DateDebut { get; set; }
 	DateTime DateFin { get; set; }
@@ -35,7 +35,7 @@ class OpeCataloguePageCustom
 
 class OpeCataloguePageItem
 {
-	Guid ArticleGuid { get; set; }
+	System.Guid ArticleGuid { get; set; }
 	string ArticleLibelle { get; set; }
 	decimal Pertinence { get; set; }
 }

@@ -15,21 +15,21 @@ Type(s) de données :
 ```csharp
 class DeviceConfigData
 {
-	SiteWebData SiteAssocie { get; set; }
-	MagasinData MagasinAssocie { get; set; }
-	Guid DeviceGuid { get; set; }
+	PhygitalSite.Systeme.DeviceController+SiteWebData SiteAssocie { get; set; }
+	PhygitalSite.Systeme.DeviceController+MagasinData MagasinAssocie { get; set; }
+	System.Guid DeviceGuid { get; set; }
 	string DeviceName { get; set; }
 	string IP { get; set; }
 	string XmlConfig { get; set; }
 	string MetaType { get; set; }
 	string ServerVersion { get; set; }
-	String[] ModulesInstalles { get; set; }
+	System.String[] ModulesInstalles { get; set; }
 	Dictionary<System.String,System.String> Options { get; set; }
 	string ProductKey { get; set; }
-	AnimationGroupData AnimationGroup { get; set; }
-	ProcessDataConfig OrderProcessConfig { get; set; }
-	PaysVentesInfo[] PaysVentes { get; set; }
-	ModuleClass[] ServerModulesClasses { get; set; }
+	PhygitalSite.Systeme.DeviceController+AnimationGroupData AnimationGroup { get; set; }
+	PhygitalSite.Systeme.DeviceController+ProcessDataConfig OrderProcessConfig { get; set; }
+	CPointSoftware.ECommerce.Tools.ECommerceServer+PaysVentesInfo[] PaysVentes { get; set; }
+	CPointSoftware.ECommerce.Tools.ECommerceServer+ModuleClass[] ServerModulesClasses { get; set; }
 }
 
 class SiteWebData
@@ -41,7 +41,7 @@ class SiteWebData
 class MagasinData
 {
 	string Nom { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Code { get; set; }
 	string MessageAccueil { get; set; }
 	string Responsable { get; set; }
@@ -67,12 +67,12 @@ class MagasinHoraireData
 class AnimationGroupData
 {
 	string Libelle { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 }
 
 class ProcessDataConfig
 {
-	ProcessKind DefaultProcessKind { get; set; }
+	PhygitalSite.Systeme.DeviceController+ProcessKind DefaultProcessKind { get; set; }
 	string CustomProcessKind { get; set; }
 	PhygitalSite.Systeme.DeviceController+ProcessWebHook[] PostValidationWebhooks { get; set; }
 	PhygitalSite.Systeme.DeviceController+ProcessWebHook[] ReceiptWebHooks { get; set; }

@@ -6,7 +6,7 @@ Url :`[DELETE] app/commercial/opecom/publicite/{guid:guid}`
 
 Paramètres : 
 
-- **guid** (Guid) : L'identifiant de la publicité
+- **guid** (System.Guid) : L'identifiant de la publicité
 
 Type de retour : `bool`
 

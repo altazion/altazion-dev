@@ -6,7 +6,7 @@ Url :`[GET] app/commercial/opecom/publicite/{guid:guid}/devalider`
 
 Paramètres : 
 
-- **guid** (Guid) : L'identifiant de la publicité
+- **guid** (System.Guid) : L'identifiant de la publicité
 
 Type de retour : `bool`
 

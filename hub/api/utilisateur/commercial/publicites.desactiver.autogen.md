@@ -2,11 +2,11 @@
 
 Désactive une publicité, la rendant non visible.
 
-Url :`[GET] ?guid={guid:Guid}`
+Url :`[GET] ?guid={guid:System.Guid}`
 
 Paramètres : 
 
-- **guid** (Guid) : L'identifiant de la publicité
+- **guid** (System.Guid) : L'identifiant de la publicité
 
 Type de retour : `bool`
 

@@ -6,7 +6,7 @@ Url :`[GET] v2/customers/{personGuid:guid}/knowledge/details`
 
 Paramètres : 
 
-- **personGuid** (Guid)
+- **personGuid** (System.Guid)
 
 Type de retour : `PersonDetails`
 
@@ -15,11 +15,11 @@ Type(s) de données :
 ```csharp
 class PersonDetails
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string FullName { get; set; }
 	string FirstName { get; set; }
 	string FamilyName { get; set; }
-	LoyaltyInfo LoyaltyInfos { get; set; }
+	CPointSoftware.Equihira.Business.Crm.LoyaltyInfo LoyaltyInfos { get; set; }
 	CPointSoftware.Equihira.Business.Crm.PersonInterests[] Interests { get; set; }
 	CPointSoftware.Equihira.Business.Crm.PersonCategory[] Categories { get; set; }
 	CPointSoftware.Equihira.Business.Crm.PersonLinkedPerson[] LinkedPersons { get; set; }
@@ -32,7 +32,7 @@ class LoyaltyInfo
 
 class LoyaltyDevice
 {
-	LoyaltyDeviceKind Kind { get; set; }
+	CPointSoftware.Equihira.Business.Crm.LoyaltyDeviceKind Kind { get; set; }
 	string Id { get; set; }
 	DateTime? LastCheck { get; set; }
 	DateTime? EndOfValidity { get; set; }
@@ -50,20 +50,20 @@ enum LoyaltyDeviceKind
 class PersonInterests
 {
 	string Code { get; set; }
-	String[] Keywords { get; set; }
+	System.String[] Keywords { get; set; }
 	Guid? InterestGuid { get; set; }
 }
 
 class PersonCategory
 {
-	Guid CategoryGuid { get; set; }
+	System.Guid CategoryGuid { get; set; }
 	string Label { get; set; }
 	string Code { get; set; }
 }
 
 class PersonLinkedPerson
 {
-	LinkedPersonKind Kind { get; set; }
+	CPointSoftware.Equihira.Business.Crm.LinkedPersonKind Kind { get; set; }
 	Guid? Guid { get; set; }
 	Guid? PersonGuid { get; set; }
 	string CustomDataKind { get; set; }

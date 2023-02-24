@@ -15,7 +15,7 @@ Type(s) de données :
 ```csharp
 class Publicite
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	DateTime DateDebut { get; set; }
 	DateTime DateFin { get; set; }
 	string Libelle { get; set; }

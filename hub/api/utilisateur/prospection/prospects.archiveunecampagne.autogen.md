@@ -6,7 +6,7 @@ Url :`[DELETE] api/prospection/campagnes/{guid:Guid}`
 
 Paramètres : 
 
-- **guid** (Guid) : L'identifiant de la campagne à archiver
+- **guid** (System.Guid) : L'identifiant de la campagne à archiver
 
 Type de retour : `bool`
 

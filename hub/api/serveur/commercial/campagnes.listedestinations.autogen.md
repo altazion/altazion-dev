@@ -15,7 +15,7 @@ Type(s) de données :
 ```csharp
 class Destination
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	string Type { get; set; }
 	Guid? GroupeAnimationGuid { get; set; }

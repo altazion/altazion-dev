@@ -6,7 +6,7 @@ Url :`[GET] v2/catalogue/get/{art_guid:guid}/image?type={type:string}`
 
 Paramètres : 
 
-- **art_guid** (Guid)
+- **art_guid** (System.Guid)
 - **type** (string)
 
 Type de retour : `HttpResponseMessage`

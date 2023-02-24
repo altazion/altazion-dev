@@ -44,8 +44,8 @@ class Devis
 class DevisFacture
 {
 	bool FacturerTout { get; set; }
-	Decimal[] LignesAFacturer { get; set; }
-	Decimal[] OptionsValidees { get; set; }
+	System.Decimal[] LignesAFacturer { get; set; }
+	System.Decimal[] OptionsValidees { get; set; }
 	DateTime? DateTransformation { get; set; }
 	bool CreerNouveauClient { get; set; }
 	System.Int32? ReplacementClientPK { get; set; }

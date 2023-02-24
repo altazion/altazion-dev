@@ -6,7 +6,7 @@ Url :`[POST] api/magasins/zones/{zmg_guid}`
 
 Paramètres : 
 
-- **zmg_guid** (Guid)
+- **zmg_guid** (System.Guid)
 - en tant que body, un objet ZonesMagasinData
 
 Type de retour : `bool`

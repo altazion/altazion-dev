@@ -15,12 +15,12 @@ Type(s) de données :
 ```csharp
 class CouponDetails
 {
-	TypeCoupon Type { get; set; }
+	PhygitalSite.Commercial.PromotionsController+TypeCoupon Type { get; set; }
 	string Code { get; set; }
 	string Libelle { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	DateTime? MaxValidite { get; set; }
-	EtatConsommationCode EtatConsommation { get; set; }
+	PhygitalSite.Commercial.PromotionsController+EtatConsommationCode EtatConsommation { get; set; }
 }
 
 enum TypeCoupon

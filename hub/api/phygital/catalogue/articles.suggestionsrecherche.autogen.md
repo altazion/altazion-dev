@@ -20,15 +20,19 @@ Paramètres :
 
 - en tant que body, un objet String[] : Les différents mots clefs saisis
 
-Type de retour : `CatalogSearchSuggestion[]`
+Type de retour : `CatalogSearchSuggestionWithRef[]`
 
 Type(s) de données :
 
 ```csharp
-class CatalogSearchSuggestion
+class CatalogSearchSuggestionWithRef
 {
+	string Ref { get; set; }
+	bool DisponibleCommande { get; set; }
+	bool DisponibleMagasin { get; set; }
+	bool DisponibleCentrale { get; set; }
 	string Label { get; set; }
-	SuggestionType Type { get; set; }
+	CreoIgnem.Phygital.Tools.SuggestionType Type { get; set; }
 	string Id { get; set; }
 	string ImageUrl { get; set; }
 	decimal? PrixFinal { get; set; }
@@ -42,17 +46,6 @@ enum SuggestionType
 	Facet, // =2
 	Product, // =3
 	Store, // =4
-}
-
-class CatalogSearchSuggestionWithRef
-{
-	string Ref { get; set; }
-	string Label { get; set; }
-	SuggestionType Type { get; set; }
-	string Id { get; set; }
-	string ImageUrl { get; set; }
-	decimal? PrixFinal { get; set; }
-	decimal? PrixBarre { get; set; }
 }
 
 ```

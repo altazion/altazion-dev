@@ -1,0 +1,10 @@
+# Configuration
+
+[!include[ajouterurlsecondaire](configuration.ajouterurlsecondaire.autogen.md)]
+
+[!include[editerurlsecondaire](configuration.editerurlsecondaire.autogen.md)]
+
+[!include[obtenirtouslessites](configuration.obtenirtouslessites.autogen.md)]
+
+[!include[obtenirsite](configuration.obtenirsite.autogen.md)]
+

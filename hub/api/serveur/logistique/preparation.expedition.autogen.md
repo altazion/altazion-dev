@@ -6,7 +6,7 @@ Url :`[POST] api/logistique/preparation/expe/{bonprepaGuid:guid}`
 
 Paramètres : 
 
-- **bonprepaGuid** (Guid) : L'identifiant du bon de préparation
+- **bonprepaGuid** (System.Guid) : L'identifiant du bon de préparation
 - en tant que body, un objet ExpeditionBonPreparation : Le contenu de la préparation
 
 Url :`[POST] api/logistique/preparation/expe/{bonprepaNum}`
@@ -23,7 +23,7 @@ Type(s) de données :
 ```csharp
 class BonPreparation
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Numero { get; set; }
 	DateTime DateCreation { get; set; }
 	decimal MontantCommande { get; set; }
@@ -33,8 +33,8 @@ class BonPreparation
 	bool EstEncours { get; set; }
 	bool EstTermine { get; set; }
 	bool EstAnnule { get; set; }
-	LigneBonPreparation[] Lignes { get; set; }
-	Guid CliGuid { get; set; }
+	GestomWebApi.Logistique.PreparationController+LigneBonPreparation[] Lignes { get; set; }
+	System.Guid CliGuid { get; set; }
 	string CliNom { get; set; }
 	string CliEmail { get; set; }
 	string CliCP { get; set; }
@@ -42,7 +42,7 @@ class BonPreparation
 
 class LigneBonPreparation
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Reference { get; set; }
 	string Libelle { get; set; }
 	decimal Pu { get; set; }
@@ -54,9 +54,9 @@ class LigneBonPreparation
 
 class ExpeditionBonPreparation
 {
-	LigneExpeditionBonPreparation[] Lignes { get; set; }
-	Colis[] Colis { get; set; }
-	PieceComptable[] PieceComptable { get; set; }
+	GestomWebApi.Logistique.PreparationController+LigneExpeditionBonPreparation[] Lignes { get; set; }
+	GestomWebApi.Logistique.PreparationController+Colis[] Colis { get; set; }
+	GestomWebApi.Logistique.PreparationController+PieceComptable[] PieceComptable { get; set; }
 }
 
 class LigneExpeditionBonPreparation

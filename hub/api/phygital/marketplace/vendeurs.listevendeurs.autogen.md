@@ -15,6 +15,7 @@ Type(s) de données :
 ```csharp
 class MarketPlaceVendeur
 {
+	string Nom { get; set; }
 }
 
 ```

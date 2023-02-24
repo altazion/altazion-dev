@@ -15,7 +15,7 @@ Type(s) de données :
 ```csharp
 class ZonesMagasin
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	string Code { get; set; }
 	string PayPk { get; set; }

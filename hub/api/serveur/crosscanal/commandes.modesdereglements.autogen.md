@@ -15,9 +15,9 @@ Type(s) de données :
 ```csharp
 class ModeReglement
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
-	TypeReglement Type { get; set; }
+	CPointSoftware.Equihira.Common.TypeReglement Type { get; set; }
 	bool EstPrincipal { get; set; }
 	int Priorite { get; set; }
 	bool EstModifiable { get; set; }
@@ -49,7 +49,7 @@ enum TypeReglement
 
 class ModeReglementDetail
 {
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	string Libelle { get; set; }
 	string CompteCompta { get; set; }
 }

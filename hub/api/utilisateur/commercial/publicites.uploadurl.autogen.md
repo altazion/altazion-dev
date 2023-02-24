@@ -2,11 +2,11 @@
 
 Obtient une url pour uploader une image
 
-Url :`[GET] ?opeGuid={opeGuid:Guid}&extension={extension:string}&etape={etape:int}`
+Url :`[GET] ?opeGuid={opeGuid:System.Guid}&extension={extension:string}&etape={etape:int}`
 
 Paramètres : 
 
-- **opeGuid** (Guid) : L'identifiant de l'opération
+- **opeGuid** (System.Guid) : L'identifiant de l'opération
 - **extension** (string) : L'extension (sans le point) du fichier
 - **etape** (int) : L'identifiant de l'étape / de la page
 

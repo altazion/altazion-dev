@@ -8,11 +8,17 @@ Paramètres :
 
 - **reference** (string) : La référence du produit à obtenir
 
+Url :`[GET] app/catalogue/articles/all/data`
+
+Paramètres : 
+
+- Cette url n'accepte aucun paramètre
+
 Url :`[GET] app/catalogue/articles/{guid:guid}/data`
 
 Paramètres : 
 
-- **guid** (Guid) : L'identifiant Guid du produit à obtenir
+- **guid** (System.Guid) : L'identifiant Guid du produit à obtenir
 
 Url :`[POST] app/catalogue/articles/data`
 
@@ -28,49 +34,49 @@ Type(s) de données :
 class ArticlePhygitalDetail
 {
 	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ArticleReference[] AutresReferences { get; set; }
-	EmplacementMagasin EmplacementStockMagasin { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.EmplacementMagasin EmplacementStockMagasin { get; set; }
 	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ArticlePhygitalLot[] Lots { get; set; }
-	ArticlePhygitalDimensions Dimensions { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ArticlePhygitalDimensions Dimensions { get; set; }
 	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ArticlePhygitalTaxe[] Taxes { get; set; }
-	ArticlePhygitalBase Parent { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ArticlePhygitalBase Parent { get; set; }
 	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ArticleDispoDigiSign[] Disponibilites { get; set; }
-	ArticlePhygitalVersion[] Instances { get; set; }
-	String[] Documents { get; set; }
-	String[] Videos { get; set; }
-	ArticleImage[] MoreImages { get; set; }
-	String[] Labels { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ArticlePhygitalVersion[] Instances { get; set; }
+	System.String[] Documents { get; set; }
+	System.String[] Videos { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ArticleImage[] MoreImages { get; set; }
+	System.String[] Labels { get; set; }
 	Dictionary<System.String,System.String> Attributs { get; set; }
 	Dictionary<System.String,System.String> AttributsPrives { get; set; }
-	String[] LogosUrls { get; set; }
+	System.String[] LogosUrls { get; set; }
 	Dictionary<System.String,CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ArticlePhygitalAssocie[]> ArticlesAssocies { get; set; }
-	ArticlePhygitalBase[] SuggestionsAuto { get; set; }
-	ServicesComplementaires[] Services { get; set; }
-	AvisClient[] Avis { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ArticlePhygitalBase[] SuggestionsAuto { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ServicesComplementaires[] Services { get; set; }
+	CPointSoftware.Equihira.Common.AvisClient[] Avis { get; set; }
 	string Url { get; set; }
 	string OriginalImageUrl { get; set; }
-	ArticlePhygitalLogistiqueSpecificites LogistiqueSpecificites { get; set; }
-	InfosMarketPlace MarketPlace { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ArticlePhygitalLogistiqueSpecificites LogistiqueSpecificites { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.InfosMarketPlace MarketPlace { get; set; }
 	decimal? AvisNote { get; set; }
 	bool EstEnPromo { get; set; }
 	decimal? PctRemise { get; set; }
-	Guid[] AllTags { get; set; }
+	System.Guid[] AllTags { get; set; }
 	string UrlExterne { get; set; }
 	string IntermediateImage { get; set; }
 	string Marque { get; set; }
 	decimal? SegmentationPrincipalePk { get; set; }
 	string MainImage { get; set; }
 	string SmallImage { get; set; }
-	Object MainImageObject { get; set; }
+	System.Object MainImageObject { get; set; }
 	string Tag { get; set; }
 	bool DisponibleCommande { get; set; }
 	bool DisponibleCentrale { get; set; }
 	bool DisponibleMagasin { get; set; }
-	TypeStock TypeStockage { get; set; }
+	CPointSoftware.Equihira.Common.TypeStock TypeStockage { get; set; }
 	bool EstImmateriel { get; }
 	bool EstArchive { get; set; }
 	bool EstLivrable { get; set; }
 	long ID { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	decimal PuHT { get; set; }
 	decimal PuTTC { get; set; }
 	decimal PuTVA { get; }
@@ -97,7 +103,7 @@ class ArticlePhygitalDetail
 	int EtatCreation { get; set; }
 	decimal? PuConseilleHT { get; set; }
 	decimal? PuConseilleTTC { get; set; }
-	MetaTypeArticle MetaType { get; set; }
+	CPointSoftware.Equihira.Common.MetaTypeArticle MetaType { get; set; }
 	bool PromoDefinie { get; }
 	int ScoreRisque { get; set; }
 }
@@ -147,24 +153,24 @@ class ArticlePhygitalBase
 	decimal? AvisNote { get; set; }
 	bool EstEnPromo { get; set; }
 	decimal? PctRemise { get; set; }
-	Guid[] AllTags { get; set; }
+	System.Guid[] AllTags { get; set; }
 	string UrlExterne { get; set; }
 	string IntermediateImage { get; set; }
 	string Marque { get; set; }
 	decimal? SegmentationPrincipalePk { get; set; }
 	string MainImage { get; set; }
 	string SmallImage { get; set; }
-	Object MainImageObject { get; set; }
+	System.Object MainImageObject { get; set; }
 	string Tag { get; set; }
 	bool DisponibleCommande { get; set; }
 	bool DisponibleCentrale { get; set; }
 	bool DisponibleMagasin { get; set; }
-	TypeStock TypeStockage { get; set; }
+	CPointSoftware.Equihira.Common.TypeStock TypeStockage { get; set; }
 	bool EstImmateriel { get; }
 	bool EstArchive { get; set; }
 	bool EstLivrable { get; set; }
 	long ID { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	decimal PuHT { get; set; }
 	decimal PuTTC { get; set; }
 	decimal PuTVA { get; }
@@ -191,7 +197,7 @@ class ArticlePhygitalBase
 	int EtatCreation { get; set; }
 	decimal? PuConseilleHT { get; set; }
 	decimal? PuConseilleTTC { get; set; }
-	MetaTypeArticle MetaType { get; set; }
+	CPointSoftware.Equihira.Common.MetaTypeArticle MetaType { get; set; }
 	bool PromoDefinie { get; }
 	int ScoreRisque { get; set; }
 }
@@ -234,24 +240,24 @@ class ArticlePhygitalVersion
 	decimal? AvisNote { get; set; }
 	bool EstEnPromo { get; set; }
 	decimal? PctRemise { get; set; }
-	Guid[] AllTags { get; set; }
+	System.Guid[] AllTags { get; set; }
 	string UrlExterne { get; set; }
 	string IntermediateImage { get; set; }
 	string Marque { get; set; }
 	decimal? SegmentationPrincipalePk { get; set; }
 	string MainImage { get; set; }
 	string SmallImage { get; set; }
-	Object MainImageObject { get; set; }
+	System.Object MainImageObject { get; set; }
 	string Tag { get; set; }
 	bool DisponibleCommande { get; set; }
 	bool DisponibleCentrale { get; set; }
 	bool DisponibleMagasin { get; set; }
-	TypeStock TypeStockage { get; set; }
+	CPointSoftware.Equihira.Common.TypeStock TypeStockage { get; set; }
 	bool EstImmateriel { get; }
 	bool EstArchive { get; set; }
 	bool EstLivrable { get; set; }
 	long ID { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	decimal PuHT { get; set; }
 	decimal PuTTC { get; set; }
 	decimal PuTVA { get; }
@@ -278,7 +284,7 @@ class ArticlePhygitalVersion
 	int EtatCreation { get; set; }
 	decimal? PuConseilleHT { get; set; }
 	decimal? PuConseilleTTC { get; set; }
-	MetaTypeArticle MetaType { get; set; }
+	CPointSoftware.Equihira.Common.MetaTypeArticle MetaType { get; set; }
 	bool PromoDefinie { get; }
 	int ScoreRisque { get; set; }
 }
@@ -297,24 +303,24 @@ class ArticlePhygitalAssocie
 	decimal? AvisNote { get; set; }
 	bool EstEnPromo { get; set; }
 	decimal? PctRemise { get; set; }
-	Guid[] AllTags { get; set; }
+	System.Guid[] AllTags { get; set; }
 	string UrlExterne { get; set; }
 	string IntermediateImage { get; set; }
 	string Marque { get; set; }
 	decimal? SegmentationPrincipalePk { get; set; }
 	string MainImage { get; set; }
 	string SmallImage { get; set; }
-	Object MainImageObject { get; set; }
+	System.Object MainImageObject { get; set; }
 	string Tag { get; set; }
 	bool DisponibleCommande { get; set; }
 	bool DisponibleCentrale { get; set; }
 	bool DisponibleMagasin { get; set; }
-	TypeStock TypeStockage { get; set; }
+	CPointSoftware.Equihira.Common.TypeStock TypeStockage { get; set; }
 	bool EstImmateriel { get; }
 	bool EstArchive { get; set; }
 	bool EstLivrable { get; set; }
 	long ID { get; set; }
-	Guid Guid { get; set; }
+	System.Guid Guid { get; set; }
 	decimal PuHT { get; set; }
 	decimal PuTTC { get; set; }
 	decimal PuTVA { get; }
@@ -341,7 +347,7 @@ class ArticlePhygitalAssocie
 	int EtatCreation { get; set; }
 	decimal? PuConseilleHT { get; set; }
 	decimal? PuConseilleTTC { get; set; }
-	MetaTypeArticle MetaType { get; set; }
+	CPointSoftware.Equihira.Common.MetaTypeArticle MetaType { get; set; }
 	bool PromoDefinie { get; }
 	int ScoreRisque { get; set; }
 }
@@ -357,8 +363,8 @@ class ServicesComplementaires
 
 class AvisClient
 {
-	Guid Guid { get; set; }
-	Guid ArticleGuid { get; set; }
+	System.Guid Guid { get; set; }
+	System.Guid ArticleGuid { get; set; }
 	string Nom { get; set; }
 	string Message { get; set; }
 	Guid? ClientGuid { get; set; }
@@ -377,8 +383,8 @@ class ArticlePhygitalLogistiqueSpecificites
 
 class InfosMarketPlace
 {
-	ArticleMarketPlace VendeurPrincipal { get; set; }
-	ArticleMarketPlace[] VendeursSecondaires { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ArticleMarketPlace VendeurPrincipal { get; set; }
+	CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ArticleMarketPlace[] VendeursSecondaires { get; set; }
 }
 
 class ArticleMarketPlace

@@ -2,11 +2,11 @@
 
 Archive une campagne
 
-Url :`[DELETE] ?guid={guid:Guid}`
+Url :`[DELETE] ?guid={guid:System.Guid}`
 
 Paramètres : 
 
-- **guid** (Guid)
+- **guid** (System.Guid)
 
 Type de retour : `bool`
 
