@@ -27,3 +27,4 @@ En cas d'erreur, le point API vous renverra :
 |405|Le bon de préparation est dans un état ne permettant pas cette modification|
 |409|Le bon de préparation a déjà été terminé|
 |422|Les données sont incohérentes (vous avez par exemple déclaré une expédition de plus de produits que contenu dans le bon de préparation)|
+

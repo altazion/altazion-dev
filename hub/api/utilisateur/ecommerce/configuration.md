@@ -8,3 +8,4 @@
 
 [!include[obtenirsite](configuration.obtenirsite.autogen.md)]
 
+
