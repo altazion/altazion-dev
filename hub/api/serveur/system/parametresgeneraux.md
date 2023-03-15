@@ -23,3 +23,4 @@
 [!include[obtenirprestaspaiements](parametresgeneraux.obtenirprestaspaiements.autogen.md)]
 
 
+

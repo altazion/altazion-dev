@@ -71,3 +71,4 @@
 [!include[validerordretransfertstock](stocks.validerordretransfertstock.autogen.md)]
 
 
+
