@@ -4,5 +4,7 @@
 
 <a class='see-also' href='commmandes.html'><span class='title'>Commmandes</span></a>
 
+<a class='see-also' href='erp.html'><span class='title'>ERP</span></a>
+
 <a class='see-also' href='reglements.html'><span class='title'>Règlements</span></a>
 

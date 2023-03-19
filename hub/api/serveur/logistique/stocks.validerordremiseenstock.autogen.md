@@ -27,3 +27,7 @@ class ResultatOperation
 }
 
 ```
+
+Exception(s) :
+
+- **400** : La validation n'a pas pu être réalisée
