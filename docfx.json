@@ -18,6 +18,7 @@
           ,"CNAME"
           ,"index.html"
           ,"**/images/**"
+          ,"**/apis/**"
           ,"**.jpg"
           ,"**.jpeg"
           ,"**.png"
