@@ -32,3 +32,20 @@
       href: shipping/index.md
 - name: Stock unifié
   href: stock/index.md
+- name: Module ShipFromStore (SFS)
+  items:
+    - name: Présentation du module
+      href: sfsmodule/presentationmodule.md
+    - name: Raisons juridiques et configuration du module 
+      href: sfsmodule/raisonjuridiqueetconfig.md
+    - name: Sécurisation du module
+      href: sfsmodule/securisationmodule.md
+    - name: Règles métiers
+      href: sfsmodule/reglesmetier.md
+    - name: Cycle de vie des données
+      href: sfsmodule/cycledeviedonnees.md
+    - name: Utiliser les fonctionnalités du module
+      href: sfsmodule/utiliserfonctionnalitesmodule.md
+    - name: Cas utilisation typique
+      href: sfsmodule/casutilisation.md
+
