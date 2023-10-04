@@ -7,11 +7,11 @@ Le module ShipFromStore intervient dans le cadre du commerce unifié et permet a
 De cette façon, le module ShipFromStore permet par exemple d'expédier une partie d'une commande depuis un entrepôt et une autre depuis un ou plusieurs magasins. Le but étant de minimiser le nombre d'envois tout en répondant à d'autres critères tel que minimiser la distance entre les expéditeurs et le client.
 
 Pour ce faire, le module permet entre autres de :
--Gérer les articles et leur stock
--Gérer les origines de stocks
--Gérer les commandes et paniers
--Obtenir le détail des disponibilités d'un article ainsi que la quantité maximum commandable
--Obtenir la répartition optimale d'un panier/d'une commande à affecter aux différentes origines de stocks
+- Gérer les articles et leur stock
+- Gérer les origines de stocks
+- Gérer les commandes et paniers
+- Obtenir le détail des disponibilités d'un article ainsi que la quantité maximum commandable
+- Obtenir la répartition optimale d'un panier/d'une commande à affecter aux différentes origines de stocks
 
 Le module se présente sous forme d’un serveur API à déployer dans votre solution. Il a vocation à être appelé par vos composants (site e-commerce, système de gestion de commande, etc..).
 
