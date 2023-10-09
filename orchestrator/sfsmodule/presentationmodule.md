@@ -17,7 +17,7 @@ Le module se présente sous forme d’un serveur API à déployer dans votre sol
 
 Il a vocation à s'intégrer dans votre environnement de cette façon :
 
-![Intégration Store Server](img/IntegrationStoreServer.png)
+![Intégration SFS](img/IntegrationSFS.png)
 
 ## Système de log et contrôle de la verbosité
 Le module SFS dispose d’un système complet de log utilisant Datadog, un service de surveillance d’infrastructure qui est hébergé dans le cloud.
