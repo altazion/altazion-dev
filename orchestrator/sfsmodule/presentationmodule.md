@@ -70,3 +70,4 @@ Actuellement, le module remonte les statistiques suivantes :
 - Le nombre d’interrogations de calcul de la répartition d'un panier résultant à une répartition possible ("cart.distribution_found_counter")
 - Le nombre d’interrogations de calcul de la répartition d'un panier sans répartition possible ("cart.distribution_not_found_counter")
 - Un histogramme sur le temps d'exécution du calcul de répartition d'un panier ("cart.api_request_duration")
+- Le nombre de paniers comportant du stock ignoré dans un StockOrigin car un autre panier l'a reservé.
