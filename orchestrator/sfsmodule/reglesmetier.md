@@ -22,7 +22,9 @@ Il est possible de vérifier la saturation d'un StockOrigin via le point API sui
 
 __POST : {tenantId}/stock_origins/code/{code}/saturation__
 
-Ce point est disponible dans la partie StockOrigins du swagger :
+Ce dernier peut être utile si vous remarquez qu'un StockOrigin ne peux plus prendre de commandes ou pour obtenir des informations générales sur l'état de son activité.
+
+Le point est disponible dans la partie StockOrigins du swagger :
 
 ![SwaggerUI du point API de saturation](img/SaturationSwaggerUI.png)
 
@@ -32,6 +34,4 @@ Voici un exemple avec le StockOrigin FRA:WEB:CENTRALE :
 
 ![Réponse du point API de saturation](img/SaturationResponse.png)
 
-À la lecture des données de réponse, on constate que le StockOrigin n'est pas saturé car sa saturation est de 3.01%. Sa capacité maximum est de 100 000 points parmis lesquels 3012 points de capacité sont utilisées par 102 paniers (102 points car un panier vaut 1 point) et 582 commandes (2910 car une commande vaut 5 points). Sa capacité restante est de 96988 points (100 000 - 3012).
-
-Ce point API peut être utile si vous remarquez qu'un StockOrigin ne peux plus prendre de commandes ou pour obtenir des informations générales sur l'état de son activité.
+À la lecture des données de réponse, on constate que le StockOrigin n'est pas saturé et que sa saturation est de 3.01%. Sa capacité maximum est de 100 000 points parmis lesquels 3012 points de capacité sont utilisés par 102 paniers (102 points car un panier vaut 1 point) et 582 commandes (2910 points car une commande vaut 5 points). Sa capacité restante est de 96988 points (100 000 - 3012).
