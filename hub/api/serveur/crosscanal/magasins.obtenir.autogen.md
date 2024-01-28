@@ -2,13 +2,13 @@
 
 Récupère les évènements Cross Canaux non archivés
 
-Url :`[GET] app/parametres/magasins/{code}`
+Url :`[GET] app/magasins/{code}`
 
 Paramètres : 
 
 - **code** (string) : Le code du magasin
 
-Url :`[GET] app/parametres/magasins/{guid:Guid}`
+Url :`[GET] app/magasins/{guid:Guid}`
 
 Paramètres : 
 

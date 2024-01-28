@@ -230,6 +230,7 @@ class ArticleDispoDigiSign
 	bool EstDisponible { get; set; }
 	string Commentaire { get; set; }
 	decimal? Stock { get; set; }
+	System.Double? Distance { get; set; }
 }
 
 class ArticlePhygitalVersion

@@ -51,6 +51,8 @@ class SiteWebData
 	Guid? ThemeGuid { get; set; }
 	bool UtiliseMobilePages { get; set; }
 	string MobileTheme { get; set; }
+	Guid? WebSourceApproGuid { get; set; }
+	Guid? MagasinSourceApproGuid { get; set; }
 }
 
 class SiteUrlChange

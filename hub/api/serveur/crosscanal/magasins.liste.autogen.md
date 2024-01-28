@@ -2,7 +2,7 @@
 
 Récupère la liste des magasins non archivés.
 
-Url :`[GET] app/parametres/magasins?uniquementCrossCanal={uniquementCrossCanal:bool}`
+Url :`[GET] app/magasins?uniquementCrossCanal={uniquementCrossCanal:bool}`
 
 Paramètres : 
 

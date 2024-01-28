@@ -2,7 +2,7 @@
 
 Récupère la liste des magasins à proximité.
 
-Url :`[GET] app/parametres/magasins/recherche/{pay_pk}/{zip}`
+Url :`[GET] app/magasins/recherche/{pay_pk}/{zip}`
 
 Paramètres : 
 

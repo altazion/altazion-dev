@@ -22,6 +22,7 @@ class DeviceData
 	Guid? StoreGuid { get; set; }
 	CPointSoftware.Equihira.Business.PointOfSale.PosteTypeEcran Kind { get; set; }
 	string DeviceCode { get; set; }
+	int RjsId { get; set; }
 }
 
 enum PosteTypeEcran

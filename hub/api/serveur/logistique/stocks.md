@@ -117,3 +117,16 @@
 
 
 
+
+[!include[ajouterstockretire](stocks.ajouterstockretire.autogen.md)]
+
+[!include[obtenirstockretiresarticle](stocks.obtenirstockretiresarticle.autogen.md)]
+
+[!include[obtenirstockretiresarticlemagasin](stocks.obtenirstockretiresarticlemagasin.autogen.md)]
+
+[!include[obtenirstockretiresmagasin](stocks.obtenirstockretiresmagasin.autogen.md)]
+
+[!include[supprimerstockretire](stocks.supprimerstockretire.autogen.md)]
+
+[!include[supprimerstockretiremagasinarticle](stocks.supprimerstockretiremagasinarticle.autogen.md)]
+

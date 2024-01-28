@@ -2,10 +2,18 @@
 
 Récupère le stock d'un ensemble de produits dans tous les magasins.
 
+Url :`[POST] app/crosscanal/stocks/dispos/guids`
+
+Paramètres : 
+
+- en tant que body, un objet Guid[] : La liste des guids à vérifier
+- en tant que body, un objet String[] : La liste des références à vérifier
+
 Url :`[POST] app/crosscanal/stocks/dispos`
 
 Paramètres : 
 
+- en tant que body, un objet Guid[] : La liste des guids à vérifier
 - en tant que body, un objet String[] : La liste des références à vérifier
 
 Type de retour : `RechercheStockMagasins[]`

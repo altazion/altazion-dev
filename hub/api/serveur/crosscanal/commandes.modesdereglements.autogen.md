@@ -45,6 +45,7 @@ enum TypeReglement
 	TitreRestaurant, // =15
 	TitreVacances, // =16
 	Prelevement, // =17
+	CartesCadeaux, // =18
 }
 
 class ModeReglementDetail
