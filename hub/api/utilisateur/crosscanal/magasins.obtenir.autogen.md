@@ -8,6 +8,20 @@ Paramètres :
 
 - **code** (string) : Le code du magasin
 
+Url :`[GET] api/parametres/magasins/storeserver/{code}`
+
+Paramètres : 
+
+- **code** (string) : Le code du magasin
+
+Url :`[GET] api/magasins/coordonnees?typeMagasin={typeMagasin:string}&payPk={payPk:string}&codePostal={codePostal:string}`
+
+Paramètres : 
+
+- **typeMagasin** (string)
+- **payPk** (string)
+- **codePostal** (string)
+
 Url :`[GET] api/magasins/{guid:Guid}`
 
 Paramètres : 
@@ -50,6 +64,30 @@ class MagasinInfo
 	string Email { get; set; }
 	string Pays { get; set; }
 	bool ActifPourCrossCanal { get; set; }
+}
+
+class MagasinStoreServer
+{
+	System.Guid Guid { get; set; }
+	int RjsId { get; set; }
+	string Libelle { get; set; }
+	string Code { get; set; }
+	string CodePostal { get; set; }
+	string Adresse { get; set; }
+	string Ville { get; set; }
+}
+
+class MagasinCoordonnees
+{
+	System.Guid Guid { get; set; }
+	string Libelle { get; set; }
+	string Adresse { get; set; }
+	string CodePostal { get; set; }
+	string Ville { get; set; }
+	string CodePays { get; set; }
+	string Telephone { get; set; }
+	string CodeMagasin { get; set; }
+	string EmailMagasin { get; set; }
 }
 
 class MagasinBase
