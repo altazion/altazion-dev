@@ -131,3 +131,4 @@
 [!include[supprimerstockretiremagasinarticle](stocks.supprimerstockretiremagasinarticle.autogen.md)]
 
 
+
