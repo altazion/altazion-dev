@@ -96,3 +96,4 @@
 [!include[recuperer](magasins.recuperer.autogen.md)]
 
 
+
