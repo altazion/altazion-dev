@@ -32,7 +32,7 @@
       href: shipping/index.md
 - name: Stock unifié
   href: stock/index.md
-- name: Module ShipFromStore (SFS)
+- name: Module Delivery Optimizer (DO)
   items:
     - name: Présentation du module
       href: sfsmodule/presentationmodule.md
