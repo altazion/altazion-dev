@@ -7,26 +7,26 @@ __POST : {tenantId}/stocks__
 Cette fonction permet de connaître le détail des stocks disponibles pour un article dans tous les emplacements. Seuls sont comptabilisés les stocks supérieurs à 0 des emplacements participants au DO n'étant pas saturés. Dans le cas d'articles DO avec des limitations de stocks (ou le champ Article. ForcedOrigins contient 1 ou plusieurs codes de StockOrigins), seuls ces emplacements sont comptabilisés. Un objet de type StockQuery contenant les détails de la recherche à effectuer doit être fourni ainsi que le tenantId.
 
 L'objet StockQuery permet de limiter la recherche des stocks à certains emplacements :
-- En fournissant la liste des codes d'emplacements où comptabiliser le stock dans ShipFrom (Exemple : ["FRA:FRN:EVIAN", "FRA:MAG:0001"]
+- En fournissant la liste des codes d'emplacements où comptabiliser le stock dans ShipFrom (Exemple : ["FRA:FRN:EVIAN", "FRA:MAG:0001"])
 - En fournissant le préfix des emplacements où comptabiliser le stock dans Prefix (Exemple : "FRA")
 
 En retour la fonction va renvoyer un objet de type StockResponse.
 
 À noter que StockResponse.MaxQuantity.MaxOrderable peut varier en fonction de la configuration du module DO du tenant. Le champs SFSConfig.MaxOrderableType associé au tenant défini le comportement à adopter par l'algorithme.
 
-## Traitement du panier et détermination par l'algorithme de la meilleure répartition d'expédition
+## Traitement du panier et détermination par l'algorithme de la meilleure répartition d'expéditions
 
 __POST : {tenantId}/cart__
 
 ### Fonctionnement de l'algorithme
 
-Cette fonction reçoit un objet de type Cart (un panier d'articles, en format JSON passé dans le body de la requête) et détermine la meilleure répartition d'expédition pour ce panier. Comme pour les autres objets d'entrées et de sorties du DO, son schéma détaillé est disponible dans le swagger du module.
+Cette fonction reçoit un objet de type Cart (un panier d'articles, en format JSON passé dans le body de la requête) et détermine la meilleure répartition d'expéditions pour ce panier. Comme pour les autres objets d'entrées et de sorties du DO, son schéma détaillé est disponible dans le swagger du module.
 
-Pour commencer, différents traitements s'exécutent afin de déterminer par quelles origines de stocks chacuns des articles contenus dans l'objet Cart peuvent être expédié. Si un ou plusieurs article ne peut être expédié par aucune origine de stock à la fin de tous les traitements, alors le panier est considéré comme non expédiable et le calcul de la répartition ne peut pas avoir lieux. Les lignes panier non expédiables sont renvoyés dans la liste SFSResponse.NonShippable. 
+Pour commencer, différents traitements s'exécutent afin de déterminer par quelles origines de stocks chacuns des articles contenus dans l'objet Cart peuvent être expédiés. Si un ou plusieurs article ne peut être expédié par aucune origine de stock à la fin de tous les traitements, alors le panier est considéré comme non expédiable et le calcul de la répartition ne peut pas avoir lieux. Les lignes panier non expédiables sont renvoyés dans la liste SFSResponse.NonShippable. 
 
 Si le Cart en entrée possède le champ ExcludeSplitComputation positionné à true (dans le cas où l'on souhaite juste savoir si tout le panier est expédiable) alors le calcul de répartition n'est pas effectué.
 
-Autrement, une fois toutes les possibilités d'envois récupérées un algorithme génère toutes les combinaisons de répartitions possibles. Afin de choisir la répartition proposant les envois les plus pertinents on applique ensuite une liste de critères de tri.
+Autrement, une fois toutes les possibilités d'envois récupérées l'algorithme génère les combinaisons de répartitions possibles. Afin de choisir la répartition proposant les envois les plus pertinents on applique ensuite une liste de critères de tri.
 
 Actuellement les critères sont les suivants par ordre d'importance :
 - Le minimum d'expéditions possibles
@@ -39,7 +39,7 @@ Une fois ce tri réalisé l'algorithme sélectionne la répartition la plus pert
 
 L'objet Cart permet également de limiter le calcul de répartitions à certaines origines de stocks :
 
-- En fournissant la liste des codes de StockOrigins où comptabiliser le stock dans ShipFrom (Exemple : ["FRA:FRN:EVIAN", "FRA:MAG:0001"]. De cette façon, seul ces deux origines de stocks seront retenus pour le calcul de répartitions, les autres seront ignorés.
+- En fournissant la liste des codes de StockOrigins où comptabiliser le stock dans ShipFrom (Exemple : ["FRA:FRN:EVIAN", "FRA:MAG:0001"]). De cette façon, seul ces deux origines de stocks seront retenues pour le calcul de répartitions, les autres seront ignorés.
 - En fournissant le préfix des emplacements où comptabiliser le stock dans Prefix (Exemple : "FRA" ou "FRA:MAG"). Dans le cas où l'on renseigne le préfix avec "FRA" par exemple, seuls les origines de stocks françaises seront retenues pour le calcul de répartitions. Si l'on renseigne "FRA:MAG", cette fois, seuls les magasins français seront retenus pour le calcul de répartions.
 
 ### Ajout de détails pour simplifié le débogage et l'intégration du calcul de répartitions
@@ -75,6 +75,7 @@ Lorsqu'une expédition est effectuée par un emplacement il est nécessaire de s
 Il est également judicieux d'utiliser cette méthode pour supprimer une commande de type e-resa (avec retrait en magasin) puisse que l'intégralité de la commande est expédiée par un emplacement magasin dont on connait le code.
 
 La méthode renvoie un booléen pour indiquer le succès de l'opération.
+
 ## Récupération d'une commande par son Id
 
 __GET : {tenantId}/order/{orderId}__

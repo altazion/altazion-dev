@@ -6,8 +6,10 @@ Les sources d’approvisionnement disponibles dans les outils OMS d’Altazion p
 
 La gestion des données nécessite le droit OMS.
 
-Il existe de nombreux points API couvrant les besoins en CRUD des StockOrigins et Articles dont les fonctions sont détaillées dans le swagger. Toutefois les points expliqués ci-dessous sont les plus importants à implémenter pour garantir le fonctionnement du module :
+Il existe de nombreux points API couvrant les besoins en CRUD des StockOrigins et Articles dont les fonctions sont détaillées dans le swagger. Toutefois les points expliqués ci-dessous sont les plus importants à implémenter pour garantir le fonctionnement du module.
+
 ## Import total des StockOrigins et des Articles dans le module
+
 Ces points API sont la principale source de données du module DO et sont indispensables à son bon fonctionnement. Cet import a pour effet d’exécuter une transaction supprimant toutes les données de la raison juridique concernée avant d’insérer les nouvelles données passées en format JSON.
 
 Il est recommandé :
@@ -28,6 +30,7 @@ __POST : {tenantId}/articles/importfull__
 Ce point API permet l'import des articles dans la base via un tableau d'objets Article passé dans le body en format JSON.
 
 ## Upsert des StockOrigins et des Articles dans le module
+
 En complément des imports totaux qui nettoient la base avant d’insérer les données importées, il est possible de pousser des fichiers de mise à jour des Articles et StockOrigins. Ces points API servent à mettre à jour les éléments déjà en base et à ajouter ceux contenu dans le JSON qui ne s’y trouvaient pas auparavant (upsert).
 
 Les sources d’approvisionnement disponibles dans les outils OMS d’Altazion permettent d’automatiser la procédure lorsque des deltas de stocks sont reçus.

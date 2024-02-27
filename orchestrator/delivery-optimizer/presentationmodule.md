@@ -1,7 +1,6 @@
 # Présentation du module
 
 ## Généralités
-
 Le module Delivery Optimizer (DO) intervient dans le cadre du commerce unifié et permet aux origines de stocks (magasins, fournisseurs, stock propre, etc..) participantes d'expédier des articles aux clients finaux depuis leurs stocks. Ceci permet de disposer de stocks totaux plus importants ainsi que des possibilités d'expéditions plus intéressantes.
 
 De cette façon, Delivery Optimizer permet par exemple d'expédier une partie d'une commande depuis un entrepôt et une autre depuis un ou plusieurs magasins. Le but étant de minimiser le nombre d'envois tout en répondant à d'autres critères tel que minimiser la distance entre les expéditeurs et le client.
@@ -15,9 +14,9 @@ Pour ce faire, le module permet entre autres de :
 
 Le module se présente sous forme d’un serveur API à déployer dans votre solution et à appeler par les autres composants de votre système d'information (site e-commerce, système de gestion de commande, etc..).
 
-Il a vocation à s'intégrer dans votre environnement de cette façon :
+Il a vocation à s'intégrer dans le reste de la solution Altazion de cette façon :
 
-![Intégration Delivery Optimizer](img/IntegrationSFS.png)
+![Intégration Delivery Optimizer](img/IntegrationDO.png)
 
 ## Notion de d'origines de stocks (StockOrigins)
 
@@ -55,7 +54,7 @@ La connexion à la base Mongo se fait grâce aux deux variables d’environnemen
 ## Déploiement
 Le module Altazion Delivery Optimizer est distribué sous forme d’un container Docker et peut ainsi être déployé facilement sur tous les environnements compatibles. Il expose le port 8080 par défaut. Pour vérifier son bon déploiement il est possible de se rendre sur l’URL du module qui devrait renvoyer la page suivante.
 
-![Page d'accueil Module DO](img/SFSModuleWelcomePage.png)
+![Page d'accueil Module DO](img/DOWelcomePage.png)
 
 À partir de là, il est possible de cliquer sur les boutons de la section « Tools » afin de se rendre sur les pages correspondantes.
 

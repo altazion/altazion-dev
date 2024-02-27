@@ -20,6 +20,6 @@ __PUT : {tenantId}/sfs-config__
 
 ![Point API Swagger de config du module DO](img/SwaggerSfsConfig.png)
 
-Pour utiliser ce point il est nécessaire de passer un objet de type SFSConfig dans le body de la requête. Comme tous les autres points API, il est détaillé dans le swagger du module.
+Pour utiliser ce point il est nécessaire de passer un objet de type SFSConfig dans le body de la requête. Comme tous les autres points API, l'objet est détaillé dans le swagger du module.
 
 ![Detail de l'objet SFSConfig](img/DetailSfsConfig.png)
