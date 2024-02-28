@@ -33,7 +33,7 @@ Ce point API permet l'import des articles dans la base via un tableau d'objets A
 
 En complément des imports totaux qui nettoient la base avant d’insérer les données importées, il est possible de pousser des fichiers de mise à jour des Articles et StockOrigins. Ces points API servent à mettre à jour les éléments déjà en base et à ajouter ceux contenu dans le JSON qui ne s’y trouvaient pas auparavant (upsert).
 
-Les sources d’approvisionnement disponibles dans les outils OMS d’Altazion permettent d’automatiser la procédure lorsque des deltas de stocks sont reçus.
+Le produit Altazion OMS Unified Stock permettent d’automatiser la procédure lorsque des deltas de stocks sont reçus.
 
 __PUT : {tenantId}/stock-origins__
 

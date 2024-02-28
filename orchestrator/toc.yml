@@ -44,8 +44,12 @@
       href: delivery-optimizer/reglesmetier.md
     - name: Cycle de vie des données
       href: delivery-optimizer/cycledeviedonnees.md
-    - name: Utiliser les fonctionnalités du module
-      href: delivery-optimizer/utiliserfonctionnalitesmodule.md
+    - name: Récupération des stocks
+      href: delivery-optimizer/stocks.md
+    - name: Répartition d'expéditions
+      href: delivery-optimizer/repartition.md
+    - name: Gestion des commandes
+      href: delivery-optimizer/commandes.md
     - name: Cas utilisation typique
       href: delivery-optimizer/casutilisation.md
 

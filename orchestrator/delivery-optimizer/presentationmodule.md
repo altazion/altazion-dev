@@ -42,7 +42,7 @@ Pour le configurer vous aurez besoin de fournir les variables d’environnements
 
 Le système de log du module DO possède deux niveaux de verbosité, normal et full. Le mode normal activé par défaut ne log que les informations relatives aux opérations d'écritures (ajout d'une commande, import d’Articles ou de StockOrigins, etc..). Le mode full log également les informations relatives aux actions de lecture (calcul des stocks, lecture en base, etc..) et est activé si la variable d'environnement DATADOG_FULL_VERBOSITY est présente et positionnée à "true".
 
-Dans tous les cas, l’intégralité des logs est affiché dans la console du module.
+Dans tous les cas, l’intégralité des logs est affichée dans la console du module.
 
 ## Base de données Mongo
 Le module est prévu pour fonctionner avec une base de données Mongo en version 4.2 ou supérieur compatible avec les notions de replica sets et de sharded clusters.
