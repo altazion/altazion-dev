@@ -82,6 +82,7 @@ L'objet de réponse __SFSResponse__ se présente de la façon suivante :
 }
 ```
 
+
 ## Limitation des envois à certaines origines de stocks
 
 L'objet Cart permet également de limiter le calcul de répartitions à certaines origines de stocks :
@@ -97,4 +98,6 @@ Simuler une commande peut être utile si cette dernière possède des contrainte
 
 ## Ajout de détails pour simplifier le débogage et l'intégration du calcul de répartitions
 
-Si l'objet __Cart__ en entrée possède le champ __isDebug__ à true, l'algorithme va également fournir les 5 meilleures expéditions suivantes résultant au même nombre d'expéditions. Elles seront renvoyées dans la liste __SFSResponse.nextReps__. Un dictionnaire contenant le détail des stocks disponibles des articles du panier pour chaque origine de stocks est également fourni. Il est déconseillé de laisser ce champ à true en production.
+Si l'objet __Cart__ en entrée possède le champ __isDebug__ à true, l'algorithme va également fournir les 5 meilleures expéditions suivantes résultant au même nombre d'expéditions. Elles seront renvoyées dans la liste __SFSResponse.otherSuggestedShipments__. Un dictionnaire contenant le détail des stocks disponibles des articles du panier pour chaque origine de stocks est également fourni.
+
+__Pour des question de performance, il est déconseillé de laisser ce champ à true en production.__

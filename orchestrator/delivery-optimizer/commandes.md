@@ -4,9 +4,11 @@
 
 __POST : {tenantId}/order__
 
-Cette fonction reçoit un objet de type __Order__ et l'ajoute en base si elle n'existe pas ou la modifie si elle existe en patchant les __Articles__ et __StockOrigins__ concernés.
+Cette fonction reçoit un objet de type __Order__ (en format JSON dans le body de la requête) et l'ajoute en base si elle n'existe pas ou la __redéfini entièrement__ si elle existe en patchant les __Articles__ et __StockOrigins__ concernés.
 
 ### Exemple d'appel API
+
+L'exemple ci-dessous décrit l'objet __Order__ à passer dans le body et les champs qu'il contient. Tous les champs sont __obligatoires__
 
 ```json
 {
@@ -26,6 +28,12 @@ Cette fonction reçoit un objet de type __Order__ et l'ajoute en base si elle n'
   ]
 }
 ```
+Le champ __orderId__ contient le Guid de la commande et __type__ contient le type de commande (Order, Cart ou ExternalOrder).
+Le contenu de la commande se trouve dans le champ __details__. Il s'agit d'un tableau de __OrderDetail__ structuré comme ceci :
+ - __code__ qui correspond au code de l'origine de stock qui traitera l'article
+ - __artGuid__, l'identifiant unique de l'article à traiter
+ - __qty__, la quantité d'article à expédier
+
 
 ### Réponse du serveur
 
