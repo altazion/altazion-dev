@@ -1,11 +1,13 @@
-# Règles métier SFS
+# Règles métier Delivery Optimizer
+
 ## Notion de priorité
-Certains emplacements sont plus indiqués que d'autres pour expédier des commandes. C'est notamment le cas d'entrepôts spécialisés ou de grands magasins. Il est ainsi possible de définir un indice de priorité pour chaque emplacement afin d'encourager les expéditions depuis ces derniers.
+Certaines origines de stocks sont plus indiquées que d'autres pour expédier des commandes. C'est notamment le cas d'entrepôts spécialisés ou de grands magasins. Il est ainsi possible de définir un indice de priorité pour chaque emplacement afin d'encourager les expéditions depuis ces derniers.
 
 Dans le cas où vous utilisez les outils Altazion cette option est configurable depuis votre gestion commerciale.
 ## Notion de saturation
+
 ### Définition ###
-Lorsqu'un StockOrigin dispose déjà de beaucoup de commandes à traiter il peut être saturé. Chaque StockOrigin dispose d'une capacité de traitement (StockOrigin.MaxCapacity) qui lorsqu'elle est dépassée ne permet plus à l'emplacement d'accepter de nouvelles commandes (OrderType.Cart, OrderType.Order) et entraine son exclusion de l'algorithme de répartition.
+Lorsqu'un StockOrigin dispose déjà de beaucoup de commandes à traiter il peut être saturé. Chaque StockOrigin dispose d'une capacité de traitement (StockOrigin.MaxCapacity) qui lorsqu'elle est dépassée ne permet plus à l'origine de stocks d'accepter de nouvelles commandes (OrderType.Cart, OrderType.Order) et entraine son exclusion de l'algorithme de répartition.
 
 Les commandes et les paniers augmentent la saturation des StockOrigins de respectivement 5 et 1 point. Le nombre de PointsMax peut-être décidé en fonction de la nature du StockOrigin (magasin, fournisseur, entrepôt, etc..), ou encore sur d'autres critères telle que la taille ou la capacité logistique de traitement des commandes par exemple.
 

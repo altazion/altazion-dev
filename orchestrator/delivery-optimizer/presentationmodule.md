@@ -1,10 +1,9 @@
 # Présentation du module
 
 ## Généralités
+Le module Delivery Optimizer (DO) intervient dans le cadre du commerce unifié et permet aux origines de stocks (magasins, fournisseurs, stock propre, etc..) participantes d'expédier des articles aux clients finaux depuis leurs stocks. Ceci permet de disposer de stocks totaux plus importants ainsi que des possibilités d'expéditions plus intéressantes.
 
-Le module ShipFromStore intervient dans le cadre du commerce unifié et permet aux origines de stocks (magasins, fournisseurs, stock propre, etc..) participantes d'expédier des articles aux clients finaux depuis leurs stocks. Ceci permet de disposer de stocks totaux plus importants ainsi que des possibilités d'expéditions plus intéressantes.
-
-De cette façon, le module ShipFromStore permet par exemple d'expédier une partie d'une commande depuis un entrepôt et une autre depuis un ou plusieurs magasins. Le but étant de minimiser le nombre d'envois tout en répondant à d'autres critères tel que minimiser la distance entre les expéditeurs et le client.
+De cette façon, Delivery Optimizer permet par exemple d'expédier une partie d'une commande depuis un entrepôt et une autre depuis un ou plusieurs magasins. Le but étant de minimiser le nombre d'envois tout en répondant à d'autres critères tel que minimiser la distance entre les expéditeurs et le client.
 
 Pour ce faire, le module permet entre autres de :
 - Gérer les articles et leur stock
@@ -13,23 +12,37 @@ Pour ce faire, le module permet entre autres de :
 - Obtenir le détail des disponibilités d'un article ainsi que la quantité maximum commandable
 - Obtenir la répartition optimale d'un panier/d'une commande à affecter aux différentes origines de stocks
 
-Le module se présente sous forme d’un serveur API à déployer dans votre solution. Il a vocation à être appelé par vos composants (site e-commerce, système de gestion de commande, etc..).
+Le module se présente sous forme d’un serveur API à déployer dans votre solution et à appeler par les autres composants de votre système d'information (site e-commerce, système de gestion de commande, etc..).
 
-Il a vocation à s'intégrer dans votre environnement de cette façon :
+Il a vocation à s'intégrer dans le reste de la solution Altazion de cette façon :
 
-![Intégration SFS](img/IntegrationSFS.png)
+![Intégration Delivery Optimizer](img/IntegrationDO.png)
+
+## Notion de d'origines de stocks (StockOrigins)
+
+Les origines de stocks regroupe l'ensemble des entités pouvant participer à l'expédition de toute ou partie d'une commande. Les plus connues sont par exemple :
+ - Un magasin
+ - Un entrepot
+ - Un fournisseur
+
+Les origines de stocks sont identifiées par un code qui doit être unique. Altazion utilise la syntax suivante pour les codes :
+
+"{codePays}:{typeDeStockOrigin}:{identifiantStockOrigin}"
+
+Par exemple, pour un magasin belge ayant pour identifiant "0265", le code généré sera : "BEL:MAG:0265".
+Le code d'un fournisseur français ayant pour identifiant "Evian" sera : "FRA:FRN:EVIAN" 
 
 ## Système de log et contrôle de la verbosité
-Le module SFS dispose d’un système complet de log utilisant Datadog, un service de surveillance d’infrastructure qui est hébergé dans le cloud.
+Le module DO dispose d’un système complet de log utilisant Datadog, un service de surveillance d’infrastructure qui est hébergé dans le cloud.
 
 Pour le configurer vous aurez besoin de fournir les variables d’environnements suivantes :
 - DATADOG_SERVER, qui contient l’url vers votre serveur datadog
 - DATADOG_KEY, qui est la clef d’accès à votre serveur
 - DATADOG_TAGS (optionnel), qui contient les tags séparés par des virgules.
 
-Le système de log du module SFS possède deux niveaux de verbosité, normal et full. Le mode normal activé par défaut ne log que les informations relatives aux opérations d'écritures (ajout d'une commande, import d’Articles ou de StockOrigins, etc..). Le mode full log également les informations relatives aux actions de lecture (calcul des stocks, lecture en base, etc..) et est activé si la variable d'environnement DATADOG_FULL_VERBOSITY est présente et positionnée à "true".
+Le système de log du module DO possède deux niveaux de verbosité, normal et full. Le mode normal activé par défaut ne log que les informations relatives aux opérations d'écritures (ajout d'une commande, import d’Articles ou de StockOrigins, etc..). Le mode full log également les informations relatives aux actions de lecture (calcul des stocks, lecture en base, etc..) et est activé si la variable d'environnement DATADOG_FULL_VERBOSITY est présente et positionnée à "true".
 
-Dans tous les cas, l’intégralité des logs est affiché dans la console du module.
+Dans tous les cas, l’intégralité des logs est affichée dans la console du module.
 
 ## Base de données Mongo
 Le module est prévu pour fonctionner avec une base de données Mongo en version 4.2 ou supérieur compatible avec les notions de replica sets et de sharded clusters.
@@ -39,9 +52,9 @@ La connexion à la base Mongo se fait grâce aux deux variables d’environnemen
 - AZURE_APPCONFIG_ENV qui contient l’environnement duquel récupérer la clef (DEV, PRODUCTION, etc…).
 
 ## Déploiement
-Le module Altazion ShipFromStore est distribué sous forme d’un container Docker et peut ainsi être déployé facilement sur tous les environnements compatibles. Il expose le port 8080 par défaut. Pour vérifier son bon déploiement il est possible de se rendre sur l’URL du module qui devrait renvoyer la page suivante.
+Le module Altazion Delivery Optimizer est distribué sous forme d’un container Docker et peut ainsi être déployé facilement sur tous les environnements compatibles. Il expose le port 8080 par défaut. Pour vérifier son bon déploiement il est possible de se rendre sur l’URL du module qui devrait renvoyer la page suivante.
 
-![Page d'accueil Module SFS](img/SFSModuleWelcomePage.png)
+![Page d'accueil Module DO](img/DOWelcomePage.png)
 
 À partir de là, il est possible de cliquer sur les boutons de la section « Tools » afin de se rendre sur les pages correspondantes.
 

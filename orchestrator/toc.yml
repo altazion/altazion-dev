@@ -32,20 +32,24 @@
       href: shipping/index.md
 - name: Stock unifié
   href: stock/index.md
-- name: Module ShipFromStore (SFS)
+- name: Module Delivery Optimizer (DO)
   items:
     - name: Présentation du module
-      href: sfsmodule/presentationmodule.md
+      href: delivery-optimizer/presentationmodule.md
     - name: Raisons juridiques et configuration du module 
-      href: sfsmodule/raisonjuridiqueetconfig.md
+      href: delivery-optimizer/raisonjuridiqueetconfig.md
     - name: Sécurisation du module
-      href: sfsmodule/securisationmodule.md
+      href: delivery-optimizer/securisationmodule.md
     - name: Règles métiers
-      href: sfsmodule/reglesmetier.md
+      href: delivery-optimizer/reglesmetier.md
     - name: Cycle de vie des données
-      href: sfsmodule/cycledeviedonnees.md
-    - name: Utiliser les fonctionnalités du module
-      href: sfsmodule/utiliserfonctionnalitesmodule.md
+      href: delivery-optimizer/cycledeviedonnees.md
+    - name: Récupération des stocks
+      href: delivery-optimizer/stocks.md
+    - name: Répartition d'expéditions
+      href: delivery-optimizer/repartition.md
+    - name: Gestion des commandes
+      href: delivery-optimizer/commandes.md
     - name: Cas utilisation typique
-      href: sfsmodule/casutilisation.md
+      href: delivery-optimizer/casutilisation.md
 
