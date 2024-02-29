@@ -33,10 +33,6 @@ Le JSON suivant contient décrit l'objet __Cart__ à passer dans le body de l'ap
     {
       "artGuid": "c420a0b0-fd50-446a-b2e0-18ab3bf4c460",
       "qty": 1
-    },
-    {
-      "artRef": "c57a373e-fbac-4ce4-a89c-099e13ef5a83",
-      "qty": 1
     }
   ],
   "shippingAddress": {
@@ -51,7 +47,40 @@ Le JSON suivant contient décrit l'objet __Cart__ à passer dans le body de l'ap
 ```
 Le champ __Cart.articles__ est obligatoire car il contient les différentes lignes du panier (__CartLine__). Pour qu'une ligne soit valide, l'un des champs __artGuid__ ou __artRef__ doit être renseigné ainsi que le champ __qty__ correspondant à la quantité de l'article commandé.
 
-Le champ __shippingAddress__ contenant les coordonnées du client doit être renseigné.
+Le champ __shippingAddress__ contient les coordonnées du client et doit également être renseigné.
+Enfin, il est nécessaire de renseigner à la fois le Guid de la commande via le champ __orderId__ ainsi que son type (__Cart__ ou __Order__) dans le champ __orderType__.
+
+### Réponse du serveur
+
+L'objet de réponse __SFSResponse__ se présente de la façon suivante :
+
+```json
+{
+    "simulated": false,
+    "nonShippable": null,
+    "otherSuggestedShipments": null,
+    "totalPriority": 100,
+    "avgDistance": 0,
+    "splits": [
+        {
+            "code": "FRA:MAG:0125",
+            "articles": {
+                "c420a0b0-fd50-446a-b2e0-18ab3bf4c460": {
+                    "reason": "Normal Module",
+                    "qty": 1
+                },
+                "4128d10e-1594-42a7-8c79-bde5181a20f5": {
+                    "reason": "Normal Module",
+                    "qty": 2
+                }
+            },
+            "priority": 50,
+            "coordinates": null
+        }
+    ],
+    "stockDetails": null
+}
+```
 
 ## Limitation des envois à certaines origines de stocks
 
@@ -62,7 +91,7 @@ L'objet Cart permet également de limiter le calcul de répartitions à certaine
 
 ## Simulation d'une commande
 
-Si l'objet __Cart__ en entrée a __isSimulated__ à true alors la commande n'est pas ajoutée après le calcul de la répartition. Autrement la commande est ajoutée si le champ __orderType__ contenu dans le __Cart__ en entrée n'est pas null.
+Si l'objet __Cart__ en entrée a __isSimulated__ à true alors la commande n'est pas ajoutée après le calcul de la répartition. Autrement la commande est ajoutée si les champ __orderType__ et __orderId__ contenus dans le __Cart__ en entrée ne sont pas null.
 
 Simuler une commande peut être utile si cette dernière possède des contraintes d'expéditions particulières telle que la nécessité d'être expédiée depuis une seule origine de stocks par exemple.
 
