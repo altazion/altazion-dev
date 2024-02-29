@@ -90,3 +90,11 @@
 
 
 
+
+[!include[vcardmag](magasins.vcardmag.autogen.md)]
+
+[!include[recuperer](magasins.recuperer.autogen.md)]
+
+
+
+
