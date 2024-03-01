@@ -19,7 +19,7 @@ Actuellement les critères sont les suivants, par ordre d'importance :
 
 Une fois ce tri réalisé l'algorithme sélectionne la répartition la plus pertinente. La fonction renvoie finalement un objet de type __SFSResponse__ dont la structure est expliquée en détail dans le swagger.
 
-### Exemple d'appel API
+## Exemple d'appel API
 
 Le JSON suivant contient décrit l'objet __Cart__ à passer dans le body de l'appel API.
 
@@ -27,11 +27,19 @@ Le JSON suivant contient décrit l'objet __Cart__ à passer dans le body de l'ap
 {
   "articles": [
     {
-      "artRef": "000700",
+      "artRef": "106780",
       "qty": 2
     },
     {
-      "artGuid": "c420a0b0-fd50-446a-b2e0-18ab3bf4c460",
+      "artRef": "236497",
+      "qty": 1
+    },
+    {
+      "artRef": "907330",
+      "qty": 3
+    },
+    {
+      "artRef": "924406",
       "qty": 1
     }
   ],
@@ -42,7 +50,7 @@ Le JSON suivant contient décrit l'objet __Cart__ à passer dans le body de l'ap
     "zipCode": "00300"
   },
   "orderId": "f02ee9d2-99e6-489d-a490-734e73dd4828",
-  "orderType": "Cart"
+  "orderType": "Order"
 }
 ```
 Le champ __Cart.articles__ est obligatoire car il contient les différentes lignes du panier (__CartLine__). Pour qu'une ligne soit valide, l'un des champs __artGuid__ ou __artRef__ doit être renseigné ainsi que le champ __qty__ correspondant à la quantité de l'article commandé.
@@ -50,37 +58,63 @@ Le champ __Cart.articles__ est obligatoire car il contient les différentes lign
 Le champ __shippingAddress__ contient les coordonnées du client et doit également être renseigné.
 Enfin, il est nécessaire de renseigner à la fois le Guid de la commande via le champ __orderId__ ainsi que son type (__Cart__ ou __Order__) dans le champ __orderType__.
 
-### Réponse du serveur
+## Réponse du serveur
 
 L'objet de réponse __SFSResponse__ se présente de la façon suivante :
 
 ```json
 {
-    "simulated": false,
-    "nonShippable": null,
-    "otherSuggestedShipments": null,
-    "totalPriority": 100,
-    "avgDistance": 0,
+    "totalPriority": 150,
+    "avgDistance": 98129.72166408185,
     "splits": [
         {
-            "code": "FRA:MAG:0125",
+            "code": "FRA:MAG:0107",
             "articles": {
-                "c420a0b0-fd50-446a-b2e0-18ab3bf4c460": {
+                "71ba9615-99fd-4524-aabf-8f83b463c7ce": {
+                    "reason": "Normal Module",
+                    "qty": 3
+                }
+            },
+            "priority": 0,
+            "coordinates": {
+                "lat": 46.97035,
+                "long": -1.33243
+            }
+        },
+        {
+            "code": "FRA:WEB:CENTRALE",
+            "articles": {
+                "fc4d7bee-ec31-4103-8175-979b2b4fa847": {
+                    "reason": "Normal Module",
+                    "qty": 2
+                },
+                "e3e90221-2d01-4d66-be16-5a2419bd84a9": {
                     "reason": "Normal Module",
                     "qty": 1
                 },
-                "4128d10e-1594-42a7-8c79-bde5181a20f5": {
+                "03f3a22d-46ee-4a27-b45f-bf83f9f8c6ae": {
                     "reason": "Normal Module",
-                    "qty": 2
+                    "qty": 1
                 }
             },
             "priority": 50,
             "coordinates": null
         }
-    ],
-    "stockDetails": null
+    ]
 }
 ```
+La répartition optimale est contenu dans le champ __splits__ de la réponse. Il s'agit d'un tableau de __ShipmentSplit__ contenant les expéditions à effectuer par les origines de stocks selectionnées. L'objectif premier du DeliveryOptimizer est de minimiser la taille de se tableau pour limiter le nombre d'expédition.
+
+Un __ShipmentSplit__ contient les informations suivantes :
+ - __code__, qui correspond au code de l'origine de stock sélectionnée
+ - __articles__, qui contient un dictionnaire avec en clef le Guid de l'article et en valeur le champ __reason__ fournissant des informations sur le traitement à l'origine du résultat et le champ __qty__ contenant la quantités d'articles à expédier.
+ - __priority__, contient à titre informatif la priorité de l'origine de stock, plus elle est élevée, plus cette origine sera prioritaire de le calcul de répartition.
+ - __coordinates__, contient à titre informatif les coordonnées de l'origine de stock.
+
+L'objet contient également deux champs justifiants le choix de cette répartition :
+ - __totalPriority__, qui est la somme des priorités de chaque origine de stock pondérée par le nombre d'articles expédiés. L'objectif secondaire du DO est de maximiser ce nombre.
+ - __avgDistance__, qui représente la distance moyenne des origines de stock pondérée par le nombre d'articles expédiés. L'objectif tertiaire du DO est de minimiser ce nombre.
+
 
 ## Limitation des envois à certaines origines de stocks
 
@@ -97,4 +131,6 @@ Simuler une commande peut être utile si cette dernière possède des contrainte
 
 ## Ajout de détails pour simplifier le débogage et l'intégration du calcul de répartitions
 
-Si l'objet __Cart__ en entrée possède le champ __isDebug__ à true, l'algorithme va également fournir les 5 meilleures expéditions suivantes résultant au même nombre d'expéditions. Elles seront renvoyées dans la liste __SFSResponse.nextReps__. Un dictionnaire contenant le détail des stocks disponibles des articles du panier pour chaque origine de stocks est également fourni. Il est déconseillé de laisser ce champ à true en production.
+Si l'objet __Cart__ en entrée possède le champ __isDebug__ à true, l'algorithme va également fournir les 5 meilleures expéditions suivantes résultant au même nombre d'expéditions. Elles seront renvoyées dans la liste __SFSResponse.otherSuggestedShipments__. Un dictionnaire contenant le détail des stocks disponibles des articles du panier pour chaque origine de stocks est également fourni.
+
+__Pour des question de performance, il est déconseillé de laisser ce champ à true en production.__

@@ -20,10 +20,10 @@ Il a vocation à s'intégrer dans le reste de la solution Altazion de cette faç
 
 ## Notion de d'origines de stocks (StockOrigins)
 
-Les origines de stocks regroupe l'ensemble des entités pouvant participer à l'expédition de toute ou partie d'une commande. Les plus connues sont par exemple :
- - Un magasin
- - Un entrepot
- - Un fournisseur
+Les origines de stocks regroupent l'ensemble des entités pouvant participer à l'expédition de toute ou partie d'une commande. Parmis ses entités on retrouve entre autres :
+ - Des magasins
+ - Des entrepots
+ - Des fournisseurs
 
 Les origines de stocks sont identifiées par un code qui doit être unique. Altazion utilise la syntax suivante pour les codes :
 
