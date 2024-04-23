@@ -70,7 +70,7 @@ Cette réponse contient l'objet __maxQty__ qui dispose des champs suivants :
  - __code__ : l'origine de stock à laquelle correspond la quantité obtenue dans le champ __maxOrderable__
  - __reason__ : une explication sur la quantité obtenue dans le champ __maxOrderable__ et le choix de l'origine de stocks __code__. Ici il s'agit de la quantité disponible restante dans l'origine de stock "FRA:MAG:0700"
 
- ##  Obtenir les stocks pour plusieurs articles
+##  Obtenir les stocks pour plusieurs articles
 __POST : {tenantId}/multiple-stocks__
 
 ### Cas d'utilisations
@@ -100,7 +100,7 @@ Le body suivant contient un tableau d'objets de type __StockQuery__.
 
 ### Réponse du DO
 
-En retour la fonction va renvoyer un dictionnaire avec le Guid de chaque article en clef et l'objet de type __StockResponse__ correspondant en valeur.
+En retour la fonction va renvoyer un __dictionnaire__ avec le Guid de chaque article en clef et l'objet de type __StockResponse__ correspondant en valeur.
 
 __ATTENTION__ : les __artId__ fournis dans le body de la requête API n'existant pas en base ne sont pas renvoyés dans la réponse de l'appel. Il est donc important de tester si la clef existe dans la réponse dans votre code avant d'utiliser la valeur.
 
