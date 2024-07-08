@@ -47,13 +47,13 @@ Supprime une commande par son Guid. Cette méthode est typiquement utilisée lor
 
 La méthode renvoie un booléen pour indiquer le succès de l'opération.
 
-## Suppression d'une commande par code d'emplacement
+## Suppression d'une commande par code d'origine de stock
 
 __DELETE : {tenantId}/order/byid/{idCommande}/code/{code}__
 
-Lorsqu'une expédition est effectuée par un emplacement il est nécessaire de supprimer la partie de la commande associée à cet emplacement afin d'en réduire la saturation. Pour cela on passe le tenantId, l'id de la commande ainsi que le code de l'emplacement.
+Lorsqu'une expédition est effectuée par une origine de stock il est nécessaire de supprimer la partie de la commande associée à cet emplacement (__OrderDetail__) afin d'en réduire la saturation. Pour cela on passe le tenantId, l'id de la commande ainsi que le code de l'origine de stock.
 
-Il est également judicieux d'utiliser cette méthode pour supprimer une commande de type e-resa (avec retrait en magasin) puisse que l'intégralité de la commande est expédiée par un emplacement magasin dont on connait le code.
+Il est également judicieux d'utiliser cette méthode pour supprimer une commande de type e-resa (avec retrait en magasin) puisse que l'intégralité de la commande est expédiée par une origine de stock magasin dont on connait le code.
 
 La méthode renvoie un booléen pour indiquer le succès de l'opération.
 
@@ -61,4 +61,4 @@ La méthode renvoie un booléen pour indiquer le succès de l'opération.
 
 __GET : {tenantId}/order/{orderId}__
 
-Permet de reconstituer une commande ayant été enregistrée en base dans les __Articles__ et __StockOrigins__. Cette méthode est par définition non optimale et doit être utilisée à des fins de tests ou de vérifications manuelles.
+Permet d'obtenir un objet __Order__ décrivant l'état actuel d'une commande ou d'un panier ayant été enregistrée en base dans les __Articles__ et __StockOrigins__. L'état d'une commande varie au fur et à mesure que les __OrderDetail__ qui la compose sont expédiés.
