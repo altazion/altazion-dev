@@ -38,11 +38,13 @@ class BonPreparation
 	string CliNom { get; set; }
 	string CliEmail { get; set; }
 	string CliCP { get; set; }
+	System.Guid BonCommandeGuid { get; set; }
 }
 
 class LigneBonPreparation
 {
 	System.Guid Guid { get; set; }
+	long ArticleId { get; set; }
 	string Reference { get; set; }
 	string Libelle { get; set; }
 	decimal Pu { get; set; }
@@ -50,6 +52,9 @@ class LigneBonPreparation
 	decimal QteAnnonce { get; set; }
 	decimal QtePreparee { get; set; }
 	decimal QteCommandeAPreparee { get; set; }
+	Guid? GuidArticle { get; set; }
+	string Ref { get; set; }
+	string UrlGestcom { get; set; }
 }
 
 class ExpeditionBonPreparation

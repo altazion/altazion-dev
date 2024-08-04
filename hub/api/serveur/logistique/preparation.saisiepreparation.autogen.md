@@ -38,6 +38,7 @@ class BonPreparation
 	string CliNom { get; set; }
 	string CliEmail { get; set; }
 	string CliCP { get; set; }
+	System.Guid BonCommandeGuid { get; set; }
 }
 
 class PreparationBonPreparation
