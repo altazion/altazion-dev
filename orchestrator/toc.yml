@@ -1,7 +1,7 @@
 - name: Orchestrator
   href: index.md
 - name: Traitement des commandes
-  href: traitementscommandes.md
+  href: traitementcommandes.md
   -items:
     - name: Types de commandes
       href: typescommandes.md
@@ -17,7 +17,7 @@
                 - name: Exit-OmsRule
                   href: rules/cmdlets/exit-omsrule.md
                 - name: Get-OmsSupplier
-                  href: rules/cmdlets/exit-omsrule.md
+                  href: rules/cmdlets/get-omssupplier.md
                 - name: New-OmsFulfillment
                   href: rules/cmdlets/new-omsfulfillment.md
                 - name: Select-OmsOrderLines
@@ -30,7 +30,7 @@
                   href: rules/cmdlets/update-omsorder.md
     - name: Expédition
       href: shipping/index.md
-- name: Stock unifié
+- name: Module Unified Stock (US)
   href: stock/index.md
 - name: Module Delivery Optimizer (DO)
   items:
