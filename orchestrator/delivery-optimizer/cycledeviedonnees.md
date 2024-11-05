@@ -29,6 +29,8 @@ __POST : {tenantId}/articles/importfull__
 
 Ce point API permet l'import des articles dans la base via un tableau d'objets Article passé dans le body en format JSON.
 
+__Ces points API sont utilisés par les sources d'approvisionnement d'Altazion pour envoyer les données calculés vers Delivery Optimizer.__
+
 ## Upsert des StockOrigins et des Articles dans le module
 
 En complément des imports totaux qui nettoient la base avant d’insérer les données importées, il est possible de pousser des fichiers de mise à jour des Articles et StockOrigins. Ces points API servent à mettre à jour les éléments déjà en base et à ajouter ceux contenu dans le JSON qui ne s’y trouvaient pas auparavant (upsert).
@@ -42,3 +44,9 @@ Ce point API permet l’upsert des origines de stock dans la base via un tableau
 __PUT : {tenantId}/articles__
 
 Ce point API permet l'upsert des articles dans la base via un tableau d'objets Article passé dans le body en format JSON.
+
+## Mise à jour des stocks dans les Articles
+
+
+
+## Ajout/Remplacement des commandes dans les Articles et les StockOrigins
