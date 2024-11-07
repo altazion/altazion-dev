@@ -33,9 +33,9 @@
 - name: Source d'Approvisionnement
   items:
     - name: Présentation des sources d'approvisionnement
-      href: source-appro/presentation.md
+      href: sources-appro/presentation.md
     - name: Règles d'approvisionnement
-      href: reglesAppro.md
+      href: sources-appro/reglesAppro.md
 - name: Module Delivery Optimizer (DO)
   items:
     - name: Présentation du module
