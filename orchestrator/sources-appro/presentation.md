@@ -24,9 +24,15 @@ Si vous souhaite lier la source d'approvisionnement à un module Delivery Optimi
 - La configuration du module
 Pour plus d'information sur cette partie, veuillez consulter la documentation sur Delivery Optimizer.
 
-### Règles d'approvisionnement
+### Composition d'une source d'approvisionnement
 
-Une source d'appro permet de définir des règles pour savoir quels stocks et quelle part de ces stocks sont pris en compte pour chaque article. Ces règles d'approvisionnement sont entièrement paramétrables et vous permettent de gérer finement l'allocation de vos stocks à vos sources d'approvisionnement. Pour plus d'informations sur les règles d'approvisionnement, consultez la page de documentation qui leur est dédiée.
+Comme évoqué ci-dessus, une source d'appro permet de définir des règles pour savoir quels stocks et quelle part de ces stocks est prise en compte pour chaque article. Ces règles d'approvisionnement sont entièrement paramétrables et vous permettent de gérer finement l'allocation de vos stocks à vos sources d'approvisionnement.
+
+Pour ce faire, les règles peuvent s'appuyer sur des liaisons fournisseurs et magasins ainsi que des traitements. Pour plus d'informations sur les règles d'approvisionnement, consultez la page de documentation qui leur est dédiée.
+
+Le schéma ci-dessous synthétise les relations entre les différentes entités qui composent une source d'approvisionnement :
+
+![Composition d'une source d'appro](img/CompositionSourceAppro.png)
 
 ## Association aux canaux de ventes
 
