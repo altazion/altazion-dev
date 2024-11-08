@@ -7,7 +7,7 @@
 Une source d'appro permet de définir des règles pour savoir quel(s) stock(s) sont pris en compte pour chaque article.
 
 Chaque règle concerne un des types de stocks suivant :
-- Un stock “propre” géré
+- Un stock “propre” géré par vous-même
 - Un stock “fournisseur” pour du drop shipping
 - Un stock “magasin” pour du retrait OU pour du Ship From Store
 - Un stock “partenaire” pour, par exemple, un vendeur marketplace
@@ -18,18 +18,20 @@ Une source d'approvisionnement doit au moins contenir une règle d'approvisionne
 
 Les règles d'appro disposent de paramètres servant à la sélection des stocks concernés par la règle :
 
-- Le Rang, permet d'indiquer l'ordre croissant d'exécution des règles. L'ordre d'exécution des règles est important car un stock ne peut être affecté que par une seule règle. Si deux règles affectent le même stock, seule la première exécutée sera prise en compte.
-- La code pays, pour sélectionner toutes les origines de stock d'un pays en particulier, peut être null si l'on souhaite cibler les origines de tous les pays disponibles.
-- Le booléen indiquant si les commandes sont réservées par défaut.
+- __Le Rang__, permet d'indiquer l'ordre croissant d'exécution des règles. L'ordre d'exécution des règles est important car un stock ne peut être affecté que par une seule règle. Si deux règles affectent le même stock, seule la première exécutée sera prise en compte.
+- __Le code pays__, pour sélectionner toutes les origines de stock d'un pays en particulier, peut être null si l'on souhaite cibler les origines de tous les pays disponibles.
+- __Le booléen__ indiquant si les commandes sont réservées par défaut.
 
 ### Calcul des disponibilités
 
 Chaque règle peut également disposer de traitements spécifiques à exécuter avant d'effectuer les calculs ci-dessous. Consultez la page dédiée aux traitements pour plus d'information.
 
-Enfin, les règles sont pourvues de paramètres ajustables pour le calcul des disponibilités finales :
-- Le Pourcentage Dispo permet d'indiquer le pourcentage du stock total d'un article à rendre disponible (s'il est à 0, le calcul de la règle est ignoré). Obligatoire
-- Le Seuil Quantité Dispo qui représente le seuil de quantité minimum à respecter pour le rendre les stocks d'un article disponible. La somme des stocks par articles doit être supérieur ou égale au seuil. Optionnel
-- Le Nombre Minimum d'Eléments, il s'agit du nombre minimum d'emplacement de stocks qui doit rester après exécution de tous les détails de règles. En dessous de ce nombre, l'article complet est ignoré. Optionnel
+Enfin, les règles sont pourvues de paramètres ajustables pour le calcul des disponibilités finales qui sont exécutés dans l'ordre suivant :
+- __Le Pourcentage Disponible__ permet d'indiquer le pourcentage du stock total d'un article à rendre disponible (s'il est à 0, le calcul de la règle est ignoré). Obligatoire
+- __Le Seuil de Quantité Disponible__ qui représente le seuil de quantité minimum à respecter pour le rendre tous les stocks d'un article disponible. On effectue ainsi la somme des stocks par articles et on vérifie qu'elle est supérieure ou égale au seuil. Optionnel
+- __Le Nombre Minimum d'Origines de Stocks__, il s'agit du nombre minimum d'origines de stocks (magasins, dépôts, fournisseurs, etc.) qui doit rester après exécution de tous les traitements de la règle. En dessous de ce nombre, l'article complet est ignoré. Optionnel
+
+En fonction du type d'exécution de la source d'approvisionnement, le calcul des disponibilités peut avoir lieu en base de données ou alors être transmis à Unified Stock.
 
 ## Exécution des règles d'approvisionnement
 
@@ -45,10 +47,10 @@ Le diagramme de flux ci-dessous détaille les étapes d'exécution d'une règle 
 ### Critères de sélection des magasins
 
 Les règles magasins disposent de plusieurs critères qui leur sont spécifiques et qui servent à sélectionner et stocks et les magasins concernées par la règle :
-- L'identifiant de Zone Magasin permettant de sélectionner les magasins d'une zone en particulier, peut être null si on souhaite cibler toutes les zones magasins.
-- Le Type de Magasin, permettant de sélectionner les magasin affilié et franchisé ou les magasins intégré, peut être null si l'on souhaite cibler tous les types de magasins.
+- __L'identifiant de Zone Magasin__ permettant de sélectionner les magasins d'une zone en particulier, peut être null si on souhaite cibler toutes les zones magasins.
+- __Le Type de Magasin__, permettant de sélectionner les magasin affilié et franchisé ou les magasins intégré, peut être null si l'on souhaite cibler tous les types de magasins.
 
-À noter que ces critères peuvent se combiner, permettant par exemple à l'utilisateur de sélectionner les magasins intégrés dans une zone spécifique en France. Il est également possible de ne sélectionner aucun critère pour cibler tous les magasins du client.
+À noter que ces critères peuvent se combiner, vous pouvez par exemple sélectionner les magasins intégrés dans une zone spécifique en France. Il est également possible de n'utiliser aucun critère pour cibler tous vos magasins.
 
 ### Sélection/exclusion des magasins via les liaisons de la règle d'approvisionnement
 
@@ -64,7 +66,7 @@ Dans tous les cas il est nécessaire que la dernière règle magasin cible tous 
 ### Critères de sélection des fournisseurs
 Tout comme les règles magasins, les règles fournisseurs disposent de champs spécifiques servant à limiter les stocks concernés par la règle :
 
-- Top Fournisseurs, il représente les X premiers fournisseurs de chaque stock à prendre en compte pour le calcul des stocks. Ces derniers sont classés par leur priorité. Peut être null si l'on souhaite sélectionner tous les fournisseurs.
+- __Top Fournisseurs__, il représente les X premiers fournisseurs de chaque stock à prendre en compte pour le calcul des stocks. Ces derniers sont classés par leur priorité. Peut être null si l'on souhaite sélectionner tous les fournisseurs.
 
 ### Sélection/exclusion des fournisseurs via les liaisons de la règle d'approvisionnement
 
@@ -77,4 +79,4 @@ Cette liste est optionnelle et ne se cumule pas avec les autres critères de sé
 ### Critères de sélection des stocks
 Les règles sur stocks disposent également de champs spécifiques servant à limiter les stocks concernés par la règle :
 
-- L'id du dépôt concerné. Il sert à limiter les calculs à un dépôt en particulier. S'il est null alors tous les dépôts sont concernés.
+- __L'id du dépôt concerné__. Il sert à limiter les calculs à un dépôt en particulier. S'il est null alors tous les dépôts sont concernés.
