@@ -38,6 +38,8 @@
       href: sources-appro/reglesAppro.md
     - name: Traitements des règles
       href: sources-appro/traitements.md
+    - name: Exécution d'une source d'approvisionnement
+      href: sources-appro/executionSourceAppro.md
 - name: Module Delivery Optimizer (DO)
   items:
     - name: Présentation du module
