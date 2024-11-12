@@ -7,10 +7,10 @@
 Une source d'appro permet de définir des règles pour savoir quel(s) stock(s) sont pris en compte pour chaque article.
 
 Chaque règle concerne un des types de stocks suivant :
-- Un stock “propre” géré par vous-même
-- Un stock “fournisseur” pour du drop shipping
-- Un stock “magasin” pour du retrait OU pour du Ship From Store
-- Un stock “partenaire” pour, par exemple, un vendeur marketplace
+- Un stock __“propre”__ géré par vous-même
+- Un stock __“fournisseur”__ pour du drop shipping
+- Un stock __“magasin”__ pour du retrait OU pour du Ship From Store
+- Un stock __“partenaire”__ pour, par exemple, un vendeur marketplace
 
 Une source d'approvisionnement doit au moins contenir une règle d'approvisionnement pour être valide.
 

@@ -6,9 +6,9 @@
 
 Une règle d'approvisionnement peut contenir un ou plusieurs traitements qui vont permettre d'agir sur les stocks concernés par la règle. Ces derniers impactent les stocks de plusieurs façons et permettent de :
 
- - Ignorer des stocks sous certaines conditions (prix, type d'article, présence dans une vitrine, etc..)
- - Fixer un stock minimum à atteindre pour être pris en compte (exemple : ne pas tenir compte des stocks dont les quantités sont inférieures à 2 exemplaires)
- - Fixer un stock à ne pas dépasser pour être pris en compte (exemple : ne pas tenir compte des stocks dont les quantités sont supérieur à 300)
+ - __Ignorer des stocks__ sous certaines conditions (prix, type d'article, présence dans une vitrine, etc..)
+ - __Fixer un stock minimum__ à atteindre pour être pris en compte (exemple : ne pas tenir compte des stocks dont les quantités sont inférieures à 2 exemplaires)
+ - __Fixer un stock maximum__ à ne pas dépasser pour être pris en compte (exemple : ne pas tenir compte des stocks dont les quantités sont supérieures à 300)
 
 ### Fonctionnement des traitements
 
@@ -37,4 +37,4 @@ Altazion dispose d'une liste de traitements standards permettant de couvrir la p
 
 Dans le cas où les traitements standards ne répondent pas à votre besoin, il est possible de créer des traitements spécifiques. En effet tous les traitements héritent de la classe abstraite Altazion.Core.Extensibility.Logistique.TraitementSourceAppro.cs disponible dans le package NuGet d'extensibilité d'Altazion.
 
-Contactez Altazion Service pour plus d'informations concernant la création de traitements spécifiques à vos besoins.
+Contactez Altazion Services pour plus d'informations concernant la création de traitements spécifiques à vos besoins.
