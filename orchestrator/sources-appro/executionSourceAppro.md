@@ -4,10 +4,10 @@
 
 ### Déclenchement du calcul d'une source d'approvisionnement
 
-Le calcul d'une source d'approvisionnement peut être déclenché de plusieurs façons :
+Le calcul d'une source d'approvisionnement peut être déclenchée de plusieurs façons :
 - En réponse à un évènement (après un import de stocks, la modification d'articles, la modification des sources/règles/traitements d'approvisionnement, etc.)
 - À heure fixe (tous les jours à 6h du matin par exemple)
-- À intervalle régulier (toutes les heures)
+- À intervalle régulier (toutes les deux heures par exemple)
 - Manuellement
 
 N'hésitez pas à vous rapprocher d'Altazion afin de déterminer ensemble de la meilleure stratégie à adopter pour le déclenchement des sources d'approvisionnement.

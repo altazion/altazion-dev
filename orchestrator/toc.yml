@@ -30,7 +30,7 @@
                   href: rules/cmdlets/update-omsorder.md
     - name: Expédition
       href: shipping/index.md
-- name: Source d'Approvisionnement
+- name: Sources d'Approvisionnement
   items:
     - name: Présentation des sources d'approvisionnement
       href: sources-appro/presentation.md
@@ -40,6 +40,10 @@
       href: sources-appro/traitements.md
     - name: Exécution d'une source d'approvisionnement
       href: sources-appro/executionSourceAppro.md
+- name: Module Unified Stock (US)
+  items:
+    - name: Présentation du module
+      href: unified-stock/presentationmodule.md
 - name: Module Delivery Optimizer (DO)
   items:
     - name: Présentation du module
