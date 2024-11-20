@@ -18,9 +18,27 @@ La durée du calcul dépend grandement des facteurs suivants :
 - La taille de votre catalogue d'articles.
 - Le nombre d'origines de stocks.
 - La quantité et la complexité de vos règles.
-- Si la source d'approvisionnement est exécutée en base de données ou pour Unified Stock (Unified Stock est généralement plus rapide et impact beaucoup moins la base de données principale).
+- Si la source d'approvisionnement est exécutée en base de données ou pour Unified Stock (Unified Stock est généralement plus rapide et impact moins la base de données principale).
 
 Ainsi le temps d'exécution peut varier entre quelques secondes et plusieurs minutes. Bien que l'exécution des sources d'appro soit conçue pour limiter un maximum son impact sur le reste de votre système d'information, Altazion recommande d'exécuter les calculs complexes à des heures où le trafic sur votre base est faible (la nuit le plus souvent).
+
+## Traçabilité
+
+### Journalisation et remontée des traces
+
+Le processus d'exécution d'une source d'approvisionnement est documenté par un système complet de traces vous permettant ainsi de garantir le bon fonctionnement de chacune des étapes.
+Ces traces sont affichées dans les journaux de l'application et également remontées dans votre système de centralisation des logs (datadog par exemple) dans le service "OMS" et la Zone "SourcesAppro".
+
+### Traçabilité des opérations sur les stocks
+
+Chaque source d'approvisionnement dispose d'une table temporaire de stocks qu'il est possible de consulter afin d'obtenir, pour chaque stock (combinaison article, origine de stock), des informations sur :
+ - Quelle règle affecte le stock
+ - Si le stock possède une quantité minimum et/ou maximum associée
+ - Quel traitement a fixé une éventuelle quantité minimum/maximum (dans le champ "traitement")
+ - Si le stock est ignoré
+ - Quel traitement a rendu le stock ignoré (dans le champ "traitement")
+
+ Le champ traitement affiche en priorité le traitement ayant ignoré le stock. S'il n'y en a pas il affichera le dernier traitement qui a affecté les quantités. Si aucun traitement n'affecte la ligne de stock, ce champ sera null.
 
 ## Processus de calcul d'une source d'approvisionnement
 
