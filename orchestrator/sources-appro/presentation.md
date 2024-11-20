@@ -4,7 +4,7 @@
 
 ### Définition
 
-Les sources d'approvisionnement servent à définir les stocks alloués à vos différents canaux de vente qui seront utilisés pour préparer les commandes passées sur ces canaux.
+Les sources d'approvisionnement servent à définir les stocks alloués à vos différents canaux de ventes qui seront utilisés pour préparer les commandes passées sur ces canaux.
 Il s'agit d'un module optionnel qui, une fois activé, remplace le calcul simple par un système plus complet permettant de choisir précisément les stocks à utiliser.
 
 __L'activation des sources d'approvisionnement est indispensable pour pouvoir utiliser les modules Delivery Optimizer et Unified Stock.__
@@ -22,6 +22,7 @@ Si vous souhaite lier la source d'approvisionnement à un module Delivery Optimi
 - Les identifiants OMS du module
 - Les identifiants E-Commerce du module
 - La configuration du module
+
 Pour plus d'information sur cette partie, veuillez consulter la documentation sur Delivery Optimizer.
 
 ### Composition d'une source d'approvisionnement
@@ -34,11 +35,11 @@ Le schéma ci-dessous synthétise les relations entre les différentes entités 
 
 ![Composition d'une source d'appro](img/CompositionSourceAppro.png)
 
-## Association aux canaux de ventes
+### Association aux canaux de ventes
 
 Afin de déterminer les quantités disponibles pour un canal de vente (site e-commerce, bornes, etc..), celui-ci doit être associé à une source d'approvisionnement. Lorsque cela est fait, le canal déporte tous calculs des stocks à un potentiel module Unified Stock et les calculs de paniers/commandes à un module Delivery Optimizer.
 
-## Type d'exécution
+### Type d'exécution
 
 Les sources d'approvisionnement peuvent être exécutées dans deux cadres différents :
 - Dans la base de données principale. Cette première version des sources d'approvisionnement considère la base comme référentiel des stocks. Cette version ne permet pas de disposer de vos stocks en temps réel.
