@@ -42,7 +42,9 @@
       href: sources-appro/executionSourceAppro.md
 - name: Module Unified Stock (US)
   items:
-    - name: Présentation du module
+    - name: Présentation du produit
+      href: unified-stock/presentationproduit.md
+    - name: Module traitement des stocks
       href: unified-stock/presentationmodule.md
 - name: Module Delivery Optimizer (DO)
   items:
