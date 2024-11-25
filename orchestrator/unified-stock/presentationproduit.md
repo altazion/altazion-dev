@@ -2,16 +2,22 @@
 
 ## Généralités
 
-Unified Stock (US) est l'un des composants d'Orchestrator, l'OMS d'Altazion. Il s'agit d'une suite d'applications à déployer dans votre système d'information qui vous permet de bénéficier des stocks en temps réel pour l'ensemble de vos origines de stock et de vos canaux de ventes.
+Unified Stock (US) est l'un des composants d'Orchestrator, l'OMS d'Altazion. Il s'agit d'une suite d'applications à déployer dans votre système d'information qui offre deux fonctionnalités clefs :
+- Bénéficier des stocks en temps réel pour l'ensemble de vos origines de stock et de vos canaux de ventes.
+- Permettre un recalcule en temps réel de stocks disponibles à la vente (disponibilités) sur vos différents canaux.
 
-Unified Stock est conçu pour fonctionner avec les Sources d'Approvisionnement et Delivery Optimizer, il est donc indispensable d'utiliser l'ensemble de ces produits pour bénéficier des stocks en temps réel.
+On parle de stocks en temps réel car l'intégration d'un mouvement de stock dans Unified Stock et le recalcule des disponbilités prend rarement plus d'une seconde.
+
+Ce produit est conçu pour fonctionner avec les Sources d'Approvisionnement et Delivery Optimizer. Il est donc indispensable d'utiliser ces derniers pour bénéficier des avantages offerts par Unified Stock.
+
+Pour plus d'information sur Delivery Optimizer et les Sources d'Approvisionnement, consultez les pages de documentations qui leurs sont dédiées.
 
 ## Architecture et intégration de Unified Stock
 
 Le produit Unified Stock est composé de plusieurs modules, d'un ensemble de traitements ainsi que d'une base de données REDIS que nous allons maintenant détailler.
 
-### Module(s) d'intégration (parsage) des flux de stocks
-Cette partie spécifique sert à interfacer vos flux de stocks avec le module de traitement des stocks de Unified Stock afin qu'ils respectent le standard d'Altazion. Concrètement, il s'agit d'un ou plusieurs module(s) dédié(s) à faire de l'échange de données informatisées (EDI)
+### Module(s) d'intégration (parsage) des flux de stock
+Cette partie spécifique sert à interfacer vos flux de stock avec le module de traitement des stocks de Unified Stock afin qu'ils respectent le standard d'Altazion. Concrètement, il s'agit d'un ou plusieurs module(s) dédié(s) à faire de l'échange de données informatisées (EDI).
 
 Le fonctionnement des flux de stock étant unique pour chaque client, n'hésitez pas à vous rapprocher d'Altazion Services pour le développement de votre/vos module(s).
 
