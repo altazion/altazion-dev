@@ -48,3 +48,29 @@ La seconde entité est composée de toutes les différentes quantités de stocks
 Ces informations sont mises à jour en temps réel grâce aux stocks reçus depuis les modules d'intégration des flux de stock.
 
 Ils peuvent également être mis à jour depuis les sources d'approvisionnement si vous avez choisi de considérer ces dernières comme une source fiable de stocks.
+
+## Point API principaux
+
+Outre des points API servant à interagir avec les données présentes dans REDIS, le module de traitement des stocks dispose de trois point API principaux trouvables dans la partie "Unified Stock" du swagger.
+
+### Calcul complet des disponibilités à la réception d'un résultat de Source d'Approvisionnement
+
+__POST : {tenantId}/unified-stock/supply-source__
+
+Cette méthode permet d'enregistrer les résultats de l'exécution d'une source d'approvisionnement dans la base REDIS de Unified Stock. Elle exécute un calcul complet des disponibilités sur les stocks reçus en parallèle avant d'envoyer le résultat à Delivery Optimizer. Les disponibilités sont également envoyés vers la file de message pour enregistrement asynchrone dans la base de données SQL.
+
+Un status code 200 "OK" est renvoyé après son exécution.
+
+Pour plus d'informations sur le traitement d'exécution des sources d'approvisionnement dans le cadre de Unified Stock, consultez la page de documentation dédiée.
+
+### Calcul partiel des disponibilités sur réception de stock à jour
+
+__POST : {tenantId}/unified-stock/stock_parser__
+
+Cette méthode permet d'enregistrer les stocks à jour reçu d'un module d'intégration de flux de stock dans la base REDIS. Il fois cela fait, elle exécute un calcul des disponibilités sur les nouveaux stocks avant d'envoyer le résultat à Delivery Optimizer. Les disponibilités sont également envoyés vers la file de message pour enregistrement asynchrone dans la base de données SQL.
+
+Un status code 200 "OK" est renvoyé après son exécution.
+
+Le diagramme de séquence ci-dessous décrit le processus complet :
+
+![Diagramme de séquence stock parser](img/DiagrammeSequenceStockParser.png)
