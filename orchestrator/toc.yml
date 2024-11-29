@@ -46,6 +46,8 @@
       href: unified-stock/presentationproduit.md
     - name: Module traitement des stocks
       href: unified-stock/presentationmodule.md
+    - name: Source d'Approvisionnement pour Unified Stock
+      href: unified-stock/sourcesapprous.md
 - name: Module Delivery Optimizer (DO)
   items:
     - name: Présentation du module
