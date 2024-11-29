@@ -74,3 +74,15 @@ Un status code 200 "OK" est renvoyé après son exécution.
 Le diagramme de séquence ci-dessous décrit le processus complet :
 
 ![Diagramme de séquence stock parser](img/DiagrammeSequenceStockParser.png)
+
+### Calcul complet des disponibilités basé sur les stocks de US
+
+__GET : {tenantId}/unified-stock/compute_all__
+
+Ce dernier point API permet d'effectue un calcul des disponibilités des stocks sur toutes les sources d'approvisionnement présentes dans Unified Stock. Les disponibilités sont envoyées à Delivery Optimizer et vers la file de message pour enregistrement asynchrone dans la base de données SQL. Ce point API peut-être appelé afin de réinitialiser toutes vos disponibilités en vous basant sur les stocks contenu dans Unified Stock.
+
+Un status code 200 "OK" est renvoyé après son exécution.
+
+Le diagramme de séquence ci-dessous décrit le processus complet :
+
+![Diagramme de séquence compute all](img/DiagrammeSequenceComputeAll.png)
