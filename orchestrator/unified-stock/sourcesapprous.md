@@ -12,8 +12,6 @@ __POST : {tenantId}/unified-stock/supply-source__
 
 ## Traitement périodique (batch) de recalcul complet des Sources d'Approvisionnement
 
-Le processus de recalcul complet des Sources d'Approvisionnement fonctionne de la façon suivante :
+Lorsque Unified Stock est activé et paramétré, le processus de recalcul complet des Sources d'Approvisionnement fonctionne de la façon suivante :
 
 ![Diagramme de séquence source appro unified stock](img/DiagrammeSequenceSourceApproUs.png)
-
-## Calcul des disponibilités par Unified Stock

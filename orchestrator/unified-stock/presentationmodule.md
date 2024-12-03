@@ -75,7 +75,7 @@ Le diagramme de séquence ci-dessous décrit le processus complet :
 
 ![Diagramme de séquence stock parser](img/DiagrammeSequenceStockParser.png)
 
-### Calcul complet des disponibilités basé sur les stocks de US
+### Calcul complet des sources d'approvisionnement basé sur les stocks de US
 
 __GET : {tenantId}/unified-stock/compute_all__
 
@@ -86,3 +86,18 @@ Un status code 200 "OK" est renvoyé après son exécution.
 Le diagramme de séquence ci-dessous décrit le processus complet :
 
 ![Diagramme de séquence compute all](img/DiagrammeSequenceComputeAll.png)
+
+## Calcul des disponibilités par Unified Stock
+
+### Récupération des données sur lesquelles effectuer le calcul
+
+Pour exécuter le calcul des disponibilités, le module de traitement de stock à besoin de toutes les données nécessaires (stocks et données de sources d'approvisionnement). Celles-ci peuvent venir de l'extérieur ou de la base REDIS en fonction du point API parmis ceux détaillés plus haut qui est appelé.
+
+Une fois ces données récupérées, le calcul des disponibilités s'exécute en deux phase : une phase de préparation des données et une phase de calcul sur ces données.
+
+### Préparation des données
+
+Cette première phase permet de filtrer et de trier les données afin de ne disposer que des stocks et des informations d'approvisionnement pertinentes au calcul des disponibilités.
+Elle exécute les opérations suivantes :
+
+### Calcul des disponibilités
