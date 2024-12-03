@@ -1,18 +1,18 @@
 # Présentation du module
 
 ## Généralités
-Le module Delivery Optimizer (DO) intervient dans le cadre du commerce unifié et permet aux origines de stocks (magasins, fournisseurs, stock propre, etc..) participantes d'expédier des articles aux clients finaux depuis leurs stocks. Ceci permet de disposer de stocks totaux plus importants ainsi que des possibilités d'expéditions plus intéressantes.
+Le module Delivery Optimizer (DO) intervient dans le cadre du commerce unifié et permet aux origines de stocks (magasins, fournisseurs, stock propre, etc..) participantes des différents canaux d'expédier des articles aux clients finaux depuis leurs stocks. Ceci permet de disposer de stocks totaux plus importants ainsi que des possibilités d'expéditions plus intéressantes.
 
 De cette façon, Delivery Optimizer permet par exemple d'expédier une partie d'une commande depuis un entrepôt et une autre depuis un ou plusieurs magasins. Le but étant de minimiser le nombre d'envois tout en répondant à d'autres critères tel que minimiser la distance entre les expéditeurs et le client.
 
-Pour ce faire, le module permet entre autres de :
-- Gérer les articles et leur stock
-- Gérer les origines de stocks
+Pour chaque source d'approvisionnement, le module permet de :
+- Gérer les articles et leurs disponibilités à la vente
+- Gérer et paramétrer les origines de stocks
 - Gérer les commandes et paniers
 - Obtenir le détail des disponibilités d'un article ainsi que la quantité maximum commandable
 - Obtenir la répartition optimale d'un panier/d'une commande à affecter aux différentes origines de stocks
 
-Le module se présente sous forme d’un serveur API à déployer dans votre solution et à appeler par les autres composants de votre système d'information (site e-commerce, système de gestion de commande, etc..).
+Le module se présente sous forme d’un serveur API à déployer dans votre solution et à appeler par les autres composants de votre système d'information (canaux de ventes, système de gestion de commande, etc..).
 
 Il a vocation à s'intégrer dans le reste de la solution Altazion de cette façon :
 

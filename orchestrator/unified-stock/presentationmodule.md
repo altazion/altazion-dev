@@ -57,7 +57,7 @@ Outre des points API servant à interagir avec les données présentes dans REDI
 
 __POST : {tenantId}/unified-stock/supply-source__
 
-Cette méthode permet d'enregistrer les résultats de l'exécution d'une source d'approvisionnement dans la base REDIS de Unified Stock. Elle exécute un calcul complet des disponibilités sur les stocks reçus en parallèle avant d'envoyer le résultat à Delivery Optimizer. Les disponibilités sont également envoyés vers la file de message pour enregistrement asynchrone dans la base de données SQL.
+Cette méthode permet d'enregistrer les résultats de l'exécution d'une source d'approvisionnement dans la base REDIS de Unified Stock. Elle exécute un calcul complet des disponibilités sur les stocks reçus en parallèle avant d'envoyer le résultat à Delivery Optimizer. Les disponibilités sont également envoyées vers la file de message pour enregistrement asynchrone dans la base de données SQL.
 
 Un status code 200 "OK" est renvoyé après son exécution.
 
@@ -67,7 +67,7 @@ Pour plus d'informations sur le traitement d'exécution des sources d'approvisio
 
 __POST : {tenantId}/unified-stock/stock_parser__
 
-Cette méthode permet d'enregistrer les stocks à jour reçu d'un module d'intégration de flux de stock dans la base REDIS. Il fois cela fait, elle exécute un calcul des disponibilités sur les nouveaux stocks avant d'envoyer le résultat à Delivery Optimizer. Les disponibilités sont également envoyés vers la file de message pour enregistrement asynchrone dans la base de données SQL.
+Cette méthode permet d'enregistrer les stocks à jour reçu d'un module d'intégration de flux de stock dans la base REDIS. Il fois cela fait, elle exécute un calcul des disponibilités sur les nouveaux stocks avant d'envoyer le résultat à Delivery Optimizer. Les disponibilités sont également envoyées vers la file de message pour enregistrement asynchrone dans la base de données SQL.
 
 Un status code 200 "OK" est renvoyé après son exécution.
 
@@ -75,14 +75,37 @@ Le diagramme de séquence ci-dessous décrit le processus complet :
 
 ![Diagramme de séquence stock parser](img/DiagrammeSequenceStockParser.png)
 
-### Calcul complet des disponibilités basé sur les stocks de US
+### Calcul complet des sources d'approvisionnement basé sur les stocks de US
 
 __GET : {tenantId}/unified-stock/compute_all__
 
-Ce dernier point API permet d'effectue un calcul des disponibilités des stocks sur toutes les sources d'approvisionnement présentes dans Unified Stock. Les disponibilités sont envoyées à Delivery Optimizer et vers la file de message pour enregistrement asynchrone dans la base de données SQL. Ce point API peut-être appelé afin de réinitialiser toutes vos disponibilités en vous basant sur les stocks contenu dans Unified Stock.
+Ce dernier point API permet d'effectue un calcul des disponibilités des stocks sur toutes les sources d'approvisionnement présentes dans Unified Stock. Les disponibilités sont envoyées à Delivery Optimizer et vers la file de message pour enregistrement asynchrone dans la base de données SQL. Ce point API peut être appelé afin de réinitialiser toutes vos disponibilités en vous basant sur les stocks contenu dans Unified Stock.
 
 Un status code 200 "OK" est renvoyé après son exécution.
 
 Le diagramme de séquence ci-dessous décrit le processus complet :
 
 ![Diagramme de séquence compute all](img/DiagrammeSequenceComputeAll.png)
+
+## Processus de calcul des disponibilités par Unified Stock
+
+### Récupération des données sur lesquelles effectuer le calcul
+
+Pour exécuter le calcul des disponibilités, le module de traitement des stocks a besoin des données de stocks et de sources d'approvisionnement. Celles-ci peuvent venir de l'extérieur ou de la base REDIS en fonction de quel point API parmi ceux détaillés plus haut est appelé.
+
+Une fois ces données récupérées, le calcul des disponibilités s'exécute en deux phases : une phase de préparation des données et une phase de calcul sur ces données.
+
+### Préparation des données
+
+Cette première phase permet de filtrer et de trier les données afin de ne disposer que des stocks et des informations d'approvisionnement pertinentes au calcul des disponibilités.
+Elle exécute les opérations de nettoyage et de classification suivantes :
+
+![Phase de préparation des données](img/DisposPreparation.png)
+
+Une fois cette étape de préparation des données terminées, le calcul des disponibilités peut commencer.
+
+### Calcul des disponibilités
+
+Cette seconde phase se décompose en plusieurs étapes successives permettant d'obtenir les disponibilités à envoyer dans la file et dans Delivery Optimizer.
+
+![Phase de calcul des disponibilités](img/DisposCalcul.png)

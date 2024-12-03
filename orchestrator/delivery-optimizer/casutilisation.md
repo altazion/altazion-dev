@@ -5,4 +5,6 @@ Le diagramme de séquence ci-dessous présente un exemple d’intégration typiq
 
 ![Diagramme de séquence cas d'utilisation module DO](img/DiagrammeSequenceDO.png)
 
-De la même façon, si les données d’Articles et de StockOrigins sont régulièrement synchronisée via un import complet, il est possible de ne pas supprimer les commandes dans le module une fois qu’elles sont traitées. En effet, dans la mesure où les Articles et StockOrigins doivent uniquement contenir les commandes en cours, les commandes déjà traitées seront ainsi supprimées durant l’import.
+De la même façon, les commandes peuvent être supprimées de plusieurs façon :
+- Via l'utilisation des points API de Delivery Optimizer de suppression unitaire des commandes au fur et à mesure.
+- Via le point API de synchronisation complète des commandes à déclencher à interval régulier.
