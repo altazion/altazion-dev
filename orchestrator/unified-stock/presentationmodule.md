@@ -17,6 +17,9 @@ Le module Altazion de traitement des stocks est distribué sous forme d’un con
 
 À partir de là, il est possible de cliquer sur les boutons de la section « Tools » afin de se rendre sur les pages correspondantes.
 
+### Fonctionnement en HTTPS
+Le module Unified Stock de traitement des stocks n'écoute qu'en HTTPS et n'accepte pas les appels HTTP. Si aucun port HTTPS n’est disponible ou si le certificat n'est pas/plus valide, l’application ne pourra pas fonctionner correctement. 
+
 ### Swagger
 Le serveur API exporte un swagger respectant la norme OpenAPI 3.0.1 à l’adresse "/swagger/v1/swagger.json"
 
@@ -79,7 +82,7 @@ Le diagramme de séquence ci-dessous décrit le processus complet :
 
 __GET : {tenantId}/unified-stock/compute_all__
 
-Ce dernier point API permet d'effectue un calcul des disponibilités des stocks sur toutes les sources d'approvisionnement présentes dans Unified Stock. Les disponibilités sont envoyées à Delivery Optimizer et vers la file de message pour enregistrement asynchrone dans la base de données SQL. Ce point API peut être appelé afin de réinitialiser toutes vos disponibilités en vous basant sur les stocks contenu dans Unified Stock.
+Ce dernier point API permet d'effectue un calcul des disponibilités des stocks sur toutes les sources d'approvisionnement présentes dans Unified Stock. Les disponibilités sont envoyées à Delivery Optimizer et vers la file de message pour enregistrement asynchrone dans la base de données SQL. Ce point API peut être appelé afin de réinitialiser toutes vos disponibilités en vous basant sur les stocks contenus dans Unified Stock.
 
 Un status code 200 "OK" est renvoyé après son exécution.
 

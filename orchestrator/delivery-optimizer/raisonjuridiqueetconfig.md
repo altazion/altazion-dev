@@ -22,16 +22,16 @@ __PUT : {tenantId}/config__
 
 ![Point API Swagger de config du module DO](img/SwaggerSfsConfig.png)
 
-Pour utiliser ce point, il est nécessaire de passer un objet de type SFSConfig dans le body de la requête. 
+Pour utiliser ce point, il est nécessaire de passer un objet de type __ConfigDo__ dans le body de la requête. 
 
-L'objet SFSConfig contient les champs suivants :
+L'objet __ConfigDo__ contient les champs suivants :
 
-- __cartLifeSpan__ (défaut : 15). Détermine la durée de validité en minutes d'un panier. Lorsqu'elle est dépassée, les stocks réservés par le panier ne sont plus compatibilisés par Delivery Optimizer. Tous les paniers n'ayant pas été mis à jour depuis depuis 2 fois la valeur __cartLifeSpan__ sont progressivement supprimés.
+- __cartLifeSpan__ (défaut : 15). Détermine la durée de validité en minutes d'un panier. Lorsqu'elle est dépassée, les stocks réservés par le panier ne sont plus compatibilisés par Delivery Optimizer. Tous les paniers n'ayant pas été mis à jour depuis 2 fois la valeur __cartLifeSpan__ sont progressivement supprimés.
 - __algoType__ (défaut : "PUSH"). Détermine le type d'algorithme utilisé par Delivery Optimizer. À ce jour, seul l'algorithme PUSH existe.
 - __maxOrderable__ (défaut : "MINIMUM). Détermine la méthode de calcul de la quantité maximum de stock commandable pour un produit.
 - __bigCartThreshold__ (défaut : 15). Détermine à partir de combien de lignes panier l'algorithme de répartition doit utiliser les précédents calculs de répartition afin d'accélérer le traitement du panier/de la commande.
-- __maxShipments__ (défaut : illimité). Détermine le nombre maximum d'expéditions différentes pour une commande/un panier. Autrement dit, il s'agit du nombre maximum d'origines de stock différentes qui peuvent être solicitées pour le traitement d'une commande/un panier. Concrétement, il s'agit de la taille maximum du tableau __SFSResponse.splits__. Si ce nombre est dépassé, toutes les lignes du panier sont concidérées comme étant non expédiables et sont donc renvoyées dans le champ __SFSResponse.nonShippable__.
+- __maxShipments__ (défaut : illimité). Détermine le nombre maximum d'expéditions différentes pour une commande/un panier. Autrement dit, il s'agit du nombre maximum d'origines de stock différentes qui peuvent être sollicitées pour le traitement d'une commande/un panier. Concrètement, il s'agit de la taille maximum du tableau __DoResponse.splits__. Si ce nombre est dépassé, toutes les lignes du panier sont concidérées comme étant non expédiables et sont donc renvoyées dans le champ __DoResponse.nonShippable__.
 
 Comme pour tous les autres points API, vous pouvez retrouver la définition de l'objet en anglais dans le swagger du module :
 
-![Detail de l'objet SFSConfig](img/DetailSfsConfig.png)
+![Detail de l'objet DoConfig](img/DetailDoConfig.png)

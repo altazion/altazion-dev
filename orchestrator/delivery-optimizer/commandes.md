@@ -39,6 +39,16 @@ Le contenu de la commande se trouve dans le champ __details__. Il s'agit d'un ta
 
 La méthode renvoie un booléen pour indiquer le succès de l'opération.
 
+## Replacement de toutes les commandes
+
+__PATCH : {tenantId}/orders__
+
+Cette fonction reçoit un tableau d'objets de type __Order__ (en format JSON dans le body de la requête). Elle permet de remplacer __toutes__ les commandes contenues dans les __Articles__ et __StockOrigins__ par celles envoyées dans le body.
+
+Un paramètre "isFull" peut-être passé dans la requête. Dans le cas d'une valeur à "true", la fonction va également supprimer __toutes__ les commandes précédemment enregistrées dans __l'intégralité__ des __Articles__ et __StockOrigins__.
+
+__Attention :__ Cette méthode n'est à utiliser que si vous avez besoin de réinitialiser les commandes dans Delivery Optimizer. De plus, le passage du paramètre isFull à "true" peut entrainer des lenteurs importantes sur la base. Cette méthode est donc à utiliser avec précaution et en dehors des heures de traffic importants.
+
 ## Suppression d'une commande
 
 __DELETE : {tenantId}/order/byid/{idCommande}__
