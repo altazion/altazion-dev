@@ -36,13 +36,13 @@ Altazion propose un module d'intégration des flux de stocks basé sur le parsag
 Pour plus d'informations sur ce module, consultez la page de documentation dédiée à Xls Stock Parser.
 
 ### Module de traitement des stocks
-Il s'agit d'un serveur API conçu pour réceptionner les mouvements de stocks depuis votre système d'information et les caractéristiques des stocks en provenance des sources d'approvisionnement afin de recalculer les disponibilités en temps réel. Les disponibilités recalculées sont envoyées directement à Delivery Optimizer et publiées sur une file de messages pour être enregistrée de façon asynchrone dans la base de donnée SQL principale. 
+Il s'agit d'un serveur API conçu pour réceptionner les mouvements de stocks depuis votre système d'information et les caractéristiques des stocks en provenance des sources d'approvisionnement afin de recalculer les disponibilités en temps réel. Les disponibilités recalculées sont envoyées directement à Delivery Optimizer et publiées sur une file de messages pour être enregistrée de façon asynchrone dans la base de données SQL principale. 
 
 Pour plus d'informations sur ce module, consultez la page de documentation dédiée.
 
 ### Base de données REDIS
 
-Unified Stock utilise une base de données REDIS classique (REDIS Stack n'est pas nécessaire) pour le stockage des stocks. Cette base ayant un rôle central, les performances de cette dernière ont un impact direct sur celle de Unified Stock et sur sa réactivité.
+Unified Stock utilise une base de données REDIS classique (REDIS Stack n'est pas nécessaire) pour le stockage des stocks. Cette base jouant un rôle central, les performances de cette dernière ont un impact direct sur celle de Unified Stock et sur sa réactivité.
 
 __Attention :__ REDIS étant une base mémoire, Altazion recommande vivement de définir une politique de sauvegarde périodique afin d'éviter toutes pertes de données éventuelles dû à un redémarrage de la base.
 
@@ -54,11 +54,13 @@ Ce batchs se déclenche toutes les 30 secondes mais la synchronisation ne s'exé
 - Le nombre de stocks modifiés doit atteindre ou dépasser un certain seuil. Par défaut à 1000, ce seuil est paramétrable via la variable d'environnement __"SYNC_IMSTOCK_DB_THRESHOLD"__.
 - Un certain temps en secondes s'est écoulé depuis la dernière synchro. Par défaut à 600 secondes (10 minutes), ce temps est paramétrable via la variable d'environnement __"SYNC_IMSTOCK_DB_TIME_TRIGGER"__.
 
-La combinaison de ces deux conditions permettent de faire en sorte que les stocks en base de données soient mis à jour suffisament régulièrement, même si peu de stocks sont modifiés durant une certaine période.
+La combinaison de ces deux conditions permet de faire en sorte que les stocks en base de données soient mis à jour suffisamment régulièrement, même si peu de stocks sont modifiés durant une certaine période.
 
 ### Enregistrement asynchrone des disponibilités
 
-Après le calcul des disponibilités le module de traitement des stocks publie les résultats dans une file de messages. Cette file est lue par un programme chargé de synchroniser les disponibilités avec celles de la base de données SQL principale.
+Après le calcul des disponibilités le module de traitement des stocks publie les résultats dans une file de messages. Ces résultats contiennent les quantités disponibles à la vente sur chaque canal de vente pour une combinaison article/source approvisionnement.
+
+La file est ensuite lue par un programme chargé de synchroniser les disponibilités avec celles de la base de données SQL principale.
 
 Cette synchronisation a lieu de façon asynchrone car on considère que Delivery Optimizer (qui lui est mis à jour en temps réel), est le référentiel des disponibilités. La table en base de données est principalement mise à jour afin de permettre une consultation informative des disponibilités.
 

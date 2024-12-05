@@ -29,24 +29,32 @@ __POST : {tenantId}/articles/importfull__
 
 Ce point API permet l'import des articles dans la base via un tableau d'objets Article passé dans le body en format JSON.
 
-__Ces points API sont utilisés par les sources d'approvisionnement d'Altazion pour envoyer les données calculés vers Delivery Optimizer.__
+Ces points API sont utilisés par les sources d'approvisionnement d'Altazion pour envoyer les données calculées vers Delivery Optimizer.
+
+Si vous utilisez Unified Stock les stocks (liste de __ArticleStock__) ne sont pas envoyées par les Sources d'Approvisionnement mais par le module de traitement des stocks plus tard dans le processus via le point API "Mise à jour des stocks dans les Articles" détaillé plus bas.
 
 ## Upsert des StockOrigins et des Articles dans le module
 
 En complément des imports totaux qui nettoient la base avant d’insérer les données importées, il est possible de pousser des fichiers de mise à jour des Articles et StockOrigins. Ces points API servent à mettre à jour les éléments déjà en base et à ajouter ceux contenu dans le JSON qui ne s’y trouvaient pas auparavant (upsert).
 
-Le produit Altazion OMS Unified Stock permettent d’automatiser la procédure lorsque des deltas de stocks sont reçus.
-
 __PUT : {tenantId}/stock-origins__
 
-Ce point API permet l’upsert des origines de stock dans la base via un tableau d'objets StockOrigin passé dans le body en format JSON.
+Ce point API permet l’upsert des origines de stock dans la base via un tableau d'objets __StockOrigin__ passé dans le body en format JSON.
 
 __PUT : {tenantId}/articles__
 
-Ce point API permet l'upsert des articles dans la base via un tableau d'objets Article passé dans le body en format JSON.
+Ce point API permet l'upsert des articles dans la base via un tableau d'objets __Article__ passé dans le body en format JSON.
+
+Ces points API sont utilisés par les Sources d'Approvisionnement pour envoyer les disponibilités recalculées au long de la journée lorsque vous n'utilisez pas Unified Stock.
 
 ## Mise à jour des stocks dans les Articles
 
+Ce point API permet de remplacer les stocks de plusieurs articles. Pour cela il est nécessaire de passer un dictionnaire contenant la référence de l'article en clef et sa liste d'__ArticleStock__ en valeur dans le body de la requête. Ce dictionnaire devra être formaté en JSON.
 
+__PATCH : {tenantId}/articles/artstocks__
 
-## Ajout/Remplacement des commandes dans les Articles et les StockOrigins
+Le point est disponible dans la partie Articles du swagger :
+
+![SwaggerUI du point API de remplacement des stocks](img/ArtStocksSwaggerUI.png)
+
+Cette fonctionnalité API est utilisée par Unified Stock pour l'envoie des disponibilités recalculées en temps réel à Delivery Optimizer après la réception de stock mis à jour.
