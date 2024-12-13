@@ -47,8 +47,9 @@ Le diagramme de flux ci-dessous détaille les étapes d'exécution d'une règle 
 ### Critères de sélection des magasins
 
 Les règles magasins disposent de plusieurs critères qui leur sont spécifiques et qui servent à sélectionner et stocks et les magasins concernées par la règle :
-- __L'identifiant de Zone Magasin__ permettant de sélectionner les magasins d'une zone en particulier, peut être null si on souhaite cibler toutes les zones magasins.
-- __Le Type de Magasin__, permettant de sélectionner les magasin affilié et franchisé ou les magasins intégré, peut être null si l'on souhaite cibler tous les types de magasins.
+- __L'identifiant de Zone Magasin__ permettant de sélectionner les magasins d'une zone en particulier. Peut être null si on souhaite cibler toutes les zones magasins.
+- __Le Type de Magasin__, permettant de sélectionner les magasin affilié et franchisé ou les magasins intégré. Peut être null si l'on souhaite cibler tous les types de magasins.
+- __L'identifiant d'Enseigne de Magasin__, permettant de sélectionner les magasins appartenant à une enseigne en particulier. Peut être null si on souhaite cibler toutes les enseignes magasins.
 
 À noter que ces critères peuvent se combiner, vous pouvez par exemple sélectionner les magasins intégrés dans une zone spécifique en France. Il est également possible de n'utiliser aucun critère pour cibler tous vos magasins.
 
