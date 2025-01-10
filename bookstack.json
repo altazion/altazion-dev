@@ -1,0 +1,12 @@
+{
+  "folders": [
+    {
+      "source": "/orchestrator/delivery-optimizer",
+      "book": "altazion-delivery-optimizer"
+    },
+    {
+        "source": "/orchestrator/unified-stock",
+        "book": "altazion-unified-stock"
+      }
+  ]
+}
