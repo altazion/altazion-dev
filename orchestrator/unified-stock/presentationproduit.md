@@ -20,8 +20,13 @@ Pour utiliser Unified Stock, vous devrez configurer quatre options système :
 
 - __UnifiedStockUrl__, qui correspond à l'adresse de votre module de traitement des stocks (voir page de documentation dédiée)
 - __UnifiedStockCredentials__, qui contient les identifiants de connexion au module de traitement des stocks (voir page de documentation dédiée)
-- __UnifiedStockIncludeAvailabilities__, il s'agit d'un booléen qui s'il est à "true" considère que les quantités de stocks contenu dans la base de données SQL au moment de l'exécution des sources d'approvisionnement sont corrects. Dans ce cas, ils seront transférés à Unified Stock une fois le calcul des sources d'approvisionnement terminé.
-- __UnifiedStockIncludeIgnoredStocks__, il s'agit d'un booléen qui s'il est à "true" permet l'envoi des stocks exclus par les règles d'approvisionnement au module de traitement. Cette option est désactivée par défaut car gourmande en ressources et inutile pour le calcul des disponibilités. L'activer peut toutefois être utile durant les phases de tests du produit. __Altazion recommande de désactiver cette option en production__.
+- __UnifiedStockIncludeAvailabilities__, booléen à placer à :
+__true__ pour transférer les quantités de stocks contenu dans la base de données SQL après l'exécution des sources d'approvisionnement.
+__false__ si vous souhaiter alimenter Unified Stock en utilisant les points API du module de traitement des stocks.
+- __UnifiedStockIncludeIgnoredStocks__ : permet de transférer également les stocks exclus par l'exécution de la source d'approvisionnement :
+__true__ pour transférer tous les stocks valides, même si le produit n'est pas concerné par une règle d'approvisionnement ou s'il a été exclu par la règle.
+__false__ (valeur par défaut) pour ne transférer que les stocks pertinent pour le calcul des disponibilités.
+__Altazion recommande de désactiver cette option en production__ et de limiter son utilisation à des fins de tests et de développement.
 
 ## Architecture de Unified Stock
 
