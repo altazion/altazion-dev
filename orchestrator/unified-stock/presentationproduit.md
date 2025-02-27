@@ -26,7 +26,7 @@ __false__ si vous souhaiter alimenter Unified Stock en utilisant les points API 
 - __UnifiedStockIncludeIgnoredStocks__ : permet de transférer également les stocks exclus par l'exécution de la source d'approvisionnement :
 __true__ pour transférer tous les stocks valides, même si le produit n'est pas concerné par une règle d'approvisionnement ou s'il a été exclu par la règle.
 __false__ (valeur par défaut) pour ne transférer que les stocks pertinent pour le calcul des disponibilités.
-__Altazion recommande de désactiver cette option en production__ et de limiter son utilisation à des fins de tests et de développement.
+__Altazion recommande de laisser la valeur par défaut (false) en production__ et de limiter son utilisation à des fins de tests et de développement.
 
 ## Architecture de Unified Stock
 
@@ -47,9 +47,13 @@ Pour plus d'informations sur ce module, consultez la page de documentation dédi
 
 ### Base de données REDIS
 
-Unified Stock utilise une base de données REDIS classique (REDIS Stack n'est pas nécessaire) pour le stockage des stocks. Cette base jouant un rôle central, les performances de cette dernière ont un impact direct sur celle de Unified Stock et sur sa réactivité.
+Unified Stock utilise le cache REDIS du produit Orchestrator pour le stockage des données pertinentes au calcul des disponibilités.
 
-__Attention :__ REDIS étant une base mémoire, Altazion recommande vivement de définir une politique de sauvegarde périodique afin d'éviter toutes pertes de données éventuelles dû à un redémarrage de la base.
+Ce cache jouant un rôle central dans le fonctionnement de Unified Stock, les performances de ce dernier ont un impact direct sur les capacités de traitement de US et sur sa réactivité.
+
+__Attention :__ REDIS étant un cache mémoire, Altazion recommande vivement de définir une politique de sauvegarde périodique afin d'éviter toutes pertes de données éventuelles dû à un redémarrage de la base.
+
+Le cache REDIS d'Orchestrator contient 16 bases de données qui permettent de partitionner les données stockées. Unified Stock utilise la __DB0__ pour le stockages des valeurs actuelles des données et la __DB1__ pour conserver un historique des valeur des données.
 
 ### Traitement de synchronisation régulière des stocks
 
