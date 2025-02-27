@@ -51,6 +51,11 @@ Cette étape vérifie la configuration de la source d'approvisionnement, des rè
 
 ### Import des données nécessaires au calcul
 Cette phase récupère et prépare les origines de stocks ainsi que leurs stocks pour le calcul des règles.
+__Attention :__ Seul les stocks jugés valides sont importés. Pour cela, ils doivent satisfaire les conditions suivantes :
+- Disposer d'une quantité disponible supérieur à 0.
+- Être disponible dans l'emplacement
+- Être un stock d'article normal.
+- Ne pas être issu d'un article supprimé, non validé ou non publié
 
 ![Phase d'import d'une source d'appro](img/TraitementSourceApproImports.png)
 

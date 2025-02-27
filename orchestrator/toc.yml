@@ -46,6 +46,8 @@
       href: unified-stock/presentationproduit.md
     - name: Module traitement des stocks
       href: unified-stock/presentationmodule.md
+    - name: Historisation des mouvements de stocks
+      href: unified-stock/historisationstocks.md
     - name: Source d'Approvisionnement pour Unified Stock
       href: unified-stock/sourcesapprous.md
 - name: Module Delivery Optimizer (DO)

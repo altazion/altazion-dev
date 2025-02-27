@@ -6,7 +6,7 @@
 
 Le module de traitement des stocks se présente sous forme d’un serveur API à déployer dans votre solution. Il a vocation à être appelé les autres composants de l'OMS tel que les sources d'approvisionnement ou les modules d'intégration des flux de stock.
 
-Lorsque vous utilisez Unified Stock, le module de traitement des stocks est considéré comme le référentiel des stocks. C'est à dire qu'il dispose, via sa base REDIS, des informations les plus à jour sur les stocks.
+Lorsque vous utilisez Unified Stock, le module de traitement des stocks est considéré comme le référentiel des stocks. C'est à dire qu'il dispose, via sa base REDIS, des informations les plus à jour sur les stocks et les sources d'approvisionnement.
 
 Outre ses fonctions d'agrégateur de stock, ce module sert également à recalculer les disponibilités à chaque réception de mouvement de stock depuis un module d'intégration de flux de stocks ou après le calcul des sources d'approvisionnement. Une fois ces disponibilités recalculées, elles sont envoyées à Delivery Optimizer et transmises à une file de messages pour enregistrement asynchrone dans la base de données SQL principale.
 
@@ -27,11 +27,28 @@ Il dispose également d'une interface web SwaggerUI permettant de facilement tes
 
 ![Interface SwaggerUi permettant de tester les points API](img/SwaggerUI.png)
 
-## Composition des stocks
+## Stockage des données
+
+### Présentation
+
+Le module de traitement des stocks a vocation à recevoir les données nécessaires au calcul des disponibilités depuis les sources d'approvisionnements et les modules de d'intégrations des flux de stocks.
+
+Il est ainsi amené à stocker la version la plus récente des données suivante dans la __DB0__ du cache REDIS :
+
+- Les stocks
+- Les sources d'approvisionnements
+- Les règles d'approvisionnements
+- Les codes magasins et leur équivalent DeliveryOptimizer
+
+Dans cette base, la valeur d'une donnée est écrasée à la réception d'une nouvelle valeur. Il n'est donc pas possible de récupérer les anciennes valeurs des données.
+
+Toutefois le module de traitement des stocks historise également les valeurs des données dans la base __DB1__ de REDIS. À l'heure actuelle, cette fonctionnalité n'est implémentée que pour les stocks. Pour plus d'information sur l'historisation des stocks, consultez la page de documentation dédiée.
+
+### Stocks
 
 Chaque stock manipulé par le module de traitement est partagé en deux entités, les informations d'approvisionnement et les quantités de stocks. Si un stock ne possède pas ces deux entités, il sera exclu des algorithmes de calcul de disponibilités.
 
-### Information d'approvisionnement
+#### Information d'approvisionnement
 
 Chaque stock (combinaison origine de stock/article) dispose d'informations issues directement de l'exécution des sources d'approvisionnement, à savoir :
 - À quelle règle appartient le stock
@@ -41,7 +58,7 @@ Chaque stock (combinaison origine de stock/article) dispose d'informations issue
 
 Ces informations sont envoyées à Unified Stock à la fin de l'exécution des sources d'approvisionnement.
 
-### Quantités de stocks
+#### Quantités de stocks
 
 La seconde entité est composée de toutes les différentes quantités de stocks :
 - Les stocks disponibles
