@@ -22,7 +22,7 @@ Dans le cadre de l'exécution des sources d'approvisionnement, seul les stocks c
 
 De plus si vous constatez des disparités entre les mouvements de stocks dans vos emplacements et ceux historisés par Unified Stock en journée, cela peut indiquer un disfonctionnement de vos modules d'intégrations de stocks spécifiques.
 
-## Point API principaux
+## Points API principaux
 
 Le module de traitement des stocks dispose d'APIs permettant d'interroger l'historique des mouvements de stocks.
 Tous les points API sont détaillés dans le swagger et sont accompagnés d'une définition des objets d'envois et de retours.
