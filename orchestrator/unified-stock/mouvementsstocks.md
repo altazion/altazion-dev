@@ -1,13 +1,5 @@
 # Mouvements de stocks
 
-## Notion d'entrepôts et de zone de stockage
-
-Unified Stock regroupe les différents endroits contenant du stock (magasins, dépôts, etc.) sous une notion commune nommée "Entrepôts" (Warehouse en anglais). Ces entrepôts peuvent posséder une ou plusieurs zones de stockage (Storage Zone).
-
-De cette façon, un magasin est considéré par Unified Stock comme un entrepôt et sa surface de vente comme une première zone de stockage. Il peut, par exemple, également disposer d'une remise qui sera sa seconde zone de stockage.
-
-Un dépôt sera également considéré comme un entrepôt et ses différents emplacements comme des zones de stockage. On peut par exemple avoir une zone réservée à la préparation colis (picking), une seconde pour le service après-vente ou encore une autre réservée au stockage à plus long terme.
-
 ## Généralités
 
 Le module Unified Stock vous permet de réaliser facilement des mouvements de stocks depuis vos entrepôts (magasins, dépôts, etc.).
