@@ -50,6 +50,8 @@
       href: unified-stock/historisationstocks.md
     - name: Source d'Approvisionnement pour Unified Stock
       href: unified-stock/sourcesapprous.md
+    - name: Entrepôts et zones de stockage
+      href: unified-stock/entrepotszonesstockage.md
     - name: Mouvements de stocks
       href: unified-stock/mouvementsstocks.md
 - name: Module Delivery Optimizer (DO)
