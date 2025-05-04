@@ -19,7 +19,7 @@ class FactureData
 	string DownloadUrl { get; set; }
 	DateTime Date { get; set; }
 	string Numero { get; set; }
-	decimal Id { get; set; }
+	long Id { get; set; }
 	decimal MontantTTC { get; set; }
 	decimal MontantHT { get; set; }
 	string Nom { get; set; }
@@ -36,6 +36,7 @@ class FactureData
 	string ReferencesClient { get; set; }
 	string MessageEtat { get; }
 	CPointSoftware.Equihira.Common.EtatReglement EtatReglement { get; }
+	int NombreEdition { get; set; }
 }
 
 class LigneFacture
