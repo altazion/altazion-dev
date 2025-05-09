@@ -7,6 +7,6 @@ Propriétés publiques :
 - City : Ville associée au code postal.
 - PostOffice : Bureau distributeur associé au code postal.
 - PostOfficeData : Données complémentaires pour le bureau distributeur.
-- Latitude : Latitude géographique du code postal (valeur décimale nullable).
-- Longitude : Longitude géographique du code postal (valeur décimale nullable).
+- Latitude : Latitude géographique du code postal (valeur nullable).
+- Longitude : Longitude géographique du code postal (valeur nullable).
 - FrenchInseeCode : Code INSEE français associé au code postal.

@@ -1,7 +1,10 @@
-La classe EUSpecifications représente les spécifications spécifiques à l'Union Européenne pour un type de client. Elle contient les propriétés suivantes :
+La classe EUSpecifications représente les spécifications spécifiques à l'Union Européenne pour un type de client.
 
-- SalesAccountId : chaîne de caractères représentant l'identifiant du compte de vente associé.
+Propriétés publiques :
 
-Cette classe permet de gérer les spécificités comptables et fiscales liées à la région européenne pour un type de client donné.
+- SalesAccountId : chaîne de caractères représentant l'identifiant du compte de vente associé. Cette propriété sert de clé unique pour cet objet.
 
-Elle dérive de DataObjectBase permettant l'initialisation via une DataRow et la récupération de la clé unique.
+Méthodes importantes :
+
+- FromDataRow(DataRow dr) : initialise la propriété SalesAccountId à partir d'une ligne de données.
+- GetKey() : retourne SalesAccountId, la clé unique de l'objet.

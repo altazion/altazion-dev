@@ -1,11 +1,13 @@
-La classe CountrySalesSettings représente les paramètres de vente spécifiques à un pays. Elle contient les propriétés suivantes :
+La classe CountrySalesSettings représente les paramètres spécifiques concernant les ventes dans un pays donné. Elle contient les propriétés publiques suivantes :
 
-- Guid : Identifiant unique des paramètres de vente.
-- Iso3LettersCode : Code ISO à 3 lettres du pays.
-- IsForbidden : Indique si les ventes sont interdites dans ce pays.
-- SalesRequiresValidation : Indique si les ventes nécessitent une validation.
-- UsePricesWithoutTaxes : Indique si les prix sont affichés sans taxes.
-- VatGroup : Groupe de TVA associé au pays.
-- VatThreshold : Seuil de TVA applicable dans le pays.
-- VatThresholdCurrency : Devise utilisée pour le seuil de TVA.
-- UseDestinationVatRates : Indique si les taux de TVA du pays de destination doivent être utilisés.
+- Guid : identifiant unique des paramètres de vente.
+- Iso3LettersCode : code ISO à 3 lettres du pays.
+- IsForbidden : indique si les ventes sont interdites dans ce pays.
+- SalesRequiresValidation : indique si les ventes nécessitent une validation préalable.
+- UsePricesWithoutTaxes : indique si les prix doivent être affichés hors taxes.
+- VatGroup : groupe de TVA associé au pays.
+- VatThreshold : seuil de TVA applicable dans le pays, en valeur décimale facultative.
+- VatThresholdCurrency : la devise utilisée pour le seuil de TVA.
+- UseDestinationVatRates : indique si les taux de TVA du pays de destination doivent être appliqués.
+
+Cette classe dérive de DataObjectBase et est annotée avec l'attribut DataConcept("Settings", "Sales"). Elle permet notamment de charger ses données depuis une DataRow via la méthode FromDataRow.

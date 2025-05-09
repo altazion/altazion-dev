@@ -1,7 +1,10 @@
-The EUSpecifications class represents the specifications specific to the European Union for a customer type. It includes the following properties:
+The EUSpecifications class represents European Union-specific specifications for a customer type.
 
-- SalesAccountId: a string representing the associated sales account identifier.
+Public properties:
 
-This class enables managing accounting and fiscal specificities related to the European region for a given customer type.
+- SalesAccountId: a string representing the identifier of the associated sales account. This property acts as the unique key for this object.
 
-It inherits from DataObjectBase allowing initialization from a DataRow and retrieval of the unique key.
+Important methods:
+
+- FromDataRow(DataRow dr): initializes the SalesAccountId property from a data row.
+- GetKey(): returns SalesAccountId, the unique key of the object.

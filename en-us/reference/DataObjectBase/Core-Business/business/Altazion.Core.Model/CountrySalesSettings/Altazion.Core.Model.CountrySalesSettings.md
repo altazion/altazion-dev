@@ -1,11 +1,13 @@
-The CountrySalesSettings class represents sales settings specific to a country. It contains the following properties:
+The CountrySalesSettings class represents sales settings specific to a given country. It has the following public properties:
 
-- Guid: Unique identifier for the sales settings.
+- Guid: unique identifier of the sales settings.
 - Iso3LettersCode: 3-letter ISO code of the country.
-- IsForbidden: Indicates if sales are forbidden in this country.
-- SalesRequiresValidation: Indicates if sales require validation.
-- UsePricesWithoutTaxes: Indicates if prices are displayed without taxes.
+- IsForbidden: indicates whether sales are forbidden in this country.
+- SalesRequiresValidation: indicates whether sales require validation.
+- UsePricesWithoutTaxes: indicates if prices should be displayed excluding taxes.
 - VatGroup: VAT group associated with the country.
-- VatThreshold: VAT threshold applicable in the country.
-- VatThresholdCurrency: Currency used for the VAT threshold.
-- UseDestinationVatRates: Indicates if the VAT rates of the destination country should be used.
+- VatThreshold: VAT threshold applicable in the country, optional decimal value.
+- VatThresholdCurrency: currency used for the VAT threshold.
+- UseDestinationVatRates: indicates if the VAT rates of the destination country should be used.
+
+This class inherits from DataObjectBase and is marked with the DataConcept("Settings", "Sales") attribute. It can initialize its properties from a DataRow using the FromDataRow method.
