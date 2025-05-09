@@ -1,5 +1,6 @@
-La classe Customer représente un client avec ses informations personnelles et professionnelles. Les propriétés publiques sont :
+## Customer
 
+La classe Customer représente un client avec ses informations personnelles et professionnelles. Elle contient les propriétés suivantes :
 - Id : Identifiant unique du client.
 - Guid : Identifiant global unique (GUID) du client.
 - Name : Nom complet du client.
@@ -19,3 +20,28 @@ La classe Customer représente un client avec ses informations personnelles et p
 - LastName : Nom seul du client (sans prénom).
 - FirstName : Prénom seul du client (sans nom).
 - Title : Civilité du client (par exemple, M., Mme, Dr).
+
+### D�claration TypeScript
+```json
+interface Customer {
+  Id: number;
+  Guid: string; // GUID represented as string
+  Name: string;
+  StreetAddress: string;
+  PostalCode: string;
+  CountryCode: string;
+  City: string;
+  MainEmail: string;
+  Importance: number;
+  IsArchived: boolean;
+  CreationDate: Date;
+  CustomerType: number;
+  Phone: string;
+  Mobile: string;
+  AccountingAccount: string;
+  VatNumber: string;
+  LastName: string;
+  FirstName: string;
+  Title: string;
+}
+```

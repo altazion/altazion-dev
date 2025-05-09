@@ -1,15 +1,32 @@
-La classe FulfillmentType représente un type de traitement ou de réalisation des commandes.
+## FulfillmentType
+
+La classe FulfillmentType représente un type de traitement ou de réalisation des commandes dans le système.
 
 Propriétés publiques :
-- Id : Identifiant unique du type de traitement.
-- Code : Code du type de traitement.
-- Label : Libellé du type de traitement.
-- IsInternal : Indique si le type de traitement est interne.
-- IsArchived : Indique si le type de traitement est archivé.
-- Kind : Type ou catégorie du traitement (valeur méta).
-- Priority : Priorité du type de traitement.
-- Description : Description détaillée du type de traitement.
-- FulfillmentDelayInDays : Délai standard de réalisation exprimé en jours.
-- DescriptionForCustomers : Description publique destinée aux clients.
 
-Méthodes principales (non détaillées ici) permettent d'obtenir la clé unique (Id) et d'initialiser les propriétés à partir d'une ligne de données.
+- Id (int) : Identifiant unique du type de traitement.
+- Code (string) : Code du type de traitement.
+- Label (string) : Libellé du type de traitement.
+- IsInternal (bool) : Indique si le type de traitement est interne.
+- IsArchived (bool) : Indique si le type de traitement est archivé.
+- Kind (string) : Type ou catégorie du traitement (métadonnée).
+- Priority (int) : Priorité du type de traitement.
+- Description (string) : Description du type de traitement.
+- FulfillmentDelayInDays (int) : Délai standard de réalisation en jours.
+- DescriptionForCustomers (string) : Description publique du type de traitement, destinée aux clients.
+
+### D�claration TypeScript
+```json
+export interface FulfillmentType {
+  Id: number;
+  Code: string;
+  Label: string;
+  IsInternal: boolean;
+  IsArchived: boolean;
+  Kind: string;
+  Priority: number;
+  Description: string;
+  FulfillmentDelayInDays: number;
+  DescriptionForCustomers: string;
+}
+```

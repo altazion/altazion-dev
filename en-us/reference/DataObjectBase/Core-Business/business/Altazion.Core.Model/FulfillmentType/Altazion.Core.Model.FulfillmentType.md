@@ -1,15 +1,32 @@
-The FulfillmentType class represents a type of processing or fulfillment of orders.
+## FulfillmentType
+
+The FulfillmentType class represents a type of processing or fulfillment of orders in the system.
 
 Public properties:
-- Id: Unique identifier of the fulfillment type.
-- Code: Code of the fulfillment type.
-- Label: Name or label of the fulfillment type.
-- IsInternal: Indicates if the fulfillment type is internal.
-- IsArchived: Indicates if the fulfillment type is archived.
-- Kind: Type or category of the fulfillment (meta data).
-- Priority: Priority of the fulfillment type.
-- Description: Detailed description of the fulfillment type.
-- FulfillmentDelayInDays: Standard fulfillment delay in days.
-- DescriptionForCustomers: Public description intended for customers.
 
-Main methods (not detailed here) provide the unique key (Id) and initialize properties from a data row.
+- Id (int): Unique identifier of the fulfillment type.
+- Code (string): Code of the fulfillment type.
+- Label (string): Label of the fulfillment type.
+- IsInternal (bool): Indicates whether the fulfillment type is internal.
+- IsArchived (bool): Indicates whether the fulfillment type is archived.
+- Kind (string): Type or category of the fulfillment (metadata).
+- Priority (int): Priority of the fulfillment type.
+- Description (string): Description of the fulfillment type.
+- FulfillmentDelayInDays (int): Standard completion delay in days.
+- DescriptionForCustomers (string): Public description of the fulfillment type, intended for customers.
+
+### TypeScript class
+```json
+export interface FulfillmentType {
+  Id: number;
+  Code: string;
+  Label: string;
+  IsInternal: boolean;
+  IsArchived: boolean;
+  Kind: string;
+  Priority: number;
+  Description: string;
+  FulfillmentDelayInDays: number;
+  DescriptionForCustomers: string;
+}
+```

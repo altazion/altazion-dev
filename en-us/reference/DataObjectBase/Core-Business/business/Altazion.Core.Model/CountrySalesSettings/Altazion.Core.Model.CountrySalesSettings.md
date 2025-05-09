@@ -1,13 +1,29 @@
-The CountrySalesSettings class represents sales settings specific to a given country. It has the following public properties:
+## CountrySalesSettings
 
-- Guid: unique identifier of the sales settings.
-- Iso3LettersCode: 3-letter ISO code of the country.
-- IsForbidden: indicates whether sales are forbidden in this country.
-- SalesRequiresValidation: indicates whether sales require validation.
-- UsePricesWithoutTaxes: indicates if prices should be displayed excluding taxes.
+The CountrySalesSettings class represents sales settings specific to a country.
+
+Public properties:
+- Guid: Unique identifier for the sales settings.
+- Iso3LettersCode: ISO 3-letter code of the country.
+- IsForbidden: Indicates whether sales are forbidden in this country.
+- SalesRequiresValidation: Indicates whether sales require validation.
+- UsePricesWithoutTaxes: Indicates whether prices are shown without taxes.
 - VatGroup: VAT group associated with the country.
-- VatThreshold: VAT threshold applicable in the country, optional decimal value.
-- VatThresholdCurrency: currency used for the VAT threshold.
-- UseDestinationVatRates: indicates if the VAT rates of the destination country should be used.
+- VatThreshold: VAT threshold applicable in the country.
+- VatThresholdCurrency: Currency used for the VAT threshold.
+- UseDestinationVatRates: Indicates if VAT rates of the destination country should be used.
 
-This class inherits from DataObjectBase and is marked with the DataConcept("Settings", "Sales") attribute. It can initialize its properties from a DataRow using the FromDataRow method.
+### TypeScript class
+```json
+interface CountrySalesSettings {
+  Guid: string; // Unique identifier (GUID)
+  Iso3LettersCode: string; // ISO 3-letter code of the country
+  IsForbidden: boolean; // Whether sales are forbidden in the country
+  SalesRequiresValidation: boolean; // Whether sales require validation
+  UsePricesWithoutTaxes: boolean; // Whether prices are shown without taxes
+  VatGroup: string | null; // VAT group associated with the country
+  VatThreshold: number | null; // VAT threshold applicable in the country
+  VatThresholdCurrency: string | null; // Currency code for the VAT threshold
+  UseDestinationVatRates: boolean; // Whether to use destination country's VAT rates
+}
+```

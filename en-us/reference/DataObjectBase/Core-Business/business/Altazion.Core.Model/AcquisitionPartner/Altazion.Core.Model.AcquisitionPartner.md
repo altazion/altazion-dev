@@ -1,11 +1,21 @@
+## AcquisitionPartner
+
 Represents an acquisition partner.
 
 Public properties:
-- Guid: unique identifier of the acquisition partner (Guid type).
-- Name: name of the acquisition partner (string type).
-- AquisitionCategoryGuid: unique identifier of the associated acquisition category (Guid type).
-- IdentificationString: identification string of the acquisition category (string type).
+- Guid: Unique identifier for the acquisition partner.
+- Name: Name of the acquisition partner.
+- AquisitionCategoryGuid: Unique identifier for the acquisition category associated.
+- IdentificationString: Identification string of the acquisition category.
 
-This class models a partner through which a commercial acquisition is made, holding its identification keys and name. It derives from DataObjectBase.
+This class allows to instantiate an object representing an acquisition partner with its unique ID, name, and acquisition category (using a GUID and an identification string).
 
-Main methods (not listed in the description) include construction from a data row and retrieval of the unique key which here is the Guid.
+### TypeScript class
+```json
+interface AcquisitionPartner {
+  Guid: string; // Unique identifier (GUID) of the acquisition partner
+  Name: string | null; // Name of the acquisition partner
+  AquisitionCategoryGuid: string; // Unique identifier (GUID) of the acquisition category
+  IdentificationString: string | null; // Identification string of the acquisition category
+}
+```
