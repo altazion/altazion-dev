@@ -1,13 +1,11 @@
-La classe `Country` représente un pays avec ses codes ISO et ses libellés descriptifs. 
+La classe Country représente un pays avec ses informations essentielles basées sur les normes ISO.
 
 Propriétés publiques :
-- `Iso3LettersCode` : Code ISO à 3 lettres du pays, utilisé comme clé unique de l'objet.
-- `Iso2LettersCode` : Code ISO à 2 lettres du pays.
-- `Label` : Libellé du pays.
-- `IsoLabel` : Libellé ISO du pays.
+- Iso3LettersCode : chaîne de caractères représentant le code ISO à 3 lettres du pays. C'est la clé unique de chaque objet Country.
+- Iso2LettersCode : chaîne de caractères représentant le code ISO à 2 lettres du pays.
+- Label : chaîne de caractères représentant le libellé du pays.
+- IsoLabel : chaîne de caractères représentant le libellé ISO du pays.
 
-Cette classe dérive de DataObjectBase et est marquée avec l'attribut `DataConcept` pour le contexte « ReferenceData » avec le nom "Country".
-
-Méthodes importantes (hors scope détaillé ici) :
-- `GetKey()` retourne la clé unique, soit `Iso3LettersCode`.
-- `FromDataRow(DataRow)` initialise les propriétés à partir d'une ligne de données.
+Méthodes principales héritées surchargées :
+- GetKey() : retourne la clé unique, ici correspond au code ISO 3 lettres.
+- FromDataRow(DataRow dr) : initialise les propriétés de la classe à partir des colonnes d'une ligne de données, en mappant "pay_pk" à Iso3LettersCode, "pay_iso_2" à Iso2LettersCode, "pay_libelle" à Label, et "pay_libelle_iso" à IsoLabel.

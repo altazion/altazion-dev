@@ -1,6 +1,5 @@
-La classe Customer représente un client avec ses informations personnelles et professionnelles.
+La classe Customer représente un client avec ses informations personnelles et professionnelles. Elle contient les propriétés suivantes :
 
-Propriétés publiques :
 - Id : Identifiant unique du client.
 - Guid : Identifiant global unique (GUID) du client.
 - Name : Nom complet du client.
@@ -9,10 +8,10 @@ Propriétés publiques :
 - CountryCode : Code du pays du client.
 - City : Ville du client.
 - MainEmail : Adresse e-mail principale du client.
-- Importance : Niveau d'importance du client.
-- IsArchived : Indique si le client est archivé.
+- Importance : Niveau d'importance du client (type court).
+- IsArchived : Indique si le client est archivé (booléen).
 - CreationDate : Date de création du client.
-- CustomerType : Type de client (par exemple, particulier ou entreprise).
+- CustomerType : Type de client (par exemple, particulier ou entreprise, type court).
 - Phone : Numéro de téléphone du client.
 - Mobile : Numéro de téléphone mobile du client.
 - AccountingAccount : Compte comptable du client.
@@ -21,4 +20,4 @@ Propriétés publiques :
 - FirstName : Prénom seul du client (sans nom).
 - Title : Civilité du client (par exemple, M., Mme, Dr).
 
-Chaque propriété contient des informations sur les données associées au client, permettant de gérer ses coordonnées et status dans le système.
+Cette classe dérive de DataObjectBase et possède des méthodes pour charger ses données depuis une Source DataRow, comparer la clé de données avec un autre objet et obtenir sa clé unique (Id).

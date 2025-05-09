@@ -1,13 +1,13 @@
-La classe BatchResult représente le résultat d'un batch dans le système.
+La classe BatchResult représente le résultat d'un batch dans le système, incluant les informations clés telles que son identifiant unique, son type, l'objet associé, la date d'exécution, le résultat et son statut actuel.
 
-Propriétés :
-- Guid : Identifiant unique du batch de type Guid.
-- BatchType : Type du batch (string).
-- AssociatedObjectGuid : Identifiant unique optionnel de l'objet associé au batch, de type Guid nullable.
-- Date : Date et heure d'exécution du batch de type DateTimeOffset.
-- Result : Résultat du batch, sous forme de chaîne.
-- Status : Statut actuel du batch, sous forme de chaîne.
+Propriétés publiques :
+- Guid : Identifiant unique du batch.
+- BatchType : Type du batch.
+- AssociatedObjectGuid : Identifiant unique optionnel de l'objet associé au batch.
+- Date : Date et heure d'exécution du batch.
+- Result : Résultat final du batch.
+- Status : Statut actuel du batch, typiquement "completed" ou "running".
 
-Constantes :
-- BatchStatusCompleted : indique que le batch est terminé avec la valeur "completed".
-- BatchStatusRunning : indique que le batch est en cours avec la valeur "running".
+Constantes publiques :
+- BatchStatusCompleted : valeur de statut indiquant que le batch est terminé ("completed").
+- BatchStatusRunning : valeur de statut indiquant que le batch est en cours d'exécution ("running").

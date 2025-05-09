@@ -1,7 +1,7 @@
-La classe `EUSpecifications` représente les spécifications spécifiques à l'Union Européenne pour un type de client.
+La classe EUSpecifications représente les spécifications spécifiques à l'Union Européenne pour un type de client. Elle contient les propriétés suivantes :
 
-Propriétés publiques :
-- `SalesAccountId` (string) : Identifiant du compte de vente associé à ce type de client.
+- SalesAccountId : chaîne de caractères représentant l'identifiant du compte de vente associé.
 
-Méthodes héritées de DataObjectBase permettent l'initialisation des propriétés depuis une source DataRow, en particulier ici `SalesAccountId` est initialisé depuis la colonne `tcl_compte_compta`.
-La clé unique de cet objet est son `SalesAccountId`.
+Cette classe permet de gérer les spécificités comptables et fiscales liées à la région européenne pour un type de client donné.
+
+Elle dérive de DataObjectBase permettant l'initialisation via une DataRow et la récupération de la clé unique.
