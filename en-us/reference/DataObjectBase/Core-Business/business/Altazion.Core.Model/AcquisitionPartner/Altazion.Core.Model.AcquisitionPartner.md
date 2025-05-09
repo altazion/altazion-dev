@@ -11,7 +11,7 @@ Public properties:
 This class allows to instantiate an object representing an acquisition partner with its unique ID, name, and acquisition category (using a GUID and an identification string).
 
 ### TypeScript class
-```json
+```typescript
 interface AcquisitionPartner {
   Guid: string; // Unique identifier (GUID) of the acquisition partner
   Name: string | null; // Name of the acquisition partner
