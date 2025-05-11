@@ -30,12 +30,15 @@ class FactureData
 	int ClientID { get; set; }
 	decimal MontantRestant { get; set; }
 	DateTime? DateEcheance { get; set; }
+	DateTime? DateDerniereRelance { get; set; }
 	string Origine { get; set; }
 	bool EstReglee { get; }
 	bool EstEnRetard { get; }
 	string ReferencesClient { get; set; }
 	string MessageEtat { get; }
 	CPointSoftware.Equihira.Common.EtatReglement EtatReglement { get; }
+	bool ExonereeRelance { get; set; }
+	int CompteRelance { get; set; }
 	int NombreEdition { get; set; }
 }
 
