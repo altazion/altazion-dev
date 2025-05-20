@@ -22,6 +22,23 @@ Les règles d'appro disposent de paramètres servant à la sélection des stocks
 - __Le code pays__, pour sélectionner toutes les origines de stock d'un pays en particulier, peut être null si l'on souhaite cibler les origines de tous les pays disponibles.
 - __Le booléen__ indiquant si les commandes sont réservées par défaut.
 
+Il est possible de définir plusieurs règles d’approvisionnement pour chaque type de stock. Ces règles sont exécutées selon leur __rang__ (1 puis 2, puis 3, etc..). Lorsqu’un magasin, un fournisseur ou un entrepôt est associé à une règle d’approvisionnement, il n’est plus pris en compte par les règles suivantes. Ainsi, chaque entité n’est concernée que par la première règle applicable selon l’ordre de priorité défini.
+
+Par exemple : vous gérez des magasins de tailles différentes, sous des enseignes différentes, vous pouvez définir les règles suivantes :
+
+- Rang 1 : Les magasins d'une liste fixes "magasins de centre ville", contient 10 magasins et ne prend pas en compte les produits de grande taille, puis ignore les stocks < 3
+- Rang 2 : Les magasins franchisés de votre enseigne A, pour lesquels les stocks < 5 sont ignorés
+- Rang 3 : Les magasins de l'enseigne A, pour lesquels les stocks < 3 sont ignorés
+- Rang 4 : les magasins de toutes les enseignes, pour lesquels les stocks < 2 sont ignorés.
+
+Le fonctionnement sera le suivant :
+
+1. Si un magasin est à la fois dans les "centres villes", un franchisé et de l'enseigne A, seule la règle de Rang 1 sera prise compte.
+2. Un magasin franchisé de l'enseigne A sera pris en compte dans la règle de rang 2
+3. Un magasin succursale de l'enseigne A sera pris en compte dans la règle de rang 3
+4. Un magasin de l'enseigne B, verra la règle de rang 4 appliqué
+
+
 ### Calcul des disponibilités
 
 Chaque règle peut également disposer de traitements spécifiques à exécuter avant d'effectuer les calculs ci-dessous. Consultez la page dédiée aux traitements pour plus d'information.
