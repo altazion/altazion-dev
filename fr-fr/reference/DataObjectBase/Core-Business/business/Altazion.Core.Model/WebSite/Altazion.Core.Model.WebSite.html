@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>WebSite | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="WebSite | Aide - Altazion">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="website">WebSite</h2>
+
+<p>La classe WebSite représente un site web avec ses propriétés et configurations. Elle contient les propriétés publiques suivantes :</p>
+<ul>
+<li>Code : le code court du site web.</li>
+<li>Id : identifiant unique du site web.</li>
+<li>Label : libellé ou nom du site web.</li>
+<li>Theme : thème du site web.</li>
+<li>CssTheme : thème CSS utilisé par le site web.</li>
+<li>MasterPage : page maître utilisée par le site web.</li>
+<li>RjsId : identifiant RJS du site web.</li>
+<li>MainCategoryId : identifiant de la catégorie principale du site web.</li>
+<li>DefaultNewsletterId : identifiant de la newsletter par défaut (nullable).</li>
+<li>MainUrl : URL principale du site web.</li>
+<li>CustomerServicePhone : numéro de téléphone du service client.</li>
+<li>EmailServiceClient : email du service client.</li>
+<li>HorairesServiceClient : horaires d&#39;ouverture du service client.</li>
+<li>DefaultPostalCode : code postal par défaut.</li>
+<li>DefaultCountryPk : code pays par défaut.</li>
+<li>DefaultCulture : culture par défaut du site web.</li>
+<li>DefaultCurrency : devise par défaut (nullable, GUID).</li>
+<li>SiteParentId : identifiant du site parent (nullable).</li>
+<li>IsECommerce : booléen indiquant si le site est un site e-commerce.</li>
+<li>IsInProduction : booléen indiquant si le site est en production.</li>
+<li>Description : description du site web.</li>
+<li>Title : titre du site web.</li>
+<li>IsPrivate : booléen indiquant si le site est privé.</li>
+<li>RootSearchPath : chemin racine pour les recherches.</li>
+<li>RootProductPath : chemin racine pour les produits.</li>
+<li>RootPath : chemin racine du site web.</li>
+<li>ThemeGuid : identifiant GUID du thème (nullable).</li>
+<li>WebOmsSourceGuid : GUID de la source OMS pour le web (nullable).</li>
+<li>StoreOmsSourceGuid : GUID de la source OMS pour le magasin (nullable).</li>
+</ul>
+<p>Les méthodes incluent notamment une initialisation à partir d&#39;une DataRow, et une validation élémentaire des données (notamment le format de l&#39;URL principale).</p>
+<p>Cette classe hérite de DataObjectBase et représente ainsi une classe de données dans le système.</p>
+<h3 id="dclaration-typescript">D�claration TypeScript</h3>
+<pre><code class="lang-typescript">interface WebSite {
+  Code: string;
+  Id: number;
+  Label: string;
+  Theme: string;
+  CssTheme: string;
+  MasterPage: string;
+  RjsId: number;
+  MainCategoryId: number;
+  DefaultNewsletterId?: number | null;
+  MainUrl: string;
+  CustomerServicePhone: string;
+  EmailServiceClient: string;
+  HorairesServiceClient: string;
+  DefaultPostalCode: string;
+  DefaultCountryPk: string;
+  DefaultCulture: string;
+  DefaultCurrency?: string | null; // GUID represented as string
+  SiteParentId?: number | null;
+  IsECommerce: boolean;
+  IsInProduction: boolean;
+  Description: string;
+  Title: string;
+  IsPrivate: boolean;
+  RootSearchPath: string;
+  RootProductPath: string;
+  RootPath: string;
+  ThemeGuid?: string | null; // GUID represented as string
+  WebOmsSourceGuid?: string | null; // GUID represented as string
+  StoreOmsSourceGuid?: string | null; // GUID represented as string
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>
