@@ -16,8 +16,8 @@ Type(s) de données :
 class TransfertStockByEmplacements
 {
 	string NumeroDocument { get; set; }
-	int IDEmplacementOrigine { get; set; }
-	int IDEmplacementDestination { get; set; }
+	System.Guid IDEmplacementOrigine { get; set; }
+	System.Guid IDEmplacementDestination { get; set; }
 	CPointSoftware.Equihira.Business.Logistique.StocksBllEx+LigneTransfert[] LignesTransfert { get; set; }
 	string Raison { get; set; }
 	bool ValidationAuto { get; set; }

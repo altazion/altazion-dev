@@ -6,7 +6,7 @@ Url :`[DELETE] api/stocks/emplacements/{id}`
 
 Paramètres : 
 
-- **id** (int) : ID de l'emplacement à supprimer
+- **id** (System.Guid) : ID de l'emplacement à supprimer
 
 Type de retour : `bool`
 

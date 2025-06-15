@@ -17,10 +17,10 @@ class Emplacement
 {
 	bool EstArchive { get; set; }
 	Guid? ZonePreparationGuid { get; set; }
-	int ID { get; set; }
+	System.Guid ID { get; set; }
 	string Libelle { get; set; }
 	string Code { get; set; }
-	int IdDepot { get; set; }
+	System.Guid IdDepot { get; set; }
 }
 
 ```

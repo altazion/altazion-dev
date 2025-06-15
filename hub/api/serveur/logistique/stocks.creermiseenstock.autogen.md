@@ -38,7 +38,7 @@ class ArticleAMettreEnStock
 	Guid? LigneSourceGuid { get; set; }
 	decimal Quantite { get; set; }
 	decimal PuHt { get; set; }
-	System.Int32? EmplacementPrefere { get; set; }
+	Guid? EmplacementPrefere { get; set; }
 	string TypeOperation { get; set; }
 }
 

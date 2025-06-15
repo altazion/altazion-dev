@@ -28,10 +28,10 @@ class Stock
 	decimal? Quantite { get; set; }
 	bool EstDispo { get; set; }
 	decimal QuantiteReservee { get; set; }
-	decimal QuantiteTheorique { get; set; }
-	int IdEmplacement { get; set; }
+	decimal QuantiteReelle { get; set; }
+	System.Guid IdEmplacement { get; set; }
 	string LibelleEmplacement { get; set; }
-	int IdDepot { get; set; }
+	System.Guid IdDepot { get; set; }
 	string LibelleDepot { get; set; }
 }
 

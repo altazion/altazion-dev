@@ -6,7 +6,7 @@ Url :`[GET] api/stocks/depots/{id}`
 
 Paramètres : 
 
-- **id** (int) : L'id du dépôt à récuperer
+- **id** (System.Guid) : L'id du dépôt à récuperer
 
 Type de retour : `Depot`
 
@@ -17,7 +17,7 @@ class Depot
 {
 	bool EstArchive { get; set; }
 	GestomWebApi.Logistique.StockController+Emplacement[] Emplacements { get; set; }
-	int ID { get; set; }
+	System.Guid ID { get; set; }
 	string Nom { get; set; }
 }
 

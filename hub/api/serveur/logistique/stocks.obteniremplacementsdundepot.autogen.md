@@ -6,7 +6,7 @@ Url :`[GET] api/stocks/depots/{id}/emplacements?inclureArchive={inclureArchive:S
 
 Paramètres : 
 
-- **id** (int) : L'id du dépôts dont on souhaite récupérer les emplacements
+- **id** (System.Guid) : L'id du dépôts dont on souhaite récupérer les emplacements
 - **inclureArchive** (System.Boolean?) : Inclure ou non les emplacements archivés
 
 Type de retour : `Emplacement[]`
@@ -18,10 +18,10 @@ class Emplacement
 {
 	bool EstArchive { get; set; }
 	Guid? ZonePreparationGuid { get; set; }
-	int ID { get; set; }
+	System.Guid ID { get; set; }
 	string Libelle { get; set; }
 	string Code { get; set; }
-	int IdDepot { get; set; }
+	System.Guid IdDepot { get; set; }
 }
 
 ```

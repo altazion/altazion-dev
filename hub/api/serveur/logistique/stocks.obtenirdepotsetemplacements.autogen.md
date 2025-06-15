@@ -17,7 +17,7 @@ class Depot
 {
 	bool EstArchive { get; set; }
 	GestomWebApi.Logistique.StockController+Emplacement[] Emplacements { get; set; }
-	int ID { get; set; }
+	System.Guid ID { get; set; }
 	string Nom { get; set; }
 }
 

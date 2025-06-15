@@ -7,7 +7,7 @@ Url :`[GET] api/stocks/articles/id/{idArticle}/emplacement/{idEmplacement}`
 Paramètres : 
 
 - **idArticle** (System.Guid) : ID de l'article
-- **idEmplacement** (int) : ID de l'emplacement
+- **idEmplacement** (System.Guid) : ID de l'emplacement
 
 Type de retour : `Stock`
 
@@ -23,10 +23,10 @@ class Stock
 	decimal? Quantite { get; set; }
 	bool EstDispo { get; set; }
 	decimal QuantiteReservee { get; set; }
-	decimal QuantiteTheorique { get; set; }
-	int IdEmplacement { get; set; }
+	decimal QuantiteReelle { get; set; }
+	System.Guid IdEmplacement { get; set; }
 	string LibelleEmplacement { get; set; }
-	int IdDepot { get; set; }
+	System.Guid IdDepot { get; set; }
 	string LibelleDepot { get; set; }
 }
 
