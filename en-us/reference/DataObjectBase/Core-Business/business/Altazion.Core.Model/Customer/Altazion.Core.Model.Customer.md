@@ -1,41 +1,42 @@
-## Customer
+﻿## Customer
 
-The Customer class represents a client with personal and professional information. It includes the following properties:
+The Customer class represents a customer with their personal and professional information. It includes the following properties:
+
 - Id: Unique identifier of the customer.
-- Guid: Global unique identifier (GUID) of the customer.
+- Guid: Globally unique identifier (GUID) of the customer.
 - Name: Full name of the customer.
-- StreetAddress: Address of the customer.
-- PostalCode: Postal code of the customer.
-- CountryCode: Country code of the customer.
-- City: City of the customer.
-- MainEmail: Primary email address of the customer.
-- Importance: Importance level of the customer.
+- StreetAddress: Customer's address.
+- PostalCode: Customer's postal code.
+- CountryCode: Customer's country code.
+- City: Customer's city.
+- MainEmail: Customer's main email address.
+- Importance: Customer importance level.
 - IsArchived: Indicates whether the customer is archived.
-- CreationDate: Creation date of the customer.
+- CreationDate: Customer creation date.
 - CustomerType: Type of customer (e.g., individual or company).
-- Phone: Phone number of the customer.
-- Mobile: Mobile phone number of the customer.
-- AccountingAccount: Accounting account of the customer.
-- VatNumber: VAT number of the customer.
-- LastName: Last name of the customer (without first name).
-- FirstName: First name of the customer (without last name).
-- Title: Title of the customer (e.g., Mr., Mrs., Dr).
+- Phone: Customer's phone number.
+- Mobile: Customer's mobile phone number.
+- AccountingAccount: Customer's accounting account.
+- VatNumber: Customer's VAT number.
+- LastName: Customer's last name only (without first name).
+- FirstName: Customer's first name only (without last name).
+- Title: Customer's title (e.g., Mr., Mrs., Dr).
 
 ### TypeScript class
-```json
+```typescript
 interface Customer {
   Id: number;
-  Guid: string; // GUID represented as string
+  Guid: string; // GUID format
   Name: string;
   StreetAddress: string;
   PostalCode: string;
   CountryCode: string;
   City: string;
   MainEmail: string;
-  Importance: number;
+  Importance: number; // short integer
   IsArchived: boolean;
   CreationDate: Date;
-  CustomerType: number;
+  CustomerType: number; // short integer
   Phone: string;
   Mobile: string;
   AccountingAccount: string;
