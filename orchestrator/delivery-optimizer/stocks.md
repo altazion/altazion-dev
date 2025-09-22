@@ -24,7 +24,6 @@ L'objet __StockQuery__ permet de limiter la recherche des stocks à certaines or
 
  - __MINIMUM__ : Correspond au stock de l'origine de stock où il est le plus faible
  - __MAXIMUM__ : Correspond au stock de l'origine de stock où il est le plus élevé
- - __TOP70PCT__ : Prend 70% du stock de l'origine de stock où il est le plus élevé
 
 ##  Obtenir les stocks pour un article
 __POST : {tenantId}/stocks__

@@ -5,7 +5,7 @@ Le module Delivery Optimizer (DO) intervient dans le cadre du commerce unifié e
 
 De cette façon, Delivery Optimizer permet par exemple d'expédier une partie d'une commande depuis un entrepôt et une autre depuis un ou plusieurs magasins. Le but étant de minimiser le nombre d'envois tout en répondant à d'autres critères tel que minimiser la distance entre les expéditeurs et le client.
 
-Pour chaque source d'approvisionnement, le module permet de :
+Pour chaque canal de vente, le module permet de :
 - Gérer les articles et leurs disponibilités à la vente
 - Gérer et paramétrer les origines de stocks
 - Gérer les commandes et paniers
@@ -40,15 +40,21 @@ Pour le configurer vous aurez besoin de fournir les variables d’environnements
 - DATADOG_KEY, qui est la clef d’accès à votre serveur
 - DATADOG_TAGS (optionnel), qui contient les tags séparés par des virgules.
 
-Le système de log du module DO possède deux niveaux de verbosité, normal et full. Le mode normal activé par défaut ne log que les informations relatives aux opérations d'écritures (ajout d'une commande, import d’Articles ou de StockOrigins, etc..). Le mode full log également les informations relatives aux actions de lecture (calcul des stocks, lecture en base, etc..) et est activé si la variable d'environnement DATADOG_FULL_VERBOSITY est présente et positionnée à "true".
+L’intégralité des logs est affichée dans la console du module.
 
-Dans tous les cas, l’intégralité des logs est affichée dans la console du module.
+## Stockage des données
 
-## Base de données Mongo
-Le module est prévu pour fonctionner avec une base de données Mongo en version 4.2 ou supérieur compatible avec les notions de replica sets et de sharded clusters.
+### Stockage des données chaudes dans REDIS
 
-La connexion à la base Mongo se fait grâce aux deux variables d’environnement suivantes :
-- AZURE_APPCONFIG qui contient l’adresse du Azure App Configuration contenant la connection string de la base Mongo.
+L'intégralité des données est stockée dans un cache REDIS en version 6.0 ou supérieure permettant au module de proposer une réactivité en temps réel et des performances accrues par rapport à un stockage traditionnel en base de données. Afin d'éviter d'éventuelles pertes de données, ces données sont régulièrement synchronisé avec une base MongoDB. 
+
+### Stockage des données froides dans MongoDB
+Le module est prévu pour fonctionner avec une base de données Mongo en version 4.2 ou supérieure compatible avec les notions de replica sets et de sharded clusters. Cette base permet de garder une trâce durable des données ainsi que de réhydrater le cache REDIS en cas d'arrêt de ce dernier.
+
+### Connexion aux bases
+
+La connexion à la base Mongo et au cache REDIS se fait grâce aux deux variables d’environnement suivantes :
+- AZURE_APPCONFIG correspondant l’adresse du Azure App Configuration qui contient les connection strings des bases de données.
 - AZURE_APPCONFIG_ENV qui contient l’environnement duquel récupérer la clef (DEV, PRODUCTION, etc…).
 
 ## Déploiement

@@ -32,6 +32,7 @@ Altazion dispose d'une liste de traitements standards permettant de couvrir la p
 | TraitementPrixWebPromo.cs | Magasin | int SitePk | Ignore les stocks magasin d'un article si son prix WEB est en promo |
 | TraitementQteMinMax.cs | - | decimal? QteMin, decimal? QteMax| Compléte les quantités minimum et maximum des stocks concernées |
 | TraitementVitrine.cs | - | Guid VitrineId | Ignore les stocks de tous les articles se trouvant dans une vitrine dont le GUID est passé en paramètre |
+| TraitementHorsVitrine.cs | - | Guid VitrineId | Ignore les stocks de tous les articles ne se trouvant pas dans la vitrine passée en paramètre |
 
 ### Traitements spécifiques client
 

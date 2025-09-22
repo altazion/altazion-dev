@@ -53,7 +53,7 @@ Le JSON suivant contient décrit l'objet __Cart__ à passer dans le body de l'ap
   "orderType": "Order"
 }
 ```
-Le champ __Cart.articles__ est obligatoire car il contient les différentes lignes du panier (__CartLine__). Pour qu'une ligne soit valide, l'un des champs __artGuid__ ou __artRef__ doit être renseigné ainsi que le champ __qty__ correspondant à la quantité de l'article commandé.
+Le champ __Cart.articles__ est obligatoire car il contient les différentes lignes du panier (__CartLine__). Pour qu'une ligne soit valide, l'un des champs __artGuid__ (le plus performant) ou __artRef__ (à limiter à des fins de tests) doit être renseigné ainsi que le champ __qty__ correspondant à la quantité de l'article commandé.
 
 Le champ __shippingAddress__ contient les coordonnées du client et doit également être renseigné.
 Enfin, il est nécessaire de renseigner à la fois le Guid de la commande via le champ __orderId__ ainsi que son type (__Cart__ ou __Order__) dans le champ __orderType__.
@@ -128,9 +128,3 @@ L'objet Cart permet également de limiter le calcul de répartitions à certaine
 Si l'objet __Cart__ en entrée a __isSimulated__ à true alors la commande n'est pas ajoutée après le calcul de la répartition. Autrement la commande est ajoutée si les champ __orderType__ et __orderId__ contenus dans le __Cart__ en entrée ne sont pas null.
 
 Simuler une commande peut être utile si cette dernière possède des contraintes d'expéditions particulières telle que la nécessité d'être expédiée depuis une seule origine de stocks par exemple.
-
-## Ajout de détails pour simplifier le débogage et l'intégration du calcul de répartitions
-
-Si l'objet __Cart__ en entrée possède le champ __isDebug__ à true, l'algorithme va également fournir les 5 meilleures expéditions suivantes résultant au même nombre d'expéditions. Elles seront renvoyées dans la liste __SFSResponse.otherSuggestedShipments__. Un dictionnaire contenant le détail des stocks disponibles des articles du panier pour chaque origine de stocks est également fourni.
-
-__Pour des question de performance, il est déconseillé de laisser ce champ à true en production.__
