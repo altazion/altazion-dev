@@ -1,19 +1,19 @@
 # Cycle de vie des données
 
-Afin d’utiliser le module, des données concernant les articles et les origines de stocks doivent être synchronisées avec vos composants. Les données sur les articles et les origines de stocks doivent ainsi être récupérées depuis votre base et formatées avant être envoyées au module Delivery Optimizer (DO) en format JSON. 
+Afin d’utiliser le module, des données concernant les articles, les origines de stocks et les commandes doivent être synchronisées avec vos composants. Ces données doivent ainsi être récupérées depuis votre système d'information et formatées avant être envoyées au module Delivery Optimizer (DO) en format JSON (Échange Informatique de Données ou EDI). 
 
-Les sources d’approvisionnement disponibles dans les outils OMS d’Altazion permettent de configurer avec précision l’export des Articles et StocksOrigins vers le module et d’automatiser la procédure.
+Les sources d’approvisionnement disponibles dans les outils logisitiques d’Altazion permettent de configurer avec précision l’export des articles, des origines de stocks et des commandes vers le module et d’automatiser la procédure en toute simplicité.
 
-La gestion des données nécessite le droit OMS.
+Si vous n'utilisez pas les outils d'Altazion, il existe de nombreux points API couvrant les besoins en CRUD des origines de stocks (StockOrigins), Articles et commandes (OrderDo) dont les fonctions sont détaillées dans le swagger. Toutefois les points expliqués ci-dessous sont les plus importants à implémenter pour garantir le fonctionnement du module.
 
-Il existe de nombreux points API couvrant les besoins en CRUD des StockOrigins et Articles dont les fonctions sont détaillées dans le swagger. Toutefois les points expliqués ci-dessous sont les plus importants à implémenter pour garantir le fonctionnement du module.
+__À noter que la gestion des données nécessite le droit OMS.__
 
-## Import total des StockOrigins et des Articles dans le module
+## Import total des StockOrigins et des Articles dans Delivery Optimizer (DO)
 
 Ces points API sont la principale source de données du module DO et sont indispensables à son bon fonctionnement. Cet import a pour effet d’exécuter une transaction supprimant toutes les données de la raison juridique concernée avant d’insérer les nouvelles données passées en format JSON.
 
 Il est recommandé :
-- De réaliser les imports d’Articles et de StockOrigins à la suite
+- De réaliser les imports à la suite
 - D’automatiser l’import de données durant une heure de faible utilisation du module (la nuit par exemple)
 - De disposer de méthodes robustes d’export de vos données depuis vos composants vers le module DO si vous n’utilisez pas la solution Altazion
 - D’utiliser l’import total avec parcimonie pour limiter l’impact sur les performances, en particulier si vous disposer d’un gros volume de données à importer
