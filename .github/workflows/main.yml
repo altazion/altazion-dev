@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - uses: nikeee/docfx-action@v0.1.0
+    - uses: nikeee/docfx-action@v1.0.0
       name: Compilation DocFX
       with: 
         args: docfx.json
