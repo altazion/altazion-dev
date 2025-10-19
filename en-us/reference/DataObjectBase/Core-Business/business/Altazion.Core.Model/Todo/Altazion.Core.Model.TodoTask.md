@@ -1,74 +1,64 @@
 ﻿## TodoTask
 
-The TodoTask class represents a task to be done with its details and metadata.
+The TodoTask class represents a task to be done with its details and associated metadata.
 
-- Guid: Unique identifier of the task.
-- TypeGuid: Unique identifier of the task type.
-- Label: Label or title of the task.
-- Details: Details or description of the task.
-- AssociatedUrl: URL associated with the task.
-- TargetGuid: Optional unique identifier of the associated target.
-- TargetType: Type of the associated target.
-- CompletionDate: Optional date when the task was completed.
-- Comment1: First comment associated with the task.
-- Comment2: Second comment associated with the task.
-- Comment3: Third comment associated with the task.
-- Priority: Task priority level (integer).
-- IsUrgent: Indicates if the task is urgent (boolean).
-- RecipientUserId: Optional unique identifier of the recipient user.
-- RecipientGroupGuid: Optional unique identifier of the recipient group.
-- IsContextLimited: Indicates if the task is limited to a specific context.
-- Parameters: Indicates if the task has parameters.
-- PriorityLabel: Dynamically calculated label representing the priority as text based on state and numeric priority.
-- IsCompleted: Indicates if the task is completed (boolean, based on CompletionDate).
-- DueDate: Optional due date for the task.
-- RequestDate: Date the task was created or requested.
-- RequesterUserId: Optional unique identifier of the user who requested the task.
+Public properties:
+- Guid: Unique identifier of the task (Guid).
+- TypeGuid: Unique identifier of the task type (Guid).
+- Label: Label or title of the task (string).
+- Details: Details or description of the task (string).
+- AssociatedUrl: URL related to the task (string).
+- TargetGuid: Optional unique identifier of the associated target (Guid?).
+- TargetType: Type of the associated target (string).
+- CompletionDate: Optional date when the task was completed (DateTime?).
+- Comment1, Comment2, Comment3: Three optional comments associated with the task (string).
+- Priority: Priority level of the task (int).
+- IsUrgent: Indicates if the task is urgent (bool).
+- RecipientUserId: Optional unique identifier of the user recipient (Guid?).
+- RecipientGroupGuid: Optional unique identifier of the recipient group (Guid?).
+- IsContextLimited: Indicates if the task is limited to a specific context (bool).
+- Parameters: Indicates if the task contains parameters (bool).
+- PriorityLabel: Label of the task priority, dynamically calculated (string, read-only).
+- IsCompleted: Indicates if the task is completed, based on CompletionDate (bool, read-only).
+- DueDate: Optional due date of the task (DateTime?).
+- RequestDate: Date when the task was created or requested (DateTime).
+- RequesterUserId: Optional unique identifier of the user who requested the task (Guid?).
 
-Static constants (priority labels):
-- OverdueLabel: Label for overdue tasks.
-- LowPriorityLabel: Label for low priority tasks.
-- NormalPriorityLabel: Label for normal priority tasks.
-- CriticalPriorityLabel: Label for critical priority tasks.
-- UrgentPriorityLabel: Label for urgent priority tasks.
+Static constants provide possible priority labels:
+- OverdueLabel (overdue tasks)
+- LowPriorityLabel (low priority)
+- NormalPriorityLabel (normal priority)
+- CriticalPriorityLabel (critical priority)
+- UrgentPriorityLabel (urgent priority)
 
-The ToString method returns the task's label.
-
-The FromDataRow method initializes an instance from a data row.
-
-The GetKey method returns the unique identifier (Guid) of the task.
+The class inherits from DataObjectBase and overrides the FromDataRow method to initialize its properties from a data row.
+It also overrides GetKey to return the unique task identifier Guid.
+The ToString method returns the Label of the task.
 
 ### TypeScript class
 ```typescript
 interface TodoTask {
-  Guid: string; // Unique identifier (GUID) of the task
-  TypeGuid: string; // Unique identifier of the type of task
-  Label: string; // Task label or title
-  Details?: string | null; // Optional details or description
-  AssociatedUrl?: string | null; // Optional URL associated with the task
-  TargetGuid?: string | null; // Optional unique identifier of the associated target
-  TargetType?: string | null; // Optional target type string
-  CompletionDate?: string | null; // Optional completion date (ISO string)
-  Comment1?: string | null; // Optional first comment
-  Comment2?: string | null; // Optional second comment
-  Comment3?: string | null; // Optional third comment
-  Priority: number; // Priority level
-  IsUrgent: boolean; // Is task urgent
-  RecipientUserId?: string | null; // Optional recipient user ID
-  RecipientGroupGuid?: string | null; // Optional recipient group ID
-  IsContextLimited: boolean; // Is task context limited
-  Parameters: boolean; // Does task contain parameters
-  PriorityLabel: string; // Calculated priority label
-  IsCompleted: boolean; // Is task completed
-  DueDate?: string | null; // Optional due date
-  RequestDate: string; // Request or creation date
-  RequesterUserId?: string | null; // Optional requester user ID
+  Guid: string;
+  TypeGuid: string;
+  Label: string | null;
+  Details: string | null;
+  AssociatedUrl: string | null;
+  TargetGuid?: string | null;
+  TargetType: string | null;
+  CompletionDate?: string | null; // DateTime in ISO string format
+  Comment1: string | null;
+  Comment2: string | null;
+  Comment3: string | null;
+  Priority: number;
+  IsUrgent: boolean;
+  RecipientUserId?: string | null;
+  RecipientGroupGuid?: string | null;
+  IsContextLimited: boolean;
+  Parameters: boolean;
+  PriorityLabel: string;
+  IsCompleted: boolean;
+  DueDate?: string | null; // DateTime in ISO string format
+  RequestDate: string; // DateTime in ISO string format
+  RequesterUserId?: string | null;
 }
-
-// Static priority labels (strings)
-const TodoTask_OverdueLabel: string;
-const TodoTask_LowPriorityLabel: string;
-const TodoTask_NormalPriorityLabel: string;
-const TodoTask_CriticalPriorityLabel: string;
-const TodoTask_UrgentPriorityLabel: string;
 ```

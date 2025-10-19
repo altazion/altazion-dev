@@ -1,82 +1,55 @@
 ﻿## WebSiteWithUrls
 
-The WebSiteWithUrls class represents a website extended with a list of associated secondary URLs. It inherits from the WebSite class, hence it possesses all the following properties:
+The WebSiteWithUrls class represents a website with its properties and configurations, extended by a list of associated secondary URLs.
 
-- Code: Short code of the website.
-- Id: Unique identifier of the website.
-- Label: Label or name of the website.
-- Theme: Theme of the website.
-- CssTheme: CSS theme used by the website.
-- MasterPage: Master page used by the website.
-- RjsId: RJS identifier of the website.
-- MainCategoryId: Identifier of the main category of the website.
-- DefaultNewsletterId: Identifier of the default newsletter (nullable).
-- MainUrl: Main URL of the website.
-- CustomerServicePhone: Customer service phone number.
-- EmailServiceClient: Customer service email.
-- HorairesServiceClient: Customer service hours.
-- DefaultPostalCode: Default postal code.
-- DefaultCountryPk: Default country code.
-- DefaultCulture: Default culture of the website.
-- DefaultCurrency: Default currency (nullable).
-- SiteParentId: Identifier of the parent site (nullable).
-- IsECommerce: Indicates if the site is an e-commerce site.
-- IsInProduction: Indicates if the site is in production.
-- Description: Description of the website.
-- Title: Title of the website.
-- IsPrivate: Indicates if the site is private.
-- RootSearchPath: Root path for searches.
-- RootProductPath: Root path for products.
-- RootPath: Root path of the website.
-- ThemeGuid: Identifier of the theme (nullable).
-- WebOmsSourceGuid: OMS source GUID for the web (nullable).
-- StoreOmsSourceGuid: OMS source GUID for the store (nullable).
+It inherits from the WebSite class and adds the following property:
 
-It adds the following public property:
+- SecondaryUrls: A list of WebSiteUrl objects representing the secondary URLs associated with the website.
 
-- SecondaryUrls: List of secondary URLs (type List<WebSiteUrl>) associated with the website.
-
-This class allows managing a website with its main properties as well as its associated secondary URLs.
+This class enables handling a main website with its attributes along with multiple secondary URLs for a more comprehensive URL management.
 
 ### TypeScript class
 ```typescript
-interface WebSiteWithUrls {
-  Code: string;
-  Id: number;
-  Label: string;
-  Theme: string;
-  CssTheme: string;
-  MasterPage: string;
-  RjsId: number;
-  MainCategoryId: number;
-  DefaultNewsletterId?: number | null;
-  MainUrl: string;
-  CustomerServicePhone: string;
-  EmailServiceClient: string;
-  HorairesServiceClient: string;
-  DefaultPostalCode: string;
-  DefaultCountryPk: string;
-  DefaultCulture: string;
-  DefaultCurrency?: string | null; // Guid represented as string
-  SiteParentId?: number | null;
-  IsECommerce: boolean;
-  IsInProduction: boolean;
-  Description: string;
-  Title: string;
-  IsPrivate: boolean;
-  RootSearchPath: string;
-  RootProductPath: string;
-  RootPath: string;
-  ThemeGuid?: string | null; // Guid represented as string
-  WebOmsSourceGuid?: string | null; // Guid represented as string
-  StoreOmsSourceGuid?: string | null; // Guid represented as string
-  SecondaryUrls: WebSiteUrl[];
+interface WebSiteUrl {
+    Pk: number;
+    SitePk: number;
+    Url: string | null;
+    Role: string | null;
 }
 
-interface WebSiteUrl {
-  Pk: number;
-  SitePk: number;
-  Url: string;
-  Role: string;
+interface WebSite {
+    Code: string | null;
+    Id: number;
+    Label: string | null;
+    Theme: string | null;
+    CssTheme: string | null;
+    MasterPage: string | null;
+    RjsId: number;
+    MainCategoryId: number;
+    DefaultNewsletterId?: number | null;
+    MainUrl: string | null;
+    CustomerServicePhone: string | null;
+    EmailServiceClient: string | null;
+    HorairesServiceClient: string | null;
+    DefaultPostalCode: string | null;
+    DefaultCountryPk: string | null;
+    DefaultCulture: string | null;
+    DefaultCurrency?: string | null; // GUID represented as string
+    SiteParentId?: number | null;
+    IsECommerce: boolean;
+    IsInProduction: boolean;
+    Description: string | null;
+    Title: string | null;
+    IsPrivate: boolean;
+    RootSearchPath: string | null;
+    RootProductPath: string | null;
+    RootPath: string | null;
+    ThemeGuid?: string | null; // GUID as string
+    WebOmsSourceGuid?: string | null; // GUID as string
+    StoreOmsSourceGuid?: string | null; // GUID as string
+}
+
+interface WebSiteWithUrls extends WebSite {
+    SecondaryUrls: WebSiteUrl[];
 }
 ```

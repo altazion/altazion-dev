@@ -1,18 +1,20 @@
-## EUSpecifications
+﻿## EUSpecifications
 
-This class represents the specific specifications related to the European Union for a customer type within the CustomerType class.
+The EUSpecifications class represents the specific European Union specifications for a customer type in the Altazion context.
 
 Public properties:
-- SalesAccountId: string representing the identifier of the associated sales account.
 
-Inherited methods not detailed:
-- FromDataRow: initializes the properties from a DataRow.
-- GetKey: returns the unique key which here is the sales account identifier.
+- SalesAccountId : string
+  - Identifier of the associated sales account. This property acts as the unique key for this class.
+
+Important methods (not described as per instructions):
+- FromDataRow(DataRow dr): initializes the object from a data row.
+- GetKey(): returns the unique key, here the sales account identifier.
 
 ### TypeScript class
-```json
+```typescript
 interface EUSpecifications {
-  /** Identifier of the associated sales account. */
+  /** Identifier of the associated sales account */
   SalesAccountId: string | null;
 }
 ```

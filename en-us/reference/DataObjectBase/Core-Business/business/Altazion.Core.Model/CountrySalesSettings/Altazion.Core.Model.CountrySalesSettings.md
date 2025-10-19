@@ -1,4 +1,4 @@
-## CountrySalesSettings
+﻿## CountrySalesSettings
 
 The CountrySalesSettings class represents sales settings specific to a country.
 
@@ -14,7 +14,7 @@ Public properties:
 - UseDestinationVatRates: Indicates if VAT rates of the destination country should be used.
 
 ### TypeScript class
-```json
+```typescript
 interface CountrySalesSettings {
   Guid: string; // Unique identifier (GUID)
   Iso3LettersCode: string; // ISO 3-letter code of the country

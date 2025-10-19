@@ -1,56 +1,39 @@
-## CustomerType
+﻿## CustomerType
 
-The **CustomerType** class represents a customer type with various properties and metadata.
+The CustomerType class represents a customer type with its specifications and metadata. It includes the following properties:
+- Id (int): Unique identifier of the customer type.
+- Label (string): The label of the customer type.
+- MetaType (string): Metadata indicating the type of customer, e.g., consumer or business.
+- CanUseInvoicableElements (bool): Indicates if the customer type can use invoicable elements.
+- IsActive (bool): Indicates if the customer type is active.
+- EUSpecifics (EUSpecifications): EU-specific specifications for the customer type, encapsulated in a nested class.
 
-### Public Properties:
-- `Id` (int): Unique identifier for the customer type.
-- `Label` (string): Label of the customer type.
-- `MetaType` (string): Metadata indicating the customer type (e.g., consumer, company).
-- `IsActive` (bool): Indicates if the customer type is active.
-- `CanUseInvoicableElements` (bool): Indicates if the customer type can use invoicable elements.
-- `EUSpecifics` (EUSpecifications): European Union specific specifications associated with the customer type.
+The class also defines three constants representing metadata for customer types:
+- MetaUndefined: value "N", undefined customer type.
+- MetaTypeConsumer: value "I", consumer type.
+- MetaTypeEntreprise: value "E", business type.
 
-### Constants (metadata):
-- `MetaUndefined = "N"`: Undefined customer type.
-- `MetaTypeConsumer = "I"`: Consumer customer type.
-- `MetaTypeEntreprise = "E"`: Company customer type.
-
-### Nested class **EUSpecifications** :
-- Represents the specific EU specifications for a customer type.
-- Public property:
-  - `SalesAccountId` (string): Identifier of the associated sales account.
-
-This class is used to clearly define the different customer types in the system with their main attributes and allows adding EU-specific details.
+The nested EUSpecifications class includes the property:
+- SalesAccountId (string): Identifier of the associated sales account, EU-specific.
 
 ### TypeScript class
-```json
-interface EUSpecifications {
-  /** Identifier of the associated sales account */
-  SalesAccountId?: string | null;
+```typescript
+interface CustomerType {
+  Id: number; // Unique identifier of the customer type
+  Label: string; // Label of the customer type
+  MetaType: string; // Metadata indicating the customer type
+  CanUseInvoicableElements: boolean; // Indicates if invoicable elements can be used
+  IsActive: boolean; // Indicates if the customer type is active
+  EUSpecifics?: CustomerType.EUSpecifications; // EU-specific specifications
 }
 
-interface CustomerType {
-  /** Unique identifier of the customer type */
-  Id: number;
+namespace CustomerType {
+  export interface EUSpecifications {
+    SalesAccountId?: string; // Associated sales account identifier
+  }
 
-  /** Label of the customer type */
-  Label: string;
-
-  /** Metadata indicating the customer type (e.g., consumer, company) */
-  MetaType: string;
-
-  /** Indicates if the customer type is active */
-  IsActive: boolean;
-
-  /** Indicates if the customer type can use invoicable elements */
-  CanUseInvoicableElements: boolean;
-
-  /** European Union specific specifications associated with the customer type */
-  EUSpecifics?: EUSpecifications;
-
-  /** Constants for metadata */
-  MetaUndefined?: string; // "N"
-  MetaTypeConsumer?: string; // "I"
-  MetaTypeEntreprise?: string; // "E"
+  export const MetaUndefined = "N";
+  export const MetaTypeConsumer = "I";
+  export const MetaTypeEntreprise = "E";
 }
 ```

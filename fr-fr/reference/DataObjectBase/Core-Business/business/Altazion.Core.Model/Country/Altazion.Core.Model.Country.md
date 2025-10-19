@@ -1,26 +1,24 @@
-## Country
+﻿## Country
 
-La classe Country représente un pays en incluant plusieurs identifiants et libellés standards :
+La classe Country représente un pays avec différentes propriétés relatives à ses codes ISO et à son libellé.
 
-- Iso3LettersCode : Code ISO du pays à 3 lettres, utilisé comme clé unique.
-- Iso2LettersCode : Code ISO du pays à 2 lettres.
-- Label : Libellé du pays.
-- IsoLabel : Libellé ISO du pays.
+Propriétés publiques :
 
-Cette classe dérive de DataObjectBase et utilise l'attribut DataConcept pour indiquer qu'elle fait partie des données de référence nommées "Country". La clé unique de cette classe est le code ISO à 3 lettres (Iso3LettersCode).
+- Iso3LettersCode : string - Code ISO à 3 lettres du pays. C'est également la clé unique de l'objet.
+- Iso2LettersCode : string - Code ISO à 2 lettres du pays.
+- Label : string - Libellé du pays.
+- IsoLabel : string - Libellé ISO du pays.
 
-Les propriétés permettent de stocker les informations essentielles à l'identification et la dénomination des pays dans différents contextes internationaux.
+Cette classe dispose d'une méthode GetKey qui retourne le code ISO à 3 lettres, unique pour l'identification de l'objet.
+
+Elle est associée à un concept SQL via l'attribut SqlDataConcept en liaison avec une table "ReferenceData.Country" et la source "params_pays".
 
 ### D�claration TypeScript
-```json
+```typescript
 interface Country {
-  /** ISO 3-letter country code, unique key */
-  Iso3LettersCode: string;
-  /** ISO 2-letter country code */
-  Iso2LettersCode: string;
-  /** Country name label */
-  Label: string;
-  /** ISO label of the country */
-  IsoLabel: string;
+  Iso3LettersCode: string; // 3-letter ISO code of the country, unique key
+  Iso2LettersCode: string; // 2-letter ISO code of the country
+  Label: string; // Country name
+  IsoLabel: string; // ISO label of the country
 }
 ```

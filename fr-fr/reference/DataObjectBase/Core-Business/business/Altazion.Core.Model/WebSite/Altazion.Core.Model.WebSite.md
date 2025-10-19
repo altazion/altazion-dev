@@ -1,40 +1,40 @@
 ﻿## WebSite
 
-La classe WebSite représente un site web avec ses propriétés et configurations. Elle contient les propriétés publiques suivantes :
+La classe WebSite représente un site web avec ses différentes propriétés et configurations. Elle dérive de DataObjectBase et est annotée avec l'attribut SqlDataConcept indiquant la table SQL associée.
 
-- Code : le code court du site web.
-- Id : identifiant unique du site web.
-- Label : libellé ou nom du site web.
-- Theme : thème du site web.
-- CssTheme : thème CSS utilisé par le site web.
-- MasterPage : page maître utilisée par le site web.
-- RjsId : identifiant RJS du site web.
-- MainCategoryId : identifiant de la catégorie principale du site web.
-- DefaultNewsletterId : identifiant de la newsletter par défaut (nullable).
-- MainUrl : URL principale du site web.
-- CustomerServicePhone : numéro de téléphone du service client.
-- EmailServiceClient : email du service client.
-- HorairesServiceClient : horaires d'ouverture du service client.
-- DefaultPostalCode : code postal par défaut.
-- DefaultCountryPk : code pays par défaut.
-- DefaultCulture : culture par défaut du site web.
-- DefaultCurrency : devise par défaut (nullable, GUID).
-- SiteParentId : identifiant du site parent (nullable).
-- IsECommerce : booléen indiquant si le site est un site e-commerce.
-- IsInProduction : booléen indiquant si le site est en production.
-- Description : description du site web.
-- Title : titre du site web.
-- IsPrivate : booléen indiquant si le site est privé.
-- RootSearchPath : chemin racine pour les recherches.
-- RootProductPath : chemin racine pour les produits.
-- RootPath : chemin racine du site web.
-- ThemeGuid : identifiant GUID du thème (nullable).
-- WebOmsSourceGuid : GUID de la source OMS pour le web (nullable).
-- StoreOmsSourceGuid : GUID de la source OMS pour le magasin (nullable).
+Propriétés publiques :
 
-Les méthodes incluent notamment une initialisation à partir d'une DataRow, et une validation élémentaire des données (notamment le format de l'URL principale).
+- Code : Code court du site web (string).
+- Id : Identifiant unique du site web (int).
+- Label : Libellé ou nom du site web (string).
+- Theme : Thème du site web (string).
+- CssTheme : Thème CSS utilisé par le site web (string).
+- MasterPage : Page maître utilisée par le site web (string).
+- RjsId : Identifiant RJS du site web (int).
+- MainCategoryId : Identifiant de la catégorie principale du site web (int).
+- DefaultNewsletterId : Identifiant de la newsletter par défaut (nullable int).
+- MainUrl : URL principale du site web (string).
+- CustomerServicePhone : Numéro de téléphone du service client (string).
+- EmailServiceClient : Email du service client (string).
+- HorairesServiceClient : Horaires du service client (string).
+- DefaultPostalCode : Code postal par défaut (string).
+- DefaultCountryPk : Code pays par défaut (string).
+- DefaultCulture : Culture par défaut du site web (string).
+- DefaultCurrency : Devise par défaut du site web (nullable Guid).
+- SiteParentId : Identifiant du site parent (nullable int).
+- IsECommerce : Indique si le site est un site e-commerce (bool).
+- IsInProduction : Indique si le site est en production (bool).
+- Description : Description du site web (string).
+- Title : Titre du site web (string).
+- IsPrivate : Indique si le site est privé (bool).
+- RootSearchPath : Chemin racine pour les recherches (string).
+- RootProductPath : Chemin racine pour les produits (string).
+- RootPath : Chemin racine du site web (string).
+- ThemeGuid : Identifiant du thème (nullable Guid).
+- WebOmsSourceGuid : GUID de la source OMS pour le web (nullable Guid).
+- StoreOmsSourceGuid : GUID de la source OMS pour le magasin (nullable Guid).
 
-Cette classe hérite de DataObjectBase et représente ainsi une classe de données dans le système.
+Cette classe permet de gérer la configuration de base et les informations essentielles d'un site web dans le contexte d'une solution Altazion.
 
 ### D�claration TypeScript
 ```typescript
@@ -55,7 +55,7 @@ interface WebSite {
   DefaultPostalCode: string;
   DefaultCountryPk: string;
   DefaultCulture: string;
-  DefaultCurrency?: string | null; // GUID represented as string
+  DefaultCurrency?: string | null; // Guid as string
   SiteParentId?: number | null;
   IsECommerce: boolean;
   IsInProduction: boolean;
@@ -65,8 +65,8 @@ interface WebSite {
   RootSearchPath: string;
   RootProductPath: string;
   RootPath: string;
-  ThemeGuid?: string | null; // GUID represented as string
-  WebOmsSourceGuid?: string | null; // GUID represented as string
-  StoreOmsSourceGuid?: string | null; // GUID represented as string
+  ThemeGuid?: string | null; // Guid as string
+  WebOmsSourceGuid?: string | null; // Guid as string
+  StoreOmsSourceGuid?: string | null; // Guid as string
 }
 ```

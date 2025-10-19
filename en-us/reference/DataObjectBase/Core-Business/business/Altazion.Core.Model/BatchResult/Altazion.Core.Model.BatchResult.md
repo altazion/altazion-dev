@@ -1,31 +1,30 @@
-## BatchResult
+﻿## BatchResult
 
-The BatchResult class represents the outcome of a batch process, including several key details about its execution and status.
+The BatchResult class represents the result of a batch process, including the following information:
 
-Public properties:
 - Guid: Unique identifier of the batch.
-- BatchType: The type/category of the batch.
-- AssociatedObjectGuid: Unique identifier of the object associated with the batch, if any.
-- Date: Date and time when the batch was run.
-- Result: The final result or output of the batch.
-- Status: The current status of the batch.
+- BatchType: Type of the batch.
+- AssociatedObjectGuid: Unique identifier of an associated object, if any.
+- Date: Date and time when the batch was executed.
+- Result: Textual result of the batch.
+- Status: Current status of the batch as a string.
 
-Associated constants:
-- BatchStatusCompleted: The value "completed" indicates that the batch processing is finished.
-- BatchStatusRunning: The value "running" indicates that the batch is still in progress.
+Constants defined in the class:
+- BatchStatusCompleted: Indicates the batch is completed (value "completed").
+- BatchStatusRunning: Indicates the batch is still running (value "running").
 
 ### TypeScript class
-```json
+```typescript
 interface BatchResult {
-  Guid: string; // Unique identifier (GUID) of the batch
-  BatchType: string; // Type of the batch
-  AssociatedObjectGuid?: string | null; // Optional GUID of an associated object
-  Date: string; // Date and time of batch execution in ISO format
-  Result: string; // Result of the batch execution
-  Status: string; // Current status of the batch
+  Guid: string; // Unique identifier of the batch (GUID)
+  BatchType: string | null; // Type of the batch
+  AssociatedObjectGuid?: string | null; // Optional associated object's GUID
+  Date: string; // Date and time of batch execution (ISO 8601 format)
+  Result: string | null; // Result of the batch
+  Status: string | null; // Current status of the batch
 }
 
-// Constants related to batch status
+// Constants representing batch status
 const BatchStatusCompleted = "completed";
 const BatchStatusRunning = "running";
 ```

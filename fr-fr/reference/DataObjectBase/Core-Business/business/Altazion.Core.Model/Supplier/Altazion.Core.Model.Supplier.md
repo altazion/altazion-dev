@@ -1,41 +1,42 @@
 ﻿## Supplier
 
-La classe Supplier représente un fournisseur avec plusieurs propriétés permettant d'identifier et de décrire ce fournisseur dans le système.
+La classe Supplier représente un fournisseur dans le système ERP. Elle contient plusieurs propriétés décrivant les informations fondamentales du fournisseur :
 
-Propriétés publiques :
 - Guid : identifiant unique global (GUID) du fournisseur.
-- Id : identifiant décimal du fournisseur.
-- Libelle : nom ou désignation du fournisseur.
+- Id : identifiant numérique interne du fournisseur.
+- Libelle : nom ou dénomination du fournisseur.
 - Adress : adresse postale du fournisseur.
-- PostalCode : code postal associé à l'adresse.
-- City : ville où se situe le fournisseur.
+- PostalCode : code postal du fournisseur.
+- City : ville du fournisseur.
 - PhoneNumber : numéro de téléphone du fournisseur.
-- CompteCompta : numéro de compte comptable lié au fournisseur.
-- DefaultExpenseIdType : identifiant optionnel du type de dépense par défaut.
-- Type : type de fournisseur (ex : fournisseur matériel, service, etc.).
-- Siret : numéro SIRET (identification en France) du fournisseur.
-- UE_VAT : numéro de TVA intra-communautaire.
-- ClientNumber : numéro client attribué au fournisseur.
-- IsArchived : indique si le fournisseur est archivé (booléen).
-- Code : code spécifique ou abrégé du fournisseur.
+- CompteCompta : compte comptable associé au fournisseur.
+- DefaultExpenseIdType : identifiant optionnel du type de dépense par défaut associé au fournisseur.
+- Type : type ou catégorie du fournisseur.
+- Siret : numéro SIRET (numéro d'identification de l'entreprise).
+- UE_VAT : numéro de TVA intracommunautaire.
+- ClientNumber : numéro client s'il est utilisé.
+- IsArchived : indicateur booléen indiquant si le fournisseur est archivé.
+- Code : code interne ou externe du fournisseur.
+
+Cette classe dérive de DataObjectBase et permet la conversion depuis une DataRow pour récupération des données de la base SQL liée à "gestcom_fournisseurs" dans la base "ERP".
 
 ### D�claration TypeScript
 ```typescript
 interface Supplier {
-  Guid: string; // GUID
-  Id: number; // decimal
-  Libelle: string | null;
-  Adress: string | null;
-  PostalCode: string | null;
-  City: string | null;
-  PhoneNumber: string | null;
-  CompteCompta: string | null;
-  DefaultExpenseIdType?: number | null; // nullable short
-  Type: string | null;
-  Siret: string | null;
-  UE_VAT: string | null;
-  ClientNumber: string | null;
-  IsArchived: boolean;
-  Code: string | null;
+  Guid: string; // GUID unique identifier
+  Id: number; // Numeric identifier
+  Libelle: string | null; // Supplier name
+  Adress: string | null; // Postal address
+  PostalCode: string | null; // Postal code
+  City: string | null; // City
+  PhoneNumber: string | null; // Phone number
+  CompteCompta: string | null; // Accounting account
+  DefaultExpenseIdType: number | null; // Default expense type ID (optional)
+  Type: string | null; // Supplier type
+  Siret: string | null; // SIRET number
+  UE_VAT: string | null; // VAT number (EU)
+  ClientNumber: string | null; // Client number
+  IsArchived: boolean; // Archived flag
+  Code: string | null; // Supplier code
 }
 ```

@@ -1,27 +1,35 @@
 ﻿## UserBase
 
-La classe UserBase représente un utilisateur avec ses informations de base et dérive de DataObjectBase.
+La classe `UserBase` représente un utilisateur avec ses informations de base dans le système.
 
 Propriétés publiques :
-- Id : Identifiant unique de l'utilisateur (type decimal).
-- Uxid : Identifiant global unique (GUID) de l'utilisateur.
-- Name : Nom de l'utilisateur (string).
-- EMail : Adresse e-mail de l'utilisateur (string).
-- IsDeleted : Indique si l'utilisateur est supprimé ou désactivé (bool).
-- IsLiteAccount : Indique si l'utilisateur est un compte secondaire ou simplifié (bool).
-- IsMasterAdmin : Indique si l'utilisateur est un administrateur principal (bool).
 
-Cette classe contient aussi des méthodes pour initialiser ses propriétés depuis une ligne de données (FromDataRow), pour obtenir la clé unique de l'utilisateur (GetKey) et pour obtenir sa représentation sous forme de chaîne, qui est ici l'adresse e-mail (ToString).
+- `Id` (decimal) : Identifiant unique de l'utilisateur.
+- `Uxid` (Guid) : Identifiant global unique (GUID) de l'utilisateur.
+- `Name` (string) : Nom de l'utilisateur.
+- `EMail` (string) : Adresse e-mail de l'utilisateur.
+- `IsDeleted` (bool) : Indique si l'utilisateur est supprimé ou désactivé.
+- `IsLiteAccount` (bool) : Indique si l'utilisateur est un compte secondaire ou simplifié.
+- `IsMasterAdmin` (bool) : Indique si l'utilisateur est un administrateur principal.
+
+Cette classe hérite de `DataObjectBase` et est associée à une table SQL nommée 'security_utilisateurs' dans le contexte 'Office' avec une entité 'User'. Elle contient des méthodes pour initialiser ses propriétés à partir d'une ligne de données (DataRow) et pour obtenir la clé unique de l'objet.
 
 ### D�claration TypeScript
 ```typescript
 interface UserBase {
-  Id: number; // Unique identifier of the user
-  Uxid: string; // GUID of the user
-  Name: string | null; // User's name
-  EMail: string | null; // User's email address
-  IsDeleted: boolean; // Indicates if user is deleted or deactivated
-  IsLiteAccount: boolean; // Indicates if user is a secondary/simplified account
-  IsMasterAdmin: boolean; // Indicates if user is a primary administrator
+  /** Unique identifier of the user. */
+  Id: number;
+  /** Globally unique identifier (GUID) of the user. */
+  Uxid: string; // GUID represented as string
+  /** Name of the user. */
+  Name: string | null;
+  /** Email address of the user. */
+  EMail: string | null;
+  /** Indicates if the user is deleted or deactivated. */
+  IsDeleted: boolean;
+  /** Indicates if the user is a secondary or simplified account. */
+  IsLiteAccount: boolean;
+  /** Indicates if the user is a main administrator. */
+  IsMasterAdmin: boolean;
 }
 ```
