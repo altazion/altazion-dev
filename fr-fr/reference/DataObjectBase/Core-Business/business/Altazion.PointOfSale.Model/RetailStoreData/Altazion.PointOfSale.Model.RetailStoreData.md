@@ -1,29 +1,29 @@
 ﻿## RetailStoreData
 
-La classe RetailStoreData représente les données spécifiques au retail d'un magasin, incluant des informations techniques importantes comme les identifiants, les données réseau et WiFi.
+La classe RetailStoreData représente les données spécifiques au retail d'un magasin, notamment des informations techniques comme le réseau WiFi.
 
-Propriétés publiques :
-- StoreId (Guid) : Identifiant unique du magasin (correspond au mag_guid dans la base pos_magasins).
-- RangeId (Guid?) : Identifiant facultatif de la gamme associée au magasin.
-- StoreRegionId (Guid?) : Identifiant facultatif de la zone de magasins à laquelle appartient ce magasin.
-- PublicIpAddress (string) : Adresse IP publique du magasin.
-- LocalCentralUrl (string) : URL du serveur local centralisé du magasin.
-- WifiSsid (string) : SSID (nom) du réseau WiFi du magasin.
-- WifiSecurityType (string) : Type de sécurité du réseau WiFi (exemple : "WPA2", "WPA3").
-- WifiCertificate (string) : Certificat de sécurité associé au réseau WiFi.
+Liste des propriétés publiques :
+- StoreId : Guid unique identifiant le magasin (correspond au mag_guid dans la table pos_magasins).
+- RangeId : Guid? identifiant optionnel de la gamme associée au magasin.
+- StoreRegionId : Guid? identifiant optionnel de la zone de magasins à laquelle appartient le magasin.
+- PublicIpAddress : string contenant l'adresse IP publique du magasin.
+- LocalCentralUrl : string contenant l'URL du serveur local central du magasin.
+- WifiSsid : string indiquant le SSID du réseau WiFi du magasin.
+- WifiSecurityType : string indiquant le type de sécurité du WiFi (exemple : WPA2, WPA3).
+- WifiCertificate : string contenant le certificat de sécurité du réseau WiFi.
 
-Cette classe dérive de DataObjectBase et utilise un attribut de concept SQL spécifiant la table pos_magasins.
+Cette classe hérite de DataObjectBase et fournit également une méthode d'accès à la clé unique de l'objet, ici StoreId.
 
 ### D�claration TypeScript
 ```typescript
 interface RetailStoreData {
-  StoreId: string; // Guid representing the unique store identifier
-  RangeId?: string | null; // Optional Guid for the associated product range
-  StoreRegionId?: string | null; // Optional Guid for the store region
-  PublicIpAddress?: string | null; // Public IP address of the store
-  LocalCentralUrl?: string | null; // URL of the local central server
-  WifiSsid?: string | null; // SSID of the WiFi network
-  WifiSecurityType?: string | null; // Security type of the WiFi (e.g. WPA2, WPA3)
-  WifiCertificate?: string | null; // Security certificate for the WiFi
+  StoreId: string; // Guid in string format
+  RangeId?: string | null; // Optional Guid
+  StoreRegionId?: string | null; // Optional Guid
+  PublicIpAddress?: string | null;
+  LocalCentralUrl?: string | null;
+  WifiSsid?: string | null;
+  WifiSecurityType?: string | null;
+  WifiCertificate?: string | null;
 }
 ```

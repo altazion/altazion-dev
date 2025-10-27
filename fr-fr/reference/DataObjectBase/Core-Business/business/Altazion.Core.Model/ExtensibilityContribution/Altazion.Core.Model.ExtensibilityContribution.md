@@ -1,24 +1,24 @@
 ﻿## ExtensibilityContribution
 
-La classe ExtensibilityContribution représente une contribution d'extensibilité, c'est-à-dire une extension applicative personnalisée dans le système Altazion.
+La classe ExtensibilityContribution représente une contribution d'extensibilité, c'est-à-dire une extension applicative personnalisée dans le système.
 
 Propriétés publiques :
-- Guid : Identifiant unique de la contribution de type Guid.
-- Type : Type de la contribution (par exemple "WebHook", "CustomScript", "Plugin", etc.), sous forme de chaîne de caractères.
-- Content : Contenu de la contribution, généralement du JSON ou du code, sous forme de chaîne de caractères.
-- ModifiedAt : Date et heure de dernière modification de la contribution, de type DateTime.
+- Guid : Identifiant unique de la contribution.
+- Type : Type de la contribution (par exemple "WebHook", "CustomScript", "Plugin", etc.).
+- Content : Contenu de la contribution, généralement sous forme de JSON ou de code.
+- ModifiedAt : Date et heure de la dernière modification de la contribution.
 
-Méthodes notables :
-- GetKey() : retourne la clé unique de l'objet, ici l'identifiant Guid.
-- FromDataRow(DataRow dr) : initialise les propriétés de l'objet à partir d'une ligne de données provenant d'une base SQL.
-- ToString() : retourne une représentation textuelle de la contribution, affichant le type suivi du Guid.
+Méthodes héritées importantes (non détaillées ici) :
+- GetKey() : Retourne l'identifiant unique (Guid) de la contribution.
+
+Cette classe permet d'encapsuler les informations nécessaires pour gérer des extensions personnalisées dans la plateforme Altazion.
 
 ### D�claration TypeScript
 ```typescript
 interface ExtensibilityContribution {
-  Guid: string; // Unique identifier (GUID as string)
-  Type: string | null; // Contribution type (e.g., 'WebHook', 'CustomScript', etc.)
-  Content: string | null; // Contribution content (usually JSON or code)
-  ModifiedAt: string; // Date-time of last modification (ISO 8601 string)
+  Guid: string; // Unique identifier (UUID) of the contribution
+  Type: string | null; // Type of the contribution (e.g., "WebHook", "CustomScript", "Plugin")
+  Content: string | null; // Content of the contribution, typically JSON or code
+  ModifiedAt: string; // ISO string representation of the modification date and time
 }
 ```

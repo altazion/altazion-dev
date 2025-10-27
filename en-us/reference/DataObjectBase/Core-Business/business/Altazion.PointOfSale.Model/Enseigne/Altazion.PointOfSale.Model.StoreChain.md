@@ -1,23 +1,24 @@
 ﻿## StoreChain
 
-Represents a store chain grouping several stores under the same commercial banner.
+The StoreChain class represents a store chain, i.e., a group of multiple stores under the same commercial brand.
 
 Public properties:
-- Guid: Unique identifier of the store chain (Guid type).
-- Name: Name of the store chain (string type).
-- ManagerEmail: Email address of the store chain manager (string type).
-- Url: Website URL of the store chain (string type).
+- Guid: Unique identifier of the store chain (type Guid).
+- Name: Name of the store chain (type string).
+- ManagerEmail: Email address of the store chain manager (type string).
+- Url: Website URL of the store chain (type string).
 
 Important methods:
-- GetKey(): Returns the unique identifier of the store chain.
-- ToString(): Returns the name of the store chain or the default string representation.
+- GetKey(): returns the unique key of the object, here the Guid identifier.
+- FromDataRow(DataRow): protected method that initializes object properties from a data row.
+- ToString(): returns a string representation of the object, here the name of the store chain.
 
 ### TypeScript class
 ```typescript
-export interface StoreChain {
-  Guid: string; // Unique identifier (UUID as string)
-  Name: string | null;
-  ManagerEmail: string | null;
-  Url: string | null;
+interface StoreChain {
+  Guid: string; // Unique identifier of the store chain
+  Name: string | null; // Name of the store chain
+  ManagerEmail: string | null; // Email address of the store chain manager
+  Url: string | null; // Website URL of the store chain
 }
 ```

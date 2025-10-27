@@ -1,6 +1,6 @@
 ﻿## StoreChain
 
-Représente une enseigne (chaîne de magasins) regroupant plusieurs magasins sous une même bannière commerciale.
+La classe StoreChain représente une enseigne, c'est-à-dire une chaîne de magasins regroupant plusieurs magasins sous une même bannière commerciale.
 
 Propriétés publiques :
 - Guid : Identifiant unique de l'enseigne (type Guid).
@@ -9,15 +9,16 @@ Propriétés publiques :
 - Url : URL du site web de l'enseigne (type string).
 
 Méthodes importantes :
-- GetKey() : Retourne l'identifiant unique de l'enseigne.
-- ToString() : Retourne le nom de l'enseigne ou la représentation par défaut.
+- GetKey() : retourne la clé unique de l'objet, ici l'identifiant Guid.
+- FromDataRow(DataRow) : méthode protégée qui initialise les propriétés de l'objet à partir d'une ligne de données.
+- ToString() : retourne une représentation textuelle de l'objet, ici le nom de l'enseigne.
 
 ### D�claration TypeScript
 ```typescript
-export interface StoreChain {
-  Guid: string; // Unique identifier (UUID as string)
-  Name: string | null;
-  ManagerEmail: string | null;
-  Url: string | null;
+interface StoreChain {
+  Guid: string; // Unique identifier of the store chain
+  Name: string | null; // Name of the store chain
+  ManagerEmail: string | null; // Email address of the store chain manager
+  Url: string | null; // Website URL of the store chain
 }
 ```

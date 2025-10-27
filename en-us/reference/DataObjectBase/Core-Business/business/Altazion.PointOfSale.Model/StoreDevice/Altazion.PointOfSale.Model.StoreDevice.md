@@ -1,44 +1,46 @@
 ﻿## StoreDevice
 
-The StoreDevice class represents an in-store equipment such as a kiosk, tablet, payment terminal, etc. It includes the following properties:
+The StoreDevice class represents a store equipment device such as a kiosk, tablet, or payment terminal. It includes the following properties:
 
 - Guid: Unique identifier of the device.
-- DeviceType: Device type (3-character code).
-- StoreId: Identifier of the store to which the device belongs.
+- DeviceType: Device type code (3 characters).
+- StoreId: Identifier of the store the device belongs to (nullable).
 - Label: Descriptive label of the device.
 - IpAddress: IP address of the device.
-- CashRegisterId: Identifier of the cash register associated with the device.
-- Status: Status of the device (1-character code).
-- ParentDeviceId: Identifier of the parent device for equipment hierarchy.
-- LastUpdateTimestamp: Timestamp of the last update.
+- CashRegisterId: Identifier of the cash register associated with the device (nullable).
+- Status: Status code of the device (1 character).
+- ParentDeviceId: Identifier of a parent device for hierarchy (nullable).
+- LastUpdateTimestamp: Timestamp of the device's last update.
 - CallbackUrl: Callback URL for device notifications.
-- IsMovable: Indicates if the device is movable.
-- DepartmentId: Identifier of the department where the device is located.
+- IsMovable: Indicates whether the device is movable.
+- DepartmentId: Identifier of the department where the device is located (nullable).
 - IsInUse: Indicates if the device is currently in use.
 - Code: Short code of the device.
 - ConfigurationJson: JSON configuration of the device.
 - Description: Detailed description of the device.
-- Orientation: Orientation of the device (e.g., "portrait", "landscape").
+- Orientation: Orientation of the device (e.g., portrait, landscape).
+
+This class inherits from DataObjectBase and stores all essential information to manage store devices linked to the point of sale.
 
 ### TypeScript class
 ```typescript
 interface StoreDevice {
-  Guid: string;
-  DeviceType: string | null;
-  StoreId?: string | null;
-  Label: string | null;
-  IpAddress: string | null;
-  CashRegisterId?: string | null;
-  Status: string | null;
-  ParentDeviceId?: string | null;
-  LastUpdateTimestamp: Date;
-  CallbackUrl: string | null;
-  IsMovable: boolean;
-  DepartmentId?: string | null;
-  IsInUse: boolean;
-  Code: string | null;
-  ConfigurationJson: string | null;
-  Description: string | null;
-  Orientation: string | null;
+  Guid: string; // Unique identifier of the device
+  DeviceType: string; // Device type code (3 characters)
+  StoreId?: string | null; // Store identifier (nullable)
+  Label: string; // Descriptive label
+  IpAddress: string; // IP address
+  CashRegisterId?: string | null; // Associated cash register identifier (nullable)
+  Status: string; // Status code (1 character)
+  ParentDeviceId?: string | null; // Parent device identifier (nullable)
+  LastUpdateTimestamp: Date; // Timestamp of last update
+  CallbackUrl: string; // Callback URL
+  IsMovable: boolean; // Is device movable
+  DepartmentId?: string | null; // Department identifier (nullable)
+  IsInUse: boolean; // Is currently in use
+  Code: string; // Short code
+  ConfigurationJson: string; // JSON configuration
+  Description: string; // Detailed description
+  Orientation: string; // Orientation (e.g., portrait, landscape)
 }
 ```
