@@ -1,52 +1,54 @@
 ﻿## ProductType
 
-The ProductType class represents a product type with its associated information. It includes the following properties:
+The `ProductType` class represents a product type along with its associated detailed information.
 
-- ID: Unique identifier of the product type (short).
-- Code: Code of the product type (string).
-- TypeLabel: Label of the product type (string).
-- AccountingAccount: Accounting account associated with the product type (string).
-- VatAccountingAccount: VAT accounting account associated with the product type (string).
-- VatOnCollection: Indicates if VAT is on collection for this product type (bool).
-- AtaGuid: Globally unique identifier (GUID) associated with the product type (nullable Guid).
-- ExternalCode: External code associated with the product type (string).
-- CanBeCreated: Indicates if this product type can be created (bool).
-- IsSimplified: Indicates if this product type is simplified (bool).
-- CreationPage: Creation page associated with the product type (string).
-- CreationPageAppGuid: GUID of the application associated with the creation page (nullable Guid).
-- CreationPageOptions: Options associated with the creation page (string).
-- DetailsPage: Details page associated with the product type (string).
-- DetailsPageAppGuid: GUID of the application associated with the details page (nullable Guid).
-- DetailsPageOptions: Options associated with the details page (string).
-- EditionPage: Edition page associated with the product type (string).
-- EditionPageAppGuid: GUID of the application associated with the edition page (nullable Guid).
-- EditionPageOptions: Options associated with the edition page (string).
-- Description: Description of the product type (string).
-- GeneralType: General type associated with the product type (string).
+Public properties:
+
+- `ID` (short): Unique identifier for the product type.
+- `Code` (string): Code for the product type.
+- `TypeLabel` (string): Label or name of the product type.
+- `AccountingAccount` (string): Accounting account linked to the product type.
+- `VatAccountingAccount` (string): VAT accounting account linked to the product type.
+- `VatOnCollection` (bool): Indicates if VAT is on collection for this product type.
+- `AtaGuid` (Guid?): Globally unique identifier (GUID) associated with the product type.
+- `ExternalCode` (string): External code associated with the product type.
+- `CanBeCreated` (bool): Indicates if this product type can be created.
+- `IsSimplified` (bool): Indicates if this product type is simplified.
+- `CreationPage` (string): Creation page linked to the product type.
+- `CreationPageAppGuid` (Guid?): GUID of the application linked to the creation page.
+- `CreationPageOptions` (string): Options related to the creation page.
+- `DetailsPage` (string): Details page linked to the product type.
+- `DetailsPageAppGuid` (Guid?): GUID of the application linked to the details page.
+- `DetailsPageOptions` (string): Options related to the details page.
+- `EditionPage` (string): Edition page linked to the product type.
+- `EditionPageAppGuid` (Guid?): GUID of the application linked to the edition page.
+- `EditionPageOptions` (string): Options related to the edition page.
+- `Description` (string): Description of the product type.
+- `GeneralType` (string): General type associated with the product type.
 
 ### TypeScript class
 ```typescript
 interface ProductType {
-  ID: number;
-  Code: string | null;
-  TypeLabel: string | null;
-  AccountingAccount: string | null;
-  VatAccountingAccount: string | null;
-  VatOnCollection: boolean;
-  AtaGuid?: string | null;
-  ExternalCode: string | null;
-  CanBeCreated: boolean;
-  IsSimplified: boolean;
-  CreationPage: string | null;
-  CreationPageAppGuid?: string | null;
-  CreationPageOptions: string | null;
-  DetailsPage: string | null;
-  DetailsPageAppGuid?: string | null;
-  DetailsPageOptions: string | null;
-  EditionPage: string | null;
-  EditionPageAppGuid?: string | null;
-  EditionPageOptions: string | null;
-  Description: string | null;
-  GeneralType: string | null;
+  ID: number; // Unique identifier of the product type
+  Code: string; // Code of the product type
+  TypeLabel: string; // Label of the product type
+  AccountingAccount?: string; // Accounting account associated with the product type
+  VatAccountingAccount?: string; // VAT accounting account associated with the product type
+  VatOnCollection: boolean; // Indicates if VAT is collected upon payment
+  AtaGuid?: string | null; // GUID associated with the product type
+  ExternalCode?: string; // External code associated with the product type
+  CanBeCreated: boolean; // Indicates if the product type can be created
+  IsSimplified: boolean; // Indicates if the product type is simplified
+  CreationPage?: string; // Creation page for this product type
+  CreationPageAppGuid?: string | null; // GUID of the app associated with the creation page
+  CreationPageOptions?: string; // Options of the creation page
+  DetailsPage?: string; // Details page for this product type
+  DetailsPageAppGuid?: string | null; // GUID of the app associated with the details page
+  DetailsPageOptions?: string; // Options of the details page
+  EditionPage?: string; // Edition page for this product type
+  EditionPageAppGuid?: string | null; // GUID of the app associated with the edition page
+  EditionPageOptions?: string; // Options of the edition page
+  Description?: string; // Description of the product type
+  GeneralType?: string; // General type associated
 }
 ```

@@ -1,49 +1,48 @@
 ﻿## Quote
 
-La classe `Quote` représente un devis dans le système ERP d'Altazion. Elle contient les propriétés principales suivantes :
-
-- `Id` : Identifiant unique du devis (type decimal).
-- `Number` : Numéro du devis (type string).
-- `Origin` : Origine du devis (type string).
-- `NumberRevision` : Numéro de la révision du devis (type int).
-- `CustomerId` : Identifiant numérique du client associé au devis (type int).
-- `AmountExcludingVat` : Montant du devis hors TVA (type decimal).
-- `AmountWithVAT` : Montant TTC du devis (type decimal).
-- `CreationDate` : Date de création du devis (type DateTime).
-- `AssociatedIdDocument` : Identifiant du document associé (type Int64).
-- `ExpirationDate` : Date d'expiration du devis (type DateTime).
-- `EditionState` : État de l'édition du devis (type byte).
-- `GlobalDiscountExcludingVAT` : Remise globale hors TVA appliquée au devis (type decimal).
-- `GlobalDiscountWithVAT` : Remise globale TTC appliquée au devis (type decimal).
-- `GlobalDiscountLabel` : Libellé de la remise globale (type string).
-- `TotalDiscountExcludingVAT` : Remise totale hors TVA (type decimal).
-- `TotalDiscountWithVAT` : Remise totale TTC (type decimal).
-- `ClientName` : Nom du client (type string).
-- `ClientAddress` : Adresse du client (type string).
-- `ClientCP` : Code postal du client (type string).
-- `ClientCity` : Ville du client (type string).
-- `ClientEmail` : Email du client (type string).
-- `State` : État courant du devis (type string).
-- `ValidationCode` : Code de validation du devis (type string).
-- `Label` : Libellé ou titre du devis (type string).
-- `AcceptanceDate` : Date d'acceptation du devis, nullable (type DateTime?).
-- `AcceptanceSource` : Source ou personne ayant accepté le devis (type string).
-- `ProspectGuid` : Identifiant unique global (GUID) du prospect (type Guid).
-- `EstimatedStartDate` : Date estimée de début (type DateTime?).
-- `EstimatedEndDate` : Date estimée de fin (type DateTime?).
-- `ActualDateStart` : Date réelle de début (type DateTime?).
-- `ActualDateEnd` : Date réelle de fin (type DateTime?).
-- `AcceptanceDocument` : Document justificatif d'acceptation (type string).
-- `ContractGuid` : Identifiant unique global (GUID) du contrat associé (type Guid).
+La classe Quote représente un devis avec ses informations essentielles telles que l'identifiant unique, le numéro du devis, l'origine, la révision, et les données associées au client et aux montants. Elle inclut aussi les dates (création, expiration, acceptation, début et fin estimées et réelles) ainsi que les états associés au devis et à son édition. Les remises globales et totales hors taxes et TTC sont incluses, de même que les informations relatifs au client (nom, adresse, CP, ville, email).
 
 Constantes définissant les états possibles du devis :
-- `EtatEnCours` = "E" (en cours)
-- `EtatValide` = "V" (validé)
-- `EtatArchive` = "A" (archivé)
-- `EtatFacture` = "F" (facturé)
-- `EtatPartiel` = "P" (partiel)
+- EtatEnCours : "E" (en cours de rédaction)
+- EtatValide : "V" (validé et envoyé)
+- EtatArchive : "A" (archivé, refusé ou périmé)
+- EtatFacture : "F" (transformé en facture)
+- EtatPartiel : "P" (partiellement facturé)
 
-Cette classe sert à gérer toutes les informations relatives aux devis dans l'ERP, incluant les montants, les dates importantes, les informations client et les remises appliquées.
+Propriétés publiques détaillées :
+- Id : identifiant unique du devis.
+- Number : numéro du devis.
+- Origin : origine/source de la demande du devis.
+- NumberRevision : numéro de révision pour gestion des versions.
+- CustomerId : identifiant numérique du client.
+- AmountExcludingVat : montant total hors taxes.
+- AmountWithVAT : montant total TTC.
+- CreationDate : date de création du devis.
+- AssociatedIdDocument : identifiant du document associé.
+- ExpirationDate : date de fin de validité du devis.
+- EditionState : état d'édition (ex: brouillon, finalisé).
+- GlobalDiscountExcludingVAT : remise globale hors taxes.
+- GlobalDiscountWithVAT : remise globale TTC.
+- GlobalDiscountLabel : description libellé de la remise globale.
+- TotalDiscountExcludingVAT : total des remises hors taxes.
+- TotalDiscountWithVAT : total des remises TTC.
+- CustomerName : nom du client.
+- CustomerAddress : adresse du client.
+- CustomerPostalCode : code postal du client.
+- CustomerCity : ville du client.
+- CustomerEmail : email du client.
+- Status : état général du devis.
+- ValidationCode : code de validation du devis.
+- Label : libellé/titre du devis.
+- AcceptanceDate : date d'acceptation par le client (nullable).
+- AcceptanceSource : source/personne ayant accepté le devis.
+- ProspectGuid : identifiant unique du prospect.
+- EstimatedStartDate : date estimée de début de réalisation (nullable).
+- EstimatedEndDate : date estimée de fin de réalisation (nullable).
+- ActualDateStart : date réelle de début (nullable).
+- ActualDateEnd : date réelle de fin (nullable).
+- AcceptanceDocument : référence document d'acceptation.
+- ContractGuid : identifiant unique du contrat associé.
 
 ### D�claration TypeScript
 ```typescript
@@ -55,38 +54,37 @@ interface Quote {
   CustomerId: number;
   AmountExcludingVat: number;
   AmountWithVAT: number;
-  CreationDate: string; // ISO date string
+  CreationDate: Date;
   AssociatedIdDocument: number;
-  ExpirationDate: string; // ISO date string
-  EditionState: number;
+  ExpirationDate: Date;
+  EditionState: number; // byte represented as number
   GlobalDiscountExcludingVAT: number;
   GlobalDiscountWithVAT: number;
   GlobalDiscountLabel: string;
   TotalDiscountExcludingVAT: number;
   TotalDiscountWithVAT: number;
-  ClientName: string;
-  ClientAddress: string;
-  ClientCP: string;
-  ClientCity: string;
-  ClientEmail: string;
-  State: string;
+  CustomerName: string;
+  CustomerAddress: string;
+  CustomerPostalCode: string;
+  CustomerCity: string;
+  CustomerEmail: string;
+  Status: string;
   ValidationCode: string;
   Label: string;
-  AcceptanceDate?: string; // ISO date string or null
+  AcceptanceDate?: Date | null;
   AcceptanceSource: string;
-  ProspectGuid: string;
-  EstimatedStartDate?: string; // ISO date string or null
-  EstimatedEndDate?: string; // ISO date string or null
-  ActualDateStart?: string; // ISO date string or null
-  ActualDateEnd?: string; // ISO date string or null
+  ProspectGuid: string; // GUID
+  EstimatedStartDate?: Date | null;
+  EstimatedEndDate?: Date | null;
+  ActualDateStart?: Date | null;
+  ActualDateEnd?: Date | null;
   AcceptanceDocument: string;
-  ContractGuid: string;
+  ContractGuid: string; // GUID
+  // Constants for states
+  static readonly EtatEnCours: "E";
+  static readonly EtatValide: "V";
+  static readonly EtatArchive: "A";
+  static readonly EtatFacture: "F";
+  static readonly EtatPartiel: "P";
 }
-
-// Constants for quote states
-const EtatEnCours = "E";
-const EtatValide = "V";
-const EtatArchive = "A";
-const EtatFacture = "F";
-const EtatPartiel = "P";
 ```

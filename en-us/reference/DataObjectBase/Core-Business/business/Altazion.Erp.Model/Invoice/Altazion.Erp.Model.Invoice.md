@@ -1,22 +1,47 @@
-Class representing an invoice in the ERP system. It contains the following properties:
+﻿## Invoice
 
+The Invoice class represents an invoice with detailed information such as unique identifier, date, invoice number, amounts, and client and payment details.
+
+Public properties:
 - Id: Unique identifier of the invoice.
-- Date: Date and time of the invoice.
+- Date: Date of the invoice.
 - InvoiceNumber: Invoice number.
-- TotalAmount: Total amount including taxes (TTC).
-- TotalAmountWOTax: Total amount excluding taxes (HT).
-- CustomerName: Customer's name.
+- TotalAmount: Total amount including taxes.
+- TotalAmountWOTax: Total amount excluding taxes.
+- CustomerName: Name of the invoiced customer.
 - CustomerStreetAddress: Customer's street address.
 - CustomerZipCode: Customer's postal code.
 - CustomerCity: Customer's city.
 - CustomerId: Customer identifier.
-- TotalNotPayed: Remaining unpaid amount on the invoice.
-- PaymentDeadlineDate: Deadline date for payment, nullable.
-- LastOverdueNotification: Date of last overdue notification, nullable.
-- Origin: Origin or source of the invoice.
-- CustomerReference: Customer reference associated with the invoice.
-- DisallowOverdueNotification: Flag to disallow overdue notifications.
-- OverdueNotificationCount: Number of overdue notifications sent.
+- TotalNotPayed: Remaining amount to be paid on the invoice.
+- PaymentDeadlineDate: Payment due date (nullable).
+- LastOverdueNotification: Date of the last payment reminder (nullable).
+- Origin: Origin of the invoice (e.g., order, contract).
+- CustomerReference: Customer reference or external order number.
+- DisallowOverdueNotification: Flag indicating whether overdue notification is disallowed.
+- OverdueNotificationCount: Number of reminders sent.
 - PrintCount: Number of times the invoice has been printed.
 
-This class also provides a GetKey() method returning the unique identifier and a FromDataRow method to populate the object from a data row.
+### TypeScript class
+```typescript
+interface Invoice {
+  Id: number; // Unique identifier of the invoice
+  Date: string; // Date of the invoice as ISO string
+  InvoiceNumber: string;
+  TotalAmount: number; // Total amount including taxes
+  TotalAmountWOTax: number; // Total amount excluding taxes
+  CustomerName: string;
+  CustomerStreetAddress: string;
+  CustomerZipCode: string;
+  CustomerCity: string;
+  CustomerId: number;
+  TotalNotPayed: number; // Remaining amount to pay
+  PaymentDeadlineDate?: string; // Nullable date
+  LastOverdueNotification?: string; // Nullable date
+  Origin: string;
+  CustomerReference: string;
+  DisallowOverdueNotification: boolean;
+  OverdueNotificationCount: number;
+  PrintCount: number;
+}
+```

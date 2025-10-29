@@ -1,68 +1,67 @@
 ﻿## Product
 
-La classe Product représente un produit dans le système Altazion avec diverses propriétés décrivant ses caractéristiques, son prix, et son statut.
+La classe Product représente un produit dans le système Altazion avec ses diverses caractéristiques.
 
-- StorageType : type de gestion de stock (NoStorage, NotPhysicalObject, FIFO, WeightedAverage).
-- IsDeleted : indique si le produit est supprimé.
-- IsShippable : indique si le produit est livrable.
-- Id : identifiant unique du produit.
-- Guid : identifiant global unique.
-- PriceWOTax : prix hors taxe.
-- Price : prix TTC.
-- VAT : taxe sur la valeur ajoutée calculée automatiquement comme Price - PriceWOTax.
-- DiscountedPriceWOTax : prix hors taxe avec remise (optionnel).
-- DiscountedPrice : prix TTC avec remise (optionnel).
-- DiscountStartDate : date de début de la remise (optionnel).
-- DiscountEndDate : date de fin de la remise (optionnel).
-- CreationDate : date de création du produit.
-- Label : libellé ou nom du produit.
-- Sku : référence produit.
-- FamilyId : identifiant de la famille du produit.
-- Description : description détaillée du produit.
-- SubFamilyId : identifiant optionnel de la sous-famille.
-- BrandId : identifiant de la marque.
-- VatId : identifiant de la TVA appliquée.
-- ProductTypeId : type de produit.
-- UsableOnDigitalTools : indique si le produit est utilisable sur des outils digitaux.
-- IsForInvoicableElements : indique si le produit peut être utilisé pour des éléments facturables.
-- IsMultiVariations : indique si le produit a plusieurs variations.
-- IsMainVariation : indique si c'est la variation principale.
-- IsAssembly : indique si le produit est un assemblage.
-- IsExternalVendorEnabled : indique si un vendeur externe est activé.
-- IsProductComplete : indique si le produit est complet.
-- CurrentCreationStep : étape actuelle de création du produit.
-- RecommendedPriceWOTax : prix recommandé hors taxe (optionnel).
-- RecommendedPrice : prix recommandé TTC (optionnel).
-- MetaType : type méta du produit (enum ProductMetaType: Products, Shipping, Discounts, etc.).
-- RiskScore : score de risque associé.
-- ParentProductId : identifiant du produit parent (optionnel).
-- IsHighDemand : indique si le produit est à forte demande.
+Propriétés publiques :
+- StorageType : Type de gestion du stockage du produit (par exemple FIFO, Moyenne pondérée).
+- IsDeleted : Indique si le produit est supprimé.
+- IsShippable : Indique si le produit peut être expédié.
+- Id : Identifiant numérique unique du produit.
+- Guid : Identifiant unique global (GUID) du produit.
+- PriceWOTax : Prix unitaire hors taxes.
+- Price : Prix unitaire toutes taxes comprises.
+- VAT : Calcul de la TVA (dérivé de Price - PriceWOTax).
+- DiscountedPriceWOTax : Prix promotionnel hors taxes (optionnel).
+- DiscountedPrice : Prix promotionnel TTC (optionnel).
+- DiscountStartDate : Date de début de la promotion (optionnelle).
+- DiscountEndDate : Date de fin de la promotion (optionnelle).
+- CreationDate : Date de création du produit.
+- Label : Libellé ou nom du produit.
+- Sku : Référence ou code produit.
+- FamilyId : Identifiant de la famille du produit.
+- SubFamilyId : Identifiant optionnel de la sous-famille du produit.
+- BrandId : Identifiant de la marque associée.
+- VatId : Identifiant du taux de TVA associé.
+- ProductTypeId : Type de produit (identifiant numérique).
+- UsableOnDigitalTools : Indique si le produit peut être utilisé sur des outils digitaux.
+- IsForInvoicableElements : Indique si le produit est destiné aux éléments facturables.
+- IsMultiVariations : Indique si le produit a plusieurs variations.
+- IsMainVariation : Indique si le produit est la variation principale.
+- IsAssembly : Indique si le produit est un assemblage.
+- IsExternalVendorEnabled : Indique si le produit est disponible chez un fournisseur externe.
+- IsProductComplete : Indique si le produit est complet.
+- CurrentCreationStep : Étape actuelle de création du produit (numérique).
+- RecommendedPriceWOTax : Prix conseillé hors taxes (optionnel).
+- RecommendedPrice : Prix conseillé TTC (optionnel).
+- MetaType : Type méta du produit (enum ProductMetaType), indiquant la catégorie fonctionnelle (produit, livraison, remise, service, etc.).
+- RiskScore : Score de risque associé au produit.
+- ParentProductId : Identifiant optionnel du produit parent (pour les variations).
+- IsHighDemand : Indique si le produit est en forte demande.
 
-Constantes / Enumérations définies dans la même classe (namespace Altazion.Core.Model) :
+Énumérations définies dans ce namespace utilisées par cette classe :
+- ProductMetaType : définit les types fonctionnels des produits (Products, Shipping, Discounts, Services, Rents, Bundles, Financial, Tax, Licence).
+- StorageType : définit la méthode de gestion de stockage (NoStorage, NotPhysicalObject, FIFO, WeightedAverage).
 
-- ProductMetaType : enum définissant les catégories méta du produit : Products, Shipping, Discounts, Services, Rents, Bundles, Financial, Tax, Licence.
-- StorageType : enum décrivant le type de stockage : NoStorage, NotPhysicalObject, FIFO, WeightedAverage.
 
 ### D�claration TypeScript
 ```typescript
 interface Product {
-  StorageType: "NoStorage" | "NotPhysicalObject" | "FIFO" | "WeightedAverage";
+  StorageType: StorageType;
   IsDeleted: boolean;
   IsShippable: boolean;
   Id: number;
-  Guid: string; // UUID format
+  Guid: string;
   PriceWOTax: number;
   Price: number;
-  VAT: number; // calculated as Price - PriceWOTax
+  VAT: number; // Price - PriceWOTax
   DiscountedPriceWOTax?: number | null;
   DiscountedPrice?: number | null;
-  DiscountStartDate?: string | null; // ISO date string
-  DiscountEndDate?: string | null;  // ISO date string
-  CreationDate: string; // ISO date string
+  DiscountStartDate?: Date | null;
+  DiscountEndDate?: Date | null;
+  CreationDate: Date;
   Label: string;
   Sku: string;
   FamilyId: number;
-  Description: string;
   SubFamilyId?: number | null;
   BrandId: number;
   VatId: number;
@@ -77,13 +76,29 @@ interface Product {
   CurrentCreationStep: number;
   RecommendedPriceWOTax?: number | null;
   RecommendedPrice?: number | null;
-  MetaType: "Products" | "Shipping" | "Discounts" | "Services" | "Rents" | "Bundles" | "Financial" | "Tax" | "Licence";
+  MetaType: ProductMetaType;
   RiskScore: number;
   ParentProductId?: number | null;
   IsHighDemand: boolean;
 }
 
-type ProductMetaType = "Products" | "Shipping" | "Discounts" | "Services" | "Rents" | "Bundles" | "Financial" | "Tax" | "Licence";
+enum ProductMetaType {
+  Products,
+  Shipping,
+  Discounts,
+  Services,
+  Rents,
+  Bundles,
+  Financial,
+  Tax,
+  Licence
+}
 
-type StorageType = "NoStorage" | "NotPhysicalObject" | "FIFO" | "WeightedAverage";
+enum StorageType {
+  NoStorage,
+  NotPhysicalObject,
+  FIFO,
+  WeightedAverage
+}
+
 ```

@@ -1,47 +1,46 @@
 ﻿## ProductWebData
 
-La classe ProductWebData représente les données web associées à un produit dans la solution Altazion. Elle contient des propriétés décrivant la disponibilité, les prix (hors taxe et TTC), les promotions, des métadonnées web, ainsi que les URLs des images associées au produit.
+La classe ProductWebData représente les données web associées à un produit dans le système Altazion. Elle contient diverses propriétés liées à la disponibilité, le prix personnalisé, les promotions, les images, et les métadonnées SEO pour un produit sur un site web spécifique.
 
 Propriétés publiques :
 
-- PriceGroupId : Identifiant du groupe de prix (GUID nullable).
-- MetaDescription : Description méta pour le référencement web.
-- Keywords : Mots-clés pour le référencement.
+- PriceGroupId : Identifiant du groupe de prix, optionnel (Guid?).
+- MetaDescription : Description méta pour SEO (string).
+- Keywords : Mots-clés pour SEO (string).
 - ProductId : Identifiant unique du produit (long).
-- SiteId : Identifiant du site lié au produit (int).
+- SiteId : Identifiant du site web associé (int).
 - IsAvailable : Indique si le produit est disponible (bool).
-- IsWebEnabled : Indique si le produit est activé sur le web (bool).
-- PriceWOTax : Prix hors taxe, prix personnalisé (decimal nullable).
-- Price : Prix TTC, prix personnalisé (decimal nullable).
-- IsPublished : Indique si le produit est publié sur le site web (bool).
-- VisibilityThreshold : Seuil de visibilité (decimal nullable).
-- AvailabilityThredshold : Seuil de disponibilité (decimal nullable).
-- Label : Libellé du produit affiché.
-- Description : Description HTML du produit.
-- DiscountedPriceWOTax : Prix promotionnel hors taxe (decimal nullable).
-- DiscountedPrice : Prix promotionnel TTC (decimal nullable).
-- DiscountStartDate : Date de début de la promotion (DateTime nullable).
-- DiscountEndDate : Date de fin de la promotion (DateTime nullable).
-- ThumbnailUrl : URL de l'image miniature.
-- IntermediateImageUrl : URL de l'image intermédiaire.
-- SmallImageUrl : URL de la petite image.
-- LargeImageUrl : URL de la grande image.
-- MainImageUrl : URL de l'image principale.
-- TinyImageUrl : URL de la toute petite image.
+- IsWebEnabled : Indique si le produit est actif sur le web (bool).
+- PriceWOTax : Prix hors taxe personnalisé, optionnel (decimal?).
+- Price : Prix TTC personnalisé, optionnel (decimal?).
+- IsPublished : Indique si le produit est publié (bool).
+- VisibilityThreshold : Seuil de visibilité en quantité pour affichage (decimal?).
+- AvailabilityThredshold : Seuil de disponibilité en quantité (decimal?).
+- Label : Nom ou libellé du produit (string).
+- Description : Description HTML du produit (string).
+- DiscountedPriceWOTax : Prix promotionnel HT, optionnel (decimal?).
+- DiscountedPrice : Prix promotionnel TTC, optionnel (decimal?).
+- DiscountStartDate : Date début promotion (DateTime?).
+- DiscountEndDate : Date fin promotion (DateTime?).
+- ThumbnailUrl : URL vers une image miniature (string).
+- IntermediateImageUrl : URL vers une image intermédiaire (string).
+- SmallImageUrl : URL image petite (string).
+- LargeImageUrl : URL image grande (string).
+- MainImageUrl : URL image principale (string).
+- TinyImageUrl : URL image très petite (string).
 - IsVisibleInSearch : Indique si le produit est visible dans les résultats de recherche (bool).
-- CustomUrlPart : Partie personnalisée de l'URL.
-- SegmentationId : Identifiant de segmentation (decimal nullable).
+- CustomUrlPart : Partie personnalisée de l'URL web du produit (string).
+- SegmentationId : Identifiant de la segmentation applicable (decimal?).
 
-La classe comprend également une validation des données pour s'assurer de la cohérence notamment entre les prix HT et TTC, et la gestion de promotions où toutes les informations doivent être saisies et cohérentes (dates, prix promotions).
+La classe valide la cohérence des prix (HT et TTC), la cohérence des champs promotionnels (prix et dates) et la validité des dates de promotion (la date de fin doit être postérieure à la date de début). Elle signale aussi si le prix promotionnel est supérieur au prix normal.
 
-La méthode FromDataRow permet de charger les données à partir d'une ligne d'une base de données.
+La clé primaire composant l'identifiant unique est la concaténation de ProductId et SiteId.
 
-La clé unique pour cette entité est la combinaison ProductId et SiteId.
 
 ### D�claration TypeScript
 ```typescript
-export interface ProductWebData {
-  PriceGroupId?: string; // GUID nullable
+interface ProductWebData {
+  PriceGroupId?: string; // Guid?
   MetaDescription?: string;
   Keywords?: string;
   ProductId: number;

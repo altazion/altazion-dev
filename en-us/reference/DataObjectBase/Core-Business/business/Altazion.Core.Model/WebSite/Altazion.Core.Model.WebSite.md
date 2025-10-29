@@ -1,44 +1,43 @@
 ﻿## WebSite
 
-The WebSite class represents a website with its various properties and configurations. It inherits from DataObjectBase and is marked with the SqlDataConcept attribute indicating the associated SQL table.
+The WebSite class represents a website along with its associated properties and configuration.
 
 Public properties:
+- Code: short code for the website.
+- Id: unique identifier of the website.
+- Label: name or label of the website.
+- Theme: website theme.
+- CssTheme: CSS theme used.
+- MasterPage: master page used.
+- RjsId: RJS identifier.
+- MainCategoryId: identifier of the main category of the website.
+- DefaultNewsletterId: nullable identifier of the default newsletter.
+- MainUrl: main URL of the website.
+- CustomerServicePhone: customer service phone number.
+- EmailServiceClient: email of customer service.
+- HorairesServiceClient: customer service opening hours.
+- DefaultPostalCode: default postal code.
+- DefaultCountryPk: default country code.
+- DefaultCulture: default culture of the site.
+- DefaultCurrency: nullable GUID of the default currency.
+- SiteParentId: nullable parent site identifier.
+- IsECommerce: flag indicating if the site is e-commerce.
+- IsInProduction: flag for production status.
+- Description: textual description of the site.
+- Title: website title.
+- IsPrivate: flag indicating if the site is private.
+- RootSearchPath: root path for searches.
+- RootProductPath: root path for products.
+- RootPath: root path of the website.
+- ThemeGuid: GUID identifier of the theme.
+- WebOmsSourceGuid: OMS source GUID for the web.
+- StoreOmsSourceGuid: OMS source GUID for the store.
 
-- Code: Short code of the website (string).
-- Id: Unique identifier of the website (int).
-- Label: Website name or label (string).
-- Theme: Theme of the website (string).
-- CssTheme: CSS theme used by the website (string).
-- MasterPage: Master page used by the website (string).
-- RjsId: RJS identifier of the website (int).
-- MainCategoryId: Identifier of the main category of the website (int).
-- DefaultNewsletterId: Default newsletter identifier (nullable int).
-- MainUrl: Main URL of the website (string).
-- CustomerServicePhone: Customer service phone number (string).
-- EmailServiceClient: Customer service email (string).
-- HorairesServiceClient: Customer service hours (string).
-- DefaultPostalCode: Default postal code (string).
-- DefaultCountryPk: Default country code (string).
-- DefaultCulture: Default culture of the website (string).
-- DefaultCurrency: Default currency of the website (nullable Guid).
-- SiteParentId: Identifier of the parent site (nullable int).
-- IsECommerce: Indicates if the site is an e-commerce site (bool).
-- IsInProduction: Indicates if the site is in production (bool).
-- Description: Description of the website (string).
-- Title: Title of the website (string).
-- IsPrivate: Indicates if the site is private (bool).
-- RootSearchPath: Root path for searches (string).
-- RootProductPath: Root path for products (string).
-- RootPath: Root path of the website (string).
-- ThemeGuid: Identifier of the theme (nullable Guid).
-- WebOmsSourceGuid: OMS source GUID for web (nullable Guid).
-- StoreOmsSourceGuid: OMS source GUID for store (nullable Guid).
-
-This class handles the basic configuration and essential information of a website within the Altazion solution context.
+This class also provides constructors to initialize from a data row, from id and label, or default. It overrides GetKey() method to provide the unique key. It performs validation on main URL format and path strings.
 
 ### TypeScript class
 ```typescript
-interface WebSite {
+export interface WebSite {
   Code: string;
   Id: number;
   Label: string;
@@ -55,7 +54,7 @@ interface WebSite {
   DefaultPostalCode: string;
   DefaultCountryPk: string;
   DefaultCulture: string;
-  DefaultCurrency?: string | null; // Guid as string
+  DefaultCurrency?: string | null; // GUID represented as string
   SiteParentId?: number | null;
   IsECommerce: boolean;
   IsInProduction: boolean;
@@ -65,8 +64,8 @@ interface WebSite {
   RootSearchPath: string;
   RootProductPath: string;
   RootPath: string;
-  ThemeGuid?: string | null; // Guid as string
-  WebOmsSourceGuid?: string | null; // Guid as string
-  StoreOmsSourceGuid?: string | null; // Guid as string
+  ThemeGuid?: string | null;
+  WebOmsSourceGuid?: string | null;
+  StoreOmsSourceGuid?: string | null;
 }
 ```

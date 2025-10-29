@@ -1,47 +1,45 @@
 ﻿## ProductWebData
 
-The ProductWebData class represents the web-related data of a product within the Altazion solution. It contains properties describing availability, pricing (excl. tax and incl. tax), promotional discounts, web metadata, and URLs for various product images.
+The ProductWebData class represents the web-related data of a product in the Altazion system. It includes various properties related to product availability, customized pricing, promotions, images, and SEO metadata for a product on a specific website.
 
-Public properties include:
+Public properties:
 
-- PriceGroupId: Identifier of the price group (nullable GUID).
-- MetaDescription: Meta description used for SEO.
-- Keywords: SEO keywords.
-- ProductId: Unique product identifier (long).
-- SiteId: Identifier of the related site (int).
-- IsAvailable: Indicates if the product is available (bool).
+- PriceGroupId: Optional identifier for the price group (Guid?).
+- MetaDescription: SEO meta description (string).
+- Keywords: SEO keywords (string).
+- ProductId: Unique identifier of the product (long).
+- SiteId: Identifier of the website the product belongs to (int).
+- IsAvailable: Indicates whether the product is available (bool).
 - IsWebEnabled: Indicates if the product is enabled on the web (bool).
-- PriceWOTax: Custom price excluding tax (nullable decimal).
-- Price: Custom price including tax (nullable decimal).
-- IsPublished: Indicates if the product is published on the website (bool).
-- VisibilityThreshold: Visibility threshold (nullable decimal).
-- AvailabilityThredshold: Availability threshold (nullable decimal).
-- Label: Display label of the product.
-- Description: HTML description of the product.
-- DiscountedPriceWOTax: Promotional price excluding tax (nullable decimal).
-- DiscountedPrice: Promotional price including tax (nullable decimal).
-- DiscountStartDate: Promotion start date (nullable DateTime).
-- DiscountEndDate: Promotion end date (nullable DateTime).
-- ThumbnailUrl: URL to the product's thumbnail image.
-- IntermediateImageUrl: URL to an intermediate-sized image.
-- SmallImageUrl: URL to a small-sized image.
-- LargeImageUrl: URL to a large-sized image.
-- MainImageUrl: URL to the main image.
-- TinyImageUrl: URL to the tiny-sized image.
-- IsVisibleInSearch: Indicates if the product appears in search results (bool).
-- CustomUrlPart: Custom part of the product URL.
-- SegmentationId: Segmentation identifier (nullable decimal).
+- PriceWOTax: Customized price excluding tax, optional (decimal?).
+- Price: Customized price including tax, optional (decimal?).
+- IsPublished: Indicates if the product is published (bool).
+- VisibilityThreshold: Quantity threshold to control visibility (decimal?).
+- AvailabilityThredshold: Quantity availability threshold (decimal?).
+- Label: Product name or label (string).
+- Description: HTML description of the product (string).
+- DiscountedPriceWOTax: Promotional price excluding tax, optional (decimal?).
+- DiscountedPrice: Promotional price including tax, optional (decimal?).
+- DiscountStartDate: Promotion start date (DateTime?).
+- DiscountEndDate: Promotion end date (DateTime?).
+- ThumbnailUrl: URL for thumbnail image (string).
+- IntermediateImageUrl: URL for intermediate image (string).
+- SmallImageUrl: URL to a small image (string).
+- LargeImageUrl: URL to a large image (string).
+- MainImageUrl: URL of the main image (string).
+- TinyImageUrl: URL of a tiny image (string).
+- IsVisibleInSearch: Indicates if the product is visible in search results (bool).
+- CustomUrlPart: Customized part of the product's URL (string).
+- SegmentationId: Applicable segmentation identifier (decimal?).
 
-The class implements validation to ensure consistency, particularly between price without tax and price including tax, and for promotional data where all promotion-related fields must be populated and dates must be logical.
+The class validates the consistency of price fields (tax excluded and included), promotion fields (prices and dates), and ensures the promotion end date is after the start date. It also checks that promotional prices are not higher than normal prices.
 
-The FromDataRow method populates the instance from a database DataRow.
-
-The unique key for this entity is the composite key of ProductId and SiteId.
+The unique key for the object is the combination of ProductId and SiteId.
 
 ### TypeScript class
 ```typescript
-export interface ProductWebData {
-  PriceGroupId?: string; // GUID nullable
+interface ProductWebData {
+  PriceGroupId?: string; // Guid?
   MetaDescription?: string;
   Keywords?: string;
   ProductId: number;

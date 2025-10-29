@@ -1,44 +1,48 @@
 ﻿## BankAccount
 
-Represents a bank account with its essential information.
+Class representing a bank account with the following properties:
 
-Public properties:
-- Id: Unique identifier of the bank account.
-- Label: Name or label of the bank account.
-- AccountNumber: Bank account number.
-- AccountingAccount: Accounting account associated with the bank account.
-- BankCode: Code identifying the bank.
-- AgencyCode: Code identifying the bank agency.
-- RibKey: RIB key for account verification.
-- Iban: International IBAN number of the account.
-- IsCurrent: Indicates if the account is a current account.
-- IsPrimary: Indicates if this is the primary account.
-- AccountType: Type of the bank account, as a byte.
+- Id: Unique identifier for the bank account.
+- Label: The label or name of the bank account.
+- AccountNumber: The bank account number.
+- AccountingAccount: The accounting account associated with the bank account.
+- BankCode: The bank code.
+- AgencyCode: The bank agency code.
+- RibKey: The RIB key (Relevé d'Identité Bancaire) of the bank account.
+- Iban: The IBAN (International Bank Account Number) of the bank account.
+- IsCurrent: Indicates if the account is a current account (boolean).
+- IsPrimary: Indicates if the account is the primary account (boolean).
+- AccountType: The type of bank account represented as a byte.
 
-Nested enumeration: BankAccountType
-- Current: Current account (value 0).
-- CreditCard: Deferred payment credit card account (1).
-- Savings: Savings account (2).
-- Pledge: Pledge account (3).
-- Shares: Shares account (4).
-- Others: Other account types (100).
+The class includes an internal enumeration "BankAccountType" defining possible bank account types:
+  - Current: Current bank account,
+  - CreditCard: Deferred payment credit card account,
+  - Savings: Savings account,
+  - Pledge: Pledge account,
+  - Shares: Shares account,
+  - Others: Other types of accounts.
+
+Properties include validation to verify the correctness and format of RIB and IBAN values, checking the format of bank codes, agency codes, account numbers, and keys.
+
+This class derives from DataObjectBase and overrides FromDataRow to populate properties from a DataRow.
 
 ### TypeScript class
 ```typescript
 interface BankAccount {
-  Id: number;
-  Label: string | null;
-  AccountNumber: string | null;
-  AccountingAccount: string | null;
-  BankCode: string | null;
-  AgencyCode: string | null;
-  RibKey: string | null;
-  Iban: string | null;
-  IsCurrent: boolean;
-  IsPrimary: boolean;
-  AccountType: number;
+  Id: number; // Identifiant du compte bancaire
+  Label: string; // Libellé du compte bancaire
+  AccountNumber: string; // Numéro du compte bancaire
+  AccountingAccount: string; // Compte comptable associé
+  BankCode: string; // Code de la banque
+  AgencyCode: string; // Code de l'agence bancaire
+  RibKey: string; // Clé RIB du compte bancaire
+  Iban: string; // IBAN du compte bancaire
+  IsCurrent: boolean; // Indique si le compte est courant
+  IsPrimary: boolean; // Indique si le compte est principal
+  AccountType: number; // Type du compte bancaire
 }
 
+// Enum for BankAccountType
 enum BankAccountType {
   Current = 0,
   CreditCard = 1,

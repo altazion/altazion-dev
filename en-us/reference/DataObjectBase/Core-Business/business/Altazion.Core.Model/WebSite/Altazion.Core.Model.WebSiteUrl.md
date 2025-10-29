@@ -1,18 +1,14 @@
 ﻿## WebSiteUrl
 
-The WebSiteUrl class represents a URL associated with a website. It inherits from DataObjectBase, making it a data object class.
+The `WebSiteUrl` class represents a URL associated with a website within the Altazion context.
 
 Public properties:
-- Pk: unique identifier of the URL.
-- SitePk: identifier of the associated website.
-- Url: the URL itself.
-- Role: the role of the URL, e.g., main, secondary, etc.
+- `Pk`: Unique identifier of the URL.
+- `SitePk`: Identifier of the website associated with this URL.
+- `Url`: The URL string.
+- `Role`: The role of the URL, for example, main or secondary URL.
 
-Important methods:
-- GetKey(): returns the unique key of the object (Pk).
-- FromDataRow(DataRow dr): initializes the object's properties from a data row (DataRow).
-
-This class allows linking specific, potentially multiple, URLs to a given website with a defined role for each URL.
+This class inherits from `DataObjectBase` and can initialize its data from a DataRow.
 
 ### TypeScript class
 ```typescript
