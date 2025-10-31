@@ -1,39 +1,43 @@
 ﻿## CustomerType
 
 The CustomerType class represents a customer type with its specifications and metadata. It includes the following properties:
+
 - Id (int): Unique identifier of the customer type.
-- Label (string): The label of the customer type.
-- MetaType (string): Metadata indicating the type of customer, e.g., consumer or business.
-- CanUseInvoicableElements (bool): Indicates if the customer type can use invoicable elements.
-- IsActive (bool): Indicates if the customer type is active.
-- EUSpecifics (EUSpecifications): EU-specific specifications for the customer type, encapsulated in a nested class.
+- Label (string): Label of the customer type.
+- MetaType (string): Metadata indicating the customer type (for example, consumer or company).
+- CanUseInvoicableElements (bool): Indicates whether the customer type can use invoicable elements.
+- IsActive (bool): Indicates whether the customer type is active.
+- EUSpecifics (CustomerType.EUSpecifications): European Union-specific specifications for the customer type.
 
-The class also defines three constants representing metadata for customer types:
-- MetaUndefined: value "N", undefined customer type.
-- MetaTypeConsumer: value "I", consumer type.
-- MetaTypeEntreprise: value "E", business type.
+The class also defines the following constants for MetaType:
 
-The nested EUSpecifications class includes the property:
-- SalesAccountId (string): Identifier of the associated sales account, EU-specific.
+- MetaUndefined = "N": Undefined customer type.
+- MetaTypeConsumer = "I": Consumer customer type.
+- MetaTypeEntreprise = "E": Company customer type.
+
+The nested EUSpecifications class represents EU-specific details and contains:
+
+- SalesAccountId (string): Identifier of the associated sales account.
+
+This class manages customer types with data validations and supports specific metadata.
 
 ### TypeScript class
 ```typescript
 interface CustomerType {
-  Id: number; // Unique identifier of the customer type
-  Label: string; // Label of the customer type
-  MetaType: string; // Metadata indicating the customer type
-  CanUseInvoicableElements: boolean; // Indicates if invoicable elements can be used
-  IsActive: boolean; // Indicates if the customer type is active
-  EUSpecifics?: CustomerType.EUSpecifications; // EU-specific specifications
+  Id: number;
+  Label: string;
+  MetaType: string;
+  CanUseInvoicableElements: boolean;
+  IsActive: boolean;
+  EUSpecifics?: CustomerTypeEUSpecifications;
 }
 
-namespace CustomerType {
-  export interface EUSpecifications {
-    SalesAccountId?: string; // Associated sales account identifier
-  }
-
-  export const MetaUndefined = "N";
-  export const MetaTypeConsumer = "I";
-  export const MetaTypeEntreprise = "E";
+interface CustomerTypeEUSpecifications {
+  SalesAccountId?: string;
 }
+
+// Constants representing MetaType values
+const MetaUndefined = "N";
+const MetaTypeConsumer = "I";
+const MetaTypeEntreprise = "E";
 ```

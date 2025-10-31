@@ -1,19 +1,19 @@
 ﻿## ProductLogisticsInfoBase
 
-La classe ProductLogisticsInfoBase représente les informations logistiques de base d'un produit.
+La classe `ProductLogisticsInfoBase` représente les informations logistiques de base d'un produit.
 
 Propriétés publiques :
-- FulfillmentTypeCode : code du type de préparation logistique, de type chaîne de caractères.
-- FulFillmentMandatoryZoneGuid : identifiant unique optionnel (GUID) de la zone logistique obligatoire.
+- `FulfillmentTypeCode` (string) : Code du type de préparation logistique.
+- `FulFillmentMandatoryZoneGuid` (Guid?) : Identifiant unique optionnel de la zone logistique obligatoire.
 
-Cette classe permet d'initialiser ses propriétés à partir d'une ligne de données (DataRow) typique d'une base de données, où les colonnes "log_type_prepa" et "log_zpr_guid_obligatoire" correspondent respectivement au code du type de préparation logistique et à la zone logistique obligatoire.
+Méthodes importantes (non détaillées ici car héritage ou override) :
+- `GetKey()` retourne par défaut une chaîne vide, représentant la clé unique de l'objet.
+- `FromDataRow(DataRow dr)` Initialise les propriétés de l'objet à partir d'une ligne de données, récupérant "log_type_prepa" pour `FulfillmentTypeCode` et "log_zpr_guid_obligatoire" pour `FulFillmentMandatoryZoneGuid`.
 
 ### D�claration TypeScript
 ```typescript
 interface ProductLogisticsInfoBase {
-  /** Code of the logistic preparation type */
-  FulfillmentTypeCode: string | null;
-  /** Optional unique identifier (GUID) of the mandatory logistic zone */
-  FulFillmentMandatoryZoneGuid: string | null; // GUID represented as string
+  FulfillmentTypeCode?: string;
+  FulFillmentMandatoryZoneGuid?: string; // GUID represented as string or null
 }
 ```

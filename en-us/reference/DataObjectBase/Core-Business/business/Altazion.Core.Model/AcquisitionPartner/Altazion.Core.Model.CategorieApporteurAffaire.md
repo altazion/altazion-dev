@@ -1,4 +1,4 @@
-## CategorieApporteurAffaire
+﻿## CategorieApporteurAffaire
 
 The CategorieApporteurAffaire class represents a category of business introducers in the commercial domain.
 
@@ -13,7 +13,7 @@ Main Methods:
 - The ToString method returns the Label of the category.
 
 ### TypeScript class
-```json
+```typescript
 interface CategorieApporteurAffaire {
   Guid: string; // Unique identifier
   Label: string | null; // Label of the category

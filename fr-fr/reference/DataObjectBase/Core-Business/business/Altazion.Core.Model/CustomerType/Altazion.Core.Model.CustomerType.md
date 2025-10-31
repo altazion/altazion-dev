@@ -1,39 +1,43 @@
 ﻿## CustomerType
 
-La classe CustomerType représente un type de client avec ses spécifications et métadonnées. Elle contient les propriétés suivantes :
+La classe CustomerType représente un type de client avec ses spécifications et métadonnées. Elle possède les propriétés suivantes :
+
 - Id (int) : Identifiant unique du type de client.
 - Label (string) : Libellé du type de client.
-- MetaType (string) : Métadonnée indiquant le type de client, par exemple consommateur ou entreprise.
+- MetaType (string) : Métadonnée indiquant le type de client (par exemple, consommateur ou entreprise).
 - CanUseInvoicableElements (bool) : Indique si le type de client peut utiliser des éléments préfacturables.
 - IsActive (bool) : Indique si le type de client est actif.
-- EUSpecifics (EUSpecifications) : Spécifications spécifiques à l'Union Européenne pour le type de client, encapsulées dans une classe interne.
+- EUSpecifics (CustomerType.EUSpecifications) : Spécifications spécifiques à l'Union Européenne pour le type de client.
 
-Cette classe définit également trois constantes représentant des métadonnées de type de client :
-- MetaUndefined : valeur "N", type de client non défini.
-- MetaTypeConsumer : valeur "I", type de client consommateur.
-- MetaTypeEntreprise : valeur "E", type de client entreprise.
+La classe définit aussi les constantes suivantes pour MetaType :
 
-La classe interne EUSpecifications contient la propriété :
-- SalesAccountId (string) : Identifiant du compte de vente associé, spécifique à l'Union Européenne.
+- MetaUndefined = "N" : Type de client non défini.
+- MetaTypeConsumer = "I" : Type de client consommateur.
+- MetaTypeEntreprise = "E" : Type de client entreprise.
+
+La classe imbriquée EUSpecifications représente des spécifications spécifiques à l'Union Européenne et contient :
+
+- SalesAccountId (string) : Identifiant du compte de vente associé.
+
+Cette classe permet de gérer les types de clients avec des validations sur les principales propriétés et la prise en charge de métadonnées spécifiques.
 
 ### D�claration TypeScript
 ```typescript
 interface CustomerType {
-  Id: number; // Unique identifier of the customer type
-  Label: string; // Label of the customer type
-  MetaType: string; // Metadata indicating the customer type
-  CanUseInvoicableElements: boolean; // Indicates if invoicable elements can be used
-  IsActive: boolean; // Indicates if the customer type is active
-  EUSpecifics?: CustomerType.EUSpecifications; // EU-specific specifications
+  Id: number;
+  Label: string;
+  MetaType: string;
+  CanUseInvoicableElements: boolean;
+  IsActive: boolean;
+  EUSpecifics?: CustomerTypeEUSpecifications;
 }
 
-namespace CustomerType {
-  export interface EUSpecifications {
-    SalesAccountId?: string; // Associated sales account identifier
-  }
-
-  export const MetaUndefined = "N";
-  export const MetaTypeConsumer = "I";
-  export const MetaTypeEntreprise = "E";
+interface CustomerTypeEUSpecifications {
+  SalesAccountId?: string;
 }
+
+// Constants representing MetaType values
+const MetaUndefined = "N";
+const MetaTypeConsumer = "I";
+const MetaTypeEntreprise = "E";
 ```

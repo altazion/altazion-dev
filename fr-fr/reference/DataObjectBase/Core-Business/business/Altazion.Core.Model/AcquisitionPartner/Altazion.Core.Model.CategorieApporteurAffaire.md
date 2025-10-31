@@ -1,4 +1,4 @@
-## CategorieApporteurAffaire
+﻿## CategorieApporteurAffaire
 
 La classe CategorieApporteurAffaire représente une catégorie d'apporteurs d'affaires dans le domaine du commerce.
 
@@ -13,7 +13,7 @@ Méthodes principales:
 - La méthode ToString retourne le Label de la catégorie.
 
 ### D�claration TypeScript
-```json
+```typescript
 interface CategorieApporteurAffaire {
   Guid: string; // Unique identifier
   Label: string | null; // Label of the category

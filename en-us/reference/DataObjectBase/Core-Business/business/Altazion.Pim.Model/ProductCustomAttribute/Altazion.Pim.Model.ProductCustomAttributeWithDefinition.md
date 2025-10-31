@@ -1,25 +1,26 @@
 ﻿## ProductCustomAttributeWithDefinition
 
-The ProductCustomAttributeWithDefinition class represents a product's custom attribute by extending ProductCustomAttributeBase, adding the attribute's definition.
+The class ProductCustomAttributeWithDefinition represents a product custom attribute along with its definition.
 
 Public properties:
-- AttributeGuid: unique identifier of the attribute (inherited).
-- DecimalValue: numeric value associated with the attribute (inherited).
-- BooleanValue: boolean value associated with the attribute (inherited).
-- TextValue: textual value associated with the attribute (inherited).
-- DateValue: date value associated with the attribute (inherited).
-- AttributeLabel: the label of the attribute, providing a human-readable description.
-- IsPublic: a boolean indicating whether the attribute is public.
+
+- AttributeGuid: unique identifier of the attribute (inherited from ProductCustomAttributeBase).
+- DecimalValue: optional numeric value of the attribute (inherited).
+- BooleanValue: optional boolean value of the attribute (inherited).
+- TextValue: optional textual value of the attribute (inherited).
+- DateValue: optional date value of the attribute (inherited).
+- AttributeLabel: the label (descriptive name) of the attribute.
+- IsPublic: boolean indicating whether the attribute is public or not.
 
 ### TypeScript class
 ```typescript
 interface ProductCustomAttributeWithDefinition {
-  attributeGuid: string; // GUID string
-  decimalValue?: number | null;
-  booleanValue?: boolean | null;
-  textValue?: string | null;
-  dateValue?: string | null; // ISO date string or null
-  attributeLabel?: string | null;
-  isPublic: boolean;
+  AttributeGuid: string; // Guid as string
+  DecimalValue?: number | null;
+  BooleanValue?: boolean | null;
+  TextValue?: string | null;
+  DateValue?: string | null; // ISO 8601 string for DateTimeOffset
+  AttributeLabel?: string | null;
+  IsPublic: boolean;
 }
 ```

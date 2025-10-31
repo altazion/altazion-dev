@@ -1,64 +1,57 @@
 ﻿## TodoTask
 
-La classe TodoTask représente une tâche à effectuer avec ses détails et métadonnées associées.
+La classe TodoTask représente une tâche à effectuer avec ses détails et ses métadonnées. Elle contient les propriétés suivantes :
 
-Propriétés publiques :
-- Guid : Identifiant unique de la tâche (Guid).
-- TypeGuid : Identifiant unique du type de tâche (Guid).
-- Label : Libellé ou titre de la tâche (string).
-- Details : Détails ou description de la tâche (string).
-- AssociatedUrl : URL associée à la tâche (string).
-- TargetGuid : Identifiant unique optionnel de la cible associée à la tâche (Guid?).
-- TargetType : Type de la cible associée à la tâche (string).
-- CompletionDate : Date de réalisation optionnelle de la tâche (DateTime?).
-- Comment1, Comment2, Comment3 : Trois commentaires optionnels associés à la tâche (string).
-- Priority : Niveau de priorité de la tâche (int).
-- IsUrgent : Indique si la tâche est urgente (bool).
-- RecipientUserId : Identifiant unique optionnel de l'utilisateur destinataire (Guid?).
-- RecipientGroupGuid : Identifiant unique optionnel du groupe destinataire (Guid?).
-- IsContextLimited : Indique si la tâche est limitée à un contexte spécifique (bool).
-- Parameters : Indique si la tâche contient des paramètres (bool).
-- PriorityLabel : Libellé de la priorité de la tâche, calculé dynamiquement (string, en lecture seule).
-- IsCompleted : Indique si la tâche est terminée, basé sur CompletionDate (bool, en lecture seule).
-- DueDate : Date d'échéance optionnelle de la tâche (DateTime?).
-- RequestDate : Date de création ou de demande de la tâche (DateTime).
-- RequesterUserId : Identifiant unique optionnel de l'utilisateur ayant demandé la tâche (Guid?).
+- Guid : Identifiant unique de la tâche (type Guid).
+- TypeGuid : Identifiant unique du type de tâche (type Guid).
+- Label : Libellé ou titre de la tâche (type string).
+- Details : Détails ou description de la tâche (type string).
+- AssociatedUrl : URL associée à la tâche (type string).
+- TargetGuid : Identifiant unique de la cible associée à la tâche (type Guid?, nullable).
+- TargetType : Type de la cible associée à la tâche (type string).
+- CompletionDate : Date de réalisation de la tâche (type DateTime?, nullable).
+- Comment1, Comment2, Comment3 : Trois commentaires associés à la tâche (types string).
+- Priority : Niveau de priorité de la tâche (type int).
+- IsUrgent : Indique si la tâche est urgente (type bool).
+- RecipientUserId : Identifiant unique de l'utilisateur destinataire (type Guid?, nullable).
+- RecipientGroupGuid : Identifiant unique du groupe destinataire (type Guid?, nullable).
+- IsContextLimited : Indique si la tâche est limitée à un contexte spécifique (type bool).
+- Parameters : Indique si la tâche contient des paramètres (type bool).
+- PriorityLabel : Propriété calculée qui renvoie un libellé de priorité dynamique en fonction de l'état de la tâche et de l'urgence.
+- IsCompleted : Indique si la tâche est terminée (vrai si CompletionDate a une valeur).
+- DueDate : Date d'échéance de la tâche (type DateTime?, nullable).
+- RequestDate : Date de création ou de demande de la tâche (type DateTime).
+- RequesterUserId : Identifiant unique de l'utilisateur ayant demandé la tâche (type Guid?, nullable).
 
-Constantes statiques fournissant les libellés possibles pour la priorité :
-- OverdueLabel (tâches en retard)
-- LowPriorityLabel (priorité basse)
-- NormalPriorityLabel (priorité normale)
-- CriticalPriorityLabel (priorité critique)
-- UrgentPriorityLabel (priorité urgente)
+La classe définit aussi plusieurs constantes statiques fournissant des libellés de priorité pré-définis : OverdueLabel, LowPriorityLabel, NormalPriorityLabel, CriticalPriorityLabel, UrgentPriorityLabel.
 
-Cette classe hérite de DataObjectBase et surdéfinit la méthode FromDataRow pour initialiser ses propriétés depuis une ligne de données.
-Elle remplace aussi la méthode GetKey pour retourner l'identifiant unique Guid de la tâche.
-La méthode ToString retourne le libellé Label de la tâche.
+La méthode ToString() retourne le libellé de la tâche (Label).
+
+Cette classe hérite de DataObjectBase et est décorée avec l'attribut SqlDataConcept, ce qui indique sa liaison avec une table SQL nommée "profils_todo" dans le contexte "Office" et catégorie "Todo".
 
 ### D�claration TypeScript
 ```typescript
 interface TodoTask {
-  Guid: string;
-  TypeGuid: string;
-  Label: string | null;
-  Details: string | null;
-  AssociatedUrl: string | null;
-  TargetGuid?: string | null;
-  TargetType: string | null;
-  CompletionDate?: string | null; // DateTime in ISO string format
-  Comment1: string | null;
-  Comment2: string | null;
-  Comment3: string | null;
-  Priority: number;
-  IsUrgent: boolean;
-  RecipientUserId?: string | null;
-  RecipientGroupGuid?: string | null;
-  IsContextLimited: boolean;
-  Parameters: boolean;
-  PriorityLabel: string;
-  IsCompleted: boolean;
-  DueDate?: string | null; // DateTime in ISO string format
-  RequestDate: string; // DateTime in ISO string format
-  RequesterUserId?: string | null;
+  Guid: string; // Unique identifier of the task
+  TypeGuid: string; // Unique identifier of the task type
+  Label: string; // Label or title of the task
+  Details: string; // Details or description of the task
+  AssociatedUrl: string; // URL associated with the task
+  TargetGuid?: string | null; // Unique identifier of the associated target
+  TargetType: string; // Type of the associated target
+  CompletionDate?: string | null; // Completion date in ISO string format
+  Comment1: string; // First comment
+  Comment2: string; // Second comment
+  Comment3: string; // Third comment
+  Priority: number; // Priority level
+  IsUrgent: boolean; // Whether the task is urgent
+  RecipientUserId?: string | null; // Unique ID of user recipient
+  RecipientGroupGuid?: string | null; // Unique ID of recipient group
+  IsContextLimited: boolean; // Whether task is context limited
+  Parameters: boolean; // Whether task contains parameters
+  IsCompleted: boolean; // Whether the task is completed
+  DueDate?: string | null; // Due date in ISO string format
+  RequestDate: string; // Request or creation date in ISO string format
+  RequesterUserId?: string | null; // Unique ID of user who requested the task
 }
 ```

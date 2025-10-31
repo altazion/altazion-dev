@@ -1,25 +1,27 @@
 ﻿## ProductCustomAttributeBase
 
-Représente un attribut personnalisé de produit avec ses valeurs associées.
+Cette classe représente un attribut personnalisé de produit avec ses différentes valeurs possibles.
 
 Propriétés publiques :
 - AttributeGuid : Identifiant unique (GUID) de l'attribut.
-- DecimalValue : Valeur numérique (décimale) optionnelle de l'attribut.
-- BooleanValue : Valeur booléenne optionnelle de l'attribut.
-- TextValue : Valeur textuelle (string) de l'attribut. Peut venir de deux colonnes différentes (une plus courte, une longue).
-- DateValue : Valeur date/heure (DateTimeOffset) optionnelle de l'attribut.
+- DecimalValue : Valeur numérique (decimal nullable) de l'attribut.
+- BooleanValue : Valeur booléenne (nullable) de l'attribut.
+- TextValue : Valeur textuelle (string) de l'attribut. Si aucune valeur courte n'est disponible, une version longue peut être utilisée.
+- DateValue : Valeur de date (DateTimeOffset nullable) de l'attribut.
 
 Méthodes importantes :
-- GetKey() : retourne la clé unique de l'objet via AttributeGuid.
-- FromDataRow(DataRow dr) : initialise les propriétés à partir d'une ligne de données, en récupérant les valeurs correspondantes pour chaque propriété.
+- GetKey() : retourne la clé unique de l'objet qui est ici l'AttributeGuid.
+- FromDataRow(DataRow dr) : initialise les propriétés de l'objet à partir d'une ligne de données, en extrayant les différentes valeurs stockées.
+
+Cette classe est marquée par l'attribut SqlDataConcept indiquant qu'elle correspond à la table "catalog_articles_attributs" dans la base "Catalog" et la notion "ProductCustomAttribute".
 
 ### D�claration TypeScript
 ```typescript
-interface ProductCustomAttributeBase {
-  AttributeGuid: string; // GUID as string
+export interface ProductCustomAttributeBase {
+  AttributeGuid: string; // GUID
   DecimalValue?: number | null;
   BooleanValue?: boolean | null;
   TextValue?: string | null;
-  DateValue?: string | null; // ISO date string or null
+  DateValue?: string | null; // ISO 8601 string or null
 }
 ```

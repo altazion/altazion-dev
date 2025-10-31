@@ -1,42 +1,42 @@
 ﻿## Supplier
 
-The Supplier class represents a supplier in the ERP system. It includes several properties describing the essential information of the supplier:
+The Supplier class represents a supplier in the commercial management system. It contains the following properties:
 
-- Guid: global unique identifier (GUID) of the supplier.
-- Id: internal numeric identifier of the supplier.
-- Libelle: name or designation of the supplier.
-- Adress: postal address of the supplier.
+- Guid: unique identifier (GUID) of the supplier.
+- Id: numerical identifier of the supplier.
+- Libelle: name (label) of the supplier.
+- Adress: full address of the supplier.
 - PostalCode: postal code of the supplier.
 - City: city of the supplier.
 - PhoneNumber: phone number of the supplier.
-- CompteCompta: accounting account linked to the supplier.
-- DefaultExpenseIdType: optional identifier of the default expense type related to the supplier.
-- Type: type or category of the supplier.
-- Siret: SIRET number (business registration number).
-- UE_VAT: intra-community VAT number.
-- ClientNumber: client number if applicable.
-- IsArchived: boolean flag indicating if the supplier is archived.
-- Code: internal or external code of the supplier.
+- CompteCompta: accounting account associated with the supplier.
+- DefaultExpenseIdType: identifier of the default expense type (optional).
+- Type: supplier type (1-character code).
+- Siret: SIRET number of the supplier.
+- UE_VAT: intra-community VAT number (EU).
+- ClientNumber: customer number with this supplier.
+- IsArchived: indicates if the supplier is archived.
+- Code: supplier code.
 
-This class inherits from DataObjectBase and implements a method to populate its properties from a DataRow reflecting the SQL table "gestcom_fournisseurs" in the "ERP" database.
+Each property has specific validation constraints regarding required fields and maximum lengths in some cases.
 
 ### TypeScript class
 ```typescript
 interface Supplier {
-  Guid: string; // GUID unique identifier
-  Id: number; // Numeric identifier
-  Libelle: string | null; // Supplier name
-  Adress: string | null; // Postal address
-  PostalCode: string | null; // Postal code
-  City: string | null; // City
-  PhoneNumber: string | null; // Phone number
-  CompteCompta: string | null; // Accounting account
-  DefaultExpenseIdType: number | null; // Default expense type ID (optional)
-  Type: string | null; // Supplier type
-  Siret: string | null; // SIRET number
-  UE_VAT: string | null; // VAT number (EU)
-  ClientNumber: string | null; // Client number
-  IsArchived: boolean; // Archived flag
-  Code: string | null; // Supplier code
+  Guid: string; // GUID as string
+  Id: number;
+  Libelle: string;
+  Adress: string;
+  PostalCode: string | null;
+  City: string | null;
+  PhoneNumber: string | null;
+  CompteCompta: string | null;
+  DefaultExpenseIdType: number | null;
+  Type: string;
+  Siret: string | null;
+  UE_VAT: string | null;
+  ClientNumber: string | null;
+  IsArchived: boolean;
+  Code: string | null;
 }
 ```

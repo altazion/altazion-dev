@@ -1,25 +1,27 @@
 ﻿## ProductCustomAttributeBase
 
-Represents a custom product attribute with its associated values.
+This class represents a product custom attribute with its various possible values.
 
-Public Properties:
+Public properties:
 - AttributeGuid: Unique identifier (GUID) of the attribute.
-- DecimalValue: Optional numeric (decimal) value of the attribute.
-- BooleanValue: Optional boolean value of the attribute.
-- TextValue: Textual (string) value of the attribute, which can come from two different columns (a shorter one and a longer one).
-- DateValue: Optional date/time value (DateTimeOffset) of the attribute.
+- DecimalValue: Numeric value (nullable decimal) of the attribute.
+- BooleanValue: Boolean value (nullable) of the attribute.
+- TextValue: Text value (string) of the attribute. If no short text value is available, a long text value may be used.
+- DateValue: Date value (nullable DateTimeOffset) of the attribute.
 
-Key Methods:
-- GetKey(): returns the unique key of the object via AttributeGuid.
-- FromDataRow(DataRow dr): initializes properties from a data row by retrieving the corresponding values for each property.
+Key methods:
+- GetKey(): returns the unique key of the object, here the AttributeGuid.
+- FromDataRow(DataRow dr): initializes the object's properties from a data row, extracting the stored values.
+
+The class is decorated with a SqlDataConcept attribute indicating it maps to the "catalog_articles_attributs" table in the "Catalog" database with the concept "ProductCustomAttribute".
 
 ### TypeScript class
 ```typescript
-interface ProductCustomAttributeBase {
-  AttributeGuid: string; // GUID as string
+export interface ProductCustomAttributeBase {
+  AttributeGuid: string; // GUID
   DecimalValue?: number | null;
   BooleanValue?: boolean | null;
   TextValue?: string | null;
-  DateValue?: string | null; // ISO date string or null
+  DateValue?: string | null; // ISO 8601 string or null
 }
 ```

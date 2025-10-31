@@ -2,18 +2,22 @@
 
 Class representing a tax associated with a product with its basic information.
 
-Public properties:
-- Guid: Unique identifier of the tax (type Guid).
-- TaxeDefinitionGuid: Unique identifier of the tax definition (type Guid).
-- Amount: Amount of the tax (type decimal).
+Public properties :
 
-This class inherits from DataObjectBase, it implements the GetKey() method which returns the unique key of the object, here the unique identifier of the tax (Guid). It also initializes its properties from a DataRow using the FromDataRow method.
+- Guid : Unique identifier of the tax.
+- TaxeDefinitionGuid : Unique identifier of the tax definition.
+- Amount : Amount of the tax.
+
+Description : This class holds the essential information of a tax linked to a product, such as its unique ID, reference to the tax definition, and the amount of tax applied.
 
 ### TypeScript class
 ```typescript
 interface ProductTaxBase {
-  Guid: string; // Unique identifier of the tax (UUID string)
-  TaxeDefinitionGuid: string; // Unique identifier of the tax definition (UUID string)
-  Amount: number; // Amount of the tax
+  /** Unique identifier of the tax. */
+  Guid: string;
+  /** Unique identifier of the tax definition. */
+  TaxeDefinitionGuid: string;
+  /** Amount of the tax. */
+  Amount: number;
 }
 ```
