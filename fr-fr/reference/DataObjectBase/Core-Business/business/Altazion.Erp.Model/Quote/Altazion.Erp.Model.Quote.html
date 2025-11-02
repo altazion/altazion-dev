@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Quote | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Quote | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="quote">Quote</h2>
+
+<p>La classe Quote représente un devis avec ses informations essentielles telles que l&#39;identifiant unique, le numéro du devis, l&#39;origine, la révision, et les données associées au client et aux montants. Elle inclut aussi les dates (création, expiration, acceptation, début et fin estimées et réelles) ainsi que les états associés au devis et à son édition. Les remises globales et totales hors taxes et TTC sont incluses, de même que les informations relatifs au client (nom, adresse, CP, ville, email).</p>
+<p>Constantes définissant les états possibles du devis :</p>
+<ul>
+<li>EtatEnCours : &quot;E&quot; (en cours de rédaction)</li>
+<li>EtatValide : &quot;V&quot; (validé et envoyé)</li>
+<li>EtatArchive : &quot;A&quot; (archivé, refusé ou périmé)</li>
+<li>EtatFacture : &quot;F&quot; (transformé en facture)</li>
+<li>EtatPartiel : &quot;P&quot; (partiellement facturé)</li>
+</ul>
+<p>Propriétés publiques détaillées :</p>
+<ul>
+<li>Id : identifiant unique du devis.</li>
+<li>Number : numéro du devis.</li>
+<li>Origin : origine/source de la demande du devis.</li>
+<li>NumberRevision : numéro de révision pour gestion des versions.</li>
+<li>CustomerId : identifiant numérique du client.</li>
+<li>AmountExcludingVat : montant total hors taxes.</li>
+<li>AmountWithVAT : montant total TTC.</li>
+<li>CreationDate : date de création du devis.</li>
+<li>AssociatedIdDocument : identifiant du document associé.</li>
+<li>ExpirationDate : date de fin de validité du devis.</li>
+<li>EditionState : état d&#39;édition (ex: brouillon, finalisé).</li>
+<li>GlobalDiscountExcludingVAT : remise globale hors taxes.</li>
+<li>GlobalDiscountWithVAT : remise globale TTC.</li>
+<li>GlobalDiscountLabel : description libellé de la remise globale.</li>
+<li>TotalDiscountExcludingVAT : total des remises hors taxes.</li>
+<li>TotalDiscountWithVAT : total des remises TTC.</li>
+<li>CustomerName : nom du client.</li>
+<li>CustomerAddress : adresse du client.</li>
+<li>CustomerPostalCode : code postal du client.</li>
+<li>CustomerCity : ville du client.</li>
+<li>CustomerEmail : email du client.</li>
+<li>Status : état général du devis.</li>
+<li>ValidationCode : code de validation du devis.</li>
+<li>Label : libellé/titre du devis.</li>
+<li>AcceptanceDate : date d&#39;acceptation par le client (nullable).</li>
+<li>AcceptanceSource : source/personne ayant accepté le devis.</li>
+<li>ProspectGuid : identifiant unique du prospect.</li>
+<li>EstimatedStartDate : date estimée de début de réalisation (nullable).</li>
+<li>EstimatedEndDate : date estimée de fin de réalisation (nullable).</li>
+<li>ActualDateStart : date réelle de début (nullable).</li>
+<li>ActualDateEnd : date réelle de fin (nullable).</li>
+<li>AcceptanceDocument : référence document d&#39;acceptation.</li>
+<li>ContractGuid : identifiant unique du contrat associé.</li>
+</ul>
+<h3 id="dclaration-typescript">D�claration TypeScript</h3>
+<pre><code class="lang-typescript">interface Quote {
+  Id: number;
+  Number: string;
+  Origin: string;
+  NumberRevision: number;
+  CustomerId: number;
+  AmountExcludingVat: number;
+  AmountWithVAT: number;
+  CreationDate: Date;
+  AssociatedIdDocument: number;
+  ExpirationDate: Date;
+  EditionState: number; // byte represented as number
+  GlobalDiscountExcludingVAT: number;
+  GlobalDiscountWithVAT: number;
+  GlobalDiscountLabel: string;
+  TotalDiscountExcludingVAT: number;
+  TotalDiscountWithVAT: number;
+  CustomerName: string;
+  CustomerAddress: string;
+  CustomerPostalCode: string;
+  CustomerCity: string;
+  CustomerEmail: string;
+  Status: string;
+  ValidationCode: string;
+  Label: string;
+  AcceptanceDate?: Date | null;
+  AcceptanceSource: string;
+  ProspectGuid: string; // GUID
+  EstimatedStartDate?: Date | null;
+  EstimatedEndDate?: Date | null;
+  ActualDateStart?: Date | null;
+  ActualDateEnd?: Date | null;
+  AcceptanceDocument: string;
+  ContractGuid: string; // GUID
+  // Constants for states
+  static readonly EtatEnCours: &quot;E&quot;;
+  static readonly EtatValide: &quot;V&quot;;
+  static readonly EtatArchive: &quot;A&quot;;
+  static readonly EtatFacture: &quot;F&quot;;
+  static readonly EtatPartiel: &quot;P&quot;;
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/5d343a6732c03f23408cdebba58ff02bdc7bcb8a/fr-fr/reference/DataObjectBase/Core-Business/business/Altazion.Erp.Model/Quote/Altazion.Erp.Model.Quote.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>
