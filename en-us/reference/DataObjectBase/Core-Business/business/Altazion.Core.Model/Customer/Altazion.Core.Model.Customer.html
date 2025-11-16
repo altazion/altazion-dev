@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Customer | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Customer | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="customer">Customer</h2>
+
+<p>This class represents a customer with personal and professional information. It includes the following public properties:</p>
+<ul>
+<li>Id: Unique identifier of the customer.</li>
+<li>Guid: Global unique identifier (GUID) of the customer.</li>
+<li>Name: Full name of the customer.</li>
+<li>StreetAddress: Customer&#39;s address.</li>
+<li>PostalCode: Customer&#39;s postal code.</li>
+<li>CountryCode: Customer&#39;s country code.</li>
+<li>City: Customer&#39;s city.</li>
+<li>MainEmail: Primary email address of the customer.</li>
+<li>Importance: Importance level of the customer.</li>
+<li>IsArchived: Indicates if the customer is archived.</li>
+<li>CreationDate: Creation date of the customer record.</li>
+<li>CustomerType: Type of customer (e.g., individual or business).</li>
+<li>Phone: Customer&#39;s phone number.</li>
+<li>Mobile: Customer&#39;s mobile phone number.</li>
+<li>AccountingAccount: Accounting account associated with the customer.</li>
+<li>LastName: Customer&#39;s last name only.</li>
+<li>FirstName: Customer&#39;s first name only.</li>
+<li>Title: Customer&#39;s title (e.g., Mr., Mrs., Dr.).</li>
+<li>EUSpecifications: EU-specific specifications (VAT number, EORI number, tax exemption reason).</li>
+<li>FranceSpecifications: France-specific details (SIRET number, SIREN number, APE/NAF code, share capital, legal form, RCS number and city).</li>
+<li>paymentTermType: Type of payment term (enum: NextXDays, XDaysThenEndOfMonth, EndOfMonthPlusXDays).</li>
+<li>PaymentTermDelay: Payment term delay in days.</li>
+<li>PreferredPaymentMethod: Preferred payment method of the customer.</li>
+<li>IsExemptFromLateFees: Exemption from late fees.</li>
+<li>InvoiceToPartnerOnly: Whether invoicing is to be done only to an associated partner.</li>
+<li>PartnerGuid: GUID of the associated partner, if any.</li>
+</ul>
+<p>The class defines an internal enumeration PaymentTermType describing types of payment terms with weekend adjustment rules.</p>
+<p>Two nested classes describe EU specifications (CustomerEUSpecifications) and France-specific specifications (CustomerFranceSpecifications) with their detailed properties.</p>
+<p>It inherits from DataObjectBase and includes methods to load data from a DataRow and to compare equality based on the Id.</p>
+<h3 id="typescript-class">TypeScript class</h3>
+<pre><code class="lang-typescript">interface CustomerEUSpecifications {
+    VatNumber?: string;
+    EORINumber?: string;
+    TaxExemptionReason?: string;
+}
+
+interface CustomerFranceSpecifications {
+    SIRETNumber?: string;
+    SIRENNumber?: string;
+    APECode?: string;
+    ShareCapital?: number | null;
+    LegalForm?: string;
+    RCSNumber?: string;
+    RCSCity?: string;
+}
+
+enum PaymentTermType {
+    NextXDays = 0,
+    XDaysThenEndOfMonth = 1,
+    EndOfMonthPlusXDays = 3
+}
+
+enum PaymentMethodKind {
+    // Assuming placeholder values for PaymentMethodKind as the source is not given
+    Unknown = 0,
+    CreditCard = 1,
+    BankTransfer = 2,
+    Cash = 3
+}
+
+interface Customer {
+    Id: number;
+    Guid: string; // GUID as string
+    Name?: string;
+    StreetAddress?: string;
+    PostalCode?: string;
+    CountryCode?: string;
+    City?: string;
+    MainEmail?: string;
+    Importance: number;
+    IsArchived: boolean;
+    CreationDate: Date;
+    CustomerType: number;
+    Phone?: string;
+    Mobile?: string;
+    AccountingAccount?: string;
+    LastName?: string;
+    FirstName?: string;
+    Title?: string;
+    EUSpecifications?: CustomerEUSpecifications;
+    FranceSpecifications?: CustomerFranceSpecifications;
+    paymentTermType: PaymentTermType;
+    PaymentTermDelay: number;
+    PreferredPaymentMethod: PaymentMethodKind;
+    IsExemptFromLateFees: boolean;
+    InvoiceToPartnerOnly: boolean;
+    PartnerGuid?: string | null;
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/1a82186c1f971d0352be8911fd3d7efb3254a21a/en-us/reference/DataObjectBase/Core-Business/business/Altazion.Core.Model/Customer/Altazion.Core.Model.Customer.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>
