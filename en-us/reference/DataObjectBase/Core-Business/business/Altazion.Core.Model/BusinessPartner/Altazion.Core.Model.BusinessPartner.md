@@ -1,55 +1,47 @@
 ﻿## BusinessPartner
 
-The BusinessPartner class represents a business partner.
+This class represents a business partner. It includes the following properties:
 
-### Public properties:
-- **PartnerGuid (Guid)**: Unique identifier (GUID) of the partner.
-- **RjsId (int)**: Identifier for the legal entity associated.
-- **Name (string)**: Name of the partner.
-- **PartnerType (BusinessPartnerType)**: Partner type, from the enumeration BusinessPartnerType (Reseller, Marketplace, Store, Unknown).
-- **AssociatedCustomerGuid (Guid?)**: GUID of the associated customer, optional.
-- **MarketplaceGuid (Guid?)**: GUID of the associated marketplace, optional.
-- **Code (string)**: Code of the partner.
-- **BankInfo (string)**: Bank information.
-- **MaxDelayDays (int?)**: Maximum delay in days, optional.
+- PartnerGuid: Unique GUID identifying the partner (column ptn_guid).
+- RjsId: Legal reason identifier (column ptn_rjs_id).
+- Name: Name of the partner (column ptn_nom).
+- PartnerType: Type of partner which can be Reseller, Marketplace, Store, or Unknown.
+- AssociatedCustomerGuid: GUID of the associated customer, nullable (column ptn_cli_guid_associe).
+- MarketplaceGuid: GUID of the associated marketplace, nullable (column ptn_mkp_guid).
+- Code: Partner code (column ptn_code).
+- BankInfo: Banking information of the partner (column ptn_info_banque).
+- MaxDelayDays: Maximum delay in days related to the partner, nullable (column ptn_delai_max).
 
-### Constants:
-- **TypeReseller** and **TypeRevendeur**: "REVENDEUR"
-- **TypeMarketplace**: "MARKETPLACE"
-- **TypeStore** and **TypeMagasins**: "MAGASINS"
+Constants defined in the class for partner types:
+- TypeReseller = "REVENDEUR"
+- TypeMarketplace = "MARKETPLACE"
+- TypeStore = "MAGASINS"
+- Historical aliases: TypeRevendeur = "REVENDEUR", TypeMagasins = "MAGASINS"
 
-### BusinessPartnerType enumeration:
-- **Reseller**: Reseller
-- **Marketplace**: Marketplace seller
-- **Store**: Physical store
-- **Unknown**: Unknown type
-
-This class inherits from DataObjectBase and corresponds to the SQL concept linked to the table "e.gestcom_partenaires" in the "Erp" database.
+Enum BusinessPartnerType describing partner types:
+- Reseller
+- Marketplace
+- Store
+- Unknown
 
 ### TypeScript class
 ```typescript
-export interface BusinessPartner {
-  PartnerGuid: string; // GUID of the partner
-  RjsId: number; // Legal entity identifier
-  Name: string | null; // Partner name
-  PartnerType: BusinessPartnerType; // Type of partner
-  AssociatedCustomerGuid?: string | null; // Optional associated customer GUID
-  MarketplaceGuid?: string | null; // Optional marketplace GUID
-  Code: string | null; // Partner code
-  BankInfo: string | null; // Bank information
-  MaxDelayDays?: number | null; // Optional maximum allowed delay in days
+interface BusinessPartner {
+  PartnerGuid: string; // GUID unique identifiant le partenaire
+  RjsId: number; // Identifiant de la raison juridique
+  Name: string | null; // Nom du partenaire
+  PartnerType: 'Reseller' | 'Marketplace' | 'Store' | 'Unknown'; // Type du partenaire
+  AssociatedCustomerGuid?: string | null; // GUID du client associé (nullable)
+  MarketplaceGuid?: string | null; // GUID du marketplace associé (nullable)
+  Code: string | null; // Code du partenaire
+  BankInfo: string | null; // Informations bancaires
+  MaxDelayDays?: number | null; // Délai maximum en jours (nullable)
 }
 
-export enum BusinessPartnerType {
-  Reseller = "Reseller",
-  Marketplace = "Marketplace",
-  Store = "Store",
-  Unknown = "Unknown"
-}
-
-export const TypeReseller = "REVENDEUR";
-export const TypeRevendeur = "REVENDEUR";
-export const TypeMarketplace = "MARKETPLACE";
-export const TypeStore = "MAGASINS";
-export const TypeMagasins = "MAGASINS";
+// Constantes des types
+const TypeReseller = "REVENDEUR";
+const TypeMarketplace = "MARKETPLACE";
+const TypeStore = "MAGASINS";
+const TypeRevendeur = "REVENDEUR"; // alias historique
+const TypeMagasins = "MAGASINS"; // alias historique
 ```

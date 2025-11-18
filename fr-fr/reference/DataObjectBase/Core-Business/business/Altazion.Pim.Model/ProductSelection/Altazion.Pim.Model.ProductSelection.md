@@ -1,33 +1,61 @@
 ﻿## ProductSelection
 
-La classe ProductSelection représente une sélection de produits avec ses informations associées.
+Cette classe représente une sélection de produits (souvent appelée "vitrine") avec toutes ses informations associées dans le contexte Altazion PIM.
+
+Constantes :
+- DefaultType : Type de sélection par défaut (valeur "N").
+- PromotionType : Type de sélection promotionnelle (valeur "A").
+- CustomType : Type de sélection complémentaire ou spécifique à une fonctionnalité (valeur "C").
 
 Propriétés publiques :
-- Guid : Identifiant unique de la sélection de produits.
-- Code : Code technique de la sélection de produits.
-- Label : Libellé (nom descriptif) de la sélection.
-- SiteId : Identifiant facultatif du site associé à la sélection (nullable).
-- IsRuleBased : Indique si la sélection est basée sur des règles automatiques.
+- Guid : Identifiant unique de la sélection sous forme de GUID.
+- Code : Code unique de la sélection, obligatoire, max 50 caractères.
+- Label : Libellé de la sélection, obligatoire, max 255 caractères.
+- Type : Type de la sélection (ex. 'N' pour normale, 'T' pour tendance), obligatoire, max 1 caractère.
+- SiteId : Identifiant du site associé, optionnel.
+- IsRuleBased : Indique si la sélection est automatique (basée sur des règles).
 - IsActive : Indique si la sélection est active.
-- Rules : Chaîne représentant les règles d'automatisation de la sélection.
-- CustomUrlPart : Partie personnalisée de l'URL associée à la sélection.
-- Group : Groupe auquel appartient la sélection.
+- Rules : Chaînes XML ou SQL représentant les règles d'automatisation, requises si IsRuleBased est true.
+- AutoUpdateDelayMinutes : Délai entre mises à jour automatiques, en minutes, doit être positif si renseigné.
+- LastAutoUpdateTimestamp : Date et heure de la dernière mise à jour automatique.
+- CustomUrlPart : Partie personnalisée de l'URL associée à la sélection, optionnel, max 255 caractères.
+- Group : Groupe auquel appartient la sélection, optionnel, max 100 caractères.
 - CreationDate : Date de création de la sélection.
+- CampaignGuid : Identifiant d'une campagne commerciale associée, optionnel.
+- HtmlHeader : Entête HTML personnalisé associé à la sélection, optionnel.
+- SegmentationId : Identifiant de la segmentation associée, optionnel.
 
-Cette classe hérite de DataObjectBase et surcharge des méthodes internes pour initialiser ses propriétés à partir d'une ligne de données ainsi que pour obtenir la clé unique (qui est le Guid) et retourner une représentation string (le label).
+Cette classe inclut une validation des données assurant que les règles métier sont respectées (notamment les obligations et longueur maximale des champs, cohérence des règles).
+
+Elle permet aussi d'initialiser ses propriétés à partir d'une ligne de données (DataRow) et fournit une clé identifiable unique via le GUID.
+
+Enfin, la méthode ToString retourne le libellé ou le code ou le GUID sous forme de chaîne.
 
 ### D�claration TypeScript
 ```typescript
 interface ProductSelection {
-  Guid: string; // Unique identifier (UUID) of the product selection
-  Code: string | null; // Code of the product selection
-  Label: string | null; // Label of the product selection
-  SiteId?: number | null; // Optional site identifier associated to the selection
-  IsRuleBased: boolean; // Indicates whether the selection is rule based
-  IsActive: boolean; // Indicates whether the selection is active
-  Rules: string | null; // Automation rules associated with the selection
-  CustomUrlPart: string | null; // Custom URL part associated with the selection
-  Group: string | null; // Group to which the selection belongs
-  CreationDate: string; // Creation date of the selection in ISO string format
+  Guid: string; // GUID unique identifier
+  Code: string; // Unique code of the selection
+  Label: string; // Label of the selection
+  Type: string; // Selection type, e.g. 'N', 'T'
+  SiteId?: number; // Optional Site identifier
+  IsRuleBased: boolean; // Whether the selection is automatic/rule-based
+  IsActive: boolean; // Whether the selection is active
+  Rules?: string; // Automation rules as XML or SQL clauses
+  AutoUpdateDelayMinutes?: number; // Delay in minutes for automatic updates
+  LastAutoUpdateTimestamp?: string; // ISO datetime string of last update
+  CustomUrlPart?: string; // Custom URL segment
+  Group?: string; // Selection group
+  CreationDate: string; // ISO datetime string of creation date
+  CampaignGuid?: string; // Optional associated campaign GUID
+  HtmlHeader?: string; // Custom HTML header
+  SegmentationId?: number; // Optional segmentation identifier
+}
+
+// Constants (exported as enum for convenience)
+enum ProductSelectionType {
+  DefaultType = "N",
+  PromotionType = "A",
+  CustomType = "C"
 }
 ```

@@ -1,34 +1,36 @@
 ﻿## Store
 
-Classe représentant un magasin dans le système Altazion.
+Représente un magasin (point de vente physique).
 
-Propriétés :
-- Guid : Identifiant unique du magasin (Guid).
-- Code : Code d'identification du magasin (string).
-- Label : Nom ou libellé du magasin (string).
-- StreetAddress : Adresse de la rue du magasin (string).
-- PostalCode : Code postal du magasin (string).
-- City : Ville où se situe le magasin (string).
-- CountryIso3LettersCode : Code pays ISO à 3 lettres indiquant le pays du magasin (string).
-- Latitude : Latitude géographique du magasin (decimal nullable).
-- Longitude : Longitude géographique du magasin (decimal nullable).
-- GeoZone : Zone géographique ou zone de chalandise du magasin (string).
-- Phone : Numéro de téléphone du magasin (string).
-- MessageForClients : Message ou note destinée aux clients du magasin (string).
-- IsClickNMortarEnable : Booléen indiquant si le magasin supporte le Click & Mortar (true/false).
-- IsShippingDestination : Booléen indiquant si le magasin est un point de livraison (true/false).
-- StoreType : Type de magasin, avec des constantes définies :
-    - StoreTypeInternal = "INTEG" (magasin interne)
-    - StoreTypeAffiliate = "AFFIL" (magasin affilié)
-    - StoreTypeFranchise = "FRANC" (magasin en franchise)
-- OpeningDate : Date d'ouverture du magasin (DateTimeOffset nullable).
-- ClosingDate : Date de fermeture du magasin (DateTimeOffset nullable).
-- IsArchived : Indique si le magasin est archivé (true/false).
+Propriétés publiques :
+- Guid : Identifiant unique du magasin (GUID).
+- Code : Code du magasin.
+- Label : Libellé du magasin.
+- StreetAddress : Adresse postale du magasin.
+- PostalCode : Code postal du magasin.
+- City : Ville du magasin.
+- CountryIso3LettersCode : Code ISO à 3 lettres du pays du magasin.
+- Latitude : Latitude géographique du magasin (nullable).
+- Longitude : Longitude géographique du magasin (nullable).
+- GeoZone : Zone géographique du magasin.
+- Phone : Numéro de téléphone du magasin.
+- MessageForClients : Message destiné aux clients.
+- IsClickNMortarEnable : Indique si le magasin est activé pour Click'n'Mortar.
+- IsShippingDestination : Indique si le magasin est une destination de livraison.
+- StoreType : Type de magasin (intégré, affilié, franchisé).
+- OpeningDate : Date d'ouverture du magasin (nullable).
+- ClosingDate : Date de fermeture du magasin (nullable).
+- IsArchived : Indique si le magasin est archivé.
+
+Constantes :
+- StoreTypeInternal : "INTEG" (type de magasin intégré).
+- StoreTypeAffiliate : "AFFIL" (type de magasin affilié).
+- StoreTypeFranchise : "FRANC" (type de magasin franchisé).
 
 ### D�claration TypeScript
 ```typescript
 interface Store {
-  Guid: string; // GUID unique identifier
+  Guid: string; // UUID
   Code?: string | null;
   Label: string;
   StreetAddress?: string | null;
@@ -42,13 +44,13 @@ interface Store {
   MessageForClients?: string | null;
   IsClickNMortarEnable: boolean;
   IsShippingDestination: boolean;
-  StoreType?: string | null; // Expected values: "INTEG", "AFFIL", "FRANC"
-  OpeningDate?: string | null; // ISO 8601 date string
-  ClosingDate?: string | null; // ISO 8601 date string
+  StoreType?: string | null;
+  OpeningDate?: string | null; // ISO 8601 string for DateTimeOffset
+  ClosingDate?: string | null; // ISO 8601 string for DateTimeOffset
   IsArchived: boolean;
 }
 
-// Constants representing store types
+// Constants
 const StoreTypeInternal = "INTEG";
 const StoreTypeAffiliate = "AFFIL";
 const StoreTypeFranchise = "FRANC";
