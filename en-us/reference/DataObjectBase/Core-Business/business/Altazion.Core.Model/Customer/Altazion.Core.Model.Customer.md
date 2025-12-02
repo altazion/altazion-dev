@@ -1,99 +1,152 @@
 ﻿## Customer
 
-This class represents a customer with personal and professional information. It includes the following public properties:
+The Customer class represents a client with personal and professional information. It includes the following properties:
 
-- Id: Unique identifier of the customer.
-- Guid: Global unique identifier (GUID) of the customer.
-- Name: Full name of the customer.
-- StreetAddress: Customer's address.
-- PostalCode: Customer's postal code.
-- CountryCode: Customer's country code.
-- City: Customer's city.
-- MainEmail: Primary email address of the customer.
-- Importance: Importance level of the customer.
-- IsArchived: Indicates if the customer is archived.
-- CreationDate: Creation date of the customer record.
-- CustomerType: Type of customer (e.g., individual or business).
-- Phone: Customer's phone number.
-- Mobile: Customer's mobile phone number.
-- AccountingAccount: Accounting account associated with the customer.
-- LastName: Customer's last name only.
-- FirstName: Customer's first name only.
-- Title: Customer's title (e.g., Mr., Mrs., Dr.).
-- EUSpecifications: EU-specific specifications (VAT number, EORI number, tax exemption reason).
-- FranceSpecifications: France-specific details (SIRET number, SIREN number, APE/NAF code, share capital, legal form, RCS number and city).
-- paymentTermType: Type of payment term (enum: NextXDays, XDaysThenEndOfMonth, EndOfMonthPlusXDays).
+- Id: Unique identifier of the client.
+- Guid: Global unique identifier (GUID) of the client.
+- Name: Full name of the client.
+- StreetAddress: Client's address.
+- PostalCode: Client's postal code.
+- CountryCode: Client's country code.
+- City: Client's city.
+- MainEmail: Client's main email address.
+- Importance: Importance level of the client.
+- IsArchived: Indicates if the client is archived.
+- CreationDate: Date the client was created.
+- CustomerType: Type of client (e.g., individual or company).
+- Phone: Client's phone number.
+- Mobile: Client's mobile phone number.
+- AccountingAccount: Client's accounting account.
+- LastName: Client's last name only.
+- FirstName: Client's first name only.
+- Title: Client's title (e.g., Mr., Mrs., Dr).
+- EUSpecifications: EU-specific specifications for the client (see nested class CustomerEUSpecifications).
+- FranceSpecifications: France-specific specifications (CustomerFranceSpecifications).
+- GermanySpecifications: Germany-specific specifications (CustomerGermanySpecifications).
+- SpainSpecifications: Spain-specific specifications (CustomerSpainSpecifications).
+- ItalySpecifications: Italy-specific specifications (CustomerItalySpecifications).
+- BelgiumSpecifications: Belgium-specific specifications (CustomerBelgiumSpecifications).
+- NetherlandsSpecifications: Netherlands-specific specifications (CustomerNetherlandsSpecifications).
+- LuxembourgSpecifications: Luxembourg-specific specifications (CustomerLuxembourgSpecifications).
+- SwitzerlandSpecifications: Switzerland-specific specifications (CustomerSwitzerlandSpecifications).
+- UKSpecifications: UK-specific specifications (CustomerUKSpecifications).
+- paymentTermType: Payment term type (enum PaymentTermType).
 - PaymentTermDelay: Payment term delay in days.
-- PreferredPaymentMethod: Preferred payment method of the customer.
-- IsExemptFromLateFees: Exemption from late fees.
-- InvoiceToPartnerOnly: Whether invoicing is to be done only to an associated partner.
+- PreferredPaymentMethod: Preferred payment method (enum PaymentMethodKind).
+- IsExemptFromLateFees: Whether the client is exempt from late fees.
+- InvoiceToPartnerOnly: Indicates if invoicing should be only to the partner.
 - PartnerGuid: GUID of the associated partner, if any.
 
-The class defines an internal enumeration PaymentTermType describing types of payment terms with weekend adjustment rules.
+Defined constants/enums:
 
-Two nested classes describe EU specifications (CustomerEUSpecifications) and France-specific specifications (CustomerFranceSpecifications) with their detailed properties.
+- PaymentTermType: Enum defining payment term types:
+  - NextXDays: fixed number of days after a given date.
+  - XDaysThenEndOfMonth: fixed delay then end of month.
+  - EndOfMonthPlusXDays: end of month then fixed delay.
 
-It inherits from DataObjectBase and includes methods to load data from a DataRow and to compare equality based on the Id.
+The nested classes correspond to tax or legal specifications by country or region.
+
 
 
 ### TypeScript class
 ```typescript
-interface CustomerEUSpecifications {
-    VatNumber?: string;
-    EORINumber?: string;
-    TaxExemptionReason?: string;
-}
-
-interface CustomerFranceSpecifications {
-    SIRETNumber?: string;
-    SIRENNumber?: string;
-    APECode?: string;
-    ShareCapital?: number | null;
-    LegalForm?: string;
-    RCSNumber?: string;
-    RCSCity?: string;
+interface Customer {
+  Id: number;
+  Guid: string; // GUID string
+  Name: string;
+  StreetAddress: string;
+  PostalCode: string;
+  CountryCode: string;
+  City: string;
+  MainEmail: string;
+  Importance: number;
+  IsArchived: boolean;
+  CreationDate: Date;
+  CustomerType: number;
+  Phone: string;
+  Mobile: string;
+  AccountingAccount: string;
+  LastName: string;
+  FirstName: string;
+  Title: string;
+  EUSpecifications: CustomerEUSpecifications | null;
+  FranceSpecifications: CustomerFranceSpecifications | null;
+  GermanySpecifications: CustomerGermanySpecifications | null;
+  SpainSpecifications: CustomerSpainSpecifications | null;
+  ItalySpecifications: CustomerItalySpecifications | null;
+  BelgiumSpecifications: CustomerBelgiumSpecifications | null;
+  NetherlandsSpecifications: CustomerNetherlandsSpecifications | null;
+  LuxembourgSpecifications: CustomerLuxembourgSpecifications | null;
+  SwitzerlandSpecifications: CustomerSwitzerlandSpecifications | null;
+  UKSpecifications: CustomerUKSpecifications | null;
+  paymentTermType: PaymentTermType;
+  PaymentTermDelay: number;
+  PreferredPaymentMethod: PaymentMethodKind;
+  IsExemptFromLateFees: boolean;
+  InvoiceToPartnerOnly: boolean;
+  PartnerGuid?: string | null;
 }
 
 enum PaymentTermType {
-    NextXDays = 0,
-    XDaysThenEndOfMonth = 1,
-    EndOfMonthPlusXDays = 3
+  NextXDays = 0,
+  XDaysThenEndOfMonth = 1,
+  EndOfMonthPlusXDays = 3
 }
 
-enum PaymentMethodKind {
-    // Assuming placeholder values for PaymentMethodKind as the source is not given
-    Unknown = 0,
-    CreditCard = 1,
-    BankTransfer = 2,
-    Cash = 3
+interface CustomerEUSpecifications {
+  VatNumber: string;
+  EORINumber: string;
+  TaxExemptionReason: string;
 }
 
-interface Customer {
-    Id: number;
-    Guid: string; // GUID as string
-    Name?: string;
-    StreetAddress?: string;
-    PostalCode?: string;
-    CountryCode?: string;
-    City?: string;
-    MainEmail?: string;
-    Importance: number;
-    IsArchived: boolean;
-    CreationDate: Date;
-    CustomerType: number;
-    Phone?: string;
-    Mobile?: string;
-    AccountingAccount?: string;
-    LastName?: string;
-    FirstName?: string;
-    Title?: string;
-    EUSpecifications?: CustomerEUSpecifications;
-    FranceSpecifications?: CustomerFranceSpecifications;
-    paymentTermType: PaymentTermType;
-    PaymentTermDelay: number;
-    PreferredPaymentMethod: PaymentMethodKind;
-    IsExemptFromLateFees: boolean;
-    InvoiceToPartnerOnly: boolean;
-    PartnerGuid?: string | null;
+interface CustomerFranceSpecifications {
+  SIRETNumber: string;
+  SIRENNumber: string;
+  APECode: string;
+  ShareCapital?: number | null;
+  LegalForm: string;
+  RCSNumber: string;
+  RCSCity: string;
 }
+
+interface CustomerGermanySpecifications {
+  Handelsregisternummer: string;
+}
+
+interface CustomerSpainSpecifications {
+  CIF: string;
+  CNAE: string;
+}
+
+interface CustomerItalySpecifications {
+  CodiceFiscale: string;
+  RAE: string;
+  ATECO: string;
+}
+
+interface CustomerBelgiumSpecifications {
+  BCENumber: string;
+  NACE: string;
+}
+
+interface CustomerNetherlandsSpecifications {
+  KvKNummer: string;
+  SBI: string;
+}
+
+interface CustomerLuxembourgSpecifications {
+  RCSNumber: string;
+  NACE: string;
+}
+
+interface CustomerSwitzerlandSpecifications {
+  IDENumber: string;
+  NOGA: string;
+}
+
+interface CustomerUKSpecifications {
+  CompanyNumber: string;
+  SIC: string;
+}
+
 ```

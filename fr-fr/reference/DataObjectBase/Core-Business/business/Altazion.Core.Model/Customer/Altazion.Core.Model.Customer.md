@@ -1,6 +1,6 @@
 ﻿## Customer
 
-Cette classe représente un client avec ses informations personnelles et professionnelles. Elle contient les propriétés publiques suivantes :
+La classe Customer représente un client avec ses informations personnelles et professionnelles. Elle contient les propriétés suivantes :
 
 - Id : Identifiant unique du client.
 - Guid : Identifiant global unique (GUID) du client.
@@ -13,87 +13,140 @@ Cette classe représente un client avec ses informations personnelles et profess
 - Importance : Niveau d'importance du client.
 - IsArchived : Indique si le client est archivé.
 - CreationDate : Date de création du client.
-- CustomerType : Type de client (ex. particulier ou entreprise).
+- CustomerType : Type de client (par exemple, particulier ou entreprise).
 - Phone : Numéro de téléphone du client.
 - Mobile : Numéro de téléphone mobile du client.
 - AccountingAccount : Compte comptable du client.
-- LastName : Nom seul du client.
-- FirstName : Prénom seul du client.
-- Title : Civilité du client (ex. M., Mme, Dr).
-- EUSpecifications : Spécifications spécifiques à l'Union Européenne (numéro de TVA, numéro EORI, motif d'exonération de TVA).
-- FranceSpecifications : Spécifications spécifiques à la France (SIRET, SIREN, APE/NAF, capital social, forme juridique, RCS numéro et ville).
-- paymentTermType : Définit le type de délai de paiement (enumeration avec NextXDays, XDaysThenEndOfMonth, EndOfMonthPlusXDays).
+- LastName : Nom seul du client (sans prénom).
+- FirstName : Prénom seul du client (sans nom).
+- Title : Civilité du client (par exemple, M., Mme, Dr).
+- EUSpecifications : Spécifications spécifiques à l'Union Européenne pour ce client (voir classe imbriquée CustomerEUSpecifications).
+- FranceSpecifications : Spécifications spécifiques à la France (CustomerFranceSpecifications).
+- GermanySpecifications : Spécifications spécifiques à l'Allemagne (CustomerGermanySpecifications).
+- SpainSpecifications : Spécifications spécifiques à l'Espagne (CustomerSpainSpecifications).
+- ItalySpecifications : Spécifications spécifiques à l'Italie (CustomerItalySpecifications).
+- BelgiumSpecifications : Spécifications spécifiques à la Belgique (CustomerBelgiumSpecifications).
+- NetherlandsSpecifications : Spécifications spécifiques aux Pays-Bas (CustomerNetherlandsSpecifications).
+- LuxembourgSpecifications : Spécifications spécifiques au Luxembourg (CustomerLuxembourgSpecifications).
+- SwitzerlandSpecifications : Spécifications spécifiques à la Suisse (CustomerSwitzerlandSpecifications).
+- UKSpecifications : Spécifications spécifiques au Royaume-Uni (CustomerUKSpecifications).
+- paymentTermType : Type de délai de paiement (enum PaymentTermType).
 - PaymentTermDelay : Délai de paiement en jours.
-- PreferredPaymentMethod : Méthode de paiement préférée du client.
+- PreferredPaymentMethod : Méthode de paiement préférée (enum PaymentMethodKind).
 - IsExemptFromLateFees : Exemption des frais de retard.
-- InvoiceToPartnerOnly : Facturation uniquement au partenaire lié.
-- PartnerGuid : GUID du partenaire associé si applicable.
+- InvoiceToPartnerOnly : Indique si la facturation doit être au partenaire uniquement.
+- PartnerGuid : GUID du partenaire associé.
 
-La classe définit également une énumération interne PaymentTermType décrivant les types de délais de paiement possibles (avec la gestion des dates tombant le weekend).
+Constantes/énumérations définies :
 
-Deux classes internes décrivent les spécifications EU (CustomerEUSpecifications) et France (CustomerFranceSpecifications) avec leurs propriétés spécifiques.
+- PaymentTermType : Enum définissant les types de délais de paiement :
+  - NextXDays : délai fixe en jours après date donnée.
+  - XDaysThenEndOfMonth : délai fixe puis fin du mois.
+  - EndOfMonthPlusXDays : fin du mois puis délai fixe.
 
-Cette classe dérive de DataObjectBase et possède des méthodes pour charger ses données depuis une DataRow et vérifier l'égalité basée sur l'Id.
+Les classes imbriquées correspondent aux spécifications fiscales ou légales par pays ou région.
+
 
 
 ### D�claration TypeScript
 ```typescript
-interface CustomerEUSpecifications {
-    VatNumber?: string;
-    EORINumber?: string;
-    TaxExemptionReason?: string;
-}
-
-interface CustomerFranceSpecifications {
-    SIRETNumber?: string;
-    SIRENNumber?: string;
-    APECode?: string;
-    ShareCapital?: number | null;
-    LegalForm?: string;
-    RCSNumber?: string;
-    RCSCity?: string;
+interface Customer {
+  Id: number;
+  Guid: string; // GUID string
+  Name: string;
+  StreetAddress: string;
+  PostalCode: string;
+  CountryCode: string;
+  City: string;
+  MainEmail: string;
+  Importance: number;
+  IsArchived: boolean;
+  CreationDate: Date;
+  CustomerType: number;
+  Phone: string;
+  Mobile: string;
+  AccountingAccount: string;
+  LastName: string;
+  FirstName: string;
+  Title: string;
+  EUSpecifications: CustomerEUSpecifications | null;
+  FranceSpecifications: CustomerFranceSpecifications | null;
+  GermanySpecifications: CustomerGermanySpecifications | null;
+  SpainSpecifications: CustomerSpainSpecifications | null;
+  ItalySpecifications: CustomerItalySpecifications | null;
+  BelgiumSpecifications: CustomerBelgiumSpecifications | null;
+  NetherlandsSpecifications: CustomerNetherlandsSpecifications | null;
+  LuxembourgSpecifications: CustomerLuxembourgSpecifications | null;
+  SwitzerlandSpecifications: CustomerSwitzerlandSpecifications | null;
+  UKSpecifications: CustomerUKSpecifications | null;
+  paymentTermType: PaymentTermType;
+  PaymentTermDelay: number;
+  PreferredPaymentMethod: PaymentMethodKind;
+  IsExemptFromLateFees: boolean;
+  InvoiceToPartnerOnly: boolean;
+  PartnerGuid?: string | null;
 }
 
 enum PaymentTermType {
-    NextXDays = 0,
-    XDaysThenEndOfMonth = 1,
-    EndOfMonthPlusXDays = 3
+  NextXDays = 0,
+  XDaysThenEndOfMonth = 1,
+  EndOfMonthPlusXDays = 3
 }
 
-enum PaymentMethodKind {
-    // Assuming placeholder values for PaymentMethodKind as the source is not given
-    Unknown = 0,
-    CreditCard = 1,
-    BankTransfer = 2,
-    Cash = 3
+interface CustomerEUSpecifications {
+  VatNumber: string;
+  EORINumber: string;
+  TaxExemptionReason: string;
 }
 
-interface Customer {
-    Id: number;
-    Guid: string; // GUID as string
-    Name?: string;
-    StreetAddress?: string;
-    PostalCode?: string;
-    CountryCode?: string;
-    City?: string;
-    MainEmail?: string;
-    Importance: number;
-    IsArchived: boolean;
-    CreationDate: Date;
-    CustomerType: number;
-    Phone?: string;
-    Mobile?: string;
-    AccountingAccount?: string;
-    LastName?: string;
-    FirstName?: string;
-    Title?: string;
-    EUSpecifications?: CustomerEUSpecifications;
-    FranceSpecifications?: CustomerFranceSpecifications;
-    paymentTermType: PaymentTermType;
-    PaymentTermDelay: number;
-    PreferredPaymentMethod: PaymentMethodKind;
-    IsExemptFromLateFees: boolean;
-    InvoiceToPartnerOnly: boolean;
-    PartnerGuid?: string | null;
+interface CustomerFranceSpecifications {
+  SIRETNumber: string;
+  SIRENNumber: string;
+  APECode: string;
+  ShareCapital?: number | null;
+  LegalForm: string;
+  RCSNumber: string;
+  RCSCity: string;
 }
+
+interface CustomerGermanySpecifications {
+  Handelsregisternummer: string;
+}
+
+interface CustomerSpainSpecifications {
+  CIF: string;
+  CNAE: string;
+}
+
+interface CustomerItalySpecifications {
+  CodiceFiscale: string;
+  RAE: string;
+  ATECO: string;
+}
+
+interface CustomerBelgiumSpecifications {
+  BCENumber: string;
+  NACE: string;
+}
+
+interface CustomerNetherlandsSpecifications {
+  KvKNummer: string;
+  SBI: string;
+}
+
+interface CustomerLuxembourgSpecifications {
+  RCSNumber: string;
+  NACE: string;
+}
+
+interface CustomerSwitzerlandSpecifications {
+  IDENumber: string;
+  NOGA: string;
+}
+
+interface CustomerUKSpecifications {
+  CompanyNumber: string;
+  SIC: string;
+}
+
 ```
