@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>CreditNote | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="CreditNote | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="creditnote">CreditNote</h2>
+
+<p>The CreditNote class represents a credit note along with all its related information including customer details, amounts, dates and various states.</p>
+<ul>
+<li>Id: Unique identifier of the credit note (GUID).</li>
+<li>IsAutomatic: Indicates if the credit note was created automatically.</li>
+<li>InvoiceId: Identifier of the original invoice (nullable).</li>
+<li>ReturnReasonGuid: GUID of the reason for the credit note (nullable).</li>
+<li>CustomerId: Identifier of the customer.</li>
+<li>CustomerName: Name of the customer.</li>
+<li>CustomerStreetAddress: Customer&#39;s street address.</li>
+<li>CustomerZipCode: Customer postal code.</li>
+<li>CustomerCity: Customer city.</li>
+<li>TotalAmountWOTax: Total amount of the credit note excluding tax.</li>
+<li>TotalAmount: Total amount of the credit note including tax.</li>
+<li>RequestDate: Date when the credit note was requested.</li>
+<li>CreationDate: Date when the credit note was created (nullable).</li>
+<li>ExportedToAccounting: Export state to accounting (0 = not exported, 1 = exported).</li>
+<li>AssociatedDocumentId: Identifier of the associated document in the document management system (nullable).</li>
+<li>EditionState: Edition state of the credit note (0 = draft, 1 = validated) (nullable).</li>
+<li>ContractGuid: GUID of the associated contract (nullable).</li>
+<li>DeliveryDate: Scheduled or actual delivery date (nullable).</li>
+<li>CustomerReference: Customer reference (order number or external reference).</li>
+<li>CreditNoteNumber: Credit note number.</li>
+<li>GlobalDiscount: Amount of the global tax-included discount.</li>
+<li>Origin: Origin of the credit note (order, return, etc.).</li>
+<li>IsRefunded: Indicates if the credit note has been refunded (nullable).</li>
+<li>OrderGuid: GUID of the associated order (nullable).</li>
+<li>FulfillmentOrderGuid: GUID of the associated fulfillment order (nullable).</li>
+<li>LastUpdateDate: Date of last update.</li>
+<li>IsRefundable: Indicates if the credit note is refundable.</li>
+</ul>
+<h3 id="typescript-class">TypeScript class</h3>
+<pre><code class="lang-typescript">interface CreditNote {
+  Id: string; // GUID
+  IsAutomatic: boolean;
+  InvoiceId?: number;
+  ReturnReasonGuid?: string; // GUID
+  CustomerId: number;
+  CustomerName: string;
+  CustomerStreetAddress: string;
+  CustomerZipCode: string;
+  CustomerCity: string;
+  TotalAmountWOTax: number;
+  TotalAmount: number;
+  RequestDate: string; // ISO date string
+  CreationDate?: string; // ISO date string
+  ExportedToAccounting: number;
+  AssociatedDocumentId?: number;
+  EditionState?: number;
+  ContractGuid?: string; // GUID
+  DeliveryDate?: string; // ISO date string with offset
+  CustomerReference: string;
+  CreditNoteNumber: string;
+  GlobalDiscount: number;
+  Origin: string;
+  IsRefunded?: boolean;
+  OrderGuid?: string; // GUID
+  FulfillmentOrderGuid?: string; // GUID
+  LastUpdateDate: string; // ISO date string
+  IsRefundable: boolean;
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/d1cd2333b854b2486c6cfd5301fd80bbf2667ecc/en-us/reference/DataObjectBase/Core-Business/business/Altazion.Erp.Model/CreditNote/Altazion.Erp.Model.CreditNote.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>
