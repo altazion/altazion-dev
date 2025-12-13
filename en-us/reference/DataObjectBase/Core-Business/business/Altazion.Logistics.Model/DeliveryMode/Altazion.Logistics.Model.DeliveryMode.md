@@ -1,89 +1,101 @@
 ﻿## DeliveryMode
 
-The DeliveryMode class represents a delivery mode linked to a provider. It includes the following properties:
+The DeliveryMode class represents a delivery method in the logistics system. It includes various properties defining its characteristics, constraints, and availability.
+
+Public properties:
 
 - Guid: Unique identifier of the delivery mode.
 - ProviderId: Identifier of the associated provider.
-- Order: Order or ranking of the delivery mode.
-- ProductGuid: Optional identifier of the related product.
-- MaxVolume: Maximum allowed volume for delivery.
-- MaxWeight: Maximum allowed weight.
-- MaxValue: Maximum allowed parcel value.
-- MaxHeight: Maximum allowed height.
-- MaxWidth: Maximum allowed width.
-- MaxDepth: Maximum allowed depth.
+- Order: Order or priority number.
+- ProductGuid: Optional product identifier related to this mode.
+- MaxVolume: Maximum volume allowed for the delivery.
+- MaxWeight: Maximum weight allowed.
+- MaxValue: Maximum monetary value allowed for the delivery.
+- MaxHeight, MaxWidth, MaxDepth: Maximum allowed dimensions (height, width, depth).
 - AllowsMultiplePackages: Indicates if multiple packages are allowed.
-- IsExceptional: Indicates if this mode is exceptional.
-- IsActive: Indicates if this mode is active.
-- VolumeMargin: Allowed volume margin.
-- MaxDeveloped: Maximum allowed developed length.
+- IsExceptional: Indicates if the mode is exceptional.
+- IsActive: Indicates if the mode is currently active.
+- VolumeMargin: Margin to consider on volume.
+- MaxDeveloped: Maximum developed dimension permitted.
 - AverageDelay: Average delivery delay in days.
-- IsDeliveryPoints: Indicates if it is a delivery point.
-- MinWeight: Minimum accepted weight.
-- MaxNumberPerPeriod: Maximum allowed number of deliveries per period.
-- PeriodType: Type of period (e.g., day, week).
-- PeriodDuration: Duration of the associated period.
-- SiteId: Identifier of the related site.
-- SiteValidationUrl: Validation URL related to the site.
-- MinValue: Minimum accepted value.
-- Label: Delivery mode label.
+- IsDeliveryPoints: Indicates if this mode relates to delivery points.
+- MinWeight: Minimum weight accepted.
+- MaxNumberPerPeriod: Maximum number of deliveries allowed per period.
+- PeriodType: Type of period (e.g., day, week) for the limitation.
+- PeriodDuration: Duration of the period.
+- SiteId: Associated site identifier.
+- SiteValidationUrl: URL for validation on the site.
+- MinValue: Minimum value required to use this mode.
+- Label: Display label for this delivery mode.
 - AverageCostTtc: Average cost including tax.
 - AverageCostHt: Average cost excluding tax.
-- IsAvailableEcommerce: Availability for e-commerce.
-- IsAvailablePos: Availability at point of sale.
-- IsAvailableClickAndMortar: Availability for the "click and mortar" model.
-- Priority: Priority level of the delivery mode.
-- DeliveryType: Delivery type (e.g., DOMI, PTRL) as string.
-- IsArchived: Indicates if this mode is archived.
-- PublicHtml: Public HTML content associated.
+- IsAvailableEcommerce: Availability in e-commerce channels.
+- IsAvailablePos: Availability at physical points of sale.
+- IsAvailableClickAndMortar: Availability in click and mortar sales.
+- Priority: Numerical priority.
+- DeliveryType: Delivery type as string, replacing the enum TypeLivraison.
+- IsArchived: Indicates if the mode is archived.
+- PublicHtml: Public HTML content associated with this mode.
 
-Defined constants:
-- DeliveryTypeHome: "DOMI"
-- DeliveryTypeRelayPoint: "PTRL"
-- DeliveryTypeStoreDelivery: "LMAG"
-- DeliveryTypePickup: "RETR"
+Constants defined (delivery type identifiers):
+- DeliveryTypeHome = "DOMI" (home delivery)
+- DeliveryTypeRelayPoint = "PTRL" (relay point delivery)
+- DeliveryTypeStoreDelivery = "LMAG" (store delivery)
+- DeliveryTypePickup = "RETR" (pickup)
+
+The related enum TypeLivraison mirrors the constants with values:
+DOMI, PTRL, LMAG, RETR.
 
 ### TypeScript class
 ```typescript
 interface DeliveryMode {
-  Guid: string;
-  ProviderId: number;
-  Order: number;
-  ProductGuid?: string;
-  MaxVolume?: number;
-  MaxWeight?: number;
-  MaxValue?: number;
-  MaxHeight?: number;
-  MaxWidth?: number;
-  MaxDepth?: number;
-  AllowsMultiplePackages: boolean;
-  IsExceptional: boolean;
-  IsActive: boolean;
-  VolumeMargin?: number;
-  MaxDeveloped?: number;
-  AverageDelay?: number;
-  IsDeliveryPoints: boolean;
-  MinWeight: number;
-  MaxNumberPerPeriod?: number;
-  PeriodType?: string;
-  PeriodDuration?: number;
-  SiteId?: number;
-  SiteValidationUrl?: string;
-  MinValue: number;
-  Label?: string;
-  AverageCostTtc?: number;
-  AverageCostHt?: number;
-  IsAvailableEcommerce: boolean;
-  IsAvailablePos: boolean;
-  IsAvailableClickAndMortar: boolean;
-  Priority: number;
-  DeliveryType?: string;
-  IsArchived: boolean;
-  PublicHtml?: string;
+    Guid: string;
+    ProviderId: number;
+    Order: number;
+    ProductGuid?: string | null;
+    MaxVolume?: number | null;
+    MaxWeight?: number | null;
+    MaxValue?: number | null;
+    MaxHeight?: number | null;
+    MaxWidth?: number | null;
+    MaxDepth?: number | null;
+    AllowsMultiplePackages: boolean;
+    IsExceptional: boolean;
+    IsActive: boolean;
+    VolumeMargin?: number | null;
+    MaxDeveloped?: number | null;
+    AverageDelay?: number | null;
+    IsDeliveryPoints: boolean;
+    MinWeight: number;
+    MaxNumberPerPeriod?: number | null;
+    PeriodType?: string | null;
+    PeriodDuration?: number | null;
+    SiteId?: number | null;
+    SiteValidationUrl?: string | null;
+    MinValue: number;
+    Label?: string | null;
+    AverageCostTtc?: number | null;
+    AverageCostHt?: number | null;
+    IsAvailableEcommerce: boolean;
+    IsAvailablePos: boolean;
+    IsAvailableClickAndMortar: boolean;
+    Priority: number;
+    DeliveryType?: string | null;
+    IsArchived: boolean;
+    PublicHtml?: string | null;
 }
 
+// Constants for DeliveryType
 const DeliveryTypeHome = "DOMI";
 const DeliveryTypeRelayPoint = "PTRL";
 const DeliveryTypeStoreDelivery = "LMAG";
 const DeliveryTypePickup = "RETR";
+
+// Enum equivalent in TypeScript
+enum TypeLivraison {
+    DOMI = "DOMI",
+    PTRL = "PTRL",
+    LMAG = "LMAG",
+    RETR = "RETR"
+}
 ```
