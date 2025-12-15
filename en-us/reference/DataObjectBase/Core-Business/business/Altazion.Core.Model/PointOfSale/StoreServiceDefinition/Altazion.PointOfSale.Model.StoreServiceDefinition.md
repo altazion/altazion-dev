@@ -1,21 +1,20 @@
 ﻿## StoreServiceDefinition
 
-Class representing the definition of a service available in a store (Click & Mortar).
+Represents the definition of a service available in store (Click & Mortar).
 
 Public properties:
-- ServiceId (int): Unique identifier of the service.
-- Label (string): Label of the service.
-- IconUrl (string): URL of the service icon.
-- DescriptionUrl (string): URL of the service description.
-- StoreServiceType (string): Type of the store service.
 
-This class derives from DataObjectBase, enabling initialization from a DataRow and uniquely identifying the object by its ServiceId.
+- ServiceId: Unique identifier of the service.
+- Label: The label of the service.
+- IconUrl: URL of the icon representing the service.
+- DescriptionUrl: URL of the service description.
+- StoreServiceType: The type of the store service.
 
 ### TypeScript class
 ```typescript
 interface StoreServiceDefinition {
   ServiceId: number; // Unique identifier of the service
-  Label: string | null; // Label of the service
+  Label: string; // Label of the service
   IconUrl: string | null; // URL of the service icon
   DescriptionUrl: string | null; // URL of the service description
   StoreServiceType: string | null; // Type of the store service

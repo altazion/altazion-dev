@@ -1,18 +1,19 @@
 ﻿## ServiceInStore
 
-The ServiceInStore class represents a service available in a store (ClicknMortar). It contains the following properties:
+Represents a service available within a physical store (Click'n Mortar).
 
-- StoreGuid: Unique identifier of the store (type Guid).
-- ServiceId: Unique identifier of the service (type int).
-- Phone: Phone number of the service in the store (type string).
-- Email: Email address of the service in the store (type string).
+Public properties:
+- StoreGuid: Unique identifier of the store (GUID).
+- ServiceId: Identifier of the service (integer).
+- Phone: Phone number of the service within the store (string).
+- Email: Email address of the service within the store (string).
 
 ### TypeScript class
 ```typescript
 interface ServiceInStore {
-  StoreGuid: string; // Guid as string
-  ServiceId: number;
-  Phone: string | null;
-  Email: string | null;
+  StoreGuid: string; // GUID representing unique store ID
+  ServiceId: number; // Service identifier
+  Phone?: string | null; // Phone number of the service in the store
+  Email?: string | null; // Email address of the service in the store
 }
 ```
