@@ -1,39 +1,36 @@
 ﻿## ECommerceOffer
 
-La classe `ECommerceOffer` représente une offre e-commerce avec ses informations associées.
+Classe représentant une offre e-commerce avec ses propriétés associées :
 
-**Propriétés publiques :**
+- Guid : Identifiant unique de l'offre e-commerce.
+- SiteId : Identifiant du site associé à l'offre (nullable).
+- Label : Libellé interne de l'offre.
+- LabelForCustomers : Libellé public destiné aux clients.
+- Code : Code de l'offre.
+- IsAutomatic : Indique si l'offre est automatique.
+- IsValid : Indique si l'offre est valide.
+- IsActive : Indique si l'offre est active.
+- StartDate : Date de début de validité de l'offre.
+- EndDate : Date de fin de validité de l'offre.
+- CampaignGuid : Identifiant unique de la campagne associée (nullable).
+- IsCumulative : Indique si l'offre est cumulable avec d'autres offres.
 
-- `Guid` : Identifiant unique de l'offre e-commerce de type `Guid`.
-- `SiteId` : Identifiant du site associé à l'offre, nullable `int`.
-- `Label` : Libellé interne de l'offre (string).
-- `LabelForCustomers` : Libellé public destiné aux clients (string).
-- `Code` : Code de l'offre e-commerce (string).
-- `IsAutomatic` : Boolean indiquant si l'offre est automatique.
-- `IsValid` : Boolean indiquant si l'offre est valide.
-- `IsActive` : Boolean indiquant si l'offre est active.
-- `StartDate` : Date de début de validité de l'offre (DateTime).
-- `EndDate` : Date de fin de validité de l'offre (DateTime).
-- `CampaignGuid` : Guid nullable identifiant unique de la campagne associée à l'offre.
-- `IsCumulative` : Boolean indiquant si l'offre est cumulable avec d'autres offres.
-
-La méthode `ToString()` retourne le libellé de l'offre.
-
+La méthode ToString renvoie le libellé de l'offre.
 
 ### D�claration TypeScript
 ```typescript
-export interface ECommerceOffer {
-  Guid: string; // Unique identifier GUID
-  SiteId?: number | null; // Nullable site ID
-  Label: string; // Internal label
+interface ECommerceOffer {
+  Guid: string; // Guid unique identifier of the offer
+  SiteId?: number | null; // Nullable site identifier
+  Label: string; // Internal label of the offer
   LabelForCustomers: string; // Public label for customers
-  Code: string; // Offer code
-  IsAutomatic: boolean; // Is the offer automatic
-  IsValid: boolean; // Is the offer valid
-  IsActive: boolean; // Is the offer active
-  StartDate: string; // Date as ISO string
-  EndDate: string; // Date as ISO string
-  CampaignGuid?: string | null; // Nullable campaign GUID
-  IsCumulative: boolean; // Is the offer cumulative
+  Code: string; // Code of the offer
+  IsAutomatic: boolean; // Whether the offer is automatic
+  IsValid: boolean; // Whether the offer is valid
+  IsActive: boolean; // Whether the offer is active
+  StartDate: string; // Start date of validity in ISO string format
+  EndDate: string; // End date of validity in ISO string format
+  CampaignGuid?: string | null; // Nullable campaign identifier
+  IsCumulative: boolean; // Whether the offer is cumulative with others
 }
 ```

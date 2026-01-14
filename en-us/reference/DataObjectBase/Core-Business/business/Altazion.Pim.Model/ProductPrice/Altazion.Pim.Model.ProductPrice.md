@@ -1,36 +1,33 @@
 ﻿## ProductPrice
 
-The ProductPrice class represents a pricing condition for a product within a pricing grid. It allows defining both normal and promotional prices for a product according to various pricing grids.
+The ProductPrice class represents a pricing condition for a product within a pricing grid. It allows defining the normal and promotional prices of a product according to different pricing grids.
 
 Public properties:
+- Id: Unique identifier of the pricing condition (Guid).
+- ProductGuid: Unique identifier of the product (Guid).
+- PricingGridGuid: Unique identifier of the pricing grid (Guid).
+- VariantGuid: Optional unique identifier of the variant (Guid?).
+- PriceWOTax: Unit price excluding tax (decimal).
+- Price: Unit price including tax (decimal).
+- DiscountedPriceWOTax: Optional promotional price excluding tax (decimal?).
+- DiscountedPrice: Optional promotional price including tax (decimal?).
+- DiscountStartDate: Optional promotion start date (DateTimeOffset?).
+- DiscountEndDate: Optional promotion end date (DateTimeOffset?).
 
-- Id (Guid): Unique identifier of the pricing condition.
-- ProductGuid (Guid): Unique identifier of the associated product.
-- PricingGridGuid (Guid): Unique identifier of the pricing grid.
-- VariantGuid (Guid?): Unique identifier of the product variant (optional).
-- PriceWOTax (decimal): Unit price excluding tax.
-- Price (decimal): Unit price including tax.
-- DiscountedPriceWOTax (decimal?): Promotional price excluding tax (optional).
-- DiscountedPrice (decimal?): Promotional price including tax (optional).
-- DiscountStartDate (DateTime?): Promotion start date (optional).
-- DiscountEndDate (DateTime?): Promotion end date (optional).
-
-The class also includes validations to ensure identifiers are not empty, prices are not negative, and the promotion start date is not after the end date.
-
-The ToString method returns a simplified description of the pricing condition in the format "Product [ProductGuid] - [Price]".
+The class also includes methods to initialize its properties from a data row, validate the data (checking for non-empty IDs and non-negative prices), and return a string representation of the pricing condition.
 
 ### TypeScript class
 ```typescript
 interface ProductPrice {
-  Id: string; // GUID
-  ProductGuid: string; // GUID
-  PricingGridGuid: string; // GUID
-  VariantGuid?: string | null; // GUID optionnel
-  PriceWOTax: number;
-  Price: number;
-  DiscountedPriceWOTax?: number | null;
-  DiscountedPrice?: number | null;
-  DiscountStartDate?: string | null; // ISO date string
-  DiscountEndDate?: string | null; // ISO date string
+  Id: string; // GUID representing unique identifier of the pricing condition
+  ProductGuid: string; // GUID representing unique identifier of the product
+  PricingGridGuid: string; // GUID for pricing grid
+  VariantGuid?: string | null; // Optional GUID for variant
+  PriceWOTax: number; // price without tax
+  Price: number; // price including tax
+  DiscountedPriceWOTax?: number | null; // optional discounted price without tax
+  DiscountedPrice?: number | null; // optional discounted price including tax
+  DiscountStartDate?: string | null; // optional ISO date string for promo start
+  DiscountEndDate?: string | null; // optional ISO date string for promo end
 }
 ```

@@ -1,36 +1,35 @@
 ﻿## CustomerAttribute
 
-This class represents a customer attribute value, corresponding to a record in the commercial_clients_attributes table.
+The CustomerAttribute class represents a client attribute value in the commercial_clients_attributs table.
 
 Public properties:
+- AttributeRecordGuid (Guid): Unique identifier (GUID) of the attribute record.
+- AttributeDefinitionGuid (Guid): GUID of the attribute definition.
+- CustomerGuid (Guid?): GUID of the concerned customer. Nullable if the attribute is not linked to a specific customer.
+- NumberValue (decimal?): Numeric value associated with the attribute, nullable.
+- TextValue (string): Short text value of the attribute, nullable.
+- LongTextValue (string): Long text value of the attribute, nullable.
+- EnumValueId (int?): Referenced value as an enum identifier, nullable.
+- BoolValue (bool?): Boolean value of the attribute, nullable.
+- DateValue (DateTimeOffset?): Date value of the attribute, nullable.
+- ProspectGuid (Guid?): GUID of the associated prospect, nullable.
+- ListItemGuid (Guid?): GUID of the associated list item, nullable.
 
-- AttributeRecordGuid: Unique identifier (GUID) of the attribute record.
-- AttributeDefinitionGuid: GUID identifying the definition of the attribute.
-- CustomerGuid: GUID of the concerned customer (nullable, may be null if not applicable).
-- NumberValue: Numeric value of the attribute (nullable).
-- TextValue: Short text value of the attribute (nullable).
-- LongTextValue: Long text value of the attribute (nullable).
-- EnumValueId: Numeric ID referencing an enumerated value (nullable).
-- BoolValue: Boolean value of the attribute (nullable).
-- DateValue: Date value (nullable).
-- ProspectGuid: GUID of an associated prospect (nullable).
-- ListItemGuid: GUID of an associated list item (nullable).
-
-Each property corresponds to specific database columns and allows storing various types of data for a customer attribute.
+This class is used to store various types of values (numeric, text, boolean, date, references) related to customers or prospects for a given attribute.
 
 ### TypeScript class
 ```typescript
 interface CustomerAttribute {
-  AttributeRecordGuid: string; // GUID of the attribute record
-  AttributeDefinitionGuid: string; // GUID of the attribute definition
-  CustomerGuid?: string | null; // GUID of the customer (optional)
-  NumberValue?: number | null; // Numeric value (optional)
-  TextValue?: string | null; // Short text value (optional)
-  LongTextValue?: string | null; // Long text value (optional)
-  EnumValueId?: number | null; // Enum value ID (optional)
-  BoolValue?: boolean | null; // Boolean value (optional)
-  DateValue?: string | null; // Date value (ISO string) (optional)
-  ProspectGuid?: string | null; // GUID of an associated prospect (optional)
-  ListItemGuid?: string | null; // GUID of an associated list item (optional)
+  AttributeRecordGuid: string; // GUID
+  AttributeDefinitionGuid: string; // GUID
+  CustomerGuid?: string | null; // GUID nullable
+  NumberValue?: number | null;
+  TextValue?: string | null;
+  LongTextValue?: string | null;
+  EnumValueId?: number | null;
+  BoolValue?: boolean | null;
+  DateValue?: string | null; // ISO date string nullable
+  ProspectGuid?: string | null; // GUID nullable
+  ListItemGuid?: string | null; // GUID nullable
 }
 ```

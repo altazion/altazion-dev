@@ -1,22 +1,31 @@
 ﻿## FulfillmentZonePlanning
 
-La classe FulfillmentZonePlanning représente une entrée de planning pour une zone de préparation, définissant le pourcentage de capacité de préparation disponible pour une date donnée.
+La classe FulfillmentZonePlanning représente une entrée de planning pour une zone de préparation en logistique. Elle définit le pourcentage de capacité de préparation disponible pour une date donnée.
 
-- Id : Identifiant unique de l'entrée de planning (Guid).
-- Date : Date du planning (DateTime).
-- FulfillmentZoneId : Identifiant de la zone de préparation concernée (Guid).
-- OperatingPercentage : Pourcentage de la force de préparation disponible (short). 100% signifie capacité normale, 0% signifie fermé, et un pourcentage supérieur à 100% indique une capacité renforcée.
-- IsClosed : Propriété calculée indiquant si la zone est fermée ce jour (bool, true si OperatingPercentage = 0).
-- IsReducedCapacity : Propriété calculée indiquant si la zone fonctionne à capacité réduite (bool, true si 0 < OperatingPercentage < 100).
+Propriétés publiques :
+- Id (Guid) : Identifiant unique de l'entrée de planning.
+- Date (DateTimeOffset) : Date correspondant à ce planning.
+- FulfillmentZoneId (Guid) : Identifiant unique de la zone de préparation concernée.
+- OperatingPercentage (short) : Pourcentage de la force de préparation disponible, avec 100% comme capacité normale, 0% indiquant une fermeture, et plus de 100% pour une capacité renforcée.
+- IsClosed (bool) : Indique si la zone est fermée ce jour (true si OperatingPercentage == 0).
+- IsReducedCapacity (bool) : Indique si la zone fonctionne à capacité réduite (true si OperatingPercentage > 0 et < 100).
+
+Cette classe permet donc de modéliser la disponibilité et capacité opérationnelle d'une zone logistique pour une date précise, utile pour la planification des ressources.
 
 ### D�claration TypeScript
 ```typescript
 interface FulfillmentZonePlanning {
-  id: string; // Unique identifier of the planning entry (Guid)
-  date: string; // Date of the planning (ISO string)
-  fulfillmentZoneId: string; // Identifier of the fulfillment zone (Guid)
-  operatingPercentage: number; // Percentage of preparation capacity (0-100+)
-  isClosed: boolean; // True if operatingPercentage == 0
-  isReducedCapacity: boolean; // True if 0 < operatingPercentage < 100
+  /** Identifiant unique de l'entrée de planning */
+  Id: string; // GUID
+  /** Date du planning */
+  Date: string; // DateTimeOffset as ISO string
+  /** Identifiant de la zone de préparation concernée */
+  FulfillmentZoneId: string; // GUID
+  /** Pourcentage de la force de préparation disponible (0-100+, 100 = normal) */
+  OperatingPercentage: number; // short
+  /** Indique si la zone est fermée ce jour (OperatingPercentage = 0) */
+  IsClosed: boolean;
+  /** Indique si la zone fonctionne à capacité réduite (0 < OperatingPercentage < 100) */
+  IsReducedCapacity: boolean;
 }
 ```

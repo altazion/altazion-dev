@@ -1,53 +1,50 @@
 ﻿## InvoicePayment
 
-La classe `InvoicePayment` représente un règlement client pour une ou plusieurs factures. Elle contient les propriétés suivantes :
+La classe InvoicePayment représente un règlement client pour une ou plusieurs factures. Elle contient les propriétés publiques suivantes :
 
-- `Id` : Identifiant unique du règlement.
-- `Date` : Date du règlement.
-- `CustomerId` : Identifiant du client.
-- `Amount` : Montant du règlement.
-- `PaymentKind` : Type de moyen de paiement (espèces, chèque, carte bancaire, etc.).
-- `BankAccountId` : Identifiant du compte bancaire lié au règlement, si applicable.
-- `IsOnBankAccount` : Indique si le règlement a été déposé sur le compte bancaire.
-- `PaymentIdentifier` : Référence du règlement ou numéro de chèque.
-- `PaymentStatus` : État du règlement (exemple : en attente, validé, rejeté).
-- `BankDepositId` : Identifiant du dépôt bancaire lié à une remise en banque, si applicable.
-- `ErrorCode` : Code d'erreur en cas d'échec du traitement du règlement.
-- `ErrorDetails` : Message d'erreur détaillé en cas de problème.
-- `OriginalAmount` : Montant original dans la devise d'origine (utile pour règlements multidevises).
-- `IsConfirmed` : Indique si le règlement a été confirmé.
-- `IsReceived` : Indique si le règlement a été reçu.
-- `PrePaymentGuid` : GUID de l'acompte si le règlement est lié à un acompte.
-- `CreditNoteGuid` : GUID de l'avoir si le règlement est lié à un avoir.
+- Id : Identifiant unique du règlement.
+- Date : Date du règlement.
+- CustomerId : Identifiant du client.
+- Amount : Montant du règlement.
+- PaymentKind : Type de moyen de paiement (espèces, chèque, carte bancaire, etc.).
+- BankAccountId : Identifiant du compte bancaire si lié.
+- IsOnBankAccount : Indique si le règlement a été déposé sur un compte bancaire.
+- PaymentIdentifier : Référence du règlement ou numéro de chèque.
+- PaymentStatus : État du règlement (en attente, validé, rejeté, etc.).
+- BankDepositId : Identifiant du dépôt bancaire associé.
+- ErrorCode : Code d'erreur si le traitement a échoué.
+- ErrorDetails : Détails de l'erreur en cas d'échec.
+- OriginalAmount : Montant original dans la devise d'origine (pour multidevises).
+- IsConfirmed : Indique si le règlement a été confirmé.
+- IsReceived : Indique si le règlement a été reçu.
+- PrePaymentGuid : GUID de l'acompte associé s'il y a lieu.
+- CreditNoteGuid : GUID de l'avoir lié si applicable.
 
-Cette classe dérive de `DataObjectBase` et est marquée par l'attribut `SqlDataConcept` permettant son mapping avec la table `gestcom_reglements` dans la base de données.
-
-Le type `PaymentMethodKind` est une énumération indiquant le type de moyen de paiement utilisé (non détaillée ici, mais utilisée dans la propriété `PaymentKind`).
+Ces propriétés permettent de gérer l'ensemble des détails et statuts d'un règlement client dans le système ERP.
 
 ### D�claration TypeScript
 ```typescript
 interface InvoicePayment {
-  Id: number; // Unique identifier of the payment
-  Date: string; // ISO string representing the date (DateTimeOffset)
-  CustomerId: number; // Customer identifier
-  Amount: number; // Amount of the payment
-  PaymentKind: PaymentMethodKind; // Enum representing the payment method kind
-  BankAccountId?: number | null; // Optional bank account identifier
-  IsOnBankAccount: boolean; // Indicates if deposited on bank account
-  PaymentIdentifier?: string | null; // Reference or check number
-  PaymentStatus?: string | null; // Status of the payment
-  BankDepositId?: number | null; // Optional bank deposit identifier
-  ErrorCode?: string | null; // Error code if any
-  ErrorDetails?: string | null; // Detailed error message
-  OriginalAmount?: number | null; // Original amount in original currency
-  IsConfirmed: boolean; // True if confirmed
-  IsReceived: boolean; // True if received
-  PrePaymentGuid?: string | null; // GUID in string format
-  CreditNoteGuid?: string | null; // GUID in string format
+  Id: number; // Identifiant unique du règlement
+  Date: string; // Date du règlement en format ISO (DateTimeOffset)
+  CustomerId: number; // Identifiant du client
+  Amount: number; // Montant du règlement
+  PaymentKind: PaymentMethodKind; // Type de moyen de paiement
+  BankAccountId?: number | null; // Identifiant du compte bancaire si lié
+  IsOnBankAccount: boolean; // Indique si le règlement est déposé en banque
+  PaymentIdentifier?: string | null; // Référence ou numéro de chèque
+  PaymentStatus?: string | null; // État du règlement
+  BankDepositId?: number | null; // Id du dépôt bancaire associé
+  ErrorCode?: string | null; // Code d'erreur de traitement
+  ErrorDetails?: string | null; // Détails de l'erreur
+  OriginalAmount?: number | null; // Montant original en devise d'origine
+  IsConfirmed: boolean; // Indique si le règlement est confirmé
+  IsReceived: boolean; // Indique si le règlement est reçu
+  PrePaymentGuid?: string | null; // GUID de l'acompte si lié
+  CreditNoteGuid?: string | null; // GUID de l'avoir lié
 }
 
-// Enum placeholder for PaymentMethodKind
 enum PaymentMethodKind {
-  // Enum values must be defined according to usage context
+  // Enum values should be defined as per system specification
 }
 ```

@@ -1,32 +1,33 @@
 ﻿## Refund
 
-La classe Refund représente un remboursement lié à un avoir dans le système ERP. Elle contient les propriétés suivantes :
+La classe Refund représente un remboursement lié à un avoir dans le système ERP. Ses propriétés publiques sont :
 
-- Id : Identifiant unique du remboursement (Guid).
-- RefundType : Type de remboursement, par exemple CB, chèque, virement, etc. (string).
-- RefundDate : Date du remboursement (DateTime).
-- CreditNoteId : Identifiant unique de l'avoir associé (Guid).
-- TotalAmount : Montant total du remboursement TTC (decimal).
-- TotalAmountWOTax : Montant total du remboursement HT (decimal).
-- TransferredToAccounting : Indique si le remboursement a été transféré en comptabilité (bool).
-- AccountingDocumentNumber : Numéro de la pièce comptable associée (string).
-- UserUxid : Identifiant unique optionnel de l'utilisateur ayant réalisé le remboursement (Guid?).
-- PaymentIntentionGuid : Guid optionnel de l'intention de règlement associée (Guid?).
+- Id : Identifiant unique du remboursement, de type Guid.
+- RefundType : Type de remboursement (CB, chèque, virement, etc.), chaîne de caractères.
+- RefundDate : Date du remboursement, de type DateTimeOffset.
+- CreditNoteId : Identifiant de l'avoir associé, de type Guid.
+- TotalAmount : Montant total du remboursement toutes taxes comprises (TTC), de type decimal.
+- TotalAmountWOTax : Montant total du remboursement hors taxes (HT), de type decimal.
+- TransferredToAccounting : Indique si le remboursement a été transféré en comptabilité, booléen.
+- AccountingDocumentNumber : Numéro de pièce comptable associé au remboursement, chaîne de caractères.
+- UserUxid : Identifiant unique (Guid?) de l'utilisateur ayant effectué le remboursement, nullable.
+- PaymentIntentionGuid : GUID nullable de l'intention de règlement associée.
 
-Cette classe hérite de DataObjectBase et dispose d'une méthode pour récupérer sa clé unique (Id). Elle fournit également une méthode pour initialiser ses propriétés à partir d'une ligne de données et valide ses données avec plusieurs règles (ex : les montants doivent être positifs, la date ne doit pas être dans le futur, etc.).
+La classe inclut également une méthode GetKey qui retourne la clé unique de l'objet (l'Id). La validation des données vérifie notamment que les champs essentiels sont renseignés, les montants sont positifs et cohérents, et que les longueurs des chaînes sont conformes.
+
 
 ### D�claration TypeScript
 ```typescript
-export interface Refund {
-  id: string; // Unique identifier of the refund (Guid)
-  refundType: string; // Type of refund (max 10 characters)
-  refundDate: string; // Date of refund (ISO string)
-  creditNoteId: string; // Unique ID of associated credit note
-  totalAmount: number; // Total amount including tax
-  totalAmountWOTax: number; // Total amount excluding tax
-  transferredToAccounting: boolean; // Whether transferred to accounting
-  accountingDocumentNumber?: string | null; // Accounting document number
-  userUxid?: string | null; // ID of user performing refund (optional)
-  paymentIntentionGuid?: string | null; // Payment intention GUID (optional)
+interface Refund {
+  Id: string; // GUID unique identifier of the refund
+  RefundType: string; // Type of refund (e.g., CB, check, bank transfer)
+  RefundDate: string; // Date of refund in ISO 8601 format
+  CreditNoteId: string; // GUID of the associated credit note
+  TotalAmount: number; // Total amount including tax
+  TotalAmountWOTax: number; // Total amount excluding tax
+  TransferredToAccounting: boolean; // True if transferred to accounting
+  AccountingDocumentNumber: string | null; // Accounting document number
+  UserUxid?: string | null; // Optional GUID of the user who issued refund
+  PaymentIntentionGuid?: string | null; // Optional GUID of payment intention
 }
 ```

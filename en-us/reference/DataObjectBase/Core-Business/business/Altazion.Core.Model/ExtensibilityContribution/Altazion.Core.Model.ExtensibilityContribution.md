@@ -1,24 +1,20 @@
 ﻿## ExtensibilityContribution
 
-The ExtensibilityContribution class represents an extensibility contribution, that is a customized application extension within the system.
+The ExtensibilityContribution class represents an extensibility contribution, i.e. a custom application extension. It includes the following properties:
 
-Public properties:
-- Guid: Unique identifier of the contribution.
-- Type: Type of the contribution (e.g., "WebHook", "CustomScript", "Plugin", etc.).
-- Content: Content of the contribution, usually JSON or code.
-- ModifiedAt: Date and time of the last modification of the contribution.
+- Guid: Unique identifier of the contribution (type Guid).
+- Type: The type of contribution, such as "WebHook", "CustomScript", "Plugin", etc. (type string).
+- Content: The content of the contribution, usually JSON or code (type string).
+- ModifiedAt: Date and time of the last modification of the contribution (type DateTimeOffset).
 
-Important inherited methods (not detailed here):
-- GetKey(): Returns the unique identifier (Guid) of the contribution.
-
-This class encapsulates the necessary information to manage custom extensions in the Altazion platform.
+This class provides the unique key via the Guid property and can be initialized from a data row (DataRow). Its string representation mainly consists of its type followed by its Guid.
 
 ### TypeScript class
 ```typescript
 interface ExtensibilityContribution {
-  Guid: string; // Unique identifier (UUID) of the contribution
-  Type: string | null; // Type of the contribution (e.g., "WebHook", "CustomScript", "Plugin")
-  Content: string | null; // Content of the contribution, typically JSON or code
-  ModifiedAt: string; // ISO string representation of the modification date and time
+  Guid: string; // Unique identifier (UUID string)
+  Type: string | null; // Type of the contribution like "WebHook", "CustomScript", etc.
+  Content: string | null; // Content of the contribution, usually JSON or code
+  ModifiedAt: string; // ISO string representing last modification date-time
 }
 ```

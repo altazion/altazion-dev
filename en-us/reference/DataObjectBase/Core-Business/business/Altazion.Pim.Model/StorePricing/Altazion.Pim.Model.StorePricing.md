@@ -1,42 +1,41 @@
 ﻿## StorePricing
 
-The StorePricing class represents a store-specific product pricing with a unique identifier.
+The StorePricing class represents product pricing in a store with a unique identifier.
 
 Public properties:
+
 - Guid: Unique identifier of the pricing.
 - ProductGuid: Unique identifier of the product.
-- StartDate: Start date of the price validity.
-- EndDate: End date of the price validity.
-- PriceExcludingTax: Unit price excluding tax.
-- PriceIncludingTax: Unit price including tax.
-- ReferencePriceIncludingTax: Reference price including tax (strikethrough price), optional.
-- ReferencePriceExcludingTax: Reference price excluding tax (strikethrough price), optional.
-- IsPromotion: Indicates if the price is a promotion.
-- IsLocalOverride: Indicates if the price is a local override (store specific).
-- Timestamp: Last modification timestamp for optimistic concurrency.
-- StoreGuid: Unique identifier of the store; optional (null means global price).
+- StoreGuid: Unique identifier of the store (optional, null means global price for all stores).
+- StartDate: Start date of the price validity period.
+- EndDate: End date of the price validity period.
+- PriceExcludingTax: Unit price excluding taxes.
+- PriceIncludingTax: Unit price including all taxes.
+- ReferencePriceIncludingTax: Reference price including taxes (crossed-out price), optional.
+- ReferencePriceExcludingTax: Reference price excluding taxes, optional.
+- IsPromotion: Indicates whether this price is a promotional price.
+- IsLocalOverride: Indicates whether this price is a local override specific to the store.
+- Timestamp: Timestamp of last modification for optimistic concurrency control.
 
-This class inherits from StorePricingBase which holds properties related to dates, price, promotions, and store.
+The class inherits from StorePricingBase, which itself inherits from DataObjectBase. Validation ensures the validity period is correct (EndDate >= StartDate). The unique identifier of the pricing is used as the object's key.
 
-Important methods:
-- GetKey(): returns the unique identifier Guid of the pricing.
-- FromDataRow(DataRow dr): initializes properties from a data row.
-- Validation: ensures that the validity period is coherent (EndDate >= StartDate).
+Data can be initialized from a DataRow to facilitate loading from a database.
+
 
 ### TypeScript class
 ```typescript
 interface StorePricing {
-  Guid: string; // Identifiant unique de la tarification
-  ProductGuid: string; // Identifiant unique du produit
-  StartDate: Date; // Date de début de validité du prix
-  EndDate: Date; // Date de fin de validité du prix
-  PriceExcludingTax: number; // Prix unitaire hors taxes
-  PriceIncludingTax: number; // Prix unitaire TTC
-  ReferencePriceIncludingTax?: number; // Prix de référence TTC (optionnel)
-  ReferencePriceExcludingTax?: number; // Prix de référence HT (optionnel)
-  IsPromotion: boolean; // Indique si c'est une promotion
-  IsLocalOverride: boolean; // Indique un forçage local
-  Timestamp: Uint8Array | null; // Timestamp de dernière modification
-  StoreGuid?: string | null; // Identifiant du magasin (optionnel)
+  Guid: string; // Unique identifier of the pricing (UUID string)
+  ProductGuid: string; // Unique identifier of the product (UUID string)
+  StoreGuid?: string | null; // Unique identifier of the store (UUID string), optional, null means global price
+  StartDate: string; // Start date of the price validity period in ISO 8601 format
+  EndDate: string; // End date of the price validity period in ISO 8601 format
+  PriceExcludingTax: number; // Unit price excluding tax
+  PriceIncludingTax: number; // Unit price including tax
+  ReferencePriceIncludingTax?: number | null; // Reference price including tax (optional)
+  ReferencePriceExcludingTax?: number | null; // Reference price excluding tax (optional)
+  IsPromotion: boolean; // Whether price is promotional
+  IsLocalOverride: boolean; // Whether price is a local override
+  Timestamp?: Uint8Array | null; // Timestamp of last modification
 }
 ```
