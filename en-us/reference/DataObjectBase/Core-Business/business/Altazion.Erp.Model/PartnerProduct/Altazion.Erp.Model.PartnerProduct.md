@@ -1,31 +1,30 @@
 ﻿## PartnerProduct
 
-The PartnerProduct class represents the association of a product with a commercial partner (reseller, marketplace, store).
+This class represents the association between a product and a commercial partner (reseller, marketplace, store). It includes the following properties:
 
-Public properties:
-- ArticleGuid: Unique identifier of the product.
-- PartnerGuid: Unique identifier of the partner.
-- IsAvailable: Indicates if the product is available from this partner.
+- ArticleGuid: unique identifier of the product.
+- PartnerGuid: unique identifier of the partner.
+- IsAvailable: indicates if the product is available at this partner.
 - Url: URL of the product page at the partner (max 500 characters).
-- PartnerReference: Product reference used by the partner (max 50 characters).
-- UnitPriceExcludingTax: Unit price excluding tax.
-- UnitPriceIncludingTax: Unit price including all taxes.
-- PromoUnitPriceExcludingTax: Promotional unit price excluding tax (optional).
-- PromoUnitPriceIncludingTax: Promotional unit price including all taxes (optional).
-- PromoStartDate: Promotion start date (optional).
-- PromoEndDate: Promotion end date (optional).
-- AvailableQuantity: Quantity available at the partner (optional).
-- ReservedQuantity: Quantity reserved at the partner (optional).
-- SupplyQuantity: Quantity currently being supplied to the partner (optional).
-- IsArchived: Indicates if this association is archived.
-- MaxDeliveryDelay: Maximum delivery delay in days (optional).
+- PartnerReference: product reference used by the partner (max 50 characters).
+- UnitPriceExcludingTax: unit price excluding tax.
+- UnitPriceIncludingTax: unit price including tax.
+- PromoUnitPriceExcludingTax: promotional unit price excluding tax (optional).
+- PromoUnitPriceIncludingTax: promotional unit price including tax (optional).
+- PromoStartDate: start date of the promotion (optional).
+- PromoEndDate: end date of the promotion (optional).
+- AvailableQuantity: quantity available at the partner (optional).
+- ReservedQuantity: quantity reserved at the partner (optional).
+- SupplyQuantity: quantity in supply at the partner (optional).
+- IsArchived: indicates if this association is archived.
+- MaxDeliveryDelay: maximum delivery delay in days (optional).
 
-The class also provides methods to check active promotions, get the current price (including or excluding tax), and calculate the net available quantity.
+Methods allow checking if a promotion is currently active, obtaining the current price (including or excluding tax), and calculating the net available quantity at the partner.
 
 ### TypeScript class
 ```typescript
 interface PartnerProduct {
-  ArticleGuid: string; // GUID of the article
+  ArticleGuid: string; // GUID of the product
   PartnerGuid: string; // GUID of the partner
   IsAvailable: boolean;
   Url: string | null;
@@ -34,8 +33,8 @@ interface PartnerProduct {
   UnitPriceIncludingTax: number;
   PromoUnitPriceExcludingTax?: number | null;
   PromoUnitPriceIncludingTax?: number | null;
-  PromoStartDate?: Date | null;
-  PromoEndDate?: Date | null;
+  PromoStartDate?: string | null; // ISO string date
+  PromoEndDate?: string | null; // ISO string date
   AvailableQuantity?: number | null;
   ReservedQuantity?: number | null;
   SupplyQuantity?: number | null;

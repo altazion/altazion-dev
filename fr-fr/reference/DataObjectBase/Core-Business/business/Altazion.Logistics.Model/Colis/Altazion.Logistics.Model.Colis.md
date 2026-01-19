@@ -1,40 +1,42 @@
 ﻿## Colis
 
-La classe Colis représente un colis logistique avec plusieurs propriétés clés :
+La classe Colis représente un colis dans le système logistique Altazion.
+
+Propriétés publiques :
 
 - Guid : Identifiant unique du colis (type Guid).
-- Numero : Numéro du colis (string).
-- Date : Date à laquelle le colis a été créé ou enregistré (DateTime).
-- CodeBarre : Code barre associé au colis (string).
-- PrestataireId : Identifiant du prestataire logistique en charge du colis (int).
-- DatePrelevement : Date du prélèvement du colis, peut être null (DateTime?).
-- Poids : Poids du colis en grammes (decimal).
-- EstLivre : Indique si le colis a été livré (bool).
-- BordereauGuid : Identifiant optionnel du bordereau lié au colis (Guid?).
-- Nom : Nom du destinataire ou du colis (string).
-- Adresse : Adresse de livraison (string).
-- CodePostal : Code postal de l'adresse de livraison (string).
-- Ville : Ville de l'adresse de livraison (string).
-- BonPreparationGuid : Identifiant du bon de préparation lié au colis (Guid).
+- Numero : Numéro du colis (type string).
+- Date : Date d'enregistrement ou de création du colis (type DateTimeOffset).
+- CodeBarre : Code-barres associé au colis (type string).
+- PrestataireId : Identifiant du prestataire logistique (type int).
+- DatePrelevement : Date optionnelle de prélèvement du colis (type DateTimeOffset?).
+- Poids : Poids du colis en grammes (type decimal).
+- EstLivre : Indique si le colis a été livré (type bool).
+- BordereauGuid : Identifiant optionnel du bordereau associé (type Guid?).
+- Nom : Nom du destinataire ou du colis (type string).
+- Adresse : Adresse de livraison (type string).
+- CodePostal : Code postal de livraison (type string).
+- Ville : Ville de livraison (type string).
+- BonPreparationGuid : Identifiant du bon de préparation associé (type Guid).
 
-Cette classe dérive de DataObjectBase et encapsule la logique de chargement des données via la méthode FromDataRow, qui remplit les propriétés à partir d'une ligne de données. Elle surcharge aussi la méthode GetKey pour retourner la clé principale (le Guid) et ToString pour un affichage lisible du colis.
+Chaque propriété reflète une information précise liée à la gestion des colis dans Altazion.
 
 ### D�claration TypeScript
 ```typescript
 interface Colis {
-  Guid: string; // Unique identifier of the parcel
-  Numero: string; // Parcel number
-  Date: string; // Parcel date in ISO format
-  CodeBarre: string; // Barcode
-  PrestataireId: number; // Logistic service provider ID
-  DatePrelevement?: string | null; // Nullable pickup date
-  Poids: number; // Weight in grams
-  EstLivre: boolean; // Delivered status
-  BordereauGuid?: string | null; // Optional shipping slip ID
-  Nom: string; // Name
-  Adresse: string; // Delivery address
-  CodePostal: string; // Postal code
-  Ville: string; // City
-  BonPreparationGuid: string; // Preparation slip ID
+  Guid: string; // Identifiant unique du colis
+  Numero: string; // Numéro du colis
+  Date: string; // Date d'enregistrement ou de création (format ISO 8601)
+  CodeBarre: string; // Code-barres associé
+  PrestataireId: number; // Identifiant du prestataire
+  DatePrelevement?: string | null; // Date optionnelle de prélèvement (nullable, format ISO 8601)
+  Poids: number; // Poids en grammes
+  EstLivre: boolean; // Statut de livraison
+  BordereauGuid?: string | null; // Identifiant optionnel du bordereau
+  Nom: string; // Nom du destinataire
+  Adresse: string; // Adresse de livraison
+  CodePostal: string; // Code postal
+  Ville: string; // Ville
+  BonPreparationGuid: string; // Identifiant du bon de préparation
 }
 ```

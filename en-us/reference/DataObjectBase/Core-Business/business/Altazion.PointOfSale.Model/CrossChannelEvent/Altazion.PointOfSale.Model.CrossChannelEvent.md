@@ -1,40 +1,39 @@
 ﻿## CrossChannelEvent
 
-The CrossChannelEvent class represents a cross-channel event defined by headquarters which stores can participate in.
+Represents a cross-channel event defined by the central management, in which stores can participate.
 
 Public properties:
-- Id (Guid): Unique identifier of the cross-channel event.
-- Title (string): Event title, required, maximum length 255 characters.
-- EventDate (DateTime): Date of the event.
-- Category (string): Event category (examples: "OUVERT", "FERME", "ANIMATION", "INSCRIT"), required, max length 10 characters. Possible categories: OUVERT (exceptional opening), FERME (exceptional closing), ANIMATION (commercial event), INSCRIT (event with registration).
-- Description (string): Detailed description of the event.
-- IsArchived (bool): Indicates if the event is archived.
-- Message (string): Message to display for the event.
-- IsMandatoryForOwnedStores (bool): Indicates if participation is mandatory for integrated stores.
-- IsMandatoryForAffiliatedStores (bool): Indicates if participation is mandatory for affiliated stores.
-- EventUrl (string): Relative URL of the web page associated with the event, max length 250 characters.
-- MaxParticipants (int?): Maximum number of participants allowed (for events requiring registration).
-- RegistrationDeadline (DateTimeOffset?): Deadline for event registration (for events requiring registration).
-- JsonData (string): Additional JSON data associated with the event, to store structured extra information.
 
-Key method: GetKey() returns the unique Id of the cross-channel event.
+- Id: Unique identifier of the cross-channel event (Guid).
+- Title: Event title (string, max 255 characters).
+- EventDate: Event date (DateOnly).
+- Category: Event category, possible values include "OUVERT" (exceptional opening), "FERME" (exceptional closing), "ANIMATION" (commercial event), "INSCRIT" (event with registration) (string, max 10 characters).
+- Description: Detailed description of the event (string).
+- IsArchived: Indicates if the event is archived (bool).
+- Message: Message to display for the event (string).
+- IsMandatoryForOwnedStores: Indicates if participation is mandatory for owned stores (bool).
+- IsMandatoryForAffiliatedStores: Indicates if participation is mandatory for affiliated stores (bool).
+- EventUrl: Relative URL of the event’s web page (string, max 250 characters).
+- MaxParticipants: Maximum number of participants allowed (nullable int, for events with registration).
+- RegistrationDeadline: Registration deadline date (nullable DateTimeOffset, for events with registration).
+- JsonData: Additional JSON data associated with the event (string).
+
 
 ### TypeScript class
 ```typescript
 interface CrossChannelEvent {
-  Id: string; // GUID
-  Title: string;
-  EventDate: string; // ISO date string
-  Category: string;
-  Description?: string | null;
-  IsArchived: boolean;
-  Message?: string | null;
-  IsMandatoryForOwnedStores: boolean;
-  IsMandatoryForAffiliatedStores: boolean;
-  EventUrl?: string | null;
-  MaxParticipants?: number | null;
-  RegistrationDeadline?: string | null; // ISO date-time string
-  JsonData?: string | null;
+  Id: string; // GUID unique identifier of the event
+  Title: string; // Title of the event (max 255 characters)
+  EventDate: string; // Date of the event, ISO date string
+  Category: string; // Category of the event (max 10 characters), e.g. 'OUVERT', 'FERME', 'ANIMATION', 'INSCRIT'
+  Description?: string; // Detailed description
+  IsArchived: boolean; // Whether the event is archived
+  Message?: string; // Message to display
+  IsMandatoryForOwnedStores: boolean; // Mandatory participation for owned stores
+  IsMandatoryForAffiliatedStores: boolean; // Mandatory participation for affiliated stores
+  EventUrl?: string; // Relative URL of associated webpage (max 250 characters)
+  MaxParticipants?: number | null; // Max number of participants if applicable
+  RegistrationDeadline?: string | null; // Registration deadline date/time (ISO string)
+  JsonData?: string; // Additional JSON data
 }
-
 ```

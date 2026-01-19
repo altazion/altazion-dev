@@ -1,46 +1,46 @@
 ﻿## StoreDevice
 
-La classe StoreDevice représente un équipement (device) en magasin, tel qu'une borne, une tablette, ou un terminal de paiement. Elle contient les propriétés suivantes :
+La classe StoreDevice représente un équipement (device) en magasin tel qu'une borne, une tablette ou un terminal de paiement.
+
+Propriétés publiques :
 
 - Guid : Identifiant unique du device.
-- DeviceType : Type du device (code sur 3 caractères).
-- StoreId : Identifiant du magasin auquel le device appartient (nullable).
+- DeviceType : Type de device codé sur 3 caractères.
+- StoreId : Identifiant du magasin auquel appartient le device (nullable).
 - Label : Libellé descriptif du device.
 - IpAddress : Adresse IP du device.
 - CashRegisterId : Identifiant de la caisse associée au device (nullable).
-- Status : Statut du device (code sur 1 caractère).
+- Status : Statut du device codé sur 1 caractère.
 - ParentDeviceId : Identifiant du device parent pour hiérarchie (nullable).
 - LastUpdateTimestamp : Horodatage de la dernière mise à jour du device.
-- CallbackUrl : URL de callback pour notifications.
+- CallbackUrl : URL de callback pour les notifications du device.
 - IsMovable : Indique si le device est déplaçable.
 - DepartmentId : Identifiant du rayon où se trouve le device (nullable).
 - IsInUse : Indique si le device est actuellement utilisé.
 - Code : Code court du device.
-- ConfigurationJson : Configuration JSON du device.
+- ConfigurationJson : Configuration du device au format JSON.
 - Description : Description détaillée du device.
-- Orientation : Orientation du device (ex: portrait, landscape).
-
-Cette classe hérite de DataObjectBase et permet de stocker les informations essentielles pour gérer les équipements en magasin lié au point de vente.
+- Orientation : Orientation du device (par exemple "portrait" ou "landscape").
 
 ### D�claration TypeScript
 ```typescript
 interface StoreDevice {
-  Guid: string; // Unique identifier of the device
-  DeviceType: string; // Device type code (3 characters)
-  StoreId?: string | null; // Store identifier (nullable)
-  Label: string; // Descriptive label
-  IpAddress: string; // IP address
-  CashRegisterId?: string | null; // Associated cash register identifier (nullable)
-  Status: string; // Status code (1 character)
-  ParentDeviceId?: string | null; // Parent device identifier (nullable)
-  LastUpdateTimestamp: Date; // Timestamp of last update
-  CallbackUrl: string; // Callback URL
-  IsMovable: boolean; // Is device movable
-  DepartmentId?: string | null; // Department identifier (nullable)
-  IsInUse: boolean; // Is currently in use
-  Code: string; // Short code
-  ConfigurationJson: string; // JSON configuration
-  Description: string; // Detailed description
-  Orientation: string; // Orientation (e.g., portrait, landscape)
+  Guid: string; // Unique identifier (UUID) of the device
+  DeviceType: string | null; // Type of device (3-char code)
+  StoreId?: string | null; // Store identifier (UUID)
+  Label: string | null; // Descriptive label
+  IpAddress: string | null; // IP address
+  CashRegisterId?: string | null; // Cash register ID (UUID)
+  Status: string | null; // Status code (1 char)
+  ParentDeviceId?: string | null; // Parent device ID (UUID)
+  LastUpdateTimestamp: string; // Last update timestamp (ISO 8601 string)
+  CallbackUrl: string | null; // Callback URL
+  IsMovable: boolean; // Whether the device is movable
+  DepartmentId?: string | null; // Department ID (UUID)
+  IsInUse: boolean; // Whether the device is in use
+  Code: string | null; // Short code
+  ConfigurationJson: string | null; // JSON configuration
+  Description: string | null; // Detailed description
+  Orientation: string | null; // Orientation (eg. "portrait", "landscape")
 }
 ```

@@ -1,26 +1,29 @@
 ﻿## ProductLogisticsInfo
 
-La classe ProductLogisticsInfo représente les informations logistiques détaillées d'un produit dans le système Altazion.
+La classe ProductLogisticsInfo représente les informations logistiques spécifiques d'un produit, incluant un identifiant unique du produit.
 
-Propriétés publiques :
+Propriétés publiques:
+- ProductGuid : Identifiant unique (Guid) du produit associé aux informations logistiques.
+- FulfillmentTypeCode : Code (string) optionnel du type de préparation logistique, limité à 3 caractères.
+- FulFillmentMandatoryZoneGuid : Identifiant unique (Guid?) de la zone logistique obligatoire associée, optionnel.
+- IsHighDemand : Booléen indiquant si le produit est à forte demande (exemples : cartes pokémons, consoles de jeu, éditions limitées).
 
-- ProductGuid : Identifiant unique du produit associé aux informations logistiques.
-- FulfillmentTypeCode : Code indiquant le type de préparation logistique (optionnel, maximum 3 caractères).
-- FulFillmentMandatoryZoneGuid : Identifiant unique optionnel d'une zone logistique obligatoire.
+Cette classe dérive de ProductLogisticsInfoBase et ajoute la gestion d'un identifiant unique produit. Elle valide principalement la longueur du code de type de préparation logistique et fournit une clé unique basée sur ProductGuid.
 
-Description :
-Cette classe hérite de ProductLogisticsInfoBase, qui contient déjà FulfillmentTypeCode et FulFillmentMandatoryZoneGuid. ProductLogisticsInfo ajoute une propriété ProductGuid, utilisée comme clé unique de l'objet. La validation interne garantit que FulfillmentTypeCode ne dépasse pas 3 caractères. La méthode GetKey() retourne ProductGuid pour identifier cette instance.
+Commentaires XML et méthodes importantes:
+- GetKey() : retourne la clé unique du produit (ProductGuid).
+- OnValidate() : valide que le FulfillmentTypeCode ne dépasse pas 3 caractères si renseigné.
+- FromDataRow(DataRow dr) : initialise les propriétés à partir d'une ligne de données, notamment ProductGuid puis appelle la classe de base.
 
-Elle est annotée avec l'attribut SqlDataConcept indiquant la table et la notion liée en base de données.
+Héritage:
+- Hérite de ProductLogisticsInfoBase, qui contient FulfillmentTypeCode, FulFillmentMandatoryZoneGuid et IsHighDemand.
 
 ### D�claration TypeScript
 ```typescript
 interface ProductLogisticsInfo {
-  /** Unique identifier of the product associated with logistics info. */
-  ProductGuid: string; // GUID represented as string
-  /** Code representing the type of logistics preparation (optional, max length 3). */
-  FulfillmentTypeCode?: string | null;
-  /** Optional unique identifier of a mandatory logistics zone. */
-  FulFillmentMandatoryZoneGuid?: string | null; // GUID as string or null
+  ProductGuid: string; // GUID identifying the product uniquely
+  FulfillmentTypeCode?: string | null; // Optional logistic preparation type code, max 3 chars
+  FulFillmentMandatoryZoneGuid?: string | null; // Optional GUID for mandatory logistic zone
+  IsHighDemand: boolean; // Whether the product is in high demand
 }
 ```

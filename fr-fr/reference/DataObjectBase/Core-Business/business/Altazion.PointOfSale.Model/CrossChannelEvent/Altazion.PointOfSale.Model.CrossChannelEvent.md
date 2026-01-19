@@ -1,40 +1,39 @@
 ﻿## CrossChannelEvent
 
-La classe CrossChannelEvent représente un événement cross-canal défini par la centrale et auquel les magasins peuvent participer.
+Représente un événement cross-canal défini par la centrale et auquel les magasins peuvent participer.
 
 Propriétés publiques :
-- Id (Guid) : Identifiant unique de l'événement cross-canal.
-- Title (string) : Titre de l'événement, obligatoire, longueur maximale de 255 caractères.
-- EventDate (DateTime) : Date de l'événement.
-- Category (string) : Catégorie de l'événement (exemples : "OUVERT", "FERME", "ANIMATION", "INSCRIT"), obligatoire, longueur maximale de 10 caractères. Catégories possibles : OUVERT (ouverture exceptionnelle), FERME (fermeture exceptionnelle), ANIMATION (événement commercial), INSCRIT (événement avec inscription).
-- Description (string) : Description détaillée de l'événement.
-- IsArchived (bool) : Indique si l'événement est archivé.
-- Message (string) : Message à afficher pour l'événement.
-- IsMandatoryForOwnedStores (bool) : Indique si la participation est obligatoire pour les magasins intégrés.
-- IsMandatoryForAffiliatedStores (bool) : Indique si la participation est obligatoire pour les magasins affiliés.
-- EventUrl (string) : URL relative de la page web associée à l'événement, longueur maximale de 250 caractères.
-- MaxParticipants (int?) : Nombre maximum de participants autorisés (pour les événements avec inscription).
-- RegistrationDeadline (DateTimeOffset?) : Date limite d'inscription (pour les événements avec inscription).
-- JsonData (string) : Données JSON supplémentaires associées à l'événement, pour stocker des informations additionnelles structurées.
 
-Méthode importante : GetKey() retourne l'identifiant unique Id de l'événement.
+- Id : Identifiant unique de l'événement cross-canal (Guid).
+- Title : Titre de l'événement (string, max 255 caractères).
+- EventDate : Date de l'événement (DateOnly).
+- Category : Catégorie de l'événement, exemples possibles : "OUVERT" (ouverture exceptionnelle), "FERME" (fermeture exceptionnelle), "ANIMATION" (événement commercial), "INSCRIT" (événement avec inscription) (string, max 10 caractères).
+- Description : Description détaillée de l'événement (string).
+- IsArchived : Indique si l'événement est archivé (bool).
+- Message : Message à afficher pour l'événement (string).
+- IsMandatoryForOwnedStores : Indique si la participation est obligatoire pour les magasins intégrés (bool).
+- IsMandatoryForAffiliatedStores : Indique si la participation est obligatoire pour les magasins affiliés (bool).
+- EventUrl : URL relative de la page web associée à l'événement (string, max 250 caractères).
+- MaxParticipants : Nombre maximum de participants autorisés (nullable int, pour événements avec inscription).
+- RegistrationDeadline : Date limite d'inscription à l'événement (nullable DateTimeOffset, pour événements avec inscription).
+- JsonData : Données JSON supplémentaires associées à l'événement (string).
+
 
 ### D�claration TypeScript
 ```typescript
 interface CrossChannelEvent {
-  Id: string; // GUID
-  Title: string;
-  EventDate: string; // ISO date string
-  Category: string;
-  Description?: string | null;
-  IsArchived: boolean;
-  Message?: string | null;
-  IsMandatoryForOwnedStores: boolean;
-  IsMandatoryForAffiliatedStores: boolean;
-  EventUrl?: string | null;
-  MaxParticipants?: number | null;
-  RegistrationDeadline?: string | null; // ISO date-time string
-  JsonData?: string | null;
+  Id: string; // GUID unique identifier of the event
+  Title: string; // Title of the event (max 255 characters)
+  EventDate: string; // Date of the event, ISO date string
+  Category: string; // Category of the event (max 10 characters), e.g. 'OUVERT', 'FERME', 'ANIMATION', 'INSCRIT'
+  Description?: string; // Detailed description
+  IsArchived: boolean; // Whether the event is archived
+  Message?: string; // Message to display
+  IsMandatoryForOwnedStores: boolean; // Mandatory participation for owned stores
+  IsMandatoryForAffiliatedStores: boolean; // Mandatory participation for affiliated stores
+  EventUrl?: string; // Relative URL of associated webpage (max 250 characters)
+  MaxParticipants?: number | null; // Max number of participants if applicable
+  RegistrationDeadline?: string | null; // Registration deadline date/time (ISO string)
+  JsonData?: string; // Additional JSON data
 }
-
 ```

@@ -1,32 +1,33 @@
 ﻿## Refund
 
-The Refund class represents a refund linked to a credit note in the ERP system. It includes the following properties:
+The Refund class represents a refund linked to a credit note in the ERP system. Its public properties are:
 
-- Id: Unique identifier of the refund (Guid).
-- RefundType: Type of refund such as credit card, check, bank transfer, etc. (string).
-- RefundDate: Date of the refund (DateTime).
-- CreditNoteId: Unique identifier of the associated credit note (Guid).
-- TotalAmount: Total amount of the refund including taxes (decimal).
-- TotalAmountWOTax: Total amount of the refund excluding taxes (decimal).
-- TransferredToAccounting: Indicates if the refund has been transferred to accounting (bool).
-- AccountingDocumentNumber: Accounting document number linked to the refund (string).
-- UserUxid: Optional unique identifier of the user who executed the refund (Guid?).
-- PaymentIntentionGuid: Optional GUID of the associated payment intention (Guid?).
+- Id: Unique identifier of the refund, Guid type.
+- RefundType: Type of refund (credit card, check, bank transfer, etc.), string.
+- RefundDate: Date of the refund, DateTimeOffset.
+- CreditNoteId: Identifier of the associated credit note, Guid.
+- TotalAmount: Total amount of the refund including all taxes (TTC), decimal.
+- TotalAmountWOTax: Total amount excluding taxes (HT), decimal.
+- TransferredToAccounting: Indicates if the refund has been transferred to accounting, boolean.
+- AccountingDocumentNumber: Accounting document number linked to the refund, string.
+- UserUxid: Unique identifier (nullable Guid) of the user performing the refund.
+- PaymentIntentionGuid: Nullable Guid of the related payment intention.
 
-This class derives from DataObjectBase, implements a method to get its unique key (Id), provides a method to initialize properties from a data row, and includes validation rules ensuring data consistency (e.g., amounts must be positive, the refund date cannot be in the future).
+The class also contains a GetKey method returning the unique key of the object (the Id). The validation ensures required fields are populated, amounts are positive and consistent, and string lengths respect limits.
+
 
 ### TypeScript class
 ```typescript
-export interface Refund {
-  id: string; // Unique identifier of the refund (Guid)
-  refundType: string; // Type of refund (max 10 characters)
-  refundDate: string; // Date of refund (ISO string)
-  creditNoteId: string; // Unique ID of associated credit note
-  totalAmount: number; // Total amount including tax
-  totalAmountWOTax: number; // Total amount excluding tax
-  transferredToAccounting: boolean; // Whether transferred to accounting
-  accountingDocumentNumber?: string | null; // Accounting document number
-  userUxid?: string | null; // ID of user performing refund (optional)
-  paymentIntentionGuid?: string | null; // Payment intention GUID (optional)
+interface Refund {
+  Id: string; // GUID unique identifier of the refund
+  RefundType: string; // Type of refund (e.g., CB, check, bank transfer)
+  RefundDate: string; // Date of refund in ISO 8601 format
+  CreditNoteId: string; // GUID of the associated credit note
+  TotalAmount: number; // Total amount including tax
+  TotalAmountWOTax: number; // Total amount excluding tax
+  TransferredToAccounting: boolean; // True if transferred to accounting
+  AccountingDocumentNumber: string | null; // Accounting document number
+  UserUxid?: string | null; // Optional GUID of the user who issued refund
+  PaymentIntentionGuid?: string | null; // Optional GUID of payment intention
 }
 ```

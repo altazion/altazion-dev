@@ -1,19 +1,17 @@
 ﻿## ProductLogisticsInfoBase
 
-The `ProductLogisticsInfoBase` class represents the basic logistics information of a product.
+The ProductLogisticsInfoBase class represents the basic logistics information of a product.
 
 Public properties:
-- `FulfillmentTypeCode` (string): Code representing the type of logistics preparation.
-- `FulFillmentMandatoryZoneGuid` (Guid?): Optional unique identifier for the mandatory logistics zone.
-
-Important methods (not detailed here because inherited or overrides):
-- `GetKey()` returns an empty string by default, representing the unique key of the object.
-- `FromDataRow(DataRow dr)` initializes the object's properties from a data row, extracting "log_type_prepa" into `FulfillmentTypeCode` and "log_zpr_guid_obligatoire" into `FulFillmentMandatoryZoneGuid`.
+- FulfillmentTypeCode (string): Code of the logistics fulfillment type.
+- FulFillmentMandatoryZoneGuid (Guid?): Unique identifier of the mandatory logistics zone.
+- IsHighDemand (bool): Indicates if the product is high demand (e.g., Pokémon cards, game consoles, limited editions, etc.).
 
 ### TypeScript class
 ```typescript
 interface ProductLogisticsInfoBase {
-  FulfillmentTypeCode?: string;
-  FulFillmentMandatoryZoneGuid?: string; // GUID represented as string or null
+  FulfillmentTypeCode: string | null;
+  FulFillmentMandatoryZoneGuid: string | null; // Guid represented as string or null
+  IsHighDemand: boolean;
 }
 ```

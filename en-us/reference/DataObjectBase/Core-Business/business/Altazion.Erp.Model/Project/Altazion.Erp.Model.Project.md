@@ -1,39 +1,43 @@
 ﻿## Project
 
-The Project class represents a project entity in the system (maps to table e.projets_projets).
+This class represents a project in the ERP system (corresponding to the e.projets_projets table).
 
 Public properties:
-- ProjectGuid (Guid): Unique identifier of the project (primary key).
-- RjsId (int): Identifier of the associated legal reason.
-- MetaProjectGuid (Guid): GUID of the associated meta-project.
-- ClientGuid (Guid?): GUID of the associated client, nullable.
-- Title (string): The title or name of the project.
-- CreationDate (DateTime): The creation date of the project.
-- Importance (int): Importance level of the project.
-- IsArchived (bool): Indicates whether the project is archived.
-- ApplicationGuid (Guid?): GUID of the associated application, nullable.
-- ManagementClass (string): Name of the business logic class used internally for management.
-- ManagementData (string): Stored initial/configuration data for the manager.
-- PartnerGuid (Guid?): GUID of the associated partner, nullable.
-- ExpectedDueDate (DateTime?): Expected due date of the project, nullable.
-- CoverageType (string): Type of project coverage such as ROADMAP, PRESTA, CONTRAT, etc.
+- ProjectGuid: Unique Global Identifier (GUID) of the project.
+- RjsId: Numeric identifier representing the legal reason.
+- MetaProjectGuid: GUID of the associated meta-project.
+- ClientGuid: Optional GUID of the client associated with the project.
+- Title: Project title or label.
+- CreationDate: Date and time when the project was created.
+- Importance: Integer representing the project's importance level.
+- IsArchived: Boolean indicating whether the project is archived.
+- ApplicationGuid: Optional GUID of the associated application.
+- ManagementClass: Name of the business class used for internal management.
+- ManagementData: Data or configuration for the manager.
+- PartnerGuid: Optional GUID of the associated partner.
+- ExpectedDueDate: Optional expected due date for the project.
+- CoverageType: Type of coverage or responsibility (e.g., ROADMAP, PRESTA, CONTRAT).
+
+Main methods:
+- GetKey(): returns the primary key as the project's GUID.
+- FromDataRow(DataRow): protected method that populates properties from a data row.
 
 ### TypeScript class
 ```typescript
 interface Project {
-  ProjectGuid: string; // Unique identifier (GUID) of the project
+  ProjectGuid: string; // GUID of the project
   RjsId: number; // Legal reason identifier
-  MetaProjectGuid: string; // GUID of associated meta-project
-  ClientGuid?: string; // Optional GUID of the client
-  Title: string; // Title of the project
-  CreationDate: string; // ISO string date of creation
+  MetaProjectGuid: string; // GUID of the meta-project
+  ClientGuid?: string | null; // Nullable GUID of the client
+  Title: string | null; // Project title
+  CreationDate: string; // DateTimeOffset as ISO string for creation date
   Importance: number; // Importance level
-  IsArchived: boolean; // Archive status
-  ApplicationGuid?: string; // Optional GUID of associated application
-  ManagementClass: string; // Management business class name
-  ManagementData: string; // Configuration data for management
-  PartnerGuid?: string; // Optional GUID of partner
-  ExpectedDueDate?: string; // Optional expected due date (ISO string)
-  CoverageType: string; // Type of project coverage
+  IsArchived: boolean; // Archive flag
+  ApplicationGuid?: string | null; // Nullable GUID of associated application
+  ManagementClass: string | null; // Business class name for internal management
+  ManagementData: string | null; // Management data/configuration
+  PartnerGuid?: string | null; // Nullable GUID of partner
+  ExpectedDueDate?: string | null; // Nullable DateTimeOffset as ISO string
+  CoverageType: string | null; // Type of coverage (e.g. ROADMAP / PRESTA / CONTRAT)
 }
 ```

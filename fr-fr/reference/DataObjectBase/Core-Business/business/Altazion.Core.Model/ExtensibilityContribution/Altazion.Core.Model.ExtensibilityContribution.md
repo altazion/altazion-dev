@@ -1,24 +1,20 @@
 ﻿## ExtensibilityContribution
 
-La classe ExtensibilityContribution représente une contribution d'extensibilité, c'est-à-dire une extension applicative personnalisée dans le système.
+La classe ExtensibilityContribution représente une contribution d'extensibilité, c'est-à-dire une extension applicative personnalisée. Elle contient les propriétés suivantes :
 
-Propriétés publiques :
-- Guid : Identifiant unique de la contribution.
-- Type : Type de la contribution (par exemple "WebHook", "CustomScript", "Plugin", etc.).
-- Content : Contenu de la contribution, généralement sous forme de JSON ou de code.
-- ModifiedAt : Date et heure de la dernière modification de la contribution.
+- Guid : Identifiant unique de la contribution (type Guid).
+- Type : Type de la contribution, par exemple "WebHook", "CustomScript", "Plugin", etc. (type string).
+- Content : Contenu de la contribution, généralement du JSON ou du code (type string).
+- ModifiedAt : Date et heure de la dernière modification de la contribution (type DateTimeOffset).
 
-Méthodes héritées importantes (non détaillées ici) :
-- GetKey() : Retourne l'identifiant unique (Guid) de la contribution.
-
-Cette classe permet d'encapsuler les informations nécessaires pour gérer des extensions personnalisées dans la plateforme Altazion.
+Cette classe permet d'obtenir la clé unique via la propriété Guid, et elle peut être initialisée à partir d'une ligne de données (DataRow). Sa représentation en chaîne est principalement son type suivi de son Guid.
 
 ### D�claration TypeScript
 ```typescript
 interface ExtensibilityContribution {
-  Guid: string; // Unique identifier (UUID) of the contribution
-  Type: string | null; // Type of the contribution (e.g., "WebHook", "CustomScript", "Plugin")
-  Content: string | null; // Content of the contribution, typically JSON or code
-  ModifiedAt: string; // ISO string representation of the modification date and time
+  Guid: string; // Unique identifier (UUID string)
+  Type: string | null; // Type of the contribution like "WebHook", "CustomScript", etc.
+  Content: string | null; // Content of the contribution, usually JSON or code
+  ModifiedAt: string; // ISO string representing last modification date-time
 }
 ```
