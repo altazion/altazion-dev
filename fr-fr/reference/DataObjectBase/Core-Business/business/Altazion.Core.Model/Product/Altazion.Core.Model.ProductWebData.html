@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ProductWebData | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="ProductWebData | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="productwebdata">ProductWebData</h2>
+
+<p>Représente les données web spécifiques d&#39;un produit pour un site e-commerce dans le système Altazion.</p>
+<p>Propriétés publiques :</p>
+<ul>
+<li>PriceGroupId : Identifiant du groupe de prix associé au produit (nullable).</li>
+<li>MetaDescription : Méta-description utilisée pour le référencement SEO.</li>
+<li>Keywords : Mots-clés pour le référencement SEO.</li>
+<li>ProductId : Identifiant du produit associé.</li>
+<li>SiteId : Identifiant du site web.</li>
+<li>IsAvailable : Indique si le produit est disponible.</li>
+<li>IsWebEnabled : Indique si le produit est actif sur le web.</li>
+<li>PriceWOTax : Prix hors taxes personnalisé pour ce site (nullable).</li>
+<li>Price : Prix toutes taxes comprises personnalisé pour ce site (nullable).</li>
+<li>IsPublished : Indique si le produit est publié sur le site.</li>
+<li>VisibilityThreshold : Seuil de quantité en dessous duquel le produit n&#39;est plus visible (nullable).</li>
+<li>AvailabilityThredshold : Seuil de quantité en dessous duquel le produit n&#39;est plus considéré comme disponible (nullable).</li>
+<li>Label : Libellé personnalisé du produit pour ce site.</li>
+<li>Description : Description HTML personnalisée du produit pour ce site.</li>
+<li>DiscountedPriceWOTax : Prix promotionnel hors taxes pour ce site (nullable).</li>
+<li>DiscountedPrice : Prix promotionnel toutes taxes comprises pour ce site (nullable).</li>
+<li>DiscountStartDate : Date de début de la promotion pour ce site (nullable).</li>
+<li>DiscountEndDate : Date de fin de la promotion pour ce site (nullable).</li>
+<li>ThumbnailUrl : URL de l&#39;image miniature (thumbnail).</li>
+<li>IntermediateImageUrl : URL de l&#39;image de taille intermédiaire.</li>
+<li>SmallImageUrl : URL de l&#39;image principale (small).</li>
+<li>LargeImageUrl : URL de l&#39;image en grande taille.</li>
+<li>MainImageUrl : URL de l&#39;image principale du produit.</li>
+<li>TinyImageUrl : URL de l&#39;image très petite taille (tiny).</li>
+<li>IsVisibleInSearch : Indique si le produit est visible dans les recherches.</li>
+<li>CustomUrlPart : Partie personnalisée de l&#39;URL du produit pour un référencement amélioré.</li>
+<li>SegmentationId : Identifiant de segmentation principale (nullable).</li>
+</ul>
+<p>La classe réalise aussi des validations de cohérence sur les prix et les promotions, notamment vérifiant la présence symétrique des prix HT et TTC, la cohérence des dates de promotion, et la comparaison des prix promotionnels avec les prix standards.</p>
+<h3 id="dclaration-typescript">D�claration TypeScript</h3>
+<pre><code class="lang-typescript">interface ProductWebData {
+  PriceGroupId?: string; // Guid nullable
+  MetaDescription: string | null;
+  Keywords: string | null;
+  ProductId: number;
+  SiteId: number;
+  IsAvailable: boolean;
+  IsWebEnabled: boolean;
+  PriceWOTax?: number | null;
+  Price?: number | null;
+  IsPublished: boolean;
+  VisibilityThreshold?: number | null;
+  AvailabilityThredshold?: number | null;
+  Label: string | null;
+  Description: string | null;
+  DiscountedPriceWOTax?: number | null;
+  DiscountedPrice?: number | null;
+  DiscountStartDate?: Date | null;
+  DiscountEndDate?: Date | null;
+  ThumbnailUrl: string | null;
+  IntermediateImageUrl: string | null;
+  SmallImageUrl: string | null;
+  LargeImageUrl: string | null;
+  MainImageUrl: string | null;
+  TinyImageUrl: string | null;
+  IsVisibleInSearch: boolean;
+  CustomUrlPart: string | null;
+  SegmentationId?: number | null;
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/6b4531188c20451522c1afa751210ff6e4c75eca/fr-fr/reference/DataObjectBase/Core-Business/business/Altazion.Core.Model/Product/Altazion.Core.Model.ProductWebData.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>
