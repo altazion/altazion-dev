@@ -1,67 +1,69 @@
 ﻿## ProductWebData
 
-Represents web-specific data of a product for an e-commerce website in the Altazion system.
+The ProductWebData class represents the product-specific web data for an e-commerce site within the Altazion system.
 
 Public properties:
-- PriceGroupId: Identifier of the associated price group (nullable).
-- MetaDescription: Meta description used for SEO purposes.
-- Keywords: Keywords for SEO.
-- ProductId: Identifier of the associated product.
-- SiteId: Identifier of the website.
-- IsAvailable: Indicates if the product is available.
-- IsWebEnabled: Indicates if the product is active on the web.
-- PriceWOTax: Custom price excluding tax for this site, if different from the standard price (nullable).
-- Price: Custom price including tax for this site, if different from the standard price (nullable).
-- IsPublished: Indicates if the product is published on the website.
-- VisibilityThreshold: Quantity threshold below which the product is no longer visible (nullable).
-- AvailabilityThredshold: Quantity threshold below which the product is no longer considered available (nullable).
-- Label: Custom label for the product on this site.
-- Description: Custom HTML description of the product for this site.
-- DiscountedPriceWOTax: Promotional price excluding tax for this site (nullable).
-- DiscountedPrice: Promotional price including tax for this site (nullable).
-- DiscountStartDate: Promotion start date on this site (nullable).
-- DiscountEndDate: Promotion end date on this site (nullable).
+- PriceGroupId: Identifier of the associated price group (nullable Guid).
+- MetaDescription: SEO meta description.
+- Keywords: SEO keywords.
+- ProductId: Identifier of the associated product (long).
+- SiteId: Identifier of the website (int).
+- IsAvailable: Indicates if the product is available (bool).
+- IsWebEnabled: Indicates if the product is active on the web (bool).
+- PriceWOTax: Custom tax-exclusive price for this site (nullable decimal).
+- Price: Custom tax-inclusive price for this site (nullable decimal).
+- IsPublished: Indicates if the product is published on the site (bool).
+- VisibilityThreshold: Quantity threshold below which the product is no longer visible (nullable decimal).
+- AvailabilityThredshold: Quantity threshold below which the product is considered unavailable (nullable decimal).
+- Label: Custom product label for this site (string).
+- Description: Custom HTML description for this site (string).
+- DiscountedPriceWOTax: Custom promotional price excluding tax (nullable decimal).
+- DiscountedPrice: Custom promotional price including tax (nullable decimal).
+- DiscountStartDate: Start date of the promotion on this site (nullable DateTimeOffset).
+- DiscountEndDate: End date of the promotion on this site (nullable DateTimeOffset).
 - ThumbnailUrl: URL of the thumbnail image.
-- IntermediateImageUrl: URL of the intermediate size image.
+- IntermediateImageUrl: URL of the intermediate sized image.
 - SmallImageUrl: URL of the small main image.
 - LargeImageUrl: URL of the large image.
 - MainImageUrl: URL of the main product image.
-- TinyImageUrl: URL of the tiny size image.
-- IsVisibleInSearch: Indicates if the product is visible in search results.
-- CustomUrlPart: Custom part of the product URL for enhanced SEO.
-- SegmentationId: Identifier of the main segmentation (nullable).
+- TinyImageUrl: URL of the tiny image.
+- IsVisibleInSearch: Indicates if the product is searchable (bool).
+- CustomUrlPart: Custom part of the product URL for improved SEO.
+- SegmentationId: Main segmentation identifier (nullable decimal).
 
-The class also performs validations on price consistency and promotion dates, ensuring HT/TTc pairs are both provided, start date is before end date in promotions, and promotional prices are lower than standard prices.
+The class includes validation of business rules especially around price coherence (taxed and untaxed), promotion fields and dates.
+
+The unique key is a combination of ProductId and SiteId.
 
 ### TypeScript class
 ```typescript
 interface ProductWebData {
   PriceGroupId?: string; // Guid nullable
-  MetaDescription: string | null;
-  Keywords: string | null;
+  MetaDescription?: string;
+  Keywords?: string;
   ProductId: number;
   SiteId: number;
   IsAvailable: boolean;
   IsWebEnabled: boolean;
-  PriceWOTax?: number | null;
-  Price?: number | null;
+  PriceWOTax?: number;
+  Price?: number;
   IsPublished: boolean;
-  VisibilityThreshold?: number | null;
-  AvailabilityThredshold?: number | null;
-  Label: string | null;
-  Description: string | null;
-  DiscountedPriceWOTax?: number | null;
-  DiscountedPrice?: number | null;
-  DiscountStartDate?: Date | null;
-  DiscountEndDate?: Date | null;
-  ThumbnailUrl: string | null;
-  IntermediateImageUrl: string | null;
-  SmallImageUrl: string | null;
-  LargeImageUrl: string | null;
-  MainImageUrl: string | null;
-  TinyImageUrl: string | null;
+  VisibilityThreshold?: number;
+  AvailabilityThredshold?: number;
+  Label?: string;
+  Description?: string;
+  DiscountedPriceWOTax?: number;
+  DiscountedPrice?: number;
+  DiscountStartDate?: string; // DateTimeOffset nullable ISO 8601 string
+  DiscountEndDate?: string;   // DateTimeOffset nullable ISO 8601 string
+  ThumbnailUrl?: string;
+  IntermediateImageUrl?: string;
+  SmallImageUrl?: string;
+  LargeImageUrl?: string;
+  MainImageUrl?: string;
+  TinyImageUrl?: string;
   IsVisibleInSearch: boolean;
-  CustomUrlPart: string | null;
-  SegmentationId?: number | null;
+  CustomUrlPart?: string;
+  SegmentationId?: number;
 }
 ```

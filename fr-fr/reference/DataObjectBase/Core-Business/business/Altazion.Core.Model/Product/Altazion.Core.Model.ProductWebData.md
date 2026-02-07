@@ -1,67 +1,69 @@
 ﻿## ProductWebData
 
-Représente les données web spécifiques d'un produit pour un site e-commerce dans le système Altazion.
+La classe ProductWebData représente les données spécifiques liées à un produit pour un site e-commerce dans le système Altazion.
 
 Propriétés publiques :
-- PriceGroupId : Identifiant du groupe de prix associé au produit (nullable).
-- MetaDescription : Méta-description utilisée pour le référencement SEO.
-- Keywords : Mots-clés pour le référencement SEO.
-- ProductId : Identifiant du produit associé.
-- SiteId : Identifiant du site web.
-- IsAvailable : Indique si le produit est disponible.
-- IsWebEnabled : Indique si le produit est actif sur le web.
-- PriceWOTax : Prix hors taxes personnalisé pour ce site (nullable).
-- Price : Prix toutes taxes comprises personnalisé pour ce site (nullable).
-- IsPublished : Indique si le produit est publié sur le site.
-- VisibilityThreshold : Seuil de quantité en dessous duquel le produit n'est plus visible (nullable).
-- AvailabilityThredshold : Seuil de quantité en dessous duquel le produit n'est plus considéré comme disponible (nullable).
-- Label : Libellé personnalisé du produit pour ce site.
-- Description : Description HTML personnalisée du produit pour ce site.
-- DiscountedPriceWOTax : Prix promotionnel hors taxes pour ce site (nullable).
-- DiscountedPrice : Prix promotionnel toutes taxes comprises pour ce site (nullable).
-- DiscountStartDate : Date de début de la promotion pour ce site (nullable).
-- DiscountEndDate : Date de fin de la promotion pour ce site (nullable).
-- ThumbnailUrl : URL de l'image miniature (thumbnail).
-- IntermediateImageUrl : URL de l'image de taille intermédiaire.
-- SmallImageUrl : URL de l'image principale (small).
-- LargeImageUrl : URL de l'image en grande taille.
-- MainImageUrl : URL de l'image principale du produit.
-- TinyImageUrl : URL de l'image très petite taille (tiny).
-- IsVisibleInSearch : Indique si le produit est visible dans les recherches.
-- CustomUrlPart : Partie personnalisée de l'URL du produit pour un référencement amélioré.
-- SegmentationId : Identifiant de segmentation principale (nullable).
+- PriceGroupId : identifiant du groupe de prix associé (Guid nullable).
+- MetaDescription : méta-description SEO.
+- Keywords : mots-clés SEO.
+- ProductId : identifiant du produit associé (long).
+- SiteId : identifiant du site web (int).
+- IsAvailable : indique si le produit est disponible (bool).
+- IsWebEnabled : indique si le produit est actif sur le web (bool).
+- PriceWOTax : prix hors taxes personnalisé pour ce site (decimal nullable).
+- Price : prix TTC personnalisé pour ce site (decimal nullable).
+- IsPublished : indique si le produit est publié sur le site (bool).
+- VisibilityThreshold : seuil de quantité sous lequel le produit n'est plus visible (decimal nullable).
+- AvailabilityThredshold : seuil de quantité sous lequel le produit n'est plus considéré comme disponible (decimal nullable).
+- Label : libellé personnalisé du produit pour ce site (string).
+- Description : description HTML personnalisée (string).
+- DiscountedPriceWOTax : prix promotionnel HT personnalisé (decimal nullable).
+- DiscountedPrice : prix promotionnel TTC personnalisé (decimal nullable).
+- DiscountStartDate : date de début de la promotion sur ce site (DateTimeOffset nullable).
+- DiscountEndDate : date de fin de la promotion sur ce site (DateTimeOffset nullable).
+- ThumbnailUrl : URL de l'image miniature.
+- IntermediateImageUrl : URL de l'image taille intermédiaire.
+- SmallImageUrl : URL de l'image principale petite taille.
+- LargeImageUrl : URL de l'image grande taille.
+- MainImageUrl : URL de l'image principale.
+- TinyImageUrl : URL de l'image très petite taille.
+- IsVisibleInSearch : indique si le produit est visible dans les recherches (bool).
+- CustomUrlPart : partie personnalisée de l'URL pour un meilleur référencement.
+- SegmentationId : identifiant de segmentation principale (decimal nullable).
 
-La classe réalise aussi des validations de cohérence sur les prix et les promotions, notamment vérifiant la présence symétrique des prix HT et TTC, la cohérence des dates de promotion, et la comparaison des prix promotionnels avec les prix standards.
+La classe comprend une méthode de validation des règles métiers notamment la cohérence entre prix HT et TTC, des champs de promotion et leurs dates.
+
+La clé unique est composée de ProductId et SiteId.
 
 ### D�claration TypeScript
 ```typescript
 interface ProductWebData {
   PriceGroupId?: string; // Guid nullable
-  MetaDescription: string | null;
-  Keywords: string | null;
+  MetaDescription?: string;
+  Keywords?: string;
   ProductId: number;
   SiteId: number;
   IsAvailable: boolean;
   IsWebEnabled: boolean;
-  PriceWOTax?: number | null;
-  Price?: number | null;
+  PriceWOTax?: number;
+  Price?: number;
   IsPublished: boolean;
-  VisibilityThreshold?: number | null;
-  AvailabilityThredshold?: number | null;
-  Label: string | null;
-  Description: string | null;
-  DiscountedPriceWOTax?: number | null;
-  DiscountedPrice?: number | null;
-  DiscountStartDate?: Date | null;
-  DiscountEndDate?: Date | null;
-  ThumbnailUrl: string | null;
-  IntermediateImageUrl: string | null;
-  SmallImageUrl: string | null;
-  LargeImageUrl: string | null;
-  MainImageUrl: string | null;
-  TinyImageUrl: string | null;
+  VisibilityThreshold?: number;
+  AvailabilityThredshold?: number;
+  Label?: string;
+  Description?: string;
+  DiscountedPriceWOTax?: number;
+  DiscountedPrice?: number;
+  DiscountStartDate?: string; // DateTimeOffset nullable ISO 8601 string
+  DiscountEndDate?: string;   // DateTimeOffset nullable ISO 8601 string
+  ThumbnailUrl?: string;
+  IntermediateImageUrl?: string;
+  SmallImageUrl?: string;
+  LargeImageUrl?: string;
+  MainImageUrl?: string;
+  TinyImageUrl?: string;
   IsVisibleInSearch: boolean;
-  CustomUrlPart: string | null;
-  SegmentationId?: number | null;
+  CustomUrlPart?: string;
+  SegmentationId?: number;
 }
 ```
