@@ -80,3 +80,11 @@ Le schéma ci-dessous représente l'architecture complète de Unified Stock. Les
 ![Schéma de l'architecture de Unified Stock](img/archiUnifiedStock.png)
 
 À noter que ce schéma utilise le module d'intégration des flux de stocks Xls Stock Parser fourni par Altazion. La configuration de la partie en gris (partie spécifique client) est propre à chaque client et différera donc de celle du schéma.
+
+
+## Sécurisation du module
+
+Si vous déployez Unified Stock sur vos propres serveurs, la configuration de sécurité se compose d'un couple user/mot de passe pour l'administration. Ces données doivent être fournies via [des variables d'environnements](ENV_UNIFIEDSTOCK.md) : 
+
+- ALTAZION_UNIFIED_STOCK_USER
+- ALTAZION_UNIFIED_STOCK_PSW
