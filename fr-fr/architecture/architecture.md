@@ -62,11 +62,14 @@ graph TB
     style BRET fill:#BDBDBD,stroke:#757575,color:#fff
 ```
 
+![Vue générale](schema-general.png)
+
 ---
 
 ## Architecture Logique - Niveau 2 : Support & Infrastructure
 
 ### Vue Générale
+
 
 ```mermaid
 graph TB
@@ -102,36 +105,35 @@ graph TB
         CSERV[Commerce Server]
     end
 
-    %% Connexions Office
+    %% Connexions SQL Server
     OM -->|Principal| SQL
-    OM -->|Certaines données| MONGO
-    OM -->|Chat/IA| REDIS
-    
     OPIM --> SQL
     OERP --> SQL
     ORET --> SQL
     OCONT --> SQL
-    OCONT --> MONGO
     OCOM --> SQL
-
-    %% Connexions Supply Chain
     OMAIN --> SQL
-    DELIV -->|Données| MONGO
-    DELIV -->|Cache| REDIS
-    DELIV -->|Appel API| USTOCK
-    USTOCK -->|Cache| REDIS
-
-    %% Connexions ECommerce
     CENG -->|Principal| SQL
-    CENG -->|Paniers| MONGO
-    CENG -->|Sessions| REDIS
-    CENG -->|Appel API| DELIV
-    
     CSIGN --> SQL
-    CSIGN --> REDIS
-    
     CSERV --> SQL
+
+    %% Connexions MongoDB
+    OM -->|Certaines données| MONGO
+    OCONT --> MONGO
+    DELIV -->|Données| MONGO
+    CENG -->|Paniers| MONGO
     CSERV --> MONGO
+
+    %% Connexions Redis
+    OM -->|Chat/IA| REDIS
+    DELIV -->|Cache| REDIS
+    USTOCK -->|Cache| REDIS
+    CENG -->|Sessions| REDIS
+    CSIGN --> REDIS
+
+    %% Appels API inter-composants
+    USTOCK -->|Appel API| DELIV
+    CENG -->|Appel API| DELIV
 
     %% Style des bases de données
     style MONGO fill:#4DB33D,stroke:#3E8E2E,color:#fff
@@ -141,6 +143,8 @@ graph TB
     style NOTIF fill:#FF6F00,stroke:#E65100,color:#fff
     style CACHE fill:#FF6F00,stroke:#E65100,color:#fff
 ```
+
+
 
 ---
 
@@ -163,27 +167,21 @@ graph TB
         OCOM[Office Commerce]
     end
 
-    %% Connexions Office Main
+    %% Connexions SQL Server
     OM -->|Principal| SQL
-    OM -->|Certaines données| MONGO
-    OM -->|Chat/IA| REDIS
-    
-    %% Connexions Office PIM
     OPIM -->|Principal| SQL
-    OPIM -->|DPP - Infos produits avancées| MONGO
-    
-    %% Connexions Office ERP
     OERP -->|Principal| SQL
-    
-    %% Connexions Office Retail
     ORET -->|Principal| SQL
-    
-    %% Connexions Office Content
     OCONT -->|Secondaire| SQL
-    OCONT -->|Principal| MONGO
-    
-    %% Connexions Office Commerce
     OCOM -->|Principal| SQL
+
+    %% Connexions MongoDB
+    OM -->|Certaines données| MONGO
+    OPIM -->|DPP - Infos produits avancées| MONGO
+    OCONT -->|Principal| MONGO
+
+    %% Connexions Redis
+    OM -->|Chat/IA| REDIS
 
     %% Style des applications Office
     style OM fill:#2196F3,stroke:#1976D2,color:#fff
@@ -199,6 +197,7 @@ graph TB
     style SQL fill:#0078D4,stroke:#005A9E,color:#fff
 ```
 
+![Vue office](vue-office.png)
 ---
 
 ### Vue Supply Chain Suite
@@ -217,16 +216,18 @@ graph TB
         USTOCK[Unified Stock]
     end
 
-    %% Connexions Orchestrator Main
+    %% Connexions SQL Server
     OMAIN -->|Principal| SQL
     
-    %% Connexions Delivery Optimizer
+    %% Connexions MongoDB
     DELIV -->|Données principales| MONGO
-    DELIV -->|Cache| REDIS
-    DELIV -->|Appel API| USTOCK
     
-    %% Connexions Unified Stock
+    %% Connexions Redis
+    DELIV -->|Cache| REDIS
     USTOCK -->|Cache principal| REDIS
+    
+    %% Appels API inter-composants
+    USTOCK -->|Appel API| DELIV
 
     %% Style des applications Supply Chain
     style OMAIN fill:#00BCD4,stroke:#0097A7,color:#fff
@@ -238,6 +239,8 @@ graph TB
     style REDIS fill:#DC382D,stroke:#B02A21,color:#fff
     style SQL fill:#0078D4,stroke:#005A9E,color:#fff
 ```
+
+![Vue office](vue-orchestrator.png)
 
 ---
 
@@ -261,19 +264,21 @@ graph TB
         CSERV[Commerce Server]
     end
 
-    %% Connexions Commerce Engine
+    %% Connexions SQL Server
     CENG -->|Principal| SQL
-    CENG -->|Paniers| MONGO
-    CENG -->|Sessions| REDIS
-    CENG -->|Appel API| DELIV
-    
-    %% Connexions Commerce Signage
     CSIGN -->|Principal| SQL
+    CSERV -->|Principal| SQL
+
+    %% Connexions MongoDB
+    CENG -->|Paniers| MONGO
+    CSERV -->|Données secondaires| MONGO
+
+    %% Connexions Redis
+    CENG -->|Sessions| REDIS
     CSIGN -->|Cache| REDIS
     
-    %% Connexions Commerce Server
-    CSERV -->|Principal| SQL
-    CSERV -->|Données secondaires| MONGO
+    %% Appels API inter-composants
+    CENG -->|Appel API| DELIV
 
     %% Style des applications ECommerce
     style CENG fill:#9C27B0,stroke:#7B1FA2,color:#fff
@@ -288,7 +293,7 @@ graph TB
     style REDIS fill:#DC382D,stroke:#B02A21,color:#fff
     style SQL fill:#0078D4,stroke:#005A9E,color:#fff
 ```
-
+![Vue office](vue-commerce.png)
 ---
 
 ## Détail des Composants
@@ -314,7 +319,7 @@ graph TB
 |-----------|-------------|--------------|-------------|
 | **Orchestrator Main** | Back-office logistique et orchestration principale | `altazion/orchestrator-main` | SQL Server |
 | **Delivery Optimizer** | Optimisation des livraisons et routage | `altazion/delivery-optimizer` | MongoDB vCore, Redis Enterprise |
-| **Unified Stock** | Gestion unifiée des stocks multicanaux | `altazion/oms-unifiedstock` | Redis Enterprise |
+| **Unified Stock** | Gestion unifiée des stocks multicanaux | `altazion/oms-unifiedstock` | Redis Enterprise, Delivery Optimizer (API) |
 
 **Batchs associés :** Orchestrator Batchs (pour les 3 composants), Orchestrator OMS Batchs (progression commandes/bons de préparation)
 
@@ -374,5 +379,5 @@ Ces composants peuvent avoir un ingress "semi privé" :
 
 
 *Documentation logique maintenue par l'équipe DevOps Altazion*
-*Dernière mise à jour : 19 janvier 2026*
+*Dernière mise à jour : 13 février 2026*
 
