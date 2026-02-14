@@ -1,45 +1,21 @@
 ﻿## ModeReglementWeb
 
-The ModeReglementWeb class extends ModeReglement and represents a web-specific payment method with additional properties related to commercial constraints and activation status.
+Represents a payment method with its specifics for a e-commerce website. Inherits from WebPaymentMethod.
 
 Public properties:
-- MontantMiniCommande (decimal): Minimum allowed amount for an order.
-- MontantMaxiCommande (decimal): Maximum allowed amount for an order.
-- EstActif (bool): Indicates whether the payment method is active.
-- SiteId (int): Identifier of the site associated with this payment method.
+- MinimumOrderAmount: minimum order amount for this payment method usage.
+- MaximumOrderAmount: maximum order amount for this payment method usage.
+- IsActive: indicates if this payment method is active on the website.
+- SiteId: identifier of the website for which this payment method is configured.
 
-It inherits all properties from ModeReglement which describes general characteristics of a payment method.
+This class is a compatibility alias for WebPaymentMethod and marked obsolete, with a recommendation to use WebPaymentMethod directly.
 
 ### TypeScript class
 ```typescript
 interface ModeReglementWeb {
-  Guid: string;
-  EstModePrincipal: boolean;
-  CodeComptable: string | null;
-  Priorite: number;
-  UrlModuleWeb: string | null;
-  UrlModuleRetour: string | null;
-  Nom: string | null;
-  TypeReglement: number;
-  ClefMarchand: string | null;
-  ClefMarchandComplement: string | null;
-  Classe: string | null;
-  UtilisableECommerce: boolean;
-  UtilisablePosWeb: boolean;
-  UtilisableClickNMortar: boolean;
-  UtilisableMicroTransactions: boolean;
-  ProviderId: number;
-  EstModifiable: boolean;
-  UtilisableMarketPlace: boolean;
-  UtilisableGc: boolean;
-  Delai: number;
-  File1: Uint8Array | null;
-  File2: Uint8Array | null;
-  EstRRR: boolean;
-  ChaineComplementaire: string | null;
-  MontantMiniCommande: number;
-  MontantMaxiCommande: number;
-  EstActif: boolean;
+  MinimumOrderAmount: number;
+  MaximumOrderAmount: number;
+  IsActive: boolean;
   SiteId: number;
 }
 ```
