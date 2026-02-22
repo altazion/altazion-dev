@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>R&#232;gles d'approvisionnement | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="R&#232;gles d'approvisionnement | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="règles-dapprovisionnement">Règles d&#39;approvisionnement</h1>
+
+<h2 id="généralités">Généralités</h2>
+<h3 id="définition">Définition</h3>
+<p>Une source d&#39;appro permet de définir des règles pour savoir quel(s) stock(s) sont pris en compte pour chaque article.</p>
+<p>Chaque règle concerne un des types de stocks suivant :</p>
+<ul>
+<li>Un stock <strong>“propre”</strong> géré par vous-même</li>
+<li>Un stock <strong>“fournisseur”</strong> pour du drop shipping</li>
+<li>Un stock <strong>“magasin”</strong> pour du retrait OU pour du Ship From Store</li>
+<li>Un stock <strong>“partenaire”</strong> pour, par exemple, un vendeur marketplace</li>
+</ul>
+<p>Une source d&#39;approvisionnement doit au moins contenir une règle d&#39;approvisionnement pour être valide.</p>
+<h3 id="sélection-des-stocks">Sélection des stocks</h3>
+<p>Les règles d&#39;appro disposent de paramètres servant à la sélection des stocks concernés par la règle :</p>
+<ul>
+<li><strong>Le Rang</strong>, permet d&#39;indiquer l&#39;ordre croissant d&#39;exécution des règles. L&#39;ordre d&#39;exécution des règles est important car un stock ne peut être affecté que par une seule règle. Si deux règles affectent le même stock, seule la première exécutée sera prise en compte.</li>
+<li><strong>Le code pays</strong>, pour sélectionner toutes les origines de stock d&#39;un pays en particulier, peut être null si l&#39;on souhaite cibler les origines de tous les pays disponibles.</li>
+<li><strong>Le booléen</strong> indiquant si les commandes sont réservées par défaut.</li>
+</ul>
+<p>Il est possible de définir plusieurs règles d’approvisionnement pour chaque type de stock. Ces règles sont exécutées selon leur <strong>rang</strong> (1 puis 2, puis 3, etc..). Lorsqu’un magasin, un fournisseur ou un entrepôt est associé à une règle d’approvisionnement, il n’est plus pris en compte par les règles suivantes. Ainsi, chaque entité n’est concernée que par la première règle applicable selon l’ordre de priorité défini.</p>
+<p>Par exemple : vous gérez des magasins de tailles différentes, sous des enseignes différentes, vous pouvez définir les règles suivantes :</p>
+<ul>
+<li>Rang 1 : Les magasins d&#39;une liste fixes &quot;magasins de centre ville&quot;, contient 10 magasins et ne prend pas en compte les produits de grande taille, puis ignore les stocks &lt; 3</li>
+<li>Rang 2 : Les magasins franchisés de votre enseigne A, pour lesquels les stocks &lt; 5 sont ignorés</li>
+<li>Rang 3 : Les magasins de l&#39;enseigne A, pour lesquels les stocks &lt; 3 sont ignorés</li>
+<li>Rang 4 : les magasins de toutes les enseignes, pour lesquels les stocks &lt; 2 sont ignorés.</li>
+</ul>
+<p>Le fonctionnement sera le suivant :</p>
+<ol>
+<li>Si un magasin est à la fois dans les &quot;centres villes&quot;, un franchisé et de l&#39;enseigne A, seule la règle de Rang 1 sera prise compte.</li>
+<li>Un magasin franchisé de l&#39;enseigne A sera pris en compte dans la règle de rang 2</li>
+<li>Un magasin succursale de l&#39;enseigne A sera pris en compte dans la règle de rang 3</li>
+<li>Un magasin de l&#39;enseigne B, verra la règle de rang 4 appliqué</li>
+</ol>
+<h3 id="calcul-des-disponibilités">Calcul des disponibilités</h3>
+<p>Chaque règle peut également disposer de traitements spécifiques à exécuter avant d&#39;effectuer les calculs ci-dessous. Consultez la page dédiée aux traitements pour plus d&#39;information.</p>
+<p>Enfin, les règles sont pourvues de paramètres ajustables pour le calcul des disponibilités finales qui sont exécutés dans l&#39;ordre suivant :</p>
+<ul>
+<li><strong>Le Pourcentage Disponible</strong> permet d&#39;indiquer le pourcentage du stock total d&#39;un article à rendre disponible (s&#39;il est à 0, le calcul de la règle est ignoré). Obligatoire</li>
+<li><strong>Le Seuil de Quantité Disponible</strong> qui représente le seuil de quantité minimum à respecter pour le rendre tous les stocks d&#39;un article disponible. On effectue ainsi la somme des stocks par articles et on vérifie qu&#39;elle est supérieure ou égale au seuil. Optionnel</li>
+<li><strong>Le Nombre Minimum d&#39;Origines de Stocks</strong>, il s&#39;agit du nombre minimum d&#39;origines de stocks (magasins, dépôts, fournisseurs, etc.) qui doit rester après exécution de tous les traitements de la règle. En dessous de ce nombre, l&#39;article complet est ignoré. Optionnel</li>
+</ul>
+<p>En fonction du type d&#39;exécution de la source d&#39;approvisionnement, le calcul des disponibilités peut avoir lieu en base de données ou alors être transmis à Unified Stock.</p>
+<h2 id="exécution-des-règles-dapprovisionnement">Exécution des règles d&#39;approvisionnement</h2>
+<p>Les règles sont traitées en deux temps durant l&#39;exécution des sources d&#39;approvisionnement. On commence par importer les stocks liés à chaque règle en respectant l&#39;ordre des rangs (voir phase d&#39;import des données dans le traitement de la source d&#39;appro).</p>
+<p>Une fois cela terminé on réitère sur chaque règle afin d&#39;exécuter les traitements spécifiques (voir page dédiée) et finalement procéder ou non à l&#39;exécution du calcul des disponibilités.
+Le diagramme de flux ci-dessous détaille les étapes d&#39;exécution d&#39;une règle d&#39;approvisionnement après la phase d&#39;import des stocks :</p>
+<p><img src="img/ExecutionRegleAppro.png" alt="Diagramme de flux règle d&#39;approvisionnement"></p>
+<h2 id="spécificités-des-règles-magasins">Spécificités des règles &quot;Magasins&quot;</h2>
+<h3 id="critères-de-sélection-des-magasins">Critères de sélection des magasins</h3>
+<p>Les règles magasins disposent de plusieurs critères qui leur sont spécifiques et qui servent à sélectionner et stocks et les magasins concernées par la règle :</p>
+<ul>
+<li><strong>L&#39;identifiant de Zone Magasin</strong> permettant de sélectionner les magasins d&#39;une zone en particulier. Peut être null si on souhaite cibler toutes les zones magasins.</li>
+<li><strong>Le Type de Magasin</strong>, permettant de sélectionner les magasin affilié et franchisé ou les magasins intégré. Peut être null si l&#39;on souhaite cibler tous les types de magasins.</li>
+<li><strong>L&#39;identifiant d&#39;Enseigne de Magasin</strong>, permettant de sélectionner les magasins appartenant à une enseigne en particulier. Peut être null si on souhaite cibler toutes les enseignes magasins.</li>
+</ul>
+<p>À noter que ces critères peuvent se combiner, vous pouvez par exemple sélectionner les magasins intégrés dans une zone spécifique en France. Il est également possible de n&#39;utiliser aucun critère pour cibler tous vos magasins.</p>
+<h3 id="sélectionexclusion-des-magasins-via-les-liaisons-de-la-règle-dapprovisionnement">Sélection/exclusion des magasins via les liaisons de la règle d&#39;approvisionnement</h3>
+<p>Chaque règle magasin peut disposer d&#39;une liste de magasins liés permettant, en fonction du type de liaison, d&#39;inclure ou d&#39;exclure uniquement les magasins de cette liste du calcul de la règle d&#39;approvisionnement. Autrement dit, vous pouvez choisir d&#39;inclure uniquement les magasins liés à la règle ou de sélectionner tous les magasins sauf ceux liés à la règle.</p>
+<p>Cette liste est optionnelle et ne se cumule pas avec les autres critères de sélections décrits plus haut.</p>
+<h3 id="règle-ramasse-miettes">Règle &quot;ramasse-miettes&quot;</h3>
+<p>Dans tous les cas il est nécessaire que la dernière règle magasin cible tous les magasins afin de faire office de &quot;ramasse-miettes&quot; et de traiter les magasins non inclus dans les précédentes règles. Si vous ne souhaitez pas traiter le stock des magasins restant, il suffit de passer le pourcentage de disponibilité à 0 pour cette règle et elle sera ignorée.</p>
+<h2 id="spécificités-des-règles-fournisseurs">Spécificités des règles &quot;Fournisseurs&quot;</h2>
+<h3 id="critères-de-sélection-des-fournisseurs">Critères de sélection des fournisseurs</h3>
+<p>Tout comme les règles magasins, les règles fournisseurs disposent de champs spécifiques servant à limiter les stocks concernés par la règle :</p>
+<ul>
+<li><strong>Top Fournisseurs</strong>, il représente les X premiers fournisseurs de chaque stock à prendre en compte pour le calcul des stocks. Ces derniers sont classés par leur priorité. Peut être null si l&#39;on souhaite sélectionner tous les fournisseurs.</li>
+</ul>
+<h3 id="sélectionexclusion-des-fournisseurs-via-les-liaisons-de-la-règle-dapprovisionnement">Sélection/exclusion des fournisseurs via les liaisons de la règle d&#39;approvisionnement</h3>
+<p>Chaque règle fournisseur peut disposer d&#39;une liste de fournisseurs liés permettant, en fonction du type de liaison, d&#39;inclure ou d&#39;exclure uniquement les fournisseurs de cette liste du calcul de la règle d&#39;approvisionnement. Autrement dit, vous pouvez choisir d&#39;inclure uniquement les fournisseurs liés à la règle ou de sélectionner tous les fournisseurs sauf ceux liés à la règle.</p>
+<p>Cette liste est optionnelle et ne se cumule pas avec les autres critères de sélections décrits plus haut.</p>
+<h2 id="spécificités-des-règles-sur-stocks">Spécificités des règles &quot;Sur Stocks&quot;</h2>
+<h3 id="critères-de-sélection-des-stocks">Critères de sélection des stocks</h3>
+<p>Les règles sur stocks disposent également de champs spécifiques servant à limiter les stocks concernés par la règle :</p>
+<ul>
+<li><strong>L&#39;id du dépôt concerné</strong>. Il sert à limiter les calculs à un dépôt en particulier. S&#39;il est null alors tous les dépôts sont concernés.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/orchestrator/sources-appro/reglesAppro.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

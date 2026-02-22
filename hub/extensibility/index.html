@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Extensibilit&#233; Altazion Hub | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Extensibilit&#233; Altazion Hub | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="extensibilité-altazion-hub">Extensibilité Altazion Hub</h1>
+
+<h2 id="développer-un-module">Développer un module</h2>
+<pre><code class="lang-csharp">using Altazion.Hub.Common;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Altazion.Hub.Modules.Exemple
+{
+    public class ExempleModule : IAltazionHubModule
+    {
+        bool IAltazionHubModule.Execute()
+        {
+            return false;
+        }
+
+        void IAltazionHubModule.Init(IAltazionModuleHost host, string init)
+        {
+
+        }
+
+        bool IAltazionHubModule.Poll()
+        {
+            return false;
+        }
+
+        public string ExecuteCommand(string command, string parameters)
+        {
+            return &quot;OK&quot;;
+        }
+    }
+}
+</code></pre><h3 id="créer-le-projet">Créer le projet</h3>
+<p>Depuis la version 3.0, les modules Hub sont uniquement des composants développés en .net standard 2.0 et supérieur. Pour créer un nouveau module, créez tout simplement un projet assembly .net standard 2.0.</p>
+<p>Dans Visual Studio, vous pouvez créer un projet de &quot;Bibilothèque de classe .net standard 2.0&quot;.</p>
+<p><img src="index-visualstudio-hubproject.PNG" alt="visual studio"></p>
+<p>Si vous utilisez un autre IDE, la commande </p>
+<pre><code class="lang-powershell">dotnet new classlib -f netstandard2.0
+</code></pre><p>vous permettra de créer le projet.</p>
+<p><img src="index-dotnetnew-hubproject.PNG" alt="dotnet new classlig"></p>
+<h3 id="réferencer-les-nugets">Réferencer les nugets</h3>
+<p>Vous devrez ensuite ajouter les nugets Altazion Hub à votre projet.</p>
+<h3 id="implémenter-linterface">Implémenter l&#39;interface</h3>
+<h3 id="ecrire-le-fichier-manifeste">Ecrire le fichier manifeste</h3>
+<p>Vous devrez ensuite écrire un fichier manisfest en json pour déclarer votre module auprès du service de déploiement. Ce fichier est nécessaire à la fois pour un déploiement sur un service Windows, un daemon Linux ou pour un déploiement via Docker, bien que son rôle soit légèrement différent en fonction de l&#39;environnement.</p>
+<p>Si vous utilisez Visual Studio, vous pouvez ajouter le catalogue de schéma de nos solutions dans votre IDE afin de pouvoir profiter d&#39;Intellisense. Pour cela, allez dans le menu <strong>Outils</strong>&gt;<strong>Options</strong> puis dans <strong>Editeur de texte</strong> &gt; <strong>JSON</strong> &gt; <strong>Schémas</strong>, et ajoutez notre catalogue de schémas :</p>
+<p><img src="index-visualstudio-schemaconfig.PNG" alt="visual studio"></p>
+<p><code>https://schemas.altazion.com/schema-catalog.json</code></p>
+<h3 id="packager-et-déployer">Packager et déployer</h3>
+<h4 id="pour-docker">Pour Docker</h4>
+<p>=&gt; se baser sur l&#39;image <a href="https://hub.docker.com/repository/docker/altazion/hub-host">altazion/hub-host</a>
+=&gt; copier le contenu de votre module dans /app/bin/ de cette image
+=&gt; créer votre docker file </p>
+<pre><code class="lang-text">FROM altazion/hub-host:latest AS base
+WORKDIR /app
+COPY &quot;./&quot; /app/bin/
+ENTRYPOINT [&quot;dotnet&quot;, &quot;Altazion.Hub.Host.dll&quot;]
+</code></pre><h4 id="pour-service-windows-ou-systemd-linux">Pour service Windows ou SystemD linux</h4>
+<h2 id="ajouter-un-service-api">Ajouter un service API</h2>
+<h3 id="implémenter-linterface-supplémentaire">Implémenter l&#39;interface supplémentaire</h3>
+<p>Pour déclarer votre module comme exportant une API, il vous faudra implémenter une seconde interface au niveau de votre module : <code>Altazion.Hub.Common.IAltazionHubWebModule</code></p>
+<div class="WARNING"><h5>Warning</h5><p>Vous devez impérativement implémenter les deux interfaces sur la même classe.</p>
+</div>
+<h3 id="ajouter-les-controleurs">Ajouter le(s) controleur(s)</h3>
+<p>Vous aurez ensuite simplement besoin d&#39;ajouter vos controlleurs Web API :</p>
+<ul>
+<li>Ajoutez une référence au nuget <code>Microsoft.AspNetCore.Mvc.Core</code> afin d&#39;importer tous les types nécessaires</li>
+<li>Puis créez une ou plusieurs classe(s) de type <em>controleur Web API</em> :</li>
+</ul>
+<pre><code class="lang-csharp">[Route(&quot;api/demo&quot;), ApiController]
+public class MonController : ControllerBase
+{
+    [Route(&quot;methode1&quot;), HttpGet]
+    public string Methode1()
+    {
+        return &quot;OK&quot;;
+    }
+}
+</code></pre><h2 id="implémenter-une-fonctionnalité-spécifique">Implémenter une fonctionnalité spécifique</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Fonctionnalité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CRM</td>
+<td><a href="crm/ICustomersRepositoryExt.html">Base données clients</a></td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/hub/extensibility/index.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

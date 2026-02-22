@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Compiler et d&#233;ployer votre extension | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Compiler et d&#233;ployer votre extension | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="compiler-et-déployer-votre-extension">Compiler et déployer votre extension</h1>
+
+<h2 id="déploiement-classique">Déploiement classique</h2>
+<p>Lorsque vous développez des extensions, vous devez les déposer dans un dossier connu de la solution se trouvant sous la racine : </p>
+<p><strong>$ROOTEXTFOLDER$</strong> = %ALLUSERSPROFILE%\Cpoint\[e]\extensibility</p>
+<div class="NOTE"><h5>Note</h5><p>Le dossier <code>ext</code> peut être défini dans un autre emplacement en modifiant la configuration, si vous souhaitez, par exemple, placer un environnement de tests et un environnement de production sur le même serveur. Contactez notre service de support pour plus d&#39;informations.</p>
+</div>
+<p>A l&#39;intérieur de cette racine, vous pourrez déposer votre extensions dans l&#39;un des sous dossiers suivants, en fonction du module que vous voulez étendre.</p>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Chemin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Altazion Office (ERP et Back Office)</td>
+<td><strong>$ROOTEXTFOLDER$</strong>\services</td>
+</tr>
+<tr>
+<td>Altazion e-commerce</td>
+<td><strong>$ROOTEXTFOLDER$</strong>\ecommerce</td>
+</tr>
+<tr>
+<td>Altazion Orchestrator (OMS et Batchs)</td>
+<td><strong>$ROOTEXTFOLDER$</strong>\logistique</td>
+</tr>
+<tr>
+<td>Altazion Store &amp; Signage</td>
+<td><strong>$ROOTEXTFOLDER$</strong>\POSCentral</td>
+</tr>
+</tbody>
+</table>
+<div class="WARNING"><h5>Warning</h5><p>Vous ne devez en aucun cas déposer vos extensions dans le dossier d&#39;installation du programme dans cette configuration. Le programme de mise à jour, permettant l&#39;installation des nos nouvelles versions, supprime tous les fichiers qu&#39;il ne reconnait pas lors de la mise à jour.</p>
+</div>
+<h2 id="deploiement-docker">Deploiement Docker</h2>
+<p>Si vous utilisez docker, vous pouvez utiliser le même principe et déposer vos extensions dans le dossier d&#39;extensibilité. Toutefois, comme il n&#39;y a pas de mise à jour automatique de nos applications dans ce mode et que la dispersion des binaires n&#39;est pas souhaitable dans un container, vous avez deux autres possibilités :</p>
+<ol>
+<li>utiliser le montage de volume pour déployer le binaire sur l&#39;hôte de vos containers et mapper ensuite ce dossier. </li>
+<li>créer votre propre image Docker en incluant vos spécifiques dans un sous-dossier de la solution.</li>
+</ol>
+<h3 id="mappage-de-dossier">Mappage de dossier</h3>
+<p>Pour utiliser un dossier local pour fournir à la fois la configuration et les extensibilités, vous aurez besoin d&#39;un volume contenant le dossier de configuration de votre installation, à mapper sur le dossier c:\programdata\cpoint\</p>
+<p>Par exemple :</p>
+<p><code>docker run -v c:\programdata\cpoint\:c:\programdata\cpoint\ -d -p 8000:80 altazion/office:latest</code></p>
+<h3 id="créer-votre-image-docker">Créer votre image Docker</h3>
+<p>Pour inclure directement vos extensions dans les containers que vous déploierez, il vous suffit de placer vos binaires et fichiers de configuration dans le sous dossier <code>/inetpub/wwwroot/custom-bin/</code> de l&#39;image.</p>
+<p>Voici un exemple de dockerfile vous permettant d&#39;ajouter le contenu du dossier courant dans le path d&#39;extensibilité <code>custom-bin</code></p>
+<pre><code class="lang-text">FROM altazion/office
+COPY ./ /inetpub/wwwroot/custom-bin/
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/global/build-extension-onprem.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PickupPoint | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="PickupPoint | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="pickuppoint">PickupPoint</h2>
+
+<p>La classe PickupPoint représente un point de livraison (point relais, locker, consigne, etc.) où les clients peuvent récupérer leurs colis.</p>
+<p>Propriétés publiques :</p>
+<ul>
+<li>Id : Identifiant unique du point de livraison (Guid).</li>
+<li>CarrierId : Identifiant du prestataire de transport associé (clé primaire legacy) (int).</li>
+<li>Name : Nom du point de livraison (string).</li>
+<li>Address : Adresse complète du point de livraison (string).</li>
+<li>PostalCode : Code postal (string).</li>
+<li>City : Ville (string).</li>
+<li>CountryCode : Code pays ISO 3 lettres (string).</li>
+<li>PlatformLevel1 à PlatformLevel5 : Codes des plateformes logistiques aux niveaux 1 à 5 (string).</li>
+<li>IsPrimary : Indique si ce point est le point principal de la zone (bool).</li>
+<li>ExternalCode : Code externe du point de livraison (identifiant transporteur) (string).</li>
+<li>StartDate : Date de début de validité du point de livraison (DateTimeOffset).</li>
+<li>EndDate : Date de fin de validité du point de livraison (DateTimeOffset).</li>
+<li>AccessIndications : Indications d&#39;accès ou informations complémentaires (string).</li>
+<li>AvailableServices : Services disponibles, séparés par des virgules (string).</li>
+<li>Longitude : Longitude GPS (decimal?).</li>
+<li>Latitude : Latitude GPS (decimal?).</li>
+<li>PhoneNumber : Numéro de téléphone du point de livraison (string).</li>
+<li>IsActive : Indique si le point de livraison est actif actuellement (bool, calcule si la date courante est entre StartDate et EndDate).</li>
+</ul>
+<h3 id="dclaration-typescript">D�claration TypeScript</h3>
+<pre><code class="lang-typescript">interface PickupPoint {
+  Id: string; // Guid
+  CarrierId: number;
+  Name: string;
+  Address: string;
+  PostalCode: string;
+  City: string;
+  CountryCode: string;
+  PlatformLevel1?: string;
+  PlatformLevel2?: string;
+  PlatformLevel3?: string;
+  PlatformLevel4?: string;
+  PlatformLevel5?: string;
+  IsPrimary: boolean;
+  ExternalCode?: string;
+  StartDate: string; // ISO date string
+  EndDate: string; // ISO date string
+  AccessIndications?: string;
+  AvailableServices?: string;
+  Longitude?: number | null;
+  Latitude?: number | null;
+  PhoneNumber?: string;
+  IsActive: boolean;
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/fr-fr/reference/DataObjectBase/Core-Business/business/Altazion.Logistics.Model/PickupPoint/Altazion.Logistics.Model.PickupPoint.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>

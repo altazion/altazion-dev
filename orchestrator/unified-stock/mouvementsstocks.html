@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Mouvements de stocks | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Mouvements de stocks | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="mouvements-de-stocks">Mouvements de stocks</h1>
+
+<h2 id="généralités">Généralités</h2>
+<p>Le module Unified Stock vous permet de réaliser facilement des mouvements de stocks depuis vos entrepôts (magasins, dépôts, etc.).
+Trois types de mouvements sont réalisables :</p>
+<ul>
+<li>Des entrées de stocks dans une zone de stockage</li>
+<li>Des sorties de stocks depuis une zone de stockage</li>
+<li>Des transferts de stock depuis une zone vers une autre qui peut se trouver dans un autre entrepôt.</li>
+</ul>
+<p>À noter qu&#39;il est possible de transférer du stock d&#39;un type d&#39;entrepôt à un autre. Vous pouvez par exemple transférer du stock depuis un dépôt vers un magasin et inversement. De plus chaque mouvement de stocks entraîne automatiquement le recalcul de la <strong>valorisation du stock</strong> en fonction du type de stockage de l&#39;article (<strong>PUMP</strong> : Prix Unitaire Moyen Pondéré ou <strong>FIFO</strong> : First In First Out).</p>
+<p>Pour effectuer des mouvements de stocks, plusieurs options s&#39;offrent à vous :</p>
+<ul>
+<li>Utiliser les pages web de back-office dédiées aux mouvements de stocks.</li>
+<li>Utiliser l&#39;application android de gestion des stocks Altazion.</li>
+<li>Appeler directement les points API du module Unified Stock.</li>
+</ul>
+<p>Cette documentation se concentre sur ce troisième point.</p>
+<h2 id="points-api">Points API</h2>
+<h3 id="présentation">Présentation</h3>
+<p>Comme décrit plus haut, le module de traitement des stocks dispose d&#39;APIs permettant d&#39;effectuer des mouvements de stocks.
+Tous les points API sont détaillés dans le swagger et sont accompagnés d&#39;une définition des objets d&#39;envoi et de retour.</p>
+<p><img src="img/SwaggerUIInventory.png" alt="Interface SwaggerUi inventory"></p>
+<p>Ces points sont accessibles via l&#39;URL suivante :</p>
+<p>{UrlDeUnifiedStock}/{votreRaisonJuridique}/unified-stock/inventory/movements/{typeDeMouvement}</p>
+<p>Il existe trois types de mouvements :</p>
+<ul>
+<li><strong>enter</strong> pour les entrées de stock</li>
+<li><strong>withdraw</strong> pour les sorties de stock</li>
+<li><strong>transfer</strong> pour les transferts</li>
+</ul>
+<p>Ainsi une url complète pour un client ayant accès au site &quot;altazion-unifiedstocks.net&quot;, dont la raison juridique est &quot;1&quot; et qui souhaite réaliser des sorties sera :</p>
+<p><a href="https://altazion-unifiedstocks.net/1/unified-stock/inventory/movements/withdraw">https://altazion-unifiedstocks.net/1/unified-stock/inventory/movements/withdraw</a></p>
+<p>Dans les trois cas, la requête envoyée à Unified Stock devra être de type <strong>POST</strong> car le module s&#39;attend à recevoir un tableau d&#39;objets au format JSON dans le body contenant les mouvements à réaliser. Unified Stock est conçu pour pouvoir traiter plusieurs mouvements de stocks du même type à la fois (plusieurs entrées, sorties, transferts), c&#39;est pour cela qu&#39;un tableau est demandé dans le body des requêtes API. Dans le cas où vous n&#39;avez qu&#39;un seul mouvement à réaliser, il est possible de ne mettre qu&#39;un seul élément dans le tableau.</p>
+<p>Enfin, les objets à envoyer sont conçus pour être très similaires afin de simplifier un maximum leur intégration dans votre SI.</p>
+<h3 id="sorties-de-stock">Sorties de stock</h3>
+<p><strong>POST : {tenantId}/unified-stock/inventory/movements/withdraw</strong></p>
+<p><img src="img/SwaggerUIInventoryWithdrawals.png" alt="Interface SwaggerUi inventory withdrawals"></p>
+<p>Ce point API permet de traiter plusieurs sorties de stock. Pour cela il est nécessaire de passer un tableau d&#39;objets JSON contenant chacun les champs suivants dans le body de la requête.</p>
+<h4 id="origin">origin</h4>
+<p>Il sert à identifier l&#39;endroit duquel les stocks sont retirés et contient :</p>
+<ul>
+<li>Le champ <strong>warehouseGuid</strong> permettant d&#39;identifier l&#39;entrepôt.</li>
+<li>Le champ <strong>storageZoneGuid</strong> permettant d&#39;identifier la zone de stockage dans l&#39;entrepôt où se trouve le stock à prélever.</li>
+</ul>
+<p><strong>Attention</strong> : Les deux champs sont obligatoires.</p>
+<h4 id="withdrawals">withdrawals</h4>
+<p>Il s&#39;agit d&#39;un tableau permettant d&#39;identifier les articles auxquels retirer du stock ainsi que les quantités à prélever.</p>
+<p>Il est possible d&#39;identifier un article via :</p>
+<ul>
+<li><strong>articleRef</strong> : La référence interne courte de l&#39;article en base de données. Ces références sont le plus souvent saisies par l&#39;utilisateur.</li>
+<li><strong>articleGuid</strong> : L&#39;identifiant unique interne de l&#39;article en base de données. Ces identifiants sont le plus souvent utilisés pour la communication entre machines.</li>
+<li><strong>articleSecondaryRef</strong> : Une autre façon d&#39;identifier l&#39;article tel qu&#39;un EAN13 par exemple. Ce type de référence est le plus souvent scanné.</li>
+</ul>
+<p><strong>Attention</strong> : Au moins l&#39;un des identifiants doit être renseigné. Plusieurs types d&#39;identifiants peuvent coexister.</p>
+<p>Le champ <strong>quantity</strong> permet quant à lui de définir les quantités de stock à retirer pour l&#39;article voulu.</p>
+<p>Voici ci-dessous un exemple d&#39;appel contenant une sortie de stock. Cette sortie contient 3 lignes de stock à prélever :</p>
+<pre><code class="lang-json">[
+  {
+    &quot;origin&quot;: {
+      &quot;warehouseGuid&quot;: &quot;378f8f85-662a-4278-b49b-5cf540c6fb53&quot;,
+      &quot;storageZoneGuid&quot;: &quot;ec613b58-4156-4769-a2c3-5b7dc230d10b&quot;
+    },
+    &quot;withdrawals&quot;: [
+      {
+        &quot;articleRef&quot;: &quot;0002&quot;,
+        &quot;quantity&quot;: 4
+      },
+      {
+        &quot;articleGuid&quot;: &quot;8285173e-a9c9-425b-9588-8ff261621dac&quot;,
+        &quot;quantity&quot;: 2
+      },
+      {
+        &quot;articleSecondaryRef&quot;: &quot;0400000164038&quot;,
+        &quot;quantity&quot;: 2
+      }
+    ]
+  }
+]
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/orchestrator/unified-stock/mouvementsstocks.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,370 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Framework d'acc&#233;s aux donn&#233;es | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Framework d'acc&#233;s aux donn&#233;es | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="framework-daccés-aux-données">Framework d&#39;accés aux données</h1>
+
+<p>Pour accéder aux données, vous devez utiliser, autant que possible, le framework &#39;DataManager&#39;. Celui-ci vous permet de réaliser des opérations de select, d&#39;update, etc.</p>
+<h2 id="principes-daccès">Principes d&#39;accès</h2>
+<p>Le framework d&#39;accès aux données met à disposition plusieurs classes, dont la principale, <code>DataManager</code>, permet d&#39;exécuter des requêtes et autres opérations sur la base. Ce framework étant assez ancien, il utilise des objets de type <code>DataSet</code> (voir ci-dessous) pour stocker les données en mémoire.</p>
+<p>Pour utiliser le framework afin d&#39;accéder au données, vous devez commencer par obtenir un objet de type <code>DataManager</code> en appelant la méthode static <code>GetDataManager()</code>  (vous pouvez, éventuellement, lui passer un nom de connexion). Il s&#39;agit d&#39;un <a href="https://fr.wikipedia.org/wiki/Fabrique_(patron_de_conception)">Design pattern de type Factory</a> classique qui utilise un système de configuration décrit ci-dessous.</p>
+<pre><code>using CPointSoftware.Framework.DataLayer;
+
+...
+
+var dm = DataManager.GetDataManager();
+dm.Execute(&quot;...&quot;);
+</code></pre><div class="IMPORTANT"><h5>Important</h5><p>Dans le cadre de son utilisation dans les solutions dérivées de Equihira (Phygital, e-commerce, StoreServer, etc.), la majorité des accès à la base de données sera réalisée au sein <a href="technique-modele-architecture.md">d&#39;objets contenant toute la logique métier</a>, dont la classe de base propose une propriété <code>MyDataManager</code> permettant d&#39;accèder à un objet <code>DataManager</code> connecté sur la bonne base de données.</p>
+</div>
+<p>La classe retournée par la méthode <code>GetDataManager()</code> sera spécifique au serveur de base de données et à la technologie d&#39;accès utilisé. Le module de base du framework permet de se connecter à des bases :</p>
+<ul>
+<li>SQL Server, via un accès client natif</li>
+<li>SQL Server Compact Edition</li>
+<li>Toute base gérée par OleDb</li>
+</ul>
+<p>Il existe aussi des extensions pour Oracle et PostgreSql.</p>
+<h3 id="récupération-de-données">Récupération de données</h3>
+<p>La récupération de données peut se faire via deux méthodes :</p>
+<ul>
+<li>pour charger des données de taille réduite en mémoire, vous pouvez utiliser directement l&#39;une des surcharge de la méthode <code>Load</code> qui permet de remplir un objet de type <code>DataSet</code></li>
+<li>si vous avez un flux de données plus conséquent et souhaitez utiliser une notion de curseur, vous pouvez utiliser l&#39;une des méthodes <code>Open</code> pour charger des données par &quot;paquet&quot;.</li>
+</ul>
+<p>Pour l&#39;une et l&#39;autre des méthodes, il existe deux grandes catégories de surcharges :</p>
+<ul>
+<li>Les méthodes acceptant en paramètres une <code>DataTable</code> et un ensemble de <code>QueryClause</code> génère une requête Sql dynamique et sont utilisés lorsque les données à récupérer sont d&#39;une nature assez simple</li>
+<li>celles acceptant en premier paramètre une requête SQL sous forme d&#39;une <code>string</code>.</li>
+</ul>
+<p>Le code suivant :</p>
+<pre><code>var dm = DataManager.GetDataManager();
+var ds = new MonDataSet();
+
+dm.Load(ds.MaTable,
+    new WhereClause(&quot;colonne1&quot;,&quot;=&quot;,&quot;valeur1&quot;))
+</code></pre><p>charge dans la table <code>MaTable</code>, toutes les lignes de la base de données ayant <code>valeur1</code> dans la <code>colonne1</code>.</p>
+<div class="NOTE"><h5>Note</h5><p>Toutes les limitations ajoutées via l&#39;utilisation de <code>WhereClause</code> sont transformée en <em>clauses avec paramètres</em>. L&#39;exemple ci-dessous se transcrit sous la forme <code>WHERE colonne1 = @where1</code>, limitant ainsi les risques d&#39;injection SQL.</p>
+</div>
+<p>Les différentes utilisations du <code>WhereClause</code> sont :</p>
+<ul>
+<li><p><code>new WhereClause(colonne, operateur, valeur)</code> ajoute une entrée dans les clauses <code>WHERE</code> de la requête. Si vous ajoutez plusieurs clauses, elle seront associé via des <code>AND</code>.</p>
+</li>
+<li><p><code>new WhereClause(colonne, valeur)</code> ajoutera une clause colonne=valeur</p>
+</li>
+<li><p><code>new WhereClause(WhereClauseOperator.OR, new WhereClause(...), new WhereClause(...))</code> permet de créer une clause <code>WHERE ( ... OR ....)</code>. Vous pouvez aussi expréssement demander un <code>AND</code> en utilisant cette signature et la valeur <code>WhereClauseOperator.AND</code></p>
+</li>
+</ul>
+<p>Quelques exemples :</p>
+<pre><code>dm.Load(....,
+    new WhereClause(&quot;colonne1&quot;, &quot;like&quot;, &quot;valeur%&quot;));
+// La clause générée sera 
+// WHERE colonne1 like @att1 avec @att1 = &#39;valeur%&#39;
+
+dm.Load(....,
+    new WhereClause(&quot;colonne1&quot;, &quot;valeur&quot;));
+// La clause générée sera 
+// WHERE colonne1 = @att1 avec @att1 = &#39;valeur&#39;
+
+dm.Load(....,
+    new WhereClause(&quot;colonne1&quot;, new string[] { &quot;valeur1&quot;, &quot;valeur2&quot;}));
+// La clause générée sera 
+// WHERE colonne1 in (@att1_1, @att1_2) avec @att1_1 = &#39;valeur1&#39; et @att1_2 = &#39;valeur2&#39;
+
+dm.Load(....,
+    new WhereClause(&quot;colonne_date&quot;, &quot;&lt;=&quot;, DateTime.Today));
+// La clause générée sera 
+// WHERE colonne_date &lt;= @att1 avec @att1 = la date du jour
+
+dm.Load(....,
+    new WhereClause(WhereClauseOperator.OR,
+        new WhereClause(&quot;colonne1&quot;, &quot;valeur&quot;),
+        new WhereClause(&quot;colonne2&quot;, &quot;deuxieme_valeur&quot;)));
+// La clause générée sera 
+// WHERE (colonne1 = @att1 or colonne2=@att2) avec @att1 = &#39;valeur&#39;  et @att2 = &#39;deuxieme_valeur&#39;
+</code></pre><p>L&#39;utilisation d&#39;un objet de type <code>OrderByClause</code> permet d&#39;ajouter une clause <code>ORDER BY</code>, par exemple :</p>
+<pre><code>... new OrderByClause(&quot;colonne2&quot;, false)...
+// La clause générée sera 
+// ORDER BY colonne2 ASC
+</code></pre><p>L&#39;utilisation des signatures acceptant une requête en premier paramètre vous permet de définir la requête à utiliser, par exemple :</p>
+<pre><code>var dm = DataManager.GetDataManager();
+var ds = new MonDataSet();
+
+dm.Load(&quot;select * from matable where colonne1=@valeur1&quot;,
+    ds.MaTable,
+    new DataParameter(&quot;@valeur1&quot;, &quot;valeur&quot;));
+</code></pre><div class="IMPORTANT"><h5>Important</h5><p>Si vous utilisez cette signature, faites attention à ne pas faire de concaténations qui puissent déclencher des possibilités d&#39;injection SQL. Veillez à toujours utiliser des paramètres @xxx (en T-SQL) pour passer les valeurs et <strong>ne surtout jamais faire quelque chose</strong> comme : </p>
+<pre><code>dm.Load(&quot;select * from table where colonne1 like &#39;&quot; + maValeur + &quot;&#39;&quot; ...);`
+</code></pre></div>
+<h3 id="dataset--kezako-">DataSet : kezako ?</h3>
+<p>La classe <code>DataSet</code> est présente dans .net depuis la version 1.0 est sert à conserver en mémoire des données issues de base de données. Ils implémentent une version assez poussée de change tracking permettant de savoir ce qui a été modifié en mémoire.</p>
+<p>Comme la plupart des technologies de représentation des données, les <code>DataSet</code> ont besoin d&#39;être configurés, via <em>Visual Studio</em> pour refleter le schéma de la base de données. Cela se fait en créant une nouvelle classe dérivée de <code>DataSet</code> via l&#39;item correspondant dans Visual Studio :</p>
+<p><img src="technique-framework-dataset1.PNG" alt="Nouvel item DataSet"></p>
+<p>Une fois la classe créée, vous pouvez utiliser <em>l&#39;explorateur de serveur</em> pour vous connecter à la BDD, et effectuer un <em>Drag&#39;n&#39;Drop</em> des tables/vues sur le concepteur :</p>
+<p><img src="technique-framework-dataset2.PNG" alt="Ajout de tables"></p>
+<div class="NOTE"><h5>Note</h5><p>La classe <em>xxx</em>Adapter n&#39;est pas utilisée, vous pouvez la supprimer du <code>DataSet</code></p>
+</div>
+<p>Une fois les données chargées en mémoire via l&#39;une des méthodes <code>Load</code>  (ou <code>Open</code>) ci-dessus, vous pouvez y accèder via des propriétés auto-générées correspondant à/aux différente(s) table(s). En utilisant les objets retournés par ces propriétés, vous pourrez accèder aux enregistrements, à leurs valeurs et effectuer des opérations de modification. La structures des données d&#39;un <code>DataSet</code> est le miroir de la structure de bdd :</p>
+<ul>
+<li>il contient une ou plusieurs <code>DataTable</code> correspondants aux vues/tables de la bdd</li>
+<li>chaque table est défini par un ensemble de <code>DataColumn</code></li>
+<li>et contient des enregistrements via des objets <code>DataRow</code>.</li>
+</ul>
+<p>Par exemple :</p>
+<ul>
+<li>Le <code>DataSet</code> suivant contient une unique table <code>catalog_marques</code> :</li>
+</ul>
+<p><img src="technique-framework-dataset3.PNG" alt="dataset MarquesDS"></p>
+<ul>
+<li>il peut être utilisé pour charger des données depuis la base :</li>
+</ul>
+<pre><code>var dm = DataManager.GetDataManager();
+var ds = new MarquesDS();
+
+dm.Load(&quot;select * from e.catalog_marques where mar_rjs_id=@rjs_id&quot;,
+    ds.catalog_marques,
+    new DataParameter(&quot;@rjs_id&quot;, 1));
+</code></pre><ul>
+<li>une fois les données en mémoire, il est possible d&#39;accèder aux informations :</li>
+</ul>
+<pre><code>foreach(var marque in ds.catalog_marques)
+{
+    Console.WriteLine(marque.mar_libelle)
+}
+</code></pre><div class="IMPORTANT"><h5>Important</h5><p>Pour toutes les colonnes Nullable, et comme les <code>DataSet</code> ont été créés avant l&#39;apparition des types Nullable (int?, decimal?, etc.), il existe une méthode Is<em>NomDuChamp</em>Null() pour vérifier si un champ est null. Vous devez absolument utiliser cette méthode : un appel à un champ/propriété dont la valeur est <em>null</em> résultera en une erreur dans la plupart des cas.</p>
+</div>
+<h3 id="modifications">Modifications</h3>
+<p>Pour envoyer des modifications en base de données, il existe deux solutions :</p>
+<ul>
+<li>l&#39;utilisation de la méthode <code>Unload</code> qui prend en paramètre un <code>DataRow</code> que vous aurez créé/modifié/supprimé en mémoire via les méthodes des <code>DataSet</code></li>
+<li>l&#39;utilisation de la méthode <code>Execute</code> qui permet d&#39;éxecuter une requête &quot;arbitraire&quot; et qui est détaillée ci-dessous.</li>
+</ul>
+<p>L&#39;utilisation de la méthode <code>Unload</code> implique que vous avez déjà créé un <code>DataSet</code> et que vous l&#39;avez rempli depuis la base (pour un <code>UPDATE</code> ou un <code>DELETE</code>). Vous pouvez, dans ce cas, utiliser l&#39;une des méthodes ou des propriété d&#39;une <code>DataRow</code> afin de réaliser les modification souhaitées en mémoire puis forcer la &quot;sérialisation&quot; de ces modifications en base.</p>
+<p>Par exemple :</p>
+<pre><code>var dm = DataManager.GetDataManager();
+var ds = new MonDataSet();
+
+dm.Load(ds.MaTable,
+    new WhereClause(&quot;colonne1&quot;,&quot;=&quot;,&quot;valeur1&quot;));
+if(ds.MaTable.Count==1) 
+{
+    var r = ds.MaTable[0];
+    r.colonne2 = &quot;nouvelle_valeur&quot;;
+    dm.Unload(r);
+}
+</code></pre><p>correspond aux actions suivantes :</p>
+<ol>
+<li>charger la/les lignes de MaTable avec la clause <code>WHERE colonne1=&#39;valeur1&#39;</code></li>
+<li>Si il n&#39;y a qu&#39;une seule ligne en retour, modifier en mémoire la valeur de la colonne2 de l&#39;enregistrement</li>
+<li>Pousser les modifications en base</li>
+</ol>
+<p>La méthode <code>Unload</code> essaiera de générer la requête d&#39;<code>UPDATE</code> la plus simple pour limiter les clauses de concurrence.</p>
+<p>Pour créer une nouvelle ligne, vous pouvez utiliser les méthodes AddXXXRow créées automatiquement par les outils de <code>DataSet</code> typés. Une ligne marquées comme &quot;nouvelle&quot; seront sérialisées via un <code>INSERT</code>.</p>
+<h3 id="executer-des-requêtes-arbitraire">Executer des requêtes arbitraire</h3>
+<p>La méthode <code>Execute</code> permet d&#39;exécuter une requête passée en paramètre et qui n&#39;attends pas de valeur de retour. Vous pouvez l&#39;utiliser par exemple, pour réaliser des <code>UPDATE</code>, <code>INSERT</code>, <code>DELETE</code>, <code>MERGE</code>, <code>TRUNCATE</code>, etc.</p>
+<p>Par exemple :</p>
+<pre><code>var dm = DataManager.GetDataManager();
+var ds = new MonDataSet();
+
+dm.Execute(&quot;delete from MaTable where colonne1=@val1&quot;,
+    new DataParameter(&quot;@val1&quot;,&quot;mavaleur&quot;));
+</code></pre><h2 id="gestion-des-transactions">Gestion des transactions</h2>
+<p>Si vous avez besoin de réaliser plusieurs opérations de façon unitaire, au sein d&#39;une même <em>transaction</em> en base de données, vous devez utiliser la classe <code>TransactionContext</code>. Vous pouvez créer un objet de cette classe en passant au constructeur un <code>DataManager</code>.</p>
+<pre><code>var dm = DataManager.GetDataManager();
+using(var transaction = new TransactionContext(dm))
+{
+    ... les opérations dans la transaction ...
+
+    transaction.Commit();
+}
+</code></pre><p>La classe <code>TransactionContext</code> implémente le concept <code>IDisposable</code> et peut donc être utilisé dans une clause <code>using</code> (<a href="https://docs.microsoft.com/fr-fr/dotnet/standard/garbage-collection/using-objects">plus d&#39;infos</a>). Le comportement par défaut, lorsque le using se termine est de faire un <em>ROLLBACK</em>  sur la transaction, sauf si vous avez déjà appelé la méthode Commit(). </p>
+<div class="NOTE"><h5>Note</h5><p>Vous trouverez probablement dans le code des références à une classe <code>BusinessTransaction</code> permettant de gérer des transactions implicites entre plusieurs classes. Cette classe ne doit plus être utilisée, elle est basée sur des technologies obsolètes depuis <em>.net 4</em> et qui ont disparu de <em>.net Core</em>.</p>
+</div>
+<h2 id="configuration">Configuration</h2>
+<p>La configuration de la base de données utilisée par le framework se fait via un fichier de configuration nommé <code>cpointsoftware.config</code>. Utilisé en dehors des solutions, ce fichier doit se trouver dans le dossier exécutable de l&#39;application, mais lorsqu&#39;il est utilisé dans le cadre du e-commerce, de la gestion commerciale ou des composants API, un système de redirection permet de placer ce fichier dans un dossier connu, et configurable via une application ou le <code>web.config</code>.</p>
+<h3 id="emplacement-du-fichier">Emplacement du fichier</h3>
+<p>Par défaut, le fichier se trouve dans le dossier <code>%PROGRAMDATA%\\CPoint\\[e]\\bin\\config</code>. Il existe deux solutions pour permettre de modifier ce chemin :</p>
+<ul>
+<li>en développement ou en test, vous pouvez utiliser l&#39;application <em>ContextSwitcher</em> pour basculer entre plusieurs environnements.</li>
+<li><p>en production, vous pouvez ajouter le chemin vers le dossier de configuration dans le fichier <code>web.config</code> ou, si il est présent, directement dans le fichier <code>e.config</code>.</p>
+<p>  Vous pouvez définir le dossier <em>racine</em> des données en modifiant l&#39;élément <code>&lt;e&gt;</code> :</p>
+<pre><code>  &lt;e&gt;
+      &lt;e.env rootFolder=&quot;{DossierRacine}&quot;  /&gt;
+  &lt;/e&gt;
+</code></pre><p>  Si vous utilisez cette option, le fichier de configuration devra se trouver dans <code>{DossierRacine}\\bin\\config</code></p>
+</li>
+</ul>
+<h3 id="format-du-fichier">Format du fichier</h3>
+<p>Le fichier de configuration est un fichier XML contenant un noeud pour chaque connexion à la base de données.</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+
+&lt;Configuration&gt;
+    &lt;Sections&gt;
+        &lt;Section name=&quot;Framework&quot; 
+            assemblyName=&quot;CPointSoftware.Framework&quot; 
+            className=&quot;CPointSoftware.Framework.Configuration.ConfigurationHandler&quot;/&gt;
+    &lt;/Sections&gt;
+
+    &lt;Settings &gt;
+        &lt;Framework&gt;
+            &lt;Connections&gt;
+                &lt;Connection name=&quot;Equihira&quot; default=&quot;true&quot;  
+                    connectionString=&quot;*****&quot; /&gt;
+            &lt;/Connections&gt;
+        &lt;/Framework&gt;
+    &lt;/Settings&gt;
+&lt;/Configuration&gt;
+</code></pre><p>Les différentes propriétés pour chaque connexion sont :</p>
+<ul>
+<li><code>name</code> le nom de la connexion utilisé en tant que paramètre de la méthode <code>GetDataManager(&quot;nomconnexion&quot;)</code></li>
+<li><code>default=&#39;true&#39;</code> permet de définir la connexion pour la signature <em>par défaut</em> <code>GetDataManager()</code></li>
+<li><code>connectionString</code> contient la chaine de connexion, spécifique au fournisseur ADO.net</li>
+</ul>
+<h3 id="lapplication-contextswitcher">L&#39;application <em>ContextSwitcher</em></h3>
+<p>Vous pouvez installer l&#39;application <em>ContextSwitcher</em> pour basculer facilement entre plusieurs environnements de développement.</p>
+<p> <a href="http://creoignem-devtools.azurewebsites.net/contextswitcher/publish.htm">Télécharger l&#39;application</a></p>
+<p> Une fois installée et lancée, cette application ajoute une icone dans la zone de notification de votre barre de tâche :</p>
+<p> <img src="technique-framework-contextswitcher-notif.JPG" alt="ContextSwitcher"></p>
+<p> En double cliquant sur l&#39;icone dans cette barre, vous pourrez choisir l&#39;un de vos environnements de développement :</p>
+<p><img src="technique-framework-contextswitcher-change.JPG" alt="ContextSwitcher"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/global/data-framework.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

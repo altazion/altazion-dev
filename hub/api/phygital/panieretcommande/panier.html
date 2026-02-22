@@ -1,0 +1,902 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Panier | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Panier | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="panier">Panier</h1>
+
+<h2 id="span-idcodeavantageajoute-un-code-avantage-sur-le-panierspan"><span id='codeavantage'>Ajoute un code avantage sur le panier</span></h2>
+<p>Active un code avantage au panier</p>
+<p>Url :<code>[GET] v2/cart/coupon/set/{code}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>code</strong> (string) : Le code avantage à activer</li>
+</ul>
+<p>Type de retour : <code>Panier</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Panier
+{
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Lignes { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier FraisPort { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Avantages { get; set; }
+    bool EstValidable { get; set; }
+    bool DemandeFraisPort { get; set; }
+    string DestinationPrevueCodePostal { get; set; }
+    string DestinationPrevueCodePays { get; set; }
+    CPointSoftware.Equihira.Extensibility.ECommerce.ErreurPanier ErreurPanier { get; set; }
+    string Incitation { get; set; }
+    string ModeLivraisonIdentifiant { get; set; }
+    bool ModeLivraisonEstPointRetrait { get; set; }
+    System.Guid ClientGuid { get; set; }
+    string ClientNom { get; set; }
+    bool EstClientConnecte { get; set; }
+    decimal MontantTTCAvecMagasin { get; set; }
+    string MontantTTCAvecMagasinFormate { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    string ProcessAPrivilegier { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.PanierGroupe[] Groupes { get; set; }
+    string CodeAvantageActif { get; set; }
+    decimal TotalRemisePromos { get; set; }
+}
+</code></pre><h2 id="span-idajouterajouter-un-article-dans-le-panierspan"><span id='ajouter'>Ajouter un article dans le panier</span></h2>
+<p>Ajoute un article au panier</p>
+<p>Url :<code>[GET] v2/cart/add/{reference}/local?associe1={associe1:string}&amp;associe2={associe2:string}&amp;associe3={associe3:string}&amp;associe4={associe4:string}&amp;associe5={associe5:string}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>reference</strong> (string) : La référence du produit à ajouter</li>
+<li><strong>associe1</strong> (string) : La référence d&#39;un produit associé OU un type d&#39;association à ajouter au panier</li>
+<li><strong>associe2</strong> (string) : La référence d&#39;un produit associé OU un type d&#39;association à ajouter au panier</li>
+<li><strong>associe3</strong> (string) : La référence d&#39;un produit associé OU un type d&#39;association à ajouter au panier</li>
+<li><strong>associe4</strong> (string) : La référence d&#39;un produit associé OU un type d&#39;association à ajouter au panier</li>
+<li><strong>associe5</strong> (string) : La référence d&#39;un produit associé OU un type d&#39;association à ajouter au panier</li>
+</ul>
+<p>Url :<code>[GET] v2/cart/add/{reference}/web?associe1={associe1:string}&amp;associe2={associe2:string}&amp;associe3={associe3:string}&amp;associe4={associe4:string}&amp;associe5={associe5:string}&amp;all={all:bool}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>reference</strong> (string) : La référence du produit à ajouter</li>
+<li><strong>associe1</strong> (string) : La référence d&#39;un produit associé OU un type d&#39;association à ajouter au panier</li>
+<li><strong>associe2</strong> (string) : La référence d&#39;un produit associé OU un type d&#39;association à ajouter au panier</li>
+<li><strong>associe3</strong> (string) : La référence d&#39;un produit associé OU un type d&#39;association à ajouter au panier</li>
+<li><strong>associe4</strong> (string) : La référence d&#39;un produit associé OU un type d&#39;association à ajouter au panier</li>
+<li><strong>associe5</strong> (string) : La référence d&#39;un produit associé OU un type d&#39;association à ajouter au panier</li>
+<li><strong>all</strong> (bool)</li>
+</ul>
+<p>Type de retour : <code>Panier</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Panier
+{
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Lignes { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier FraisPort { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Avantages { get; set; }
+    bool EstValidable { get; set; }
+    bool DemandeFraisPort { get; set; }
+    string DestinationPrevueCodePostal { get; set; }
+    string DestinationPrevueCodePays { get; set; }
+    CPointSoftware.Equihira.Extensibility.ECommerce.ErreurPanier ErreurPanier { get; set; }
+    string Incitation { get; set; }
+    string ModeLivraisonIdentifiant { get; set; }
+    bool ModeLivraisonEstPointRetrait { get; set; }
+    System.Guid ClientGuid { get; set; }
+    string ClientNom { get; set; }
+    bool EstClientConnecte { get; set; }
+    decimal MontantTTCAvecMagasin { get; set; }
+    string MontantTTCAvecMagasinFormate { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    string ProcessAPrivilegier { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.PanierGroupe[] Groupes { get; set; }
+    string CodeAvantageActif { get; set; }
+    decimal TotalRemisePromos { get; set; }
+}
+</code></pre><h2 id="span-idtagajoutajouter-un-tagspan"><span id='tagajout'>Ajouter un tag</span></h2>
+<p>Ajoute un tag au panier</p>
+<p>Url :<code>[GET] v2/cart/tags/add/{tag}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>tag</strong> (string)</li>
+</ul>
+<p>Type de retour : <code>Panier</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Panier
+{
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Lignes { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier FraisPort { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Avantages { get; set; }
+    bool EstValidable { get; set; }
+    bool DemandeFraisPort { get; set; }
+    string DestinationPrevueCodePostal { get; set; }
+    string DestinationPrevueCodePays { get; set; }
+    CPointSoftware.Equihira.Extensibility.ECommerce.ErreurPanier ErreurPanier { get; set; }
+    string Incitation { get; set; }
+    string ModeLivraisonIdentifiant { get; set; }
+    bool ModeLivraisonEstPointRetrait { get; set; }
+    System.Guid ClientGuid { get; set; }
+    string ClientNom { get; set; }
+    bool EstClientConnecte { get; set; }
+    decimal MontantTTCAvecMagasin { get; set; }
+    string MontantTTCAvecMagasinFormate { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    string ProcessAPrivilegier { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.PanierGroupe[] Groupes { get; set; }
+    string CodeAvantageActif { get; set; }
+    decimal TotalRemisePromos { get; set; }
+}
+</code></pre><h2 id="span-idchangercataloguebascule-le-panier-sur-un-autre-cataloguespan"><span id='changercatalogue'>Bascule le panier sur un autre catalogue</span></h2>
+<p>Modifie le catalogue associé à la commande en cours</p>
+<p>Url :<code>[GET] v2/cart/catalog/{catalogId:int}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>catalogId</strong> (int) : L&#39;identifiant du catalogue à activer</li>
+</ul>
+<p>Type de retour : <code>Panier</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Panier
+{
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Lignes { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier FraisPort { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Avantages { get; set; }
+    bool EstValidable { get; set; }
+    bool DemandeFraisPort { get; set; }
+    string DestinationPrevueCodePostal { get; set; }
+    string DestinationPrevueCodePays { get; set; }
+    CPointSoftware.Equihira.Extensibility.ECommerce.ErreurPanier ErreurPanier { get; set; }
+    string Incitation { get; set; }
+    string ModeLivraisonIdentifiant { get; set; }
+    bool ModeLivraisonEstPointRetrait { get; set; }
+    System.Guid ClientGuid { get; set; }
+    string ClientNom { get; set; }
+    bool EstClientConnecte { get; set; }
+    decimal MontantTTCAvecMagasin { get; set; }
+    string MontantTTCAvecMagasinFormate { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    string ProcessAPrivilegier { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.PanierGroupe[] Groupes { get; set; }
+    string CodeAvantageActif { get; set; }
+    decimal TotalRemisePromos { get; set; }
+}
+</code></pre><h2 id="span-idchangermagasinbasculer-le-panier-sur-un-autre-magasinspan"><span id='changermagasin'>Basculer le panier sur un autre magasin</span></h2>
+<p>Modifie le magasin associé à la commande en cours. Uniquement disponible si le périphérique associé est marqué comme &#39;déplacable&#39;.</p>
+<p>Url :<code>[GET] v2/cart/store/{storeGuid:guid}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>storeGuid</strong> (System.Guid) : L&#39;identifiant du magasin</li>
+</ul>
+<p>Type de retour : <code>Panier</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Panier
+{
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Lignes { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier FraisPort { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Avantages { get; set; }
+    bool EstValidable { get; set; }
+    bool DemandeFraisPort { get; set; }
+    string DestinationPrevueCodePostal { get; set; }
+    string DestinationPrevueCodePays { get; set; }
+    CPointSoftware.Equihira.Extensibility.ECommerce.ErreurPanier ErreurPanier { get; set; }
+    string Incitation { get; set; }
+    string ModeLivraisonIdentifiant { get; set; }
+    bool ModeLivraisonEstPointRetrait { get; set; }
+    System.Guid ClientGuid { get; set; }
+    string ClientNom { get; set; }
+    bool EstClientConnecte { get; set; }
+    decimal MontantTTCAvecMagasin { get; set; }
+    string MontantTTCAvecMagasinFormate { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    string ProcessAPrivilegier { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.PanierGroupe[] Groupes { get; set; }
+    string CodeAvantageActif { get; set; }
+    decimal TotalRemisePromos { get; set; }
+}
+</code></pre><h2 id="span-iddeconnexiondeconnecter-la-session-activespan"><span id='deconnexion'>Deconnecter la session active</span></h2>
+<p>Deconnecte la session active (efface le panier, et deconnecte l&#39;utilisateur)</p>
+<p>Url :<code>[GET] v2/cart/logout</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>Cette url n&#39;accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>Panier</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Panier
+{
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Lignes { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier FraisPort { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Avantages { get; set; }
+    bool EstValidable { get; set; }
+    bool DemandeFraisPort { get; set; }
+    string DestinationPrevueCodePostal { get; set; }
+    string DestinationPrevueCodePays { get; set; }
+    CPointSoftware.Equihira.Extensibility.ECommerce.ErreurPanier ErreurPanier { get; set; }
+    string Incitation { get; set; }
+    string ModeLivraisonIdentifiant { get; set; }
+    bool ModeLivraisonEstPointRetrait { get; set; }
+    System.Guid ClientGuid { get; set; }
+    string ClientNom { get; set; }
+    bool EstClientConnecte { get; set; }
+    decimal MontantTTCAvecMagasin { get; set; }
+    string MontantTTCAvecMagasinFormate { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    string ProcessAPrivilegier { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.PanierGroupe[] Groupes { get; set; }
+    string CodeAvantageActif { get; set; }
+    decimal TotalRemisePromos { get; set; }
+}
+</code></pre><h2 id="span-idlivraisondéfinir-le-mode-de-livraisonspan"><span id='livraison'>Définir le mode de livraison</span></h2>
+<p>Définit le mode de livraison</p>
+<p>Url :<code>[GET] v2/cart/setlivraison/{modeGuid:guid}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>modeGuid</strong> (System.Guid) : L&#39;identifiant du mode de livraison</li>
+</ul>
+<p>Type de retour : <code>Panier</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Panier
+{
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Lignes { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier FraisPort { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Avantages { get; set; }
+    bool EstValidable { get; set; }
+    bool DemandeFraisPort { get; set; }
+    string DestinationPrevueCodePostal { get; set; }
+    string DestinationPrevueCodePays { get; set; }
+    CPointSoftware.Equihira.Extensibility.ECommerce.ErreurPanier ErreurPanier { get; set; }
+    string Incitation { get; set; }
+    string ModeLivraisonIdentifiant { get; set; }
+    bool ModeLivraisonEstPointRetrait { get; set; }
+    System.Guid ClientGuid { get; set; }
+    string ClientNom { get; set; }
+    bool EstClientConnecte { get; set; }
+    decimal MontantTTCAvecMagasin { get; set; }
+    string MontantTTCAvecMagasinFormate { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    string ProcessAPrivilegier { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.PanierGroupe[] Groupes { get; set; }
+    string CodeAvantageActif { get; set; }
+    decimal TotalRemisePromos { get; set; }
+}
+</code></pre><h2 id="span-idmodifierqtemodifie-la-quantité-commandéespan"><span id='modifierqte'>Modifie la quantité commandée</span></h2>
+<p>Modifie la quantité commandée</p>
+<p>Url :<code>[GET] v2/cart/update/{ligneGuid:guid}?qte={qte:int}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>ligneGuid</strong> (System.Guid) : L&#39;identifiant de la ligne à modifier</li>
+<li><strong>qte</strong> (int) : La nouvelle quantité à commander</li>
+</ul>
+<p>Type de retour : <code>Panier</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Panier
+{
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Lignes { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier FraisPort { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Avantages { get; set; }
+    bool EstValidable { get; set; }
+    bool DemandeFraisPort { get; set; }
+    string DestinationPrevueCodePostal { get; set; }
+    string DestinationPrevueCodePays { get; set; }
+    CPointSoftware.Equihira.Extensibility.ECommerce.ErreurPanier ErreurPanier { get; set; }
+    string Incitation { get; set; }
+    string ModeLivraisonIdentifiant { get; set; }
+    bool ModeLivraisonEstPointRetrait { get; set; }
+    System.Guid ClientGuid { get; set; }
+    string ClientNom { get; set; }
+    bool EstClientConnecte { get; set; }
+    decimal MontantTTCAvecMagasin { get; set; }
+    string MontantTTCAvecMagasinFormate { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    string ProcessAPrivilegier { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.PanierGroupe[] Groupes { get; set; }
+    string CodeAvantageActif { get; set; }
+    decimal TotalRemisePromos { get; set; }
+}
+</code></pre><h2 id="span-idobtenirobtenir-le-panierspan"><span id='obtenir'>Obtenir le panier</span></h2>
+<p>Récupère le contenu actuel du panier</p>
+<p>Url :<code>[GET] v2/cart</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>Cette url n&#39;accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>Panier</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Panier
+{
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Lignes { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier FraisPort { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Avantages { get; set; }
+    bool EstValidable { get; set; }
+    bool DemandeFraisPort { get; set; }
+    string DestinationPrevueCodePostal { get; set; }
+    string DestinationPrevueCodePays { get; set; }
+    CPointSoftware.Equihira.Extensibility.ECommerce.ErreurPanier ErreurPanier { get; set; }
+    string Incitation { get; set; }
+    string ModeLivraisonIdentifiant { get; set; }
+    bool ModeLivraisonEstPointRetrait { get; set; }
+    System.Guid ClientGuid { get; set; }
+    string ClientNom { get; set; }
+    bool EstClientConnecte { get; set; }
+    decimal MontantTTCAvecMagasin { get; set; }
+    string MontantTTCAvecMagasinFormate { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    string ProcessAPrivilegier { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.PanierGroupe[] Groupes { get; set; }
+    string CodeAvantageActif { get; set; }
+    decimal TotalRemisePromos { get; set; }
+}
+
+class LignePanier
+{
+    CPointSoftware.Equihira.Common.MetaTypeArticle TypeArticle { get; set; }
+    string Identifiant { get; set; }
+    string IdentifiantLigneParent { get; set; }
+    string Libelle { get; set; }
+    string Reference { get; set; }
+    System.Guid ArticleGuid { get; set; }
+    decimal Quantite { get; set; }
+    string GroupePanier { get; set; }
+    decimal PuOriginalHT { get; set; }
+    decimal PuOriginalTTC { get; set; }
+    decimal PuFinalTTC { get; set; }
+    decimal PuFinalHT { get; set; }
+    decimal RemiseHT { get; set; }
+    decimal RemiseTTC { get; set; }
+    string ImageUrl { get; set; }
+    bool LigneMiseAJour { get; set; }
+    string Marque { get; set; }
+    string PrixFormate { get; set; }
+    string PrixOriginalFormate { get; set; }
+    string RemiseFormatee { get; set; }
+    string PctPromo { get; set; }
+    Guid? MagasinGuid { get; set; }
+    string Groupe { get; set; }
+    bool NonModifiable { get; set; }
+    System.String[] AttributsDifferentiants { get; set; }
+    System.String[] DonneesPersonnalisees { get; set; }
+    System.String[] DetailsFraisAnnexes { get; set; }
+    System.Boolean? DisponibleMagasin { get; set; }
+    decimal? QuantiteDisponibleMagasin { get; set; }
+    System.Boolean? DisponibleCentrale { get; set; }
+    decimal? QuantiteDisponibleCentrale { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.GroupeArticlesAssocies[] GroupesArticlesAssocies { get; set; }
+}
+
+enum MetaTypeArticle
+{
+    Produit, // =0
+    FraisDePort, // =1
+    Avantages, // =2
+    Services, // =3
+    Loyers, // =4
+    Lot, // =5
+    Financier, // =6
+    Taxe, // =7
+    LicenceEtBrevet, // =8
+}
+
+class GroupeArticlesAssocies
+{
+    string Libelle { get; set; }
+    decimal Prix { get; set; }
+    string Image { get; set; }
+    System.Guid GuidParent { get; set; }
+    System.Guid[] GuidProduits { get; set; }
+}
+
+class ErreurPanier
+{
+    int ErrorCode { get; set; }
+    CPointSoftware.Equihira.Extensibility.ECommerce.GraviteErreurPanier Gravite { get; }
+    string Message { get; set; }
+    bool EstBloquante { get; set; }
+    string MessageCorrection { get; set; }
+    string UrlCorrection { get; set; }
+    bool EstRedirectionAutomatique { get; set; }
+}
+
+enum GraviteErreurPanier
+{
+    Warning, // =0
+    Erreur, // =1
+}
+
+class PanierGroupe
+{
+    string Code { get; set; }
+    string Libelle { get; set; }
+    string Details { get; set; }
+    string TypeProcessAssocie { get; set; }
+    bool EstExterne { get; set; }
+}
+</code></pre><h2 id="span-idobtenirlivraisonobtenir-les-modes-de-livraisons-possiblesspan"><span id='obtenirlivraison'>Obtenir les modes de livraisons possibles</span></h2>
+<p>Récupère les modes de livraison possibles pour le panier actif</p>
+<p>Url :<code>[GET] v2/cart/livraisonspossibles</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>Cette url n&#39;accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>ChoixModeLivraison[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ChoixModeLivraison
+{
+    string Identifiant { get; set; }
+    bool EstPointLivraison { get; set; }
+    string Transporteur { get; set; }
+    string Reference { get; set; }
+    decimal PuHT { get; set; }
+    decimal PuTTC { get; set; }
+    decimal PuHorsRemiseHT { get; set; }
+    decimal PuHorsRemiseTTC { get; set; }
+    decimal RemiseHT { get; set; }
+    decimal RemiseTTC { get; set; }
+    string PrixFormate { get; set; }
+    string PrixOriginalFormate { get; set; }
+    string RemiseFormatee { get; set; }
+    DateTime DateEstimee { get; set; }
+    string DateEstimeeFormate { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.TypeDestinationLivraison TypeDestination { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.TypeServiceLivraison TypeService { get; set; }
+    bool EstActif { get; set; }
+}
+
+enum TypeDestinationLivraison
+{
+    AdresseClient, // =0
+    PointLivraison, // =1
+    Magasin, // =2
+}
+
+enum TypeServiceLivraison
+{
+    Standard, // =0
+    Express, // =1
+    Coursier, // =2
+}
+</code></pre><h2 id="span-idobtenirlivraisongroupeeobtenir-les-modes-de-livraisons-possibles-triés-en-groupespan"><span id='obtenirlivraisongroupee'>Obtenir les modes de livraisons possibles triés en groupe</span></h2>
+<p>Récupère les modes de livraison possibles pour le panier actif et les tris par groupe</p>
+<p>Url :<code>[GET] v2/cart/livraisonspossiblesgroupees</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>Cette url n&#39;accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>GroupeChoixModeLivraison[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class GroupeChoixModeLivraison
+{
+    string NomDuGroupe { get; set; }
+    decimal? MontantMini { get; set; }
+    decimal? MontantMaxi { get; set; }
+    DateTime? DateLivraisonPlusProche { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ChoixModeLivraison[] Modes { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.TypeDestinationLivraison DestinationGroupe { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.TypeServiceLivraison TypeLivraisonGroupe { get; set; }
+}
+
+class ChoixModeLivraison
+{
+    string Identifiant { get; set; }
+    bool EstPointLivraison { get; set; }
+    string Transporteur { get; set; }
+    string Reference { get; set; }
+    decimal PuHT { get; set; }
+    decimal PuTTC { get; set; }
+    decimal PuHorsRemiseHT { get; set; }
+    decimal PuHorsRemiseTTC { get; set; }
+    decimal RemiseHT { get; set; }
+    decimal RemiseTTC { get; set; }
+    string PrixFormate { get; set; }
+    string PrixOriginalFormate { get; set; }
+    string RemiseFormatee { get; set; }
+    DateTime DateEstimee { get; set; }
+    string DateEstimeeFormate { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.TypeDestinationLivraison TypeDestination { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.TypeServiceLivraison TypeService { get; set; }
+    bool EstActif { get; set; }
+}
+
+enum TypeDestinationLivraison
+{
+    AdresseClient, // =0
+    PointLivraison, // =1
+    Magasin, // =2
+}
+
+enum TypeServiceLivraison
+{
+    Standard, // =0
+    Express, // =1
+    Coursier, // =2
+}
+</code></pre><h2 id="span-idtagretraitretirer-un-tagspan"><span id='tagretrait'>Retirer un tag</span></h2>
+<p>Retire un tag du panier</p>
+<p>Url :<code>[GET] v2/cart/tags/remove/{tag}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>tag</strong> (string)</li>
+</ul>
+<p>Type de retour : <code>Panier</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Panier
+{
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Lignes { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier FraisPort { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Avantages { get; set; }
+    bool EstValidable { get; set; }
+    bool DemandeFraisPort { get; set; }
+    string DestinationPrevueCodePostal { get; set; }
+    string DestinationPrevueCodePays { get; set; }
+    CPointSoftware.Equihira.Extensibility.ECommerce.ErreurPanier ErreurPanier { get; set; }
+    string Incitation { get; set; }
+    string ModeLivraisonIdentifiant { get; set; }
+    bool ModeLivraisonEstPointRetrait { get; set; }
+    System.Guid ClientGuid { get; set; }
+    string ClientNom { get; set; }
+    bool EstClientConnecte { get; set; }
+    decimal MontantTTCAvecMagasin { get; set; }
+    string MontantTTCAvecMagasinFormate { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    string ProcessAPrivilegier { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.PanierGroupe[] Groupes { get; set; }
+    string CodeAvantageActif { get; set; }
+    decimal TotalRemisePromos { get; set; }
+}
+</code></pre><h2 id="span-idretirerligneretirer-une-ligne-du-panierspan"><span id='retirerligne'>Retirer une ligne du panier</span></h2>
+<p>Retire une ligne du panier</p>
+<p>Url :<code>[GET] v2/cart/remove/{ligneGuid:guid}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>ligneGuid</strong> (System.Guid) : L&#39;identifiant de ligne qui doit être supprimée</li>
+</ul>
+<p>Type de retour : <code>Panier</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Panier
+{
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Lignes { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier FraisPort { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Avantages { get; set; }
+    bool EstValidable { get; set; }
+    bool DemandeFraisPort { get; set; }
+    string DestinationPrevueCodePostal { get; set; }
+    string DestinationPrevueCodePays { get; set; }
+    CPointSoftware.Equihira.Extensibility.ECommerce.ErreurPanier ErreurPanier { get; set; }
+    string Incitation { get; set; }
+    string ModeLivraisonIdentifiant { get; set; }
+    bool ModeLivraisonEstPointRetrait { get; set; }
+    System.Guid ClientGuid { get; set; }
+    string ClientNom { get; set; }
+    bool EstClientConnecte { get; set; }
+    decimal MontantTTCAvecMagasin { get; set; }
+    string MontantTTCAvecMagasinFormate { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    string ProcessAPrivilegier { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.PanierGroupe[] Groupes { get; set; }
+    string CodeAvantageActif { get; set; }
+    decimal TotalRemisePromos { get; set; }
+}
+</code></pre><h2 id="span-idverifdispomagvérifier-la-disponibilité-en-magasinspan"><span id='verifdispomag'>Vérifier la disponibilité en magasin</span></h2>
+<p>Lance une vérification de disponibilité pour tous les articles du panier dans le magasin associé</p>
+<p>Url :<code>[GET] v2/cart/availability/check</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>Cette url n&#39;accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>CartStatus</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class CartStatus
+{
+    bool EstValidable { get; set; }
+    CreoIgnem.Phygital.Tools.CartApiLayer+ArticleNonDispo[] ProduitsNonDispos { get; set; }
+}
+
+class ArticleNonDispo
+{
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.ArticlePhygitalBase[] SubstitutionsPossibles { get; set; }
+    decimal? AvisNote { get; set; }
+    bool EstEnPromo { get; set; }
+    decimal? PctRemise { get; set; }
+    System.Guid[] AllTags { get; set; }
+    string UrlExterne { get; set; }
+    string IntermediateImage { get; set; }
+    string Marque { get; set; }
+    decimal? SegmentationPrincipalePk { get; set; }
+    string MainImage { get; set; }
+    string SmallImage { get; set; }
+    System.Object MainImageObject { get; set; }
+    string Tag { get; set; }
+    bool DisponibleCommande { get; set; }
+    bool DisponibleCentrale { get; set; }
+    bool DisponibleMagasin { get; set; }
+    CPointSoftware.Equihira.Common.TypeStock TypeStockage { get; set; }
+    bool EstImmateriel { get; }
+    bool EstArchive { get; set; }
+    bool EstLivrable { get; set; }
+    long ID { get; set; }
+    System.Guid Guid { get; set; }
+    decimal PuHT { get; set; }
+    decimal PuTTC { get; set; }
+    decimal PuTVA { get; }
+    decimal? PuPromoHT { get; set; }
+    decimal? PuPromoTTC { get; set; }
+    DateTime? DateDebutPromo { get; set; }
+    DateTime? DateFinPromo { get; set; }
+    DateTime DateCreation { get; set; }
+    string Libelle { get; set; }
+    string Reference { get; set; }
+    int FamilleID { get; set; }
+    string Description { get; set; }
+    System.Int32? SousFamilleId { get; set; }
+    int MarqueId { get; set; }
+    byte TauxTvaId { get; set; }
+    short TypeArticleId { get; set; }
+    bool EstUtilisableInternet { get; set; }
+    bool EstPrefacturable { get; set; }
+    bool EstMultiversion { get; set; }
+    bool EstGenerique { get; set; }
+    bool EstCompose { get; set; }
+    bool EstPartenaire { get; set; }
+    bool EstValide { get; set; }
+    int EtatCreation { get; set; }
+    decimal? PuConseilleHT { get; set; }
+    decimal? PuConseilleTTC { get; set; }
+    CPointSoftware.Equihira.Common.MetaTypeArticle MetaType { get; set; }
+    bool PromoDefinie { get; }
+    int ScoreRisque { get; set; }
+}
+
+class ArticlePhygitalBase
+{
+    decimal? AvisNote { get; set; }
+    bool EstEnPromo { get; set; }
+    decimal? PctRemise { get; set; }
+    System.Guid[] AllTags { get; set; }
+    string UrlExterne { get; set; }
+    string IntermediateImage { get; set; }
+    string Marque { get; set; }
+    decimal? SegmentationPrincipalePk { get; set; }
+    string MainImage { get; set; }
+    string SmallImage { get; set; }
+    System.Object MainImageObject { get; set; }
+    string Tag { get; set; }
+    bool DisponibleCommande { get; set; }
+    bool DisponibleCentrale { get; set; }
+    bool DisponibleMagasin { get; set; }
+    CPointSoftware.Equihira.Common.TypeStock TypeStockage { get; set; }
+    bool EstImmateriel { get; }
+    bool EstArchive { get; set; }
+    bool EstLivrable { get; set; }
+    long ID { get; set; }
+    System.Guid Guid { get; set; }
+    decimal PuHT { get; set; }
+    decimal PuTTC { get; set; }
+    decimal PuTVA { get; }
+    decimal? PuPromoHT { get; set; }
+    decimal? PuPromoTTC { get; set; }
+    DateTime? DateDebutPromo { get; set; }
+    DateTime? DateFinPromo { get; set; }
+    DateTime DateCreation { get; set; }
+    string Libelle { get; set; }
+    string Reference { get; set; }
+    int FamilleID { get; set; }
+    string Description { get; set; }
+    System.Int32? SousFamilleId { get; set; }
+    int MarqueId { get; set; }
+    byte TauxTvaId { get; set; }
+    short TypeArticleId { get; set; }
+    bool EstUtilisableInternet { get; set; }
+    bool EstPrefacturable { get; set; }
+    bool EstMultiversion { get; set; }
+    bool EstGenerique { get; set; }
+    bool EstCompose { get; set; }
+    bool EstPartenaire { get; set; }
+    bool EstValide { get; set; }
+    int EtatCreation { get; set; }
+    decimal? PuConseilleHT { get; set; }
+    decimal? PuConseilleTTC { get; set; }
+    CPointSoftware.Equihira.Common.MetaTypeArticle MetaType { get; set; }
+    bool PromoDefinie { get; }
+    int ScoreRisque { get; set; }
+}
+
+enum TypeStock
+{
+    NonStocke, // =0
+    Immateriel, // =1
+    StockeFifo, // =2
+    StockePump, // =3
+}
+
+enum MetaTypeArticle
+{
+    Produit, // =0
+    FraisDePort, // =1
+    Avantages, // =2
+    Services, // =3
+    Loyers, // =4
+    Lot, // =5
+    Financier, // =6
+    Taxe, // =7
+    LicenceEtBrevet, // =8
+}
+</code></pre><h2 id="span-idvidervider-le-panierspan"><span id='vider'>Vider le panier</span></h2>
+<p>Vide le panier</p>
+<p>Url :<code>[GET] v2/cart/clear</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>Cette url n&#39;accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>Panier</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Panier
+{
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Lignes { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier FraisPort { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Avantages { get; set; }
+    bool EstValidable { get; set; }
+    bool DemandeFraisPort { get; set; }
+    string DestinationPrevueCodePostal { get; set; }
+    string DestinationPrevueCodePays { get; set; }
+    CPointSoftware.Equihira.Extensibility.ECommerce.ErreurPanier ErreurPanier { get; set; }
+    string Incitation { get; set; }
+    string ModeLivraisonIdentifiant { get; set; }
+    bool ModeLivraisonEstPointRetrait { get; set; }
+    System.Guid ClientGuid { get; set; }
+    string ClientNom { get; set; }
+    bool EstClientConnecte { get; set; }
+    decimal MontantTTCAvecMagasin { get; set; }
+    string MontantTTCAvecMagasinFormate { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    string ProcessAPrivilegier { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.PanierGroupe[] Groupes { get; set; }
+    string CodeAvantageActif { get; set; }
+    decimal TotalRemisePromos { get; set; }
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/hub/api/phygital/panieretcommande/panier.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

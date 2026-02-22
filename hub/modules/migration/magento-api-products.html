@@ -1,0 +1,515 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Migration Magento - Module produits | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Migration Magento - Module produits | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="migration-magento---module-produits">Migration Magento - Module produits</h1>
+
+<p>Le module API Products permet de réaliser des opérations sur les articles en utilisant le formalisme des appels API vers Magento 2.X.</p>
+<h2 id="stocks">Stocks</h2>
+<p>Ces points API incluent les fonctionnalités suivantes :</p>
+<ul>
+<li><code>V1/stockItems/{productSku}</code> : Obtenir les infos de stock d&#39;un article <a href="https://devdocs.magento.com/redoc/2.2/#tag/stockItemsproductSku">(doc magento)</a></li>
+<li><code>V1/stockItems/lowStock/</code> : Obtenir tous les articles avec un stock &quot;inférieur à&quot; <a href="https://devdocs.magento.com/redoc/2.2/#tag/stockItemslowStock">(doc magento)</a> [Expérimental]</li>
+<li><code>V1/stockItems/depot/{depotId}</code> : Point API suivant un formalisme Magento et permettant de définir le stock propre d&#39;un produit</li>
+<li><code>V1/stockItems/external/{supplierId}</code> : Point API suivant un formalisme Magento et permettant de définir le stock externalisé (drop shipping, ou préparation sur stock du groupe) d&#39;un produit</li>
+</ul>
+<h3 id="gestion-du-stock">Gestion du stock</h3>
+<pre><code class="lang-text">GET /V1/stockItems/{productSku}
+</code></pre><p>vous permet de récupérer le stock d&#39;un article</p>
+<pre><code class="lang-text">{
+
+    &quot;item_id&quot;: 14741,
+    &quot;product_id&quot;: 14741,
+    &quot;stock_id&quot;: 1,
+    &quot;qty&quot;: 13,
+    &quot;is_in_stock&quot;: true,
+    &quot;is_qty_decimal&quot;: false,
+    &quot;show_default_notification_message&quot;: true,
+    &quot;use_config_min_qty&quot;: true,
+    &quot;min_qty&quot;: 0,
+    &quot;use_config_min_sale_qty&quot;: 0,
+    &quot;min_sale_qty&quot;: 0,
+    &quot;use_config_max_sale_qty&quot;: true,
+    &quot;max_sale_qty&quot;: 0,
+    &quot;use_config_backorders&quot;: true,
+    &quot;backorders&quot;: 0,
+    &quot;use_config_notify_stock_qty&quot;: true,
+    &quot;notify_stock_qty&quot;: 0,
+    &quot;use_config_qty_increments&quot;: true,
+    &quot;qty_increments&quot;: 0,
+    &quot;use_config_enable_qty_inc&quot;: true,
+    &quot;enable_qty_increments&quot;: true,
+    &quot;use_config_manage_stock&quot;: true,
+    &quot;manage_stock&quot;: true,
+    &quot;low_stock_date&quot;: &quot;string&quot;,
+    &quot;is_decimal_divided&quot;: false,
+    &quot;stock_status_changed_auto&quot;: 0,
+}
+</code></pre><p>Certaines données sont figées, soit parce que cette notion n&#39;est pas reprise dans Alatzion, soit parce que le mode de fonctionnement diffère :</p>
+<ul>
+<li><code>use_config_notify_stock_qty</code> , <code>notify_stock_qty</code> &amp; <code>low_stock_date</code> : les notifications de &quot;stock bas&quot; sont gérés dans la partie &quot;approvisionnement&quot; et suivent des règles spécifiques</li>
+<li><code>use_config_enable_qty_inc</code> &amp; <code>enable_qty_increments</code> : bien que gérée, la notion &quot;d&#39;unité commandable&quot;, n&#39;est pas disponible au travers de l&#39;API Magento</li>
+<li><code>stock_status_changed_auto</code> : toujours à <code>0</code> </li>
+</ul>
+<div class="NOTE"><h5>Note</h5><p>Dans nos solutions, l&#39;identifant d&#39;article est un Guid. Les identifants fournis dans les différents points retournant un item_id ne doit pas être utilisé en dehors des APIs de migration Magento.</p>
+<p>Le stock retourné pour ce point API correspond à la somme de tous les stocks pour les zones de préparation activées pour le e-commerce.</p>
+</div>
+<pre><code class="lang-text">POST /V1/stockItems/depot/{depotId}
+{ 
+    &quot;stockItems&quot;:[
+        {
+            &quot;sku&quot;:&quot;ref1&quot;,
+            &quot;qty&quot;:3 
+        },
+        {
+            &quot;sku&quot;:&quot;ref2&quot;,
+            &quot;qty&quot;:3 
+        }
+        ...
+    ]
+}
+</code></pre><p>modifie les stocks des articles dans le dépot donné</p>
+<pre><code class="lang-text">[]
+</code></pre><p>ou en cas d&#39;erreurs :</p>
+<pre><code class="lang-text">[
+    {
+        &quot;message&quot;: &quot;Invalid attribute %fieldName = %fieldValue. SKU not found.&quot;,
+        &quot;parameters&quot;: [
+            &quot;SKU&quot;,
+            &quot;INEXISTANT&quot;
+        ]
+    }
+]
+</code></pre><table>
+<thead>
+<tr>
+<th>erreurs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Invalid attribute %fieldName = %fieldValue. -------</code> : la référence n&#39;est pas reconnue</td>
+</tr>
+<tr>
+<td><code>SKU ----- id not configured to be in a depot</code> : le produit n&#39;est pas en mode &quot;stocké&quot;</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-text">POST /V1/stockItems/external/{supplierId}
+{ 
+    &quot;stockItems&quot;:[
+        {
+            &quot;sku&quot;:&quot;ref1&quot;,
+            &quot;qty&quot;:3 
+        },
+        {
+            &quot;sku&quot;:&quot;ref2&quot;,
+            &quot;qty&quot;:3 
+        }
+        ...
+    ]
+}
+</code></pre><p>modifie les stocks des articles pour le fournisseur donné</p>
+<pre><code class="lang-text">[]
+</code></pre><p>ou en cas d&#39;erreurs :</p>
+<pre><code class="lang-text">[
+    {
+        &quot;message&quot;: &quot;Invalid attribute %fieldName = %fieldValue. SKU not found.&quot;,
+        &quot;parameters&quot;: [
+            &quot;SKU&quot;,
+            &quot;INEXISTANT&quot;
+        ]
+    }
+]
+</code></pre><table>
+<thead>
+<tr>
+<th>erreurs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Invalid attribute %fieldName = %fieldValue. -------</code> : la référence n&#39;est pas reconnue</td>
+</tr>
+<tr>
+<td><code>SKU ---- id not associated with supplier ---</code> : le produit n&#39;est associé à ce fournisseur</td>
+</tr>
+</tbody>
+</table>
+<h3 id="différences-notables-avec-lapi-magento">Différences notables avec l&#39;API Magento</h3>
+<ul>
+<li>Le point api d&#39;obtention des informations produits présente des spécificités (cf. ci-dessus) dues aux différences entre Magento et Altazion.</li>
+<li>Des points API supplémentaires, respectant le formalisme général de Magento ont été ajoutés pour gérer les stocks en dépot ou les stocks des fournisseurs.</li>
+</ul>
+<div class="NOTE"><h5>Note</h5><p>Vous pouvez désactiver les erreurs de type &quot;produits inconnus&quot; et/ou &quot;non associés à ...&quot;.</p>
+<p>Pour cela, ajoutez un paramètre <code>ignoreUnknownRefs=true</code> aux appels, par exemple <code>/V1/stockItems/depot/147?ignoreUnknownRefs=true</code></p>
+</div>
+<h2 id="module-prix">Module Prix</h2>
+<p>Ce module vous permet d&#39;obtenir ou de définir une partie des informations produits en utilisants le formalisme de Magento.</p>
+<p>Il inclut les points suivants :</p>
+<ul>
+<li><code>V1/products/base-prices-information</code> : obtenir les informations de prix &quot;hors promo&quot; pour des articles <a href="https://devdocs.magento.com/redoc/2.2/#tag/productsbase-prices">(doc magento)</a></li>
+<li><code>V1/products/base-prices</code> : modifier le prix &quot;hors promo&quot; d&#39;un ensemble de produit sur un ensemble de canaux de ventes e-commerce <a href="https://devdocs.magento.com/redoc/2.2/#tag/productsbase-prices-information">(doc magento)</a></li>
+<li><code>V1/products/special-price-information</code> : obtenir les informations de prix promotionnels pour un ensemble d&#39;article <a href="https://devdocs.magento.com/redoc/2.2/#tag/productsspecial-price-information">(doc magento)</a></li>
+<li><code>V1/products/special-price</code> : modifier le prix promotionnel (et les dates) d&#39;un ensemble de produit sur un ensemble de canaux de ventes e-commerce <a href="https://devdocs.magento.com/redoc/2.2/#tag/productsspecial-price">(doc magento)</a></li>
+<li><code>V1/products/special-price-delete</code> : supprime le prix promotionnel pour un ensemble de produits. <a href="https://devdocs.magento.com/redoc/2.2/#tag/productsspecial-price-delete">(doc magento)</a></li>
+</ul>
+<h3 id="gestion-des-prix-de-base">Gestion des prix de base</h3>
+<pre><code class="lang-text">POST /V1/products/base-prices-information
+{ 
+    &quot;skus&quot;:[
+        &quot;ref1&quot;,
+        &quot;ref2&quot;
+    ]
+}
+</code></pre><p>vous permet de récupérer les prix de bases</p>
+<pre><code class="lang-text">[
+    {
+        &quot;price&quot;: 14.85,
+        &quot;store_id&quot;: 1,
+        &quot;sku&quot;: &quot;ref1&quot;
+    },
+    {
+        &quot;price&quot;: 14.02,
+        &quot;store_id&quot;: 2,
+        &quot;sku&quot;: &quot;ref2&quot;
+    },
+    {
+        &quot;price&quot;: 13.21,
+        &quot;store_id&quot;: 1,
+        &quot;sku&quot;: &quot;ref2&quot;
+    }
+    ...
+]
+</code></pre><p>Pour chaque article, vous aurez en retour une ligne pour chaque canal de vente  e-commerce (pour chaque site) configuré. Les articles non publiés, archivés ou en élaboration sont retournés par cette API. Les articles dont le mode <em>utilisable sur Internet</em> n&#39;est pas activé sont ignorés.</p>
+<div class="NOTE"><h5>Note</h5><p>Vous pouvez définir des prix sur un article qui est encore en cours de création (ou qui n&#39;a pas encore été importé si vous utilisez les échanges EDI avec un système tiers) : les informations de prix seront conservées et appliquées lorsque cette référence sera validée/importée.</p>
+<p>Pour cela, ajoutez un paramètre <code>ignoreUnknownRefs=true</code> aux appels, par exemple <code>/V1/products/base-prices?ignoreUnknownRefs=true</code></p>
+</div>
+<pre><code class="lang-text">POST /V1/products/base-prices
+
+{
+  &quot;prices&quot;: [
+    {
+      &quot;price&quot;: 14.02,
+      &quot;store_id&quot;: 1,
+      &quot;sku&quot;: &quot;ref1&quot;
+    },
+    {
+      &quot;price&quot;: 14.02,
+      &quot;store_id&quot;: 1,
+      &quot;sku&quot;: &quot;ref2&quot;
+    }
+  ]
+}
+</code></pre><p>modifie les prix de base des articles</p>
+<pre><code class="lang-text">[]
+</code></pre><p>ou en cas d&#39;erreurs :</p>
+<pre><code class="lang-text">[
+    {
+        &quot;message&quot;: &quot;Invalid attribute %fieldName = %fieldValue. SKU not found.&quot;,
+        &quot;parameters&quot;: [
+            &quot;SKU&quot;,
+            &quot;INEXISTANT&quot;
+        ]
+    },
+    {
+        &quot;message&quot;: &quot;Requested store is not found. Row ID: SKU = INEXISTANT, Store ID: 7&quot;,
+        &quot;parameters&quot;: [
+            null,
+            &quot;7&quot;
+        ]
+    }
+]
+</code></pre><p>Si toutes les modifications de prix ont pu être validées, vous recevrez en retour un tableau vide. Vous pouvez aussi recevoir une ou plusieurs erreurs pour chaque produits. Tous les changements de prix valides sont pris en compte, même si votre flux comporte des erreurs : seuls les enregistrements invalides seront ignorés.</p>
+<table>
+<thead>
+<tr>
+<th>erreurs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Requested store is not found. Row ID: SKU = ------, Store ID: -</code> : le magasin n&#39;existe pas</td>
+</tr>
+<tr>
+<td><code>Invalid attribute %fieldName = %fieldValue. -------</code> : la référence n&#39;est pas reconnue ou le prix est invalide ( &lt; 0 par exemple)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gestion-des-prix-spéciaux">Gestion des prix spéciaux</h3>
+<p>La gestion des prix spéciaux est directement connectée à la gestion des prix promotionnel par canal de vente dans nos solutions. Ces points API permettront donc de mettre à jour les informations de prix promotionnel pour les sites ecommerce. </p>
+<div class="NOTE"><h5>Note</h5><p>Les prix promos expirent automatiquement dans les 2 jours suivants la date de leur fin d&#39;applications, vous n&#39;avez pas besoin de réaliser un appel API pour traiter les promotions expirées.</p>
+<p>Vous pouvez définir des prix promos sur un article qui est encore en cours de création (ou qui n&#39;a pas encore été importé si vous utilisez les échanges EDI avec un système tiers) : les informations de prix seront conservées et appliquées lorsque cette référence sera validée/importée.</p>
+<p>Pour cela, ajoutez un paramètre <code>ignoreUnknownRefs=true</code> aux appels, par exemple <code>/V1/products/base-prices?ignoreUnknownRefs=true</code></p>
+</div>
+<div class="WARNING"><h5>Warning</h5><p>Attention, les prix spéciaux définit par ce point API peuvent être &quot;surchargés&quot; par d&#39;autres conditions tarifaires, comme par exemple une grille de tarif.</p>
+</div>
+<pre><code class="lang-text">POST /V1/products/special-price-information
+{ 
+    &quot;skus&quot;:[
+        &quot;ref1&quot;,
+        &quot;ref2&quot;
+    ]
+}
+</code></pre><p>vous permet de récupérer les prix &quot;promos&quot;</p>
+<pre><code class="lang-text">[
+     {
+        &quot;price&quot;: 12.00,
+        &quot;store_id&quot;: 1,
+        &quot;sku&quot;: &quot;ref1&quot;,
+        &quot;price_from&quot;: &quot;2017-06-05 00:00:00&quot;,
+        &quot;price_to&quot;: &quot;2029-06-16 23:59:00&quot;
+    },
+    {
+        &quot;price&quot;: 12.10,
+        &quot;store_id&quot;: 2,
+        &quot;sku&quot;: &quot;ref1&quot;,
+        &quot;price_from&quot;: &quot;2017-06-20 00:00:00&quot;,
+        &quot;price_to&quot;: &quot;2028-02-03 23:59:00&quot;
+    },
+]
+</code></pre><p>Vous récupérerez un item pour chaque prix promo défini pour un canal de vente e-commerce. Si un article n&#39;a pas de prix promotionnel, il ne sera pas présent dans le flux de retour.</p>
+<table>
+<thead>
+<tr>
+<th>erreurs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Requested store is not found. Row ID: SKU = ------, Store ID: -</code> : le magasin n&#39;existe pas</td>
+</tr>
+<tr>
+<td><code>Invalid attribute %fieldName = %fieldValue. -------</code> : la référence n&#39;est pas reconnue ou le prix est invalide ( &lt; 0 par exemple)</td>
+</tr>
+<tr>
+<td><code>Invalid date range for special-price.</code> : la plage de date est invalide (date de début &lt; date de fin par exemple)</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-text">POST /V1/products/special-price
+
+{
+  &quot;prices&quot;: [
+    {
+      &quot;price&quot;: 11.00,
+      &quot;store_id&quot;: 1,
+      &quot;sku&quot;: &quot;ref1&quot;,
+      &quot;price_from&quot;:&quot;2020-01-01 00:00:00&quot;,
+      &quot;price_tp&quot;:&quot;2040-01-01 00:00:00&quot;,
+    }
+  ]
+}
+</code></pre><p>modifie les prix promotionnels d&#39;un ensemble de produits</p>
+<pre><code class="lang-text">[]
+</code></pre><p>ou en cas d&#39;erreurs :</p>
+<pre><code class="lang-text">[
+    {
+        &quot;message&quot;: &quot;Invalid attribute %fieldName = %fieldValue. SKU not found.&quot;,
+        &quot;parameters&quot;: [
+            &quot;SKU&quot;,
+            &quot;INEXISTANT&quot;
+        ]
+    },
+    {
+        &quot;message&quot;: &quot;Requested store is not found. Row ID: SKU = INEXISTANT, Store ID: 7&quot;,
+        &quot;parameters&quot;: [
+            null,
+            &quot;7&quot;
+        ]
+    }
+]
+</code></pre><pre><code class="lang-text">POST /V1/products/special-price-delete
+
+{
+  &quot;prices&quot;: [
+    {
+      &quot;store_id&quot;: 1,
+      &quot;sku&quot;: &quot;ref1&quot;,
+    }
+  ]
+}
+</code></pre><p>retire les prix promotionnels sur toutes les références fournies</p>
+<pre><code class="lang-text">[]
+</code></pre><p>ou en cas d&#39;erreurs :</p>
+<pre><code class="lang-text">[
+    {
+        &quot;message&quot;: &quot;Invalid attribute %fieldName = %fieldValue. SKU not found.&quot;,
+        &quot;parameters&quot;: [
+            &quot;SKU&quot;,
+            &quot;INEXISTANT&quot;
+        ]
+    },
+    {
+        &quot;message&quot;: &quot;Requested store is not found. Row ID: SKU = INEXISTANT, Store ID: 7&quot;,
+        &quot;parameters&quot;: [
+            null,
+            &quot;7&quot;
+        ]
+    }
+]
+</code></pre><h3 id="différences-notables-avec-lapi-magento-1">Différences notables avec l&#39;API Magento</h3>
+<ul>
+<li>lorsque votre JSON est invalide, vous recevrez un message provenant du framework .net vous expliquant les anomalies</li>
+<li>si votre JSON ne correspond pas au bon format (mais qu&#39;il reste un JSON valide), le message d&#39;erreur en http 400 est plus générique que celui de Magento</li>
+<li>le message lors d&#39;une erreur sur le SKU contient une information supplémentaire pour préciser le problème</li>
+<li>lors de l&#39;utilisation d&#39;un special-price, les plages de dates invalides sont retournées comme des erreurs.</li>
+<li>les prix spéciaux expirés sont nettoyés de façon régulière des tables et peuvent donc ne plus être retourné par le point <code>special-price-information</code> quelques heures après la fin de leur période d&#39;application.</li>
+</ul>
+<div class="WARNING"><h5>Warning</h5><p>Attention, les prix que vous importez par ce module ne sont pas appliqués en temps réel : un décalage de quelques secondes est à prendre en compte après l&#39;envoi de données via un point API pour voir les données modifiées dans Altazion Office ou dans Altazion Commerce.</p>
+<p>Les points API sont, eux, par contre synchronisés de façon à fournir un résultat cohérent si vous appelez (par exemple) <code>base-prices-information</code> après avoir envoyé des données à <code>base-prices</code>.</p>
+</div>
+<h2 id="utiliser-le-module">Utiliser le module</h2>
+<p>Si vous souhaitez déployer par vous même le module (par exemple sur un environnement de test), vous pouvez :</p>
+<ul>
+<li>soit utiliser les cmdlets powershell pour déployer le module sur un serveur Windows ou Linux exécutant Altazion Hub Server</li>
+</ul>
+<pre><code class="lang-Powershell">Get-AltazionHubModule Altazion.Hub.Magento.Products | Deploy-AltazionHubModule -Server localhost
+</code></pre><p>La configuration et les connexions seront automatiquement récupérées depuis les paramètres du serveur.</p>
+<ul>
+<li>soit utilliser le container <code>altazion/hub-migration-magento-products</code>(<a href="https://hub.docker.com/r/altazion/hub-migration-magento-products">lien docker hub</a>)</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/hub/modules/migration/magento-api-products.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Supplier | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Supplier | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="supplier">Supplier</h2>
+
+<p>La classe Supplier représente un fournisseur dans le système de gestion commerciale.</p>
+<p>Propriétés publiques :</p>
+<ul>
+<li>Guid : identifiant unique (GUID) du fournisseur.</li>
+<li>Id : identifiant numérique du fournisseur.</li>
+<li>Libelle : nom (libellé) du fournisseur.</li>
+<li>Adress : adresse complète du fournisseur.</li>
+<li>PostalCode : code postal du fournisseur.</li>
+<li>City : ville du fournisseur.</li>
+<li>PhoneNumber : numéro de téléphone du fournisseur.</li>
+<li>CompteCompta : compte comptable associé au fournisseur.</li>
+<li>DefaultExpenseIdType : identifiant du type de dépenses par défaut (optionnel).</li>
+<li>Type : type de fournisseur (code sur 1 caractère).</li>
+<li>Siret : numéro SIRET du fournisseur.</li>
+<li>UE_VAT : numéro de TVA intracommunautaire (UE).</li>
+<li>ClientNumber : numéro de client chez ce fournisseur.</li>
+<li>IsArchived : indique si le fournisseur est archivé.</li>
+<li>Code : code du fournisseur.</li>
+<li>MainEmail : adresse e-mail principale du fournisseur.</li>
+<li>CountryCode : code du pays du client.</li>
+<li>PaymentTermType : type de délai de paiement (enum PaymentTermType).</li>
+<li>PaymentTermDelay : délai de paiement en jours.</li>
+<li>PartnerGuid : GUID du partenaire associé au client (optionnel).</li>
+<li>StandardDelayInHours : nombre d&#39;heures du délai standard de livraison (optionnel).</li>
+<li>EUSpecifications : spécifications spécifiques à l&#39;Union Européenne.</li>
+<li>FranceSpecifications : spécifications spécifiques à la France.</li>
+<li>GermanySpecifications : spécifications spécifiques à l&#39;Allemagne.</li>
+<li>SpainSpecifications : spécifications spécifiques à l&#39;Espagne.</li>
+<li>ItalySpecifications : spécifications spécifiques à l&#39;Italie.</li>
+<li>BelgiumSpecifications : spécifications spécifiques à la Belgique.</li>
+<li>NetherlandsSpecifications : spécifications spécifiques aux Pays-Bas.</li>
+<li>LuxembourgSpecifications : spécifications spécifiques au Luxembourg.</li>
+<li>SwitzerlandSpecifications : spécifications spécifiques à la Suisse.</li>
+<li>UKSpecifications : spécifications spécifiques au Royaume-Uni.</li>
+</ul>
+<p>Chaque groupe de spécifications contient ses propres propriétés détaillées liées aux réglementations locales.</p>
+<h3 id="dclaration-typescript">D�claration TypeScript</h3>
+<pre><code class="lang-typescript">interface Supplier {
+  Guid: string; // GUID in string format
+  Id: number;
+  Libelle: string;
+  Adress: string;
+  PostalCode: string | null;
+  City: string | null;
+  PhoneNumber: string | null;
+  CompteCompta: string | null;
+  DefaultExpenseIdType?: number | null;
+  Type: string;
+  Siret: string | null;
+  UE_VAT: string | null;
+  ClientNumber: string | null;
+  IsArchived: boolean;
+  Code: string | null;
+  MainEmail: string | null;
+  CountryCode: string | null;
+  PaymentTermType: PaymentTermType;
+  PaymentTermDelay: number;
+  PartnerGuid?: string | null;
+  StandardDelayInHours?: number | null;
+  EUSpecifications?: SupplierEUSpecifications | null;
+  FranceSpecifications?: SupplierFranceSpecifications | null;
+  GermanySpecifications?: SupplierGermanySpecifications | null;
+  SpainSpecifications?: SupplierSpainSpecifications | null;
+  ItalySpecifications?: SupplierItalySpecifications | null;
+  BelgiumSpecifications?: SupplierBelgiumSpecifications | null;
+  NetherlandsSpecifications?: SupplierNetherlandsSpecifications | null;
+  LuxembourgSpecifications?: SupplierLuxembourgSpecifications | null;
+  SwitzerlandSpecifications?: SupplierSwitzerlandSpecifications | null;
+  UKSpecifications?: SupplierUKSpecifications | null;
+}
+
+interface SupplierEUSpecifications {
+  VatNumber?: string | null;
+  EORINumber?: string | null;
+  TaxExemptionReason?: string | null;
+}
+
+interface SupplierFranceSpecifications {
+  SIRETNumber?: string | null;
+  SIRENNumber?: string | null;
+  APECode?: string | null;
+  ShareCapital?: number | null;
+  LegalForm?: string | null;
+  RCSNumber?: string | null;
+  RCSCity?: string | null;
+}
+
+interface SupplierGermanySpecifications {
+  Handelsregisternummer?: string | null;
+}
+
+interface SupplierSpainSpecifications {
+  CIF?: string | null;
+  CNAE?: string | null;
+}
+
+interface SupplierItalySpecifications {
+  CodiceFiscale?: string | null;
+  RAE?: string | null;
+  ATECO?: string | null;
+}
+
+interface SupplierBelgiumSpecifications {
+  BCENumber?: string | null;
+  NACE?: string | null;
+}
+
+interface SupplierNetherlandsSpecifications {
+  KvKNummer?: string | null;
+  SBI?: string | null;
+}
+
+interface SupplierLuxembourgSpecifications {
+  RCSNumber?: string | null;
+  NACE?: string | null;
+}
+
+interface SupplierSwitzerlandSpecifications {
+  IDENumber?: string | null;
+  NOGA?: string | null;
+}
+
+interface SupplierUKSpecifications {
+  CompanyNumber?: string | null;
+  SIC?: string | null;
+}
+
+// Enum PaymentTermType should be declared elsewhere or imported.
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/fr-fr/reference/DataObjectBase/Core-Business/business/Altazion.Core.Model/Supplier/Altazion.Core.Model.Supplier.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>

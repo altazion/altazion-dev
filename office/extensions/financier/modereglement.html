@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Impl&#233;menter un mode de r&#232;glement | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Impl&#233;menter un mode de r&#232;glement | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="implémenter-un-mode-de-règlement">Implémenter un mode de règlement</h2>
+
+<div class="WARNING"><h5>Warning</h5><p>Disponible uniquement en solution OnPremise</p>
+</div>
+<p>Un mode de règlement doit être implémenté en réalisant plusieurs composants :</p>
+<ul>
+<li>Implémenter l&#39;interface <code>IModePaiement</code></li>
+<li>éventuellement implémenter son complément : <code>IModePaiementAvantageClient</code></li>
+</ul>
+<p>De plus, si vous souhaitez utiliser ce moyen de paiement sur votre site e-commerce, vous devrez :</p>
+<ul>
+<li>Implémenter le contrôle interactif à présenter à l&#39;utilisateur</li>
+<li>Implémenter les appels et réponses correspondant à votre prestataire.</li>
+</ul>
+<h2 id="module-de-paiement">Module de paiement</h2>
+<h3 id="imodepaiement"><code>IModePaiement</code></h3>
+<p>L&#39;interface <a href="../api/CPointSoftware.Equihira.Extensibility.Process.IModePaiement.html"><code>IModePaiement</code></a> est le noyau dur de l&#39;objet métier. Les méthodes de cette interface permettent de savoir si un règlement est modifiable, calculer la possibilité d&#39;un règlement, vérifier l&#39;état d&#39;un règlement, effectuer une annulation ou un remboursement, valider ou simuler un règlement et une méthode qui permet d&#39;initialiser le mode de règlement. Les méthodes à implémenter et leurs contenus sont fonction des capacité de votre mode de paiement et du prestataire associé.</p>
+<pre><code>void Init(ModeReglement parameters);
+</code></pre><p>Cette méthode est à implémenter pour initialiser le module, en fonction de ce qui est stocké en base en termes d&#39;informations de configuration (par exemple les identifiants de connexion).</p>
+<pre><code>bool EstModifiable(IntentionReglementBase reglement);
+</code></pre><p>Lorsque vous implémentez cette méthode, vous devrez simplement renvoyer <em>true</em> si le règlement qui vous est passé est modifiable.</p>
+<pre><code>decimal CaculerConsommationPossible(IntentionReglementBase reglement, decimal montantAConsommer);
+</code></pre><p>Cette méthode est à implémenter pour permettre à la gestion commerciale de déterminer comment optimiser les possibilités de modification des règlements. Il vous faudra y calculer le montant le plus proche auquel vous pouvez placer le règlement pour s&#39;approcher du montant à consommer.</p>
+<p>Par exemple, si vous aviez un règlement unique sur une commande, d&#39;un montant de 80€ et qu&#39;un manquant s&#39;est produit pour 25€, vous recevrez un appel :</p>
+<p><code>votreMode.CaculerConsommationPossible(reglement /* = votre reg à 80€ */, 55M);</code></p>
+<p>Vous pourrez répondre : </p>
+<ul>
+<li>le même montant que votre montant d&#39;origine (80€) si vous n&#39;êtes pas/plus en mesure de modifier le règlement</li>
+<li>le montant demandé si vous pouvez modifier le règlement pour le porter à 55€</li>
+<li><p>ou un montant spécifique à votre fonctionnement interne, par exemple, si vous ne gérez que des bons d&#39;achats de 20€, vous pouvez renvoyer 60€ pour vous rapprocher le plus possible du montant demandé.</p>
+<p>  EtatReglement VerifierEtat(IntentionReglementBase reglement);</p>
+</li>
+</ul>
+<p>L&#39;implémentation de cette méthode doit aller vérifier l&#39;état du règlement et retourner une valeur parmis :</p>
+<ul>
+<li>Regle</li>
+<li>PartiellementRegle</li>
+<li>EcheanceInconnue</li>
+<li>Confirme</li>
+<li>Recu</li>
+</ul>
+<p>La plupart des implémentations de l&#39;interface lancent un <code>NotImplementedException</code>.</p>
+<pre><code>ResultatValidationPaiement Valider(IntentionReglementBase[] reglement, DateTime nouvelleEcheance, decimal nouveauMontant, bool mettreEnRemise);
+</code></pre><p>Il s&#39;agit de la méthode principale du module : vous recevez un ensemble de règlement correspondant à une seule et unique opération de vente (commande ou facture), un nouveau montant et une nouvelle échéance. Votre module doit alors essayer d&#39;appliquer le montant correspondant sur les règlements (et le partager entre ces règlements). Pour cela, vous devez faire toutes les modifications nécessaires auprès du prestataire de paiement et les lister dans les opérations réalisées.</p>
+<p>Par exemple, l&#39;implémentation pour Paypal est la suivante :</p>
+<pre><code>public ResultatValidationPaiement Valider(IntentionReglementBase[] reglement, DateTime nouvelleEcheance, decimal nouveauMontant, bool mettreEnRemise)
+{
+    if (reglement.Length == 0)
+        return null;
+
+    ResultatValidationPaiement pm = new ResultatValidationPaiement(reglement[0].ModeReglementGuid, &quot;&quot;, nouveauMontant);
+    decimal current = GetCurrentAmount(reglement[0].NumPiece, reglement[0].DateEcheance);
+    if (current &lt;= nouveauMontant)
+    {
+        // le montant est déjà OK
+        return pm;
+    }
+    else
+    {
+        // on calcule le montant à rembourser et on 
+        // déclenche l&#39;opération
+        decimal aRbs = current - nouveauMontant;
+        decimal montantRembourse;
+        if (Rembourser(reglement[0].NumPiece, reglement[0].DateEcheance, aRbs, nouveauMontant==0, out montantRembourse))
+        {
+            if (montantRembourse &gt;= 0M)
+            {
+                if (montantRembourse == aRbs)
+                {
+                    pm.Operations.Add(new OperationValidationPaiement(reglement[0].Guid, TypeOperation.Remboursement, aRbs, reglement[0].DateEcheance, null));
+                }
+                else
+                    throw new BusinessException(CPointSoftware.Equihira.Business.Strings.Error_Paypal_ModifAVerifier);
+            }
+            else
+                throw new BusinessException(CPointSoftware.Equihira.Business.Strings.Error_Paypal_ModifAVerifier);
+        }
+        else 
+        {
+            throw new BusinessException(CPointSoftware.Equihira.Business.Strings.Error_Paypal_NonModifiable);
+        }
+    }
+
+    return pm;
+}
+</code></pre><p>La méthode <code>Simuler</code> est identique mais est à implémenter sans réaliser les opérations de modifications : elle sera appelée dans des cas assez rares pour estimer le résultat d&#39;une validation.</p>
+<pre><code>public OperationValidationPaiement[] Rembourser(IntentionReglementBase[] reglement, decimal montantARembourser)
+</code></pre><p>Cette méthode est similaire à celle de validation, mais forcent le fait de réaliser un remboursement. Elle sera par exemple utilisé lors du traitement d&#39;un SAV, en tant que remboursement d&#39;un avoir.</p>
+<pre><code>public OperationValidationPaiement[] Annuler(IntentionReglementBase[] reglement)
+</code></pre><p>Implémentez cette méthode pour annuler totalement les intentions de règlement passées en paramètre. Vous n&#39;avez aucune vérification à faire : cette méthode ne sera jamais appelée pour autre chose que pour retirer tous les règlements.</p>
+<h2 id="intégration-e-commerce">Intégration e-commerce</h2>
+<p>Le règlement est la phase clef du tunnel de conversion d&#39;un site e-commerce, mais c&#39;est aussi l&#39;une des phases les plus compliquées techniquement. La quasi intégralité des moyens de paiement sur le web sont des plateformes hébergées par des organismes financiers et demandant donc une intégration API et EDI pour être exploitables.</p>
+<p>A quelques exceptions près, le fonctionnement d&#39;un mode de règlement est le suivant :</p>
+<ol>
+<li>Le site prépare une demande de prise en charge d&#39;un paiement en fabriquant un formulaire html dans lequel sont regroupées des informations permettant à l&#39;organisme financier de préparer le paiement. Ce formulaire doit aussi contenir toutes les mesures de sécurité demandées par la plateforme de paiement.</li>
+<li>Lorsque l&#39;utilisateur &quot;valide&quot; le règlement (en postant le formulaire), il est redirigé vers le site de la solution de paiement</li>
+<li>Le client réalise le paiement sur le site externe</li>
+<li>Lorsqu&#39;il a terminé, le site de l&#39;organisme renvoie le client sur une page spécifique du site, en passant (dans la plupart des cas), des informations permettant de savoir si le paiement s&#39;est bien passé ou non.</li>
+<li>Le site doit traiter ce retour pour savoir si le client doit être amené vers une page de reçu de commande ou une page d&#39;erreur</li>
+<li>Dans la grande majorité des cas, l&#39;organisme financier appelle, de façon asynchrone et dans une session HTTP totalement différente, un point API du site pour lui donner plus d&#39;informations sur le paiement</li>
+</ol>
+<p>C&#39;est cette 6ème étape qui est le garant le plus sûr du fait que le paiement ait bien été pris en compte : les étapes 4 et 5 pouvant être plus facilement détournées.</p>
+<h2 id="affichage-sur-le-site">Affichage sur le site</h2>
+<p>Le module e-commerce intègre un certain nombre de règles pour définir quels sont les modes de règlement disponibles pour payer un panier. Le choix des modes disponibles est fonction d&#39;un certain nombre de critères :</p>
+<ul>
+<li>le fait que le module soit activé ou non pour un site e-commerce </li>
+<li>et pour le type de panier (web &quot;pur&quot;, click&#39;n&#39;mortar, marketplace...)</li>
+<li>le montant du panier</li>
+<li>le pays de destination des produits</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/office/extensions/financier/modereglement.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

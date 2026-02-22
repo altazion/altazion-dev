@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace ProductTools | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace ProductTools | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="namespace-producttools">Namespace ProductTools</h1>
+
+<h2 id="productmanager">ProductManager</h2>
+<p>La classe statique <code>Phygital.ProductTools.ProductManager</code> contient les opérations métiers associées à la manipulation des articles</p>
+<h3 id="configuration--marques">Configuration &amp; Marques</h3>
+<ul>
+<li><code>getMarques (success: (data: FacetData[]) =&gt; void)</code></li>
+<li><code>getConfig (success: (data: CatalogueConfig) =&gt; void)</code></li>
+</ul>
+<h3 id="recherche">Recherche</h3>
+<ul>
+<li><code>search(search: Partial&lt;ContexteRechercheValeur&gt;, id: string, success: (data: RechercheArticleResultat, id: string) =&gt; void, startIndex: number = 0, count: number = 200)</code></li>
+</ul>
+<p>Cette méthode permet de lancer une recherche sur un ensemble de critères, et d&#39;appeler une méthode en retour en cas de succès. Le paramètre id vous permet de passer un identifiant de requêtes afin de gérer l&#39;ordonnancement des appels dans le cas où vous lanceriez plusieurs reqûetes à la suite et où le serveur ne répondrait pas dans l&#39;ordre.</p>
+<p>Le comportement est assez simple : la méthode appelle simplement le point API de recherche. </p>
+<p>Pour définir vos critères de recherche, vous pouvez utiliser la classe ci-dessous. Pour la plupart des critères, vous pourrez récupérer les valeurs à utiliser à partir :</p>
+<ul>
+<li>soit des valeurs provenant d&#39;un appel précédent à la méthode de recherche</li>
+<li>soit de celles provenant de la méthode de configuration.</li>
+</ul>
+<pre><code class="lang-typescript">class ContexteRechercheValeur {
+    public Criteres: RechercheCritereValeur[];
+    public Segmentations: RechercheSegmentation[];
+    public Marques: RechercheMarque[];
+    public Keywords: String[];
+    public VitrineGuid: string;
+    constructor() {
+        this.Criteres = new Array&lt;RechercheCritereValeur&gt;();
+        this.Segmentations = new Array&lt;RechercheSegmentation&gt;();
+        this.Marques = new Array&lt;RechercheMarque&gt;();
+        this.Keywords = new Array&lt;String&gt;();
+        this.VitrineGuid = &quot;&quot;;
+    }
+}
+
+class RechercheCritereValeur {
+    public ValueLabel: string;
+    public ValueGuid: string;
+    public MinValue: number;
+    public MaxValue: number;
+    public Ordre: number;
+    public UrlPerso: string;
+    public Count: number;
+    public Importance: number;
+    public CritereGuid: string;
+    public ValueText: string;
+}
+
+class RechercheSegmentation {
+    public Id: number;
+    public Level: number;
+    public ParentId: number;
+    public Label: string;
+    public Code: string;
+    public Count: number;
+}
+
+class RechercheMarque {
+    public Id: number;
+    public Label: string;
+    public Code: string;
+    public Count: number;
+    public Importance: number;
+}
+</code></pre><p>Par exemple, pour réaliser une recherche sur la segmentation d&#39;identifiant 1375, vous pouvez réaliser l&#39;appel suivant :</p>
+<pre><code class="lang-typescript">    this.search({ Segmentations : [new RechercheSegmentation(1375)]},
+        new Date().getTime().toString(),
+        (data, id) =&gt; {
+            // réaliser ici votre traitement
+        }
+    );
+</code></pre><ul>
+<li><code>getSuggestions(searchString: string, id: string, success: (id: string, data: Array&lt;CatalogSearchSuggestion&gt;) =&gt; void)</code></li>
+<li><code>getArticlePartialRef(searchString: string, id: string, success: (id: string, data: Array&lt;CatalogSearchSuggestion&gt;) =&gt; void)</code></li>
+</ul>
+<h3 id="fiche-produit">Fiche produit</h3>
+<ul>
+<li><code>getFromBase(article: ArticleBase, success: (data: ArticleDetail) =&gt; void)</code></li>
+<li><code>getFromGuid(guid: string, success: (data: ArticleDetail) =&gt; void)</code></li>
+<li><code>getFromRef(reference: string, success: (data: ArticleDetail) =&gt; void)</code></li>
+</ul>
+<h3 id="helpers">Helpers</h3>
+<ul>
+<li><code>parseFacets(facets: string, success: (data: Phygital.ProductTools.ContexteRechercheValeur) =&gt; void)</code></li>
+<li><code>sendShareMail(mails: Array&lt;string&gt;, body: string, sujet: string)</code></li>
+</ul>
+<h2 id="appliquer-un-post-traitement-aux-données">Appliquer un post-traitement aux données</h2>
+<p>Une bonne partie des méthodes de ce SDK vous permettent d&#39;appliquer un post-traitement à réception des données.</p>
+<h3 id="filtrer-la-recherche">Filtrer la recherche</h3>
+<p>Vous pouvez intervenir sur la liste des facets à afficher en implémentant une méthode respectant la signature suivante :</p>
+<pre><code class="lang-typescript">filterFacets: (tousLesCriteres: Array&lt;CritereRechercheArticle&gt;) =&gt; Array&lt;CritereRechercheArticle&gt;
+</code></pre><p>Cette méthode sera appelé après chaque appel à la méthode <code>search</code> avec les facets récupérées de l&#39;API : il vous suffit de retourner la liste après éventuelles modifications pour changer le comportement.</p>
+<h3 id="filtrer-les-fiches-produit">Filtrer les fiches produit</h3>
+<pre><code class="lang-typescript">filterAssociatedProducts: (tousLesTypes: any) =&gt; Array&lt;ArticleAssocie&gt;;
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/signage/interactivesignage/sdk/producttools.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Pr&#233;sentation | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Pr&#233;sentation | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="présentation">Présentation</h1>
+
+<h2 id="généralités">Généralités</h2>
+<h3 id="définition">Définition</h3>
+<p>Les sources d&#39;approvisionnement servent à définir les stocks alloués à vos différents canaux de ventes qui seront utilisés pour préparer les commandes passées sur ces canaux.
+Il s&#39;agit d&#39;un module optionnel qui, une fois activé, remplace le calcul simple par un système plus complet permettant de choisir précisément les stocks à utiliser.</p>
+<p><strong>L&#39;activation des sources d&#39;approvisionnement est indispensable pour pouvoir utiliser les modules Delivery Optimizer et Unified Stock.</strong></p>
+<h3 id="caractéristiques">Caractéristiques</h3>
+<p>Une source d&#39;approvisionnement est associée à une raison juridique. Elle possède les caractéristiques suivantes :</p>
+<ul>
+<li>Un libellé (exemple : Site E-commerce France)</li>
+<li>Une icône à choisir pour l&#39;affichage dans la gestion commerciale</li>
+<li>Des règles d&#39;approvisionnement (voir ci-dessous)</li>
+<li>La possibilité ou non d&#39;être archivé (une source d&#39;approvisionnement archivé n&#39;est pas exécutable)</li>
+</ul>
+<p>Si vous souhaite lier la source d&#39;approvisionnement à un module Delivery Optimizer, vous devrez également renseigner :</p>
+<ul>
+<li>L&#39;url du module</li>
+<li>Les identifiants OMS du module</li>
+<li>Les identifiants E-Commerce du module</li>
+<li>La configuration du module</li>
+</ul>
+<p>Pour plus d&#39;information sur cette partie, veuillez consulter la documentation sur Delivery Optimizer.</p>
+<h3 id="composition-dune-source-dapprovisionnement">Composition d&#39;une source d&#39;approvisionnement</h3>
+<p>Comme évoqué ci-dessus, une source d&#39;approvisionnement permet de définir des règles pour savoir quels stocks et quelle part de ces stocks est prise en compte pour chaque article. Ces règles d&#39;approvisionnement sont entièrement paramétrables et vous permettent de gérer finement l&#39;allocation de vos stocks à vos sources d&#39;approvisionnement.</p>
+<p>Pour ce faire, les règles peuvent s&#39;appuyer sur des liaisons fournisseurs et magasins ainsi que des traitements. Pour plus d&#39;informations sur les règles d&#39;approvisionnement, consultez la page de documentation qui leur est dédiée.</p>
+<p>Le schéma ci-dessous synthétise les relations entre les différentes entités qui composent une source d&#39;approvisionnement :</p>
+<p><img src="img/CompositionSourceAppro.png" alt="Composition d&#39;une source d&#39;appro"></p>
+<h3 id="association-aux-canaux-de-ventes">Association aux canaux de ventes</h3>
+<p>Afin de déterminer les quantités disponibles pour un canal de vente (site e-commerce, bornes, etc..), celui-ci doit être associé à une source d&#39;approvisionnement. Lorsque cela est fait, le canal déporte tous calculs des stocks à un potentiel module Unified Stock et les calculs de paniers/commandes à un module Delivery Optimizer.</p>
+<h3 id="type-dexécution">Type d&#39;exécution</h3>
+<p>Les sources d&#39;approvisionnement peuvent être exécutées dans deux cadres différents :</p>
+<ul>
+<li>Dans la base de données principale. Cette première version des sources d&#39;approvisionnement considère la base comme référentiel des stocks. Cette version ne permet pas de disposer de vos stocks en temps réel.</li>
+<li>Pour Unified Stock. Cette seconde version est utilisée si vous disposez d&#39;un module Unified Stock paramétré. Dans ce cas, Unified Stock est considéré comme référentiel des stocks et permet de bénéficier du calcul de vos stocks en temps réel.</li>
+</ul>
+<p>En fonction du cadre d&#39;exécution, le fonctionnement des sources d&#39;approvisionnement diffère légèrement.</p>
+<h2 id="configuration-des-origines-de-stocks">Configuration des origines de stocks</h2>
+<h3 id="notion-dorigine-de-stock-et-ship-from-anywhere">Notion d&#39;origine de stock et Ship From Anywhere</h3>
+<p>Les sources d&#39;approvisionnements sont conçues pour fonctionner avec des stocks provenant de plusieurs type d&#39;entitées. On y retrouve les magasins, les dépôts de stocks, les zones de préparation ou les fournisseurs par exemple.</p>
+<p>Cette abstraction nommée <strong>Origine de stock</strong> est indispensable au fonctionnement du concept <strong>Ship From Anywhere (SFA)</strong> proposé par Altazion à travers les sources d&#39;approvisionnement, Delivery Optimizer et Unified Stock.</p>
+<p>Les sections suivantes comportent des explications sur l&#39;intégration des différents types d&#39;origines de stock aux sources d&#39;approvisionnement.</p>
+<h3 id="participation-des-magasins">Participation des magasins</h3>
+<p>La participation d&#39;un magasin aux sources d&#39;approvisionnement est directement liée à la notion de Ship From Store (SFS). Cette participation ne peut se faire que si les conditions suivantes sont respectées :</p>
+<ul>
+<li>Le magasin doit disposer d&#39;un code</li>
+<li>Il ne doit pas être archivé</li>
+<li>Il doit accepter de participer au SFS : c&#39;est à dire, indiquer sa volonté de participer à l&#39;expédition des commandes depuis son magasin</li>
+<li>Il doit participer au SFS : c&#39;est à dire, effectivement participer. Il est en effet possible de désactiver la participation d&#39;un magasin au SFS pour différentes raisons (taux de préparation non satisfaisant, fermeture temporaire, etc.)</li>
+</ul>
+<p>Enfin, chaque magasin participant doit disposer d&#39;une configuration valide nécessaire au bon fonctionnement du SFS :</p>
+<ul>
+<li><strong>La priorité du magasin</strong>. Plus celle-ci est importante, plus le magasin sera prioritaire pour le traitement des commandes.</li>
+<li><strong>La capacité de traitement du magasin</strong>. Plus cette capacité est importante plus le magasin peut traiter de commandes/paniers.</li>
+</ul>
+<p>Pour plus de détail sur le fonctionnement du calcul de répartition des commandes, la capacité et la priorité, consultez la documentation de Delivery Optimizer.</p>
+<h3 id="participation-des-zones-de-préparation">Participation des zones de préparation</h3>
+<p>Le fonctionnement de la participation des zones de préparations aux sources d&#39;approvisionnements est très similaire à celui des magasins. Dans un premier temps, il est nécessaire d&#39;indiquer si la zone de préparation participe aux sources d&#39;approvisionnement puis de compléter sa configuration en remplissant :</p>
+<ul>
+<li><strong>La priorité de la zone de préparation</strong>. Plus celle-ci est importante, plus la zone sera prioritaire pour le traitement des commandes.</li>
+<li><strong>La capacité de traitement de la zone de préparation</strong>. Plus cette capacité est importante plus la zone peut traiter de commandes/paniers.</li>
+</ul>
+<p>Pour plus de détail sur le fonctionnement du calcul de répartition des commandes, la capacité et la priorité, consultez la documentation de Delivery Optimizer.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/orchestrator/sources-appro/presentation.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

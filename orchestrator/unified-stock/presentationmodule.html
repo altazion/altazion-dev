@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Pr&#233;sentation du module de traitement des stocks | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Pr&#233;sentation du module de traitement des stocks | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="présentation-du-module-de-traitement-des-stocks">Présentation du module de traitement des stocks</h1>
+
+<h2 id="généralités">Généralités</h2>
+<h3 id="définition">Définition</h3>
+<p>Le module de traitement des stocks se présente sous forme d’un serveur API à déployer dans votre solution. Il a vocation à être appelé les autres composants de l&#39;OMS tel que les sources d&#39;approvisionnement ou les modules d&#39;intégration des flux de stock.</p>
+<p>Lorsque vous utilisez Unified Stock, le module de traitement des stocks est considéré comme le référentiel des stocks. C&#39;est à dire qu&#39;il dispose, via sa base REDIS, des informations les plus à jour sur les stocks et les sources d&#39;approvisionnement.</p>
+<p>Outre ses fonctions d&#39;agrégateur de stock, ce module sert également à recalculer les disponibilités à chaque réception de mouvement de stock depuis un module d&#39;intégration de flux de stocks ou après le calcul des sources d&#39;approvisionnement. Une fois ces disponibilités recalculées, elles sont envoyées à Delivery Optimizer et transmises à une file de messages pour enregistrement asynchrone dans la base de données SQL principale.</p>
+<h3 id="déploiement">Déploiement</h3>
+<p>Le module Altazion de traitement des stocks est distribué sous forme d’un container Docker et peut ainsi être déployé facilement sur tous les environnements compatibles. Il expose le port 8080 par défaut. Pour vérifier son bon déploiement il est possible de se rendre sur l’URL du module qui devrait renvoyer la page suivante.</p>
+<p><img src="img/USWelcomePage.png" alt="Page d&#39;accueil Module DO"></p>
+<p>À partir de là, il est possible de cliquer sur les boutons de la section « Tools » afin de se rendre sur les pages correspondantes.</p>
+<h3 id="fonctionnement-en-https">Fonctionnement en HTTPS</h3>
+<p>Le module Unified Stock de traitement des stocks n&#39;écoute qu&#39;en HTTPS et n&#39;accepte pas les appels HTTP. Si aucun port HTTPS n’est disponible ou si le certificat n&#39;est pas/plus valide, l’application ne pourra pas fonctionner correctement. </p>
+<h3 id="swagger">Swagger</h3>
+<p>Le serveur API exporte un swagger respectant la norme OpenAPI 3.0.1 à l’adresse &quot;/swagger/v1/swagger.json&quot;</p>
+<p>Il dispose également d&#39;une interface web SwaggerUI permettant de facilement tester les points API disponibles ainsi que de consulter le détail des objets en entrée/sortie. Cette interface est disponible à l’adresse &quot;/swagger&quot;. Enfin il permet également de consulter le détail, les définitions et la structure de tous les objets que vous pourriez être amené à manipuler en utilisant le module.</p>
+<p><img src="img/SwaggerUI.png" alt="Interface SwaggerUi permettant de tester les points API"></p>
+<h2 id="stockage-des-données">Stockage des données</h2>
+<h3 id="présentation">Présentation</h3>
+<p>Le module de traitement des stocks a vocation à recevoir les données nécessaires au calcul des disponibilités depuis les sources d&#39;approvisionnements et les modules de d&#39;intégrations des flux de stocks.</p>
+<p>Il est ainsi amené à stocker la version la plus récente des données suivante dans la <strong>DB0</strong> du cache REDIS :</p>
+<ul>
+<li>Les stocks</li>
+<li>Les sources d&#39;approvisionnements</li>
+<li>Les règles d&#39;approvisionnements</li>
+<li>Les codes magasins et leur équivalent DeliveryOptimizer</li>
+</ul>
+<p>Dans cette base, la valeur d&#39;une donnée est écrasée à la réception d&#39;une nouvelle valeur. Il n&#39;est donc pas possible de récupérer les anciennes valeurs des données.</p>
+<p>Toutefois le module de traitement des stocks historise également les valeurs des données dans la base <strong>DB1</strong> de REDIS. À l&#39;heure actuelle, cette fonctionnalité n&#39;est implémentée que pour les stocks. Pour plus d&#39;information sur l&#39;historisation des stocks, consultez la page de documentation dédiée.</p>
+<h3 id="stocks">Stocks</h3>
+<p>Chaque stock manipulé par le module de traitement est partagé en deux entités, les informations d&#39;approvisionnement et les quantités de stocks. Si un stock ne possède pas ces deux entités, il sera exclu des algorithmes de calcul de disponibilités.</p>
+<h4 id="information-dapprovisionnement">Information d&#39;approvisionnement</h4>
+<p>Chaque stock (combinaison origine de stock/article) dispose d&#39;informations issues directement de l&#39;exécution des sources d&#39;approvisionnement, à savoir :</p>
+<ul>
+<li>À quelle règle appartient le stock</li>
+<li>Si le stock est ignoré par un traitement</li>
+<li>Si le stock possède une quantité minimale à atteindre pour être pris en compte</li>
+<li>Si le stock possède une quantité maximale à ne pas dépasser pour être pris en compte</li>
+</ul>
+<p>Ces informations sont envoyées à Unified Stock à la fin de l&#39;exécution des sources d&#39;approvisionnement.</p>
+<h4 id="quantités-de-stocks">Quantités de stocks</h4>
+<p>La seconde entité est composée de toutes les différentes quantités de stocks :</p>
+<ul>
+<li>Les stocks disponibles</li>
+<li>Les stocks retirés</li>
+<li>Les stocks totaux (stocks disponible + stocks retirés)</li>
+</ul>
+<p>Ces informations sont mises à jour en temps réel grâce aux stocks reçus depuis les modules d&#39;intégration des flux de stock.</p>
+<p>Ils peuvent également être mis à jour depuis les sources d&#39;approvisionnement si vous avez choisi de considérer ces dernières comme une source fiable de stocks.</p>
+<h2 id="point-api-principaux">Point API principaux</h2>
+<p>Outre des points API servant à interagir avec les données présentes dans REDIS, le module de traitement des stocks dispose de trois point API principaux trouvables dans la partie &quot;Unified Stock&quot; du swagger.</p>
+<h3 id="calcul-complet-des-disponibilités-à-la-réception-dun-résultat-de-source-dapprovisionnement">Calcul complet des disponibilités à la réception d&#39;un résultat de Source d&#39;Approvisionnement</h3>
+<p><strong>POST : {tenantId}/unified-stock/supply-source</strong></p>
+<p>Cette méthode permet d&#39;enregistrer les résultats de l&#39;exécution d&#39;une source d&#39;approvisionnement dans la base REDIS de Unified Stock. Elle exécute un calcul complet des disponibilités sur les stocks reçus en parallèle avant d&#39;envoyer le résultat à Delivery Optimizer. Les disponibilités sont également envoyées vers la file de message pour enregistrement asynchrone dans la base de données SQL.</p>
+<p>Un status code 200 &quot;OK&quot; est renvoyé après son exécution.</p>
+<p>Pour plus d&#39;informations sur le traitement d&#39;exécution des sources d&#39;approvisionnement dans le cadre de Unified Stock, consultez la page de documentation dédiée.</p>
+<h3 id="calcul-partiel-des-disponibilités-sur-réception-de-stock-à-jour">Calcul partiel des disponibilités sur réception de stock à jour</h3>
+<p><strong>POST : {tenantId}/unified-stock/stock_parser</strong></p>
+<p>Cette méthode permet d&#39;enregistrer les stocks à jour reçu d&#39;un module d&#39;intégration de flux de stock dans la base REDIS. Il fois cela fait, elle exécute un calcul des disponibilités sur les nouveaux stocks avant d&#39;envoyer le résultat à Delivery Optimizer. Les disponibilités sont également envoyées vers la file de message pour enregistrement asynchrone dans la base de données SQL.</p>
+<p>Un status code 200 &quot;OK&quot; est renvoyé après son exécution.</p>
+<p>Le diagramme de séquence ci-dessous décrit le processus complet :</p>
+<p><img src="img/DiagrammeSequenceStockParser.png" alt="Diagramme de séquence stock parser"></p>
+<h3 id="calcul-complet-des-sources-dapprovisionnement-basé-sur-les-stocks-de-us">Calcul complet des sources d&#39;approvisionnement basé sur les stocks de US</h3>
+<p><strong>GET : {tenantId}/unified-stock/compute_all</strong></p>
+<p>Ce dernier point API permet d&#39;effectue un calcul des disponibilités des stocks sur toutes les sources d&#39;approvisionnement présentes dans Unified Stock. Les disponibilités sont envoyées à Delivery Optimizer et vers la file de message pour enregistrement asynchrone dans la base de données SQL. Ce point API peut être appelé afin de réinitialiser toutes vos disponibilités en vous basant sur les stocks contenus dans Unified Stock.</p>
+<p>Un status code 200 &quot;OK&quot; est renvoyé après son exécution.</p>
+<p>Le diagramme de séquence ci-dessous décrit le processus complet :</p>
+<p><img src="img/DiagrammeSequenceComputeAll.png" alt="Diagramme de séquence compute all"></p>
+<h2 id="processus-de-calcul-des-disponibilités-par-unified-stock">Processus de calcul des disponibilités par Unified Stock</h2>
+<h3 id="récupération-des-données-sur-lesquelles-effectuer-le-calcul">Récupération des données sur lesquelles effectuer le calcul</h3>
+<p>Pour exécuter le calcul des disponibilités, le module de traitement des stocks a besoin des données de stocks et de sources d&#39;approvisionnement. Celles-ci peuvent venir de l&#39;extérieur ou de la base REDIS en fonction de quel point API parmi ceux détaillés plus haut est appelé.</p>
+<p>Une fois ces données récupérées, le calcul des disponibilités s&#39;exécute en deux phases : une phase de préparation des données et une phase de calcul sur ces données.</p>
+<h3 id="préparation-des-données">Préparation des données</h3>
+<p>Cette première phase permet de filtrer et de trier les données afin de ne disposer que des stocks et des informations d&#39;approvisionnement pertinentes au calcul des disponibilités.
+Elle exécute les opérations de nettoyage et de classification suivantes :</p>
+<p><img src="img/DisposPreparation.png" alt="Phase de préparation des données"></p>
+<p>Une fois cette étape de préparation des données terminées, le calcul des disponibilités peut commencer.</p>
+<h3 id="calcul-des-disponibilités">Calcul des disponibilités</h3>
+<p>Cette seconde phase se décompose en plusieurs étapes successives permettant d&#39;obtenir les disponibilités à envoyer dans la file et dans Delivery Optimizer.</p>
+<p><img src="img/DisposCalcul.png" alt="Phase de calcul des disponibilités"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/orchestrator/unified-stock/presentationmodule.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

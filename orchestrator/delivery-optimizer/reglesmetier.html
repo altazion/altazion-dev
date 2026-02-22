@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>R&#232;gles m&#233;tier Delivery Optimizer | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="R&#232;gles m&#233;tier Delivery Optimizer | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="règles-métier-delivery-optimizer">Règles métier Delivery Optimizer</h1>
+
+<h2 id="activité-des-origines-de-stocks">Activité des origines de stocks</h2>
+<h3 id="définition">Définition</h3>
+<p>Chaque origine de stock peut être activé ou désactivé afin qu&#39;elle participe ou non à l&#39;expédition des commandes et au calcul de stock disponible à la vente grâce au champ <strong>StockOrigin.IsActive</strong>.</p>
+<h3 id="activationdésactivation-des-origines-de-stocks">Activation/Désactivation des origines de stocks</h3>
+<p>Dans le cas où vous utilisez les outils Altazion cette option est configurable depuis votre gestion commerciale.</p>
+<p>Il est également possible d&#39;activer/désactiver une ou plusieurs origines de stocks directement dans Delivery Optimizer via le point API suivant :</p>
+<p><strong>PATCH {tenantId}/stock-origins/isactive/{isActive}</strong></p>
+<p>Le point est disponible dans la partie StockOrigins du swagger :</p>
+<p><img src="img/IsActiveSwaggerUI.png" alt="SwaggerUI du point API de modification de l&#39;activité"></p>
+<p>Pour utiliser cette fonctionnalité, il est nécessaire de fournir un tableau formaté en JSON dans le body contenant les codes des origines de stock à modifier. Vous devrez aussi renseigner le booléen &quot;isActive&quot; indiquant d&#39;activer les origines de stocks s&#39;il est à &quot;True&quot;, ou de les désactiver s&#39;il est à &quot;False&quot;.</p>
+<h2 id="notion-de-priorité">Notion de priorité</h2>
+<h3 id="définition-1">Définition</h3>
+<p>Certaines origines de stocks sont plus indiquées que d&#39;autres pour expédier des commandes. C&#39;est notamment le cas d&#39;entrepôts spécialisés ou de grands magasins. Il est ainsi possible de définir un indice de priorité pour chaque emplacement afin d&#39;encourager les expéditions depuis ces derniers.</p>
+<p><strong>Plus la priorité d&#39;une origine de stocks est élevé, plus elle a de chance d&#39;être sélectionnée pour expédier toute ou partie d&#39;une commande.</strong></p>
+<h3 id="modification-de-la-priorité-des-origines-de-stocks">Modification de la priorité des origines de stocks</h3>
+<p>Dans le cas où vous utilisez les outils Altazion cette option est configurable depuis votre gestion commerciale.</p>
+<p>Il est également possible de modifier la priorité d&#39;une ou plusieurs origines de stocks directement dans Delivery Optimizer via le point API suivant :</p>
+<p><strong>PATCH {tenantId}/stock-origins/priority/{priority}</strong></p>
+<p>Le point est disponible dans la partie StockOrigins du swagger :</p>
+<p><img src="img/PrioritySwaggerUI.png" alt="SwaggerUI du point API de modification de priorité"></p>
+<p>Pour utiliser cette fonctionnalité, il est nécessaire de fournir un tableau formaté en JSON dans le body contenant les codes des origines de stock à modifier. Vous devrez aussi renseigner le paramètre &quot;priority&quot; indiquant la nouvelle priorité de ces origines de stocks.</p>
+<h2 id="notion-de-saturation">Notion de saturation</h2>
+<h3 id="définition-2">Définition</h3>
+<p>Lorsqu&#39;un StockOrigin dispose déjà de beaucoup de commandes à traiter il peut être saturé. Chaque StockOrigin dispose d&#39;une capacité maximum de traitement (<strong>StockOrigin.MaxCapacity</strong>) qui lorsqu&#39;elle est dépassée ne permet plus à l&#39;origine de stocks d&#39;accepter de nouvelles commandes (OrderType.Cart, OrderType.Order) et entraine son exclusion de l&#39;algorithme de répartition.</p>
+<p>Les commandes et les paniers augmentent la saturation des StockOrigins de respectivement 5 et 1 point. Le nombre <strong>MaxCapacity</strong> peut-être décidé en fonction de la nature du StockOrigin (magasin, fournisseur, entrepôt, etc..), ou encore sur d&#39;autres critères telle que la taille ou la capacité logistique de traitement des commandes par exemple.</p>
+<p>La durée durant laquelle les <strong>OrderType.Cart</strong> (paniers en cours) sont comptabilisés pour le calcul de la saturation est paramétrable via le champ <strong>CartLifeSpan</strong> de l&#39;objet <strong>ConfigDo</strong> du tenant associé.</p>
+<p>Les commande de type <strong>OrderType.ExternalOrder</strong> n&#39;affectent pas la saturation.</p>
+<p>Lorsque qu&#39;une commande est traitée celle-ci est supprimée du StockOrigin et libère ainsi des capacités de traitement.</p>
+<h3 id="modification-de-la-capacité-maximum-des-origines-de-stocks">Modification de la capacité maximum des origines de stocks</h3>
+<p>Dans le cas où vous utilisez les outils Altazion cette option est configurable depuis votre gestion commerciale.</p>
+<p>Il est également possible de modifier la capacité maximum d&#39;une ou plusieurs origines de stocks directement dans Delivery Optimizer via le point API suivant :</p>
+<p><strong>PATCH {tenantId}/stock-origins/maxcapacity/{maxcapacity}</strong></p>
+<p>Le point est disponible dans la partie StockOrigins du swagger :</p>
+<p><img src="img/CapacitySwaggerUI.png" alt="SwaggerUI du point API de modification de capacité maximum"></p>
+<p>Pour utiliser cette fonctionnalité, il est nécessaire de fournir un tableau formaté en JSON dans le body contenant les codes des origines de stock à modifier. Vous devrez aussi renseigner le paramètre &quot;maxcapacity&quot; indiquant la nouvelle capacité maximum de ces origines de stocks.</p>
+<h3 id="points-api-de-vérification-de-saturation">Points API de vérification de saturation</h3>
+<p>Ces points API sont utiles si vous remarquez qu&#39;un ou plusieurs StockOrigins ne peuvent plus prendre de commandes ou pour obtenir des informations générales sur l&#39;état de leurs activités.</p>
+<h4 id="vérification-de-la-saturation-dun-stockorigin">Vérification de la saturation d&#39;un StockOrigin</h4>
+<p>Il est possible de vérifier la saturation d&#39;un StockOrigin via le point API suivant :</p>
+<p><strong>GET : {tenantId}/stock-origins/code/{code}/saturation</strong></p>
+<p>Le point est disponible dans la partie StockOrigins du swagger :</p>
+<p><img src="img/SaturationSwaggerUI.png" alt="SwaggerUI du point API de saturation"></p>
+<p>Si le StockOrigin n&#39;existe pas le point API renvoie une erreur 404. Autrement un objet de type <strong>StockOriginSaturationInfo</strong> est renvoyé (le schéma complet de l&#39;objet est disponible dans le swagger).</p>
+<p>Voici un exemple avec le StockOrigin FRA:WEB:CENTRALE :</p>
+<p><img src="img/SaturationResponse.png" alt="Réponse du point API de saturation"></p>
+<p>L&#39;objet <strong>StockOriginSaturationInfo</strong> obtenu en réponse contient des données statistiques facilement interprétables. Par exemple, à la lecture des données de réponse, on constate ici que le StockOrigin n&#39;est pas saturé et que sa saturation est de 3.01%. Sa capacité maximum est de 100 000 points parmis lesquels 3012 points de capacité sont utilisés par 102 paniers (102 points car un panier vaut 1 point) et 582 commandes (2910 points car une commande vaut 5 points). Sa capacité restante est de 96988 points (100 000 - 3012).</p>
+<h4 id="vérification-de-la-saturation-de-tous-les-stockorigins">Vérification de la saturation de tous les StockOrigins</h4>
+<p>Delivery Optimizer dispose d&#39;un point API permettant d&#39;obtenir un diagnostic complet de la saturation de l&#39;ensemble de vos StockOrigins. Ce point est par exemple très utile lors de périodes de fortes activités. Il peut vous permettre d&#39;anticiper l&#39;éventuel saturation globale de vos StockOrigins et d&#39;ainsi éviter la paralysie de votre activité.</p>
+<p><strong>GET : {tenantId}/stock-origins/saturation</strong></p>
+<p>Le point est disponible dans la partie StockOrigins du swagger :</p>
+<p><img src="img/GlobalSaturationSwaggerUI.png" alt="SwaggerUI du point API de saturation global"></p>
+<p>Un objet de type <strong>StockOriginsGeneralSaturation</strong> est obtenu en réponse de cet appel :</p>
+<p><img src="img/GlobalSaturationResponse.png" alt="Réponse du point API de saturation global"></p>
+<p>Il contient les champs suivants :</p>
+<ul>
+<li><strong>saturated</strong> : Le nombre de StockOrigins saturés.</li>
+<li><strong>notSaturated</strong> : Le nombre de StocksOrigins non saturés.</li>
+<li><strong>total</strong> : Le nombre total de StocksOrigins.</li>
+<li><strong>globalSaturationRate</strong> : Le pourcentage de StockOrigins saturés.</li>
+<li><strong>saturatedStockOrigins</strong> : Une liste contenant le code des StocksOrigins saturés.</li>
+<li><strong>details</strong> : Un tableau de <strong>StockOriginSaturationInfo</strong> contenant l&#39;état de saturation de tous les StockOrigins en commençant par les StockOrigins saturés.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/orchestrator/delivery-optimizer/reglesmetier.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

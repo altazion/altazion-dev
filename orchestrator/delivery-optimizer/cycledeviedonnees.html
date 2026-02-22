@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Cycle de vie des donn&#233;es | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Cycle de vie des donn&#233;es | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="cycle-de-vie-des-données">Cycle de vie des données</h1>
+
+<p>Afin d’utiliser le module, des données concernant les articles, les origines de stocks et les commandes doivent être synchronisées avec vos composants. Ces données doivent ainsi être récupérées depuis votre système d&#39;information et formatées avant être envoyées au module Delivery Optimizer (DO) en format JSON (Échange Informatique de Données ou EDI). </p>
+<p>Les sources d’approvisionnement disponibles dans les outils logisitiques d’Altazion permettent de configurer avec précision l’export des articles, des origines de stocks et des commandes vers le module et d’automatiser la procédure en toute simplicité.</p>
+<p>Si vous n&#39;utilisez pas les outils d&#39;Altazion, il existe de nombreux points API couvrant les besoins en CRUD des origines de stocks (StockOrigins), Articles et commandes (OrderDo) dont les fonctions sont détaillées dans le swagger. Toutefois les points expliqués ci-dessous sont les plus importants à implémenter pour garantir le fonctionnement du module.</p>
+<p><strong>À noter que la gestion des données nécessite le droit OMS.</strong></p>
+<h2 id="import-total-des-stockorigins-et-des-articles-dans-delivery-optimizer-do">Import total des StockOrigins et des Articles dans Delivery Optimizer (DO)</h2>
+<p>Ces points API sont la principale source de données du module DO et sont indispensables à son bon fonctionnement. Cet import a pour effet d’exécuter une transaction supprimant toutes les données de la raison juridique concernée avant d’insérer les nouvelles données passées en format JSON.</p>
+<p>Il est recommandé :</p>
+<ul>
+<li>De réaliser les imports à la suite</li>
+<li>D’automatiser l’import de données durant une heure de faible utilisation du module (la nuit par exemple)</li>
+<li>De disposer de méthodes robustes d’export de vos données depuis vos composants vers le module DO si vous n’utilisez pas la solution Altazion</li>
+<li>D’utiliser l’import total avec parcimonie pour limiter l’impact sur les performances, en particulier si vous disposer d’un gros volume de données à importer</li>
+<li>De mettre à jour/rajouter des données via les points API d’upsert décrits plus bas plutôt que de réimporter systématiquement toutes les données</li>
+</ul>
+<p>L&#39;import total des données en base se fait via les points API suivants : </p>
+<p><strong>POST : {tenantId}/stock-origins/importfull</strong></p>
+<p>Ce point API permet l&#39;import des origines de stock dans la base via un tableau d&#39;objets StockOrigin passé dans le body en format JSON.</p>
+<p><strong>POST : {tenantId}/articles/importfull</strong></p>
+<p>Ce point API permet l&#39;import des articles dans la base via un tableau d&#39;objets Article passé dans le body en format JSON.</p>
+<p>Ces points API sont utilisés par les sources d&#39;approvisionnement d&#39;Altazion pour envoyer les données calculées vers Delivery Optimizer.</p>
+<p>Si vous utilisez Unified Stock les stocks (liste de <strong>ArticleStock</strong>) ne sont pas envoyées par les Sources d&#39;Approvisionnement mais par le module de traitement des stocks plus tard dans le processus via le point API &quot;Mise à jour des stocks dans les Articles&quot; détaillé plus bas.</p>
+<h2 id="upsert-des-stockorigins-et-des-articles-dans-le-module">Upsert des StockOrigins et des Articles dans le module</h2>
+<p>En complément des imports totaux qui nettoient la base avant d’insérer les données importées, il est possible de pousser des fichiers de mise à jour des Articles et StockOrigins. Ces points API servent à mettre à jour les éléments déjà en base et à ajouter ceux contenu dans le JSON qui ne s’y trouvaient pas auparavant (upsert).</p>
+<p><strong>PUT : {tenantId}/stock-origins</strong></p>
+<p>Ce point API permet l’upsert des origines de stock dans la base via un tableau d&#39;objets <strong>StockOrigin</strong> passé dans le body en format JSON.</p>
+<p><strong>PUT : {tenantId}/articles</strong></p>
+<p>Ce point API permet l&#39;upsert des articles dans la base via un tableau d&#39;objets <strong>Article</strong> passé dans le body en format JSON.</p>
+<p>Ces points API sont utilisés par les Sources d&#39;Approvisionnement pour envoyer les disponibilités recalculées au long de la journée lorsque vous n&#39;utilisez pas Unified Stock.</p>
+<h2 id="mise-à-jour-des-stocks-dans-les-articles">Mise à jour des stocks dans les Articles</h2>
+<p>Ce point API permet de remplacer les stocks de plusieurs articles. Pour cela il est nécessaire de passer un dictionnaire contenant la référence de l&#39;article en clef et sa liste d&#39;<strong>ArticleStock</strong> en valeur dans le body de la requête. Ce dictionnaire devra être formaté en JSON.</p>
+<p><strong>PATCH : {tenantId}/articles/artstocks</strong></p>
+<p>Le point est disponible dans la partie Articles du swagger :</p>
+<p><img src="img/ArtStocksSwaggerUI.png" alt="SwaggerUI du point API de remplacement des stocks"></p>
+<p>Cette fonctionnalité API est utilisée par Unified Stock pour l&#39;envoie des disponibilités recalculées en temps réel à Delivery Optimizer après la réception de stock mis à jour.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/orchestrator/delivery-optimizer/cycledeviedonnees.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

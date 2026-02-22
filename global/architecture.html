@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Mod&#232;le d'architecture | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Mod&#232;le d'architecture | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="modèle-darchitecture">Modèle d&#39;architecture</h1>
+
+<p>Le modèle d&#39;architecture utilisé est destiné à isoler de façon forte la partie &quot;logique métier&quot; de la partie interface et/ou traitements. L&#39;objectif principal étant de pouvoir réutiliser la logique métier dans différents projets telles que des interfaces graphiques, batchs, API, etc.</p>
+<p>Les applications se composent donc de deux ensembles de composants :</p>
+<ul>
+<li>d&#39;un coté, les parties <em>modèle de données</em> et <em>logique métier</em>, communes à toutes les applications.</li>
+<li>de l&#39;autre, un modèle spécifique au type d&#39;application : Vue/Gestionnaire de vue pour une interface utilisateur, Controleurs pour une API, etc.</li>
+</ul>
+<h2 id="couches-data-et-logique-métier">Couches data et logique métier</h2>
+<p>La partie réutilisable se compose d&#39;un <a href="data-framework.html">framework d&#39;accès au données</a>, et d&#39;une couche logique métier constituée de classes dont chacune regroupe des fonctionnalités par thème. Par exemple, il existe une classe métier pour gérer les clients, une pour les fournisseurs, une pour les devis, etc. </p>
+<h3 id="objets-métier">Objets métier</h3>
+<p>On trouvera pour la plupart des objets métier au moins les 4 opérations designées par l&#39;acronyme CRUD (pour create, read, update, delete) que sont
+créer, lire, mettre à jour, supprimer une information en base de données.</p>
+<p>La création d&#39;une nouvelle couche logique métier consiste en l&#39;écriture d&#39;une classe dérivant de celle de base <em>EquihiraBaseBll</em> selon le modèle suivant:</p>
+<pre><code>public class NouvelleCoucheMetierBll : EquihiraBaseBll
+{      
+    public NouvelleCoucheMetierBll(int rjs_id): base(rjs_id) // l&#39;argument correspond au numéro de raison juridique
+    {
+
+    }
+
+    public void Creer()
+    {
+
+    }
+
+    public T Lire() // T est un type de classe de retour
+    {
+
+    }
+
+    public void MettreAJour()
+    {
+    }
+
+    public void Supprimer()
+    {
+
+    }
+}
+</code></pre><p>On adopte <em>pour convention</em> de suffixer le nom de la classe par <em>Bll</em>.
+Le constructeur appelle celui de base caractérisé par un entier qui lie la couche à son numéro de raison juridique.</p>
+<h3 id="accès-aux-données">Accès aux données</h3>
+<p>Dans le cadre des objets métiers (dérivant de EquihiraBaseBll ou de BusinessComponent), un DataManager connecté sur la base principale de l&#39;application est disponible via la propriété <em>protected MyDatamanager</em>. Vous devez vous servir prioritairement de ce DataManager et réserver la création d&#39;un nouveau DataManager à des cas exceptionnels.</p>
+<h3 id="opérations-de-modification">Opérations de modification</h3>
+<p>Pour permettre l&#39;intégration rapide des fonctions mises à dispo par un objet métier dans des batchs ou autre compositions, il est fréquent de mettre à disposition des méthodes <em>static</em> réalisant les opération de modification via une connexion / transaction passée en paramètre.</p>
+<p>Par exemple, le module de gestion des sélections de produits (VitrinesBll) met à disposition une méthode permettant de définir quels sont les produits dans la sélection :</p>
+<pre><code>public void DefinirArticlesDansVitrine(Guid vit_guid, ArticleGuidEtPertinence[] articles)
+{
+    ...
+}
+</code></pre><p>Cette méthode est aussi utilisée à l&#39;intérieur de différents batchs, et existe donc aussi sous une forme acceptant une connexion à la base :</p>
+<pre><code>internal static void DefinirArticlesDansVitrine(Guid vit_guid, ArticleGuidEtPertinence[] articles, BaseDataManager ctx)
+{
+    ...
+}
+</code></pre><p>Le choix de créer ou non cette version statique est laissée à discrétion du développeur, en fonction de ses besoins.</p>
+<h3 id="tests-unitaires">Tests unitaires</h3>
+<p>L&#39;application repose sur la fiabilité de la couche logique métier. Il faut donc s&#39;assurer de systématiquement tester de façon unitaire chaque nouvelle fonctionnalité.</p>
+<div class="NOTE"><h5>Note</h5><p>En exception à cette règle : les objets métiers faisant appel à un service extérieur pour lequel il n&#39;est pas possible de s&#39;assurer de la disponibilité et de la fiabilité d&#39;un environnement de test.</p>
+</div>
+<p>Pour des raisons historiques d&#39;intégration avec Visual Studio Team Services, tous les tests sont faits avec le framework MSTest. Un test unitaire est une simple méthode décorée de quelques attributs et utilisant la classe <em>Assert</em> pour valider les assertions du test.</p>
+<pre><code>[TestClass]
+public class ClasseDeTests
+{
+    [TestMethod]
+    public void FonctionTest()
+    {
+        ...
+
+        Assert.AreEqual(ValeurAttendue, ValeurReelle); // La valeur réelle a été obtenue en application de la nouvelle fonctionnalité
+
+        ...
+    }
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/global/architecture.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

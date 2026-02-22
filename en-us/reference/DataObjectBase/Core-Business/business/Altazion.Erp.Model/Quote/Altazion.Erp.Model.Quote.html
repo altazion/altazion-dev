@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Quote | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Quote | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="quote">Quote</h2>
+
+<p>The <code>Quote</code> class represents a detailed commercial quote including all essential information about the client, amounts, dates, and validation status.</p>
+<p>Constants defining possible quote states:</p>
+<ul>
+<li><code>EtatEnCours</code> (InProgress): The quote is being drafted.</li>
+<li><code>EtatValide</code> (Validated): The quote has been validated and sent to the client.</li>
+<li><code>EtatArchive</code> (Archived): The quote is archived (refused or expired).</li>
+<li><code>EtatFacture</code> (Invoiced): The quote has been converted into an invoice.</li>
+<li><code>EtatPartiel</code> (Partial): The quote has been partially invoiced.</li>
+</ul>
+<p>Public properties:</p>
+<ul>
+<li><code>Id</code> (decimal): Unique identifier of the quote.</li>
+<li><code>Number</code> (string): Quote number.</li>
+<li><code>Origin</code> (string): Origin or source of the quote request.</li>
+<li><code>NumberRevision</code> (int): Revision number for managing successive versions.</li>
+<li><code>CustomerId</code> (int): Numeric identifier of the client.</li>
+<li><code>AmountExcludingVat</code> (decimal): Total amount excluding VAT.</li>
+<li><code>AmountWithVAT</code> (decimal): Total amount including taxes (TTC).</li>
+<li><code>CreationDate</code> (DateTimeOffset): Date the quote was created.</li>
+<li><code>AssociatedIdDocument</code> (Int64): Identifier of the document associated with the quote.</li>
+<li><code>ExpirationDate</code> (DateTimeOffset): Expiration or validity end date.</li>
+<li><code>EditionState</code> (byte): Editing state (draft, finalized, etc.).</li>
+<li><code>GlobalDiscountExcludingVAT</code> (decimal): Global discount applied excluding VAT.</li>
+<li><code>GlobalDiscountWithVAT</code> (decimal): Global discount applied including VAT.</li>
+<li><code>GlobalDiscountLabel</code> (string): Label or description of the global discount.</li>
+<li><code>TotalDiscountExcludingVAT</code> (decimal): Total discount amount excluding VAT (both lines and global).</li>
+<li><code>TotalDiscountWithVAT</code> (decimal): Total discount amount including VAT (both lines and global).</li>
+<li><code>CustomerName</code> (string): Client&#39;s name.</li>
+<li><code>CustomerAddress</code> (string): Client&#39;s address (street and number).</li>
+<li><code>CustomerPostalCode</code> (string): Client&#39;s postal code.</li>
+<li><code>CustomerCity</code> (string): Client&#39;s city.</li>
+<li><code>CustomerEmail</code> (string): Client&#39;s email address.</li>
+<li><code>Status</code> (string): Current quote status (in progress, validated, archived, invoiced, partial invoice).</li>
+<li><code>ValidationCode</code> (string): Validation code (for example, for online validation).</li>
+<li><code>Label</code> (string): Title or label of the quote.</li>
+<li><code>AcceptanceDate</code> (DateTimeOffset?): Date when client accepted the quote (nullable).</li>
+<li><code>AcceptanceSource</code> (string): Source or person who accepted the quote.</li>
+<li><code>ProspectGuid</code> (Guid): Unique identifier of the associated prospect.</li>
+<li><code>EstimatedStartDate</code> (DateTimeOffset?): Estimated start date for execution.</li>
+<li><code>EstimatedEndDate</code> (DateTimeOffset?): Estimated end date for execution.</li>
+<li><code>ActualDateStart</code> (DateTimeOffset?): Actual start date of execution.</li>
+<li><code>ActualDateEnd</code> (DateTimeOffset?): Actual end date of execution.</li>
+<li><code>AcceptanceDocument</code> (string): Number or reference of acceptance document (e.g., client order form).</li>
+<li><code>ContractGuid</code> (Guid): Unique identifier of the contract linked to the quote.</li>
+</ul>
+<h3 id="typescript-class">TypeScript class</h3>
+<pre><code class="lang-typescript">interface Quote {
+  // Constants for quote states
+  EtatEnCours: string;  // &quot;E&quot; - In progress
+  EtatValide: string;   // &quot;V&quot; - Validated
+  EtatArchive: string;  // &quot;A&quot; - Archived
+  EtatFacture: string;  // &quot;F&quot; - Invoiced
+  EtatPartiel: string;  // &quot;P&quot; - Partially invoiced
+
+  Id: number;  // Unique identifier of the quote
+  Number: string;  // Quote number
+  Origin: string;  // Origin/source of the quote
+  NumberRevision: number;  // Revision number
+  CustomerId: number;  // Numeric client ID
+  AmountExcludingVat: number;  // Amount excluding VAT
+  AmountWithVAT: number;  // Amount including VAT
+  CreationDate: string;  // Creation date (ISO 8601 string)
+  AssociatedIdDocument: number;  // Associated document ID
+  ExpirationDate: string;  // Expiration/validity end date
+  EditionState: number;  // Edition state
+  GlobalDiscountExcludingVAT: number;  // Global discount excl. VAT
+  GlobalDiscountWithVAT: number;  // Global discount incl. VAT
+  GlobalDiscountLabel: string;  // Discount label
+  TotalDiscountExcludingVAT: number;  // Total discount excl. VAT
+  TotalDiscountWithVAT: number;  // Total discount incl. VAT
+  CustomerName: string;  // Client name
+  CustomerAddress: string;  // Client address
+  CustomerPostalCode: string;  // Client postal code
+  CustomerCity: string;  // Client city
+  CustomerEmail: string;  // Client email
+  Status: string;  // Quote status
+  ValidationCode: string;  // Validation code
+  Label: string;  // Quote label/title
+  AcceptanceDate?: string;  // Acceptance date (nullable)
+  AcceptanceSource: string;  // Source/person accepting
+  ProspectGuid: string;  // Prospect unique ID (GUID)
+  EstimatedStartDate?: string;  // Estimated start date
+  EstimatedEndDate?: string;  // Estimated end date
+  ActualDateStart?: string;  // Actual start date
+  ActualDateEnd?: string;  // Actual end date
+  AcceptanceDocument: string;  // Acceptance document ref
+  ContractGuid: string;  // Contract unique ID (GUID)
+}
+
+// Constants values (can be set on the interface or externally)
+const EtatEnCours = &quot;E&quot;;
+const EtatValide = &quot;V&quot;;
+const EtatArchive = &quot;A&quot;;
+const EtatFacture = &quot;F&quot;;
+const EtatPartiel = &quot;P&quot;;
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/en-us/reference/DataObjectBase/Core-Business/business/Altazion.Erp.Model/Quote/Altazion.Erp.Model.Quote.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>

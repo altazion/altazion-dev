@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>MasterPage | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="MasterPage | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="masterpage">MasterPage</h1>
+
+<p>La MasterPage définit l&#39;apparence globale des pages du site. C&#39;est l&#39;une de &quot;pages&quot; les plus compliquées en terme de composants personnalisable, puisqu&#39;elle contient tous les éléments communs, dont certains sont volontairement techniques. Vous pouvez personnaliser :</p>
+<ul>
+<li>la partie <code>&lt;head&gt;</code></li>
+<li>le header</li>
+<li>et le footer</li>
+</ul>
+<h2 id="contenu-de-la-page">Contenu de la page</h2>
+<pre><code>&lt;!DOCTYPE html&gt;
+
+&lt;html xmlns:rdfa=&quot;http://rdf.data-vocabulary.org/#&quot; lang=&quot;fr-fr&quot;
+xmlns:og=&quot;http://ogp.me/ns#&quot;&gt;
+&lt;head id=&quot;Head1&quot; runat=&quot;server&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html;charset=UTF-8&quot; /&gt;
+    &lt;ecom:CanonicalLink runat=&quot;server&quot; /&gt;
+    &lt;ecom:OpenGraphMeta runat=&quot;server&quot; /&gt;
+    &lt;ecom:MetaRobots runat=&quot;server&quot; /&gt;
+    &lt;ecom:ThemablePanelControl ID=&quot;ThemablePanelControl2&quot; runat=&quot;server&quot; SkinID=&quot;HeadStylesPanel&quot;
+        RenderWithNoTag=&quot;true&quot; /&gt;
+    &lt;asp:ContentPlaceHolder ID=&quot;head&quot; runat=&quot;server&quot;&gt;
+    &lt;/asp:ContentPlaceHolder&gt;
+    &lt;ecom:ThemablePanelControl runat=&quot;server&quot; ID=&quot;headTheme&quot; SkinID=&quot;HeadThemablePanel&quot;
+        RenderWithNoTag=&quot;true&quot; /&gt;
+    &lt;ecom:ThemablePanelControl runat=&quot;server&quot; ID=&quot;ThemablePanelControl3&quot; SkinID=&quot;WinTaskbarPanel&quot;
+        RenderWithNoTag=&quot;true&quot;&gt;
+        &lt;Content&gt;
+            &lt;ecom:WinTaskbarMainMeta ID=&quot;WinTaskbarMainMeta1&quot; runat=&quot;server&quot; /&gt;
+            &lt;ecom:WinTaskbarMagasinsMeta ID=&quot;WinTaskbarMagasinsMeta2&quot; runat=&quot;server&quot; /&gt;
+            &lt;ecom:WinTaskbarTaskMeta ID=&quot;WinTaskbarMagasinsMeta1&quot; runat=&quot;server&quot; Name=&quot;Votre compte client&quot;
+                Link=&quot;~/my/&quot; /&gt;
+        &lt;/Content&gt;
+    &lt;/ecom:ThemablePanelControl&gt;
+    &lt;ecom:XmlRpcMeta runat=&quot;server&quot; /&gt;
+    &lt;ecom:ThemeCssLink runat=&quot;server&quot; /&gt;
+
+    &lt;ecom:ScriptLinkControl ID=&quot;ScriptLinkControl1&quot; runat=&quot;server&quot; ScriptFilePath=&quot;https://code.jquery.com/jquery-3.3.1.min.js&quot; /&gt;
+    &lt;ecom:ScriptLinkControl ID=&quot;ScriptLinkControl2&quot; runat=&quot;server&quot; ScriptFilePath=&quot;~/tools/smple_more.debug.js&quot; /&gt;
+    &lt;ecom:ScriptForDesignTime runat=&quot;server&quot;&gt;
+        &lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.0.0.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;../tools/smple_more.debug.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+    &lt;/ecom:ScriptForDesignTime&gt;
+
+    &lt;ecom:GoogleUniversalAnalytics runat=&quot;server&quot; ID=&quot;tagGoogleUniv&quot; Position=&quot;EndOfHead&quot; /&gt;
+    &lt;ecom:CustomTrackers runat=&quot;server&quot; Position=&quot;EndOfHead&quot; /&gt;
+&lt;/head&gt;
+&lt;body id=&quot;body&quot;&gt;
+    &lt;ecom:GoogleUniversalAnalytics runat=&quot;server&quot; ID=&quot;GoogleUniversalAnalytics1&quot; Position=&quot;StartOfBody&quot; /&gt;
+    &lt;ecom:CustomTrackers runat=&quot;server&quot; Position=&quot;StartOfBody&quot; /&gt;
+    &lt;form id=&quot;form1&quot; runat=&quot;server&quot;&gt;
+        &lt;ecom:FacebookSdkLink runat=&quot;server&quot; UniquementPourApps=&quot;true&quot; /&gt;
+        &lt;asp:ContentPlaceHolder ID=&quot;BodyStartPlaceHolder&quot; runat=&quot;server&quot;&gt;
+            &lt;ecom:ThemablePanelControl ID=&quot;ThemablePanelControl7&quot; runat=&quot;server&quot; SkinID=&quot;BodyStartHeader&quot;
+                RenderWithNoTag=&quot;true&quot; /&gt;
+            &lt;ecom:ThemablePanelControl runat=&quot;server&quot; SkinID=&quot;BodyStartPanel&quot; RenderWithNoTag=&quot;true&quot;&gt;
+                &lt;Content&gt;
+                    &lt;ecom:AnimationEnTestPanel ID=&quot;AnimationEnTestPanel1&quot; runat=&quot;server&quot; class=&#39;attentionAdminCampagne&#39;&gt;
+                        Vous êtes en train de tester une campagne.
+                    &lt;ecom:AnimationArreterTestLinkButton runat=&quot;server&quot;&gt;Arrêter ce test&lt;/ecom:AnimationArreterTestLinkButton&gt;
+                    &lt;/ecom:AnimationEnTestPanel&gt;
+                    &lt;ecom:UtilisateurImpersonnalisePanel ID=&quot;UtilisateurImpersonnalisePanel1&quot; runat=&quot;server&quot;
+                        Style=&#39;color: white; background: firebrick; width: 100%; height: 80px;&#39; class=&#39;attentionAutreCompte&#39;&gt;
+                        Vous êtes connecté avec le compte de
+                    &lt;ecom:ClientNom ID=&quot;ClientNom1&quot; runat=&quot;server&quot; /&gt;
+                        &lt;ecom:LoginStatus ID=&quot;LoginStatus1&quot; runat=&quot;server&quot; LogoutPageUrl=&quot;~/home.htm&quot; LogoutText=&quot;Déconnexion&quot;
+                            LogoutAction=&quot;Redirect&quot; /&gt;
+                    &lt;/ecom:UtilisateurImpersonnalisePanel&gt;
+                &lt;/Content&gt;
+            &lt;/ecom:ThemablePanelControl&gt;
+            &lt;ecom:ThemablePanelControl ID=&quot;ThemablePanelControl8&quot; runat=&quot;server&quot; SkinID=&quot;BodyStartFooter&quot;
+                RenderWithNoTag=&quot;true&quot; /&gt;
+        &lt;/asp:ContentPlaceHolder&gt;
+        &lt;asp:ScriptManager ID=&quot;ToolkitScriptManager1&quot; runat=&quot;server&quot; AjaxFrameworkMode=&quot;Enabled&quot;
+            ScriptMode=&quot;Release&quot; EnableCdn=&quot;false&quot; LoadScriptsBeforeUI=&quot;true&quot;&gt;
+        &lt;/asp:ScriptManager&gt;
+        &lt;asp:ContentPlaceHolder ID=&quot;BeforeContent&quot; runat=&quot;server&quot;&gt;
+        &lt;/asp:ContentPlaceHolder&gt;
+        &lt;ecom:ThemablePanelControl ID=&quot;bfc&quot; runat=&quot;server&quot; SkinID=&quot;BeforeContent&quot; /&gt;
+        &lt;ecom:UtilisateurImpersonnalisePanel ID=&quot;UtilisateurImpersonnalisePanel1&quot; runat=&quot;server&quot;
+            Style=&#39;color: white; background: firebrick; width: 100%; height: 80px;&#39; class=&#39;attentionAutreCompte&#39;&gt;
+            Vous êtes connecté avec le compte de
+                &lt;ecom:ClientNom ID=&quot;ClientNom1&quot; runat=&quot;server&quot; /&gt;
+            &lt;ecom:LoginStatus ID=&quot;LoginStatus1&quot; runat=&quot;server&quot; LogoutPageUrl=&quot;~/home.htm&quot; LogoutText=&quot;Déconnexion&quot;
+                LogoutAction=&quot;Redirect&quot; /&gt;
+        &lt;/ecom:UtilisateurImpersonnalisePanel&gt;
+        &lt;ecom:ThemablePanelControl ID=&quot;pghd&quot; SkinID=&quot;PageHeaderPanel&quot; runat=&quot;server&quot;&gt;
+            &lt;Content&gt;
+            &lt;/Content&gt;
+        &lt;/ecom:ThemablePanelControl&gt;
+        &lt;ecom:ThemablePanelControl ID=&quot;hdr&quot; SkinID=&quot;ContentHeaderPanel&quot; runat=&quot;server&quot; RenderWithNoTag=&quot;true&quot;&gt;
+        &lt;/ecom:ThemablePanelControl&gt;
+        &lt;asp:ContentPlaceHolder ID=&quot;HeaderPlaceHolder&quot; runat=&quot;server&quot;&gt;
+        &lt;/asp:ContentPlaceHolder&gt;
+        &lt;ecom:ThemablePanelControl ID=&quot;hd2&quot; SkinID=&quot;ContentHeaderAfterPanel&quot; runat=&quot;server&quot; RenderWithNoTag=&quot;true&quot; /&gt;
+        &lt;asp:ContentPlaceHolder ID=&quot;ContentPlaceHolder1&quot; runat=&quot;server&quot;&gt;
+        &lt;/asp:ContentPlaceHolder&gt;
+        &lt;asp:ContentPlaceHolder ID=&quot;ftr&quot; runat=&quot;server&quot;&gt;
+        &lt;/asp:ContentPlaceHolder&gt;
+        &lt;ecom:ThemablePanelControl ID=&quot;ContentFooterPanel&quot; SkinID=&quot;ContentFooterPanel&quot; runat=&quot;server&quot; RenderWithNoTag=&quot;true&quot;&gt;
+        &lt;/ecom:ThemablePanelControl&gt;
+        &lt;ecom:ThemablePanelControl ID=&quot;pgfr&quot; SkinID=&quot;PageFooterPanel&quot; runat=&quot;server&quot; RenderWithNoTag=&quot;true&quot;&gt;
+        &lt;/ecom:ThemablePanelControl&gt;
+        &lt;asp:ContentPlaceHolder ID=&quot;AfterContent&quot; runat=&quot;server&quot;&gt;
+        &lt;/asp:ContentPlaceHolder&gt;
+        &lt;ecom:ThemablePanelControl ID=&quot;aft&quot; runat=&quot;server&quot; SkinID=&quot;AfterContent&quot;  RenderWithNoTag=&quot;true&quot;/&gt;
+        &lt;ecom:Koostodes runat=&quot;server&quot; /&gt;
+    &lt;/form&gt;
+    &lt;ecom:CustomTrackers runat=&quot;server&quot; Position=&quot;EndOfBody&quot; /&gt;
+    &lt;ecom:GoogleUniversalAnalytics runat=&quot;server&quot; ID=&quot;GoogleUniversalAnalytics2&quot; Position=&quot;EndOfBody&quot; /&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h2 id="personnaliser-la-partie-head">Personnaliser la partie <code>&lt;head&gt;</code></h2>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/ecommerce/personnalisation/ecommerce-masterpage.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

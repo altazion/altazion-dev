@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>FulfillmentOrderLine | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="FulfillmentOrderLine | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="fulfillmentorderline">FulfillmentOrderLine</h2>
+
+<p>The FulfillmentOrderLine class represents a fulfillment order line in the logistics module, containing item information and various quantities related to order preparation.</p>
+<p>Public properties:</p>
+<ul>
+<li>Id: Unique identifier of the fulfillment order line.</li>
+<li>FulfillmentOrderId: Unique identifier of the parent fulfillment order.</li>
+<li>ProductId: Item identifier (legacy primary key).</li>
+<li>OrderLineId: Unique identifier of the associated order line.</li>
+<li>QuantityOrdered: Quantity ordered.</li>
+<li>QuantityAnnounced: Quantity announced as available for preparation.</li>
+<li>QuantityAnnouncedNotPreparable: Announced quantity that cannot be prepared.</li>
+<li>QuantityPrepared: Actually prepared quantity.</li>
+<li>QuantityNotPreparable: Quantity that cannot be prepared.</li>
+<li>QuantityPostponed: Quantity postponed to a later date.</li>
+<li>PostponedDate: Date of quantity postponement.</li>
+<li>FinalPackageLineGuid: Unique identifier of the associated final package line (nullable).</li>
+<li>PreparationOrderLineGuid: Unique identifier of the associated preparation order line (nullable).</li>
+<li>FinalOrderLineGuid: Unique identifier of the associated final order line (nullable).</li>
+<li>PreparationUnitPriceWOTax: Unit preparation price without tax (nullable).</li>
+<li>PreparationUnitPrice: Unit preparation price including tax (nullable).</li>
+<li>NotPreparedReason: Reason why the line was not prepared (nullable).</li>
+</ul>
+<h3 id="typescript-class">TypeScript class</h3>
+<pre><code class="lang-typescript">interface FulfillmentOrderLine {
+  Id: string; // Guid
+  FulfillmentOrderId: string; // Guid
+  ProductId: number;
+  OrderLineId: string; // Guid
+  QuantityOrdered: number;
+  QuantityAnnounced: number;
+  QuantityAnnouncedNotPreparable: number;
+  QuantityPrepared: number;
+  QuantityNotPreparable: number;
+  QuantityPostponed: number;
+  PostponedDate?: string | null; // DateTimeOffset nullable
+  FinalPackageLineGuid?: string | null; // Guid nullable
+  PreparationOrderLineGuid?: string | null; // Guid nullable
+  FinalOrderLineGuid?: string | null; // Guid nullable
+  PreparationUnitPriceWOTax?: number | null;
+  PreparationUnitPrice?: number | null;
+  NotPreparedReason?: string | null;
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/en-us/reference/DataObjectBase/Core-Business/business/Altazion.Logistics.Model/FulfillmentOrderLine/Altazion.Logistics.Model.FulfillmentOrderLine.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>

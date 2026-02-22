@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Variables d'environnement - Altazion Orchestrator - Unified Stock | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Variables d'environnement - Altazion Orchestrator - Unified Stock | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="variables-denvironnement---altazion-orchestrator---unified-stock">Variables d&#39;environnement - Altazion Orchestrator - Unified Stock</h1>
+
+<p>Ce document liste toutes les variables d&#39;environnement utilisées par l&#39;application.</p>
+<h2 id="convention-de-nommage">Convention de nommage</h2>
+<p>Les variables d&#39;environnement peuvent remplacer les paramètres d&#39;Azure App Configuration :</p>
+<ul>
+<li>Comparaison sans casse (case-insensitive)</li>
+<li>Le caractère <code>_</code> (underscore) dans la variable d&#39;environnement correspond au <code>:</code> (deux-points) dans Azure App Configuration</li>
+</ul>
+<p>Exemple : <code>ALTAZIONUNIFIEDSTOCK_REDISCONNECTIONSTRING</code> correspond à <code>AltazionUnifiedStock:RedisConnectionString</code></p>
+<hr>
+<h2 id="variables-denvironnement">Variables d&#39;environnement</h2>
+<h3 id="altazionunifiedstockuser"><code>ALTAZION_UNIFIED_STOCK_USER</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Oui</li>
+<li><strong>Description :</strong> Nom d&#39;utilisateur pour l&#39;authentification Basic Auth sur tous les endpoints de l&#39;API Unified Stock</li>
+<li><strong>Note :</strong> Utilisée pour sécuriser l&#39;accès aux contrôleurs protégés par l&#39;attribut <code>[UnifiedStockAuthorize]</code></li>
+</ul>
+<p><strong>ATTENTION</strong> Cette option ne peut pas être définie via une configuration Azure App Configuration, elle doit forcément être passée via une variable d&#39;environnement.</p>
+<h3 id="altazionunifiedstockpsw"><code>ALTAZION_UNIFIED_STOCK_PSW</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Oui</li>
+<li><strong>Description :</strong> Mot de passe pour l&#39;authentification Basic Auth sur tous les endpoints de l&#39;API Unified Stock</li>
+<li><strong>Note :</strong> Utilisée pour sécuriser l&#39;accès aux contrôleurs protégés par l&#39;attribut <code>[UnifiedStockAuthorize]</code></li>
+</ul>
+<p><strong>ATTENTION</strong> Cette option ne peut pas être définie via une configuration Azure App Configuration, elle doit forcément être passée via une variable d&#39;environnement.</p>
+<h3 id="altazionunifiedstockredisconnectionstring"><code>ALTAZIONUNIFIEDSTOCK_REDISCONNECTIONSTRING</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Oui</li>
+<li><strong>Équivalent Azure App Config :</strong> <code>AltazionUnifiedStock:RedisConnectionString</code></li>
+<li><strong>Description :</strong> Chaîne de connexion au cache Redis / Azure Cache for Redis pour stocker les stocks en mémoire</li>
+<li><strong>Configuration Redis :</strong><ul>
+<li>Timeout sync/async : 30 000 ms</li>
+<li>Admin mode : Activé</li>
+<li>Batch size : 20 000 (ou 6 000 si localhost)</li>
+</ul>
+</li>
+<li><strong>Note :</strong> Redis est utilisé pour stocker :<ul>
+<li>Les stocks en mémoire (<code>InMemoryInventory</code>)</li>
+<li>Les règles d&#39;approvisionnement (<code>InMemorySupplyRule</code>)</li>
+<li>Les sources d&#39;approvisionnement (<code>InMemorySupplySource</code>)</li>
+<li>Les codes Delivery Optimizer</li>
+<li>Les entrepôts et zones de stockage</li>
+</ul>
+</li>
+</ul>
+<h3 id="altazionunifiedstockcatalogartsdisposqueue"><code>ALTAZION_UNIFIED_STOCK_CATALOG_ARTS_DISPOS_QUEUE</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Recommandé (sinon les disponibilités ne sont pas remontées en base SQL)</li>
+<li><strong>Équivalent Azure App Config :</strong> <code>Altazion:Unified_Stock:Catalog_Arts_Dispos_Queue</code></li>
+<li><strong>Description :</strong> Nom de la file Azure Service Bus pour remonter les disponibilités d&#39;articles calculées vers la base de données SQL</li>
+<li><strong>Format des messages :</strong> JSON contenant un dictionnaire de <code>Guid</code> (source d&#39;appro) et de <code>CatalogArtDispo[]</code></li>
+<li><strong>Batch size :</strong> 4 000 disponibilités par message</li>
+<li><strong>Note :</strong> Si la variable n&#39;est pas définie, un message d&#39;erreur est tracé mais l&#39;application continue de fonctionner (sans remontée en base SQL)</li>
+</ul>
+<h3 id="altazionjobsandeventsservicebusconnectionstring"><code>ALTAZION_JOBSANDEVENTSSERVICEBUSCONNECTIONSTRING</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Oui (si remontée des disponibilités activée)</li>
+<li><strong>Équivalent Azure App Config :</strong> <code>Altazion:JobsAndEventsServiceBusConnectionString</code></li>
+<li><strong>Description :</strong> Chaîne de connexion à Azure Service Bus pour la gestion des files de messages (jobs et événements)</li>
+<li><strong>Fonctions :</strong><ul>
+<li>Création automatique des queues si elles n&#39;existent pas</li>
+<li>Envoi de messages avec retry (3 tentatives)</li>
+<li>Configuration des queues : <code>LockDuration</code> = 5 minutes</li>
+</ul>
+</li>
+<li><strong>Note :</strong> Utilisée pour communiquer avec d&#39;autres modules Altazion (notamment pour la remontée des disponibilités en base SQL)</li>
+</ul>
+<h3 id="altazionmainsqldbconnectionstring"><code>ALTAZION_MAINSQLDBCONNECTIONSTRING</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Oui (pour les batchs)</li>
+<li><strong>Équivalent Azure App Config :</strong> <code>Altazion:MainSqlDbConnectionString</code></li>
+<li><strong>Description :</strong> Chaîne de connexion à la base de données SQL Server principale d&#39;Altazion</li>
+<li><strong>Note :</strong> Utilisée par les batchs pour synchroniser les données entre Redis et SQL Server</li>
+</ul>
+<hr>
+<h2 id="variables-communes-à-tous-les-projets-altazion">Variables communes à tous les projets Altazion</h2>
+<p>Ces variables sont partagées par tous les modules de la plateforme Altazion (Unified Stock, Delivery Optimizer, etc.).</p>
+<h3 id="azureappconfig"><code>AZURE_APPCONFIG</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Format :</strong> <code>Endpoint=https://{nom}.azconfig.io;Id={id};Secret={secret}</code></li>
+<li><strong>Obligatoire :</strong> Recommandé en production</li>
+<li><strong>Scope :</strong> <strong>Commun à tous les projets Altazion</strong></li>
+<li><strong>Description :</strong> Chaîne de connexion à Azure App Configuration pour centraliser toutes les configurations de l&#39;application</li>
+<li><strong>Fonction :</strong> <ul>
+<li>Permet de charger dynamiquement les configurations depuis Azure App Configuration</li>
+<li>Évite de stocker les configurations sensibles dans les fichiers de code ou de configuration</li>
+<li>Facilite la gestion multi-environnements (DEV, TEST, PROD)</li>
+</ul>
+</li>
+<li><strong>Exemples de valeurs :</strong><ul>
+<li><strong>Environnement ALTAZION</strong> : <code>Endpoint=https://creo-ignem.azconfig.io;Id=2-l9-s0:XrwxRJeuaBEATAKJ40dF;Secret=...</code></li>
+<li><strong>Environnement KJ (Kurt &amp; Jacquie)</strong> : <code>Endpoint=https://appcs-ecom-common-frc.azconfig.io;Id=gJCh;Secret=...</code></li>
+</ul>
+</li>
+<li><strong>Note :</strong> Si cette variable n&#39;est pas configurée, seules les variables d&#39;environnement locales seront utilisées</li>
+</ul>
+<p><strong>ATTENTION</strong> Cette option ne peut pas être définie via une configuration Azure App Configuration, elle doit forcément être passée via une variable d&#39;environnement.</p>
+<h3 id="azureappconfigenv"><code>AZURE_APPCONFIG_ENV</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Non</li>
+<li><strong>Valeur par défaut :</strong> <code>&quot;DEBUG&quot;</code> (si non spécifié)</li>
+<li><strong>Scope :</strong> <strong>Commun à tous les projets Altazion</strong></li>
+<li><strong>Description :</strong> Environnement cible pour Azure App Configuration (détermine le label à charger dans Azure App Configuration)</li>
+<li><strong>Valeurs courantes :</strong><ul>
+<li><code>DEV</code>, <code>DEVELOPMENT</code> → Environnement de développement</li>
+<li><code>TEST</code> → Environnement de test/recette</li>
+<li><code>EDITOR</code> → Environnement d&#39;édition (pré-production)</li>
+<li><code>PROD</code>, <code>PRODUCTION</code>, <code>MAIN</code>, <code>SAAS</code> → Environnement de production (normalisé en <code>PRODUCTION</code>)</li>
+</ul>
+</li>
+<li><strong>Mécanisme :</strong><ul>
+<li>Azure App Configuration stocke les configurations avec des labels (tags)</li>
+<li>Cette variable détermine quel label charger (ex: toutes les configs avec le label <code>DEV</code>)</li>
+<li>Permet d&#39;avoir une seule instance Azure App Configuration pour plusieurs environnements</li>
+</ul>
+</li>
+<li><strong>Note :</strong> La valeur est automatiquement normalisée : <code>PROD</code>, <code>PRODUCTION</code>, <code>MAIN</code>, <code>SAAS</code> → <code>PRODUCTION</code></li>
+</ul>
+<p><strong>ATTENTION</strong> Cette option ne peut pas être définie via une configuration Azure App Configuration, elle doit forcément être passée via une variable d&#39;environnement.</p>
+<h3 id="catalogartsdisposqueue"><code>CATALOG_ARTS_DISPOS_QUEUE</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Non (alias de <code>ALTAZION_UNIFIED_STOCK_CATALOG_ARTS_DISPOS_QUEUE</code>)</li>
+<li><strong>Description :</strong> Variable alternative pour spécifier le nom de la file de remontée des disponibilités</li>
+<li><strong>Note :</strong> Visible dans <code>launchSettings.json</code> pour le profil <code>KJ-PROD</code>, mais l&#39;application utilise principalement <code>ALTAZION_UNIFIED_STOCK_CATALOG_ARTS_DISPOS_QUEUE</code></li>
+</ul>
+<h2 id="résumé">Résumé</h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Obligatoire</th>
+<th>Équivalent App Config</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ALTAZION_UNIFIED_STOCK_USER</code></td>
+<td>string</td>
+<td>Oui</td>
+<td>-</td>
+<td>Unified Stock</td>
+</tr>
+<tr>
+<td><code>ALTAZION_UNIFIED_STOCK_PSW</code></td>
+<td>string</td>
+<td>Oui</td>
+<td>-</td>
+<td>Unified Stock</td>
+</tr>
+<tr>
+<td><code>ALTAZIONUNIFIEDSTOCK_REDISCONNECTIONSTRING</code></td>
+<td>string</td>
+<td>Oui</td>
+<td><code>AltazionUnifiedStock:RedisConnectionString</code></td>
+<td>Unified Stock</td>
+</tr>
+<tr>
+<td><code>ALTAZION_UNIFIED_STOCK_CATALOG_ARTS_DISPOS_QUEUE</code></td>
+<td>string</td>
+<td>Recommandé</td>
+<td><code>Altazion:Unified_Stock:Catalog_Arts_Dispos_Queue</code></td>
+<td>Unified Stock</td>
+</tr>
+<tr>
+<td><code>ALTAZION_JOBSANDEVENTSSERVICEBUSCONNECTIONSTRING</code></td>
+<td>string</td>
+<td>Oui*</td>
+<td><code>Altazion:JobsAndEventsServiceBusConnectionString</code></td>
+<td>Unified Stock</td>
+</tr>
+<tr>
+<td><code>ALTAZION_MAINSQLDBCONNECTIONSTRING</code></td>
+<td>string</td>
+<td>Oui**</td>
+<td><code>Altazion:MainSqlDbConnectionString</code></td>
+<td>Unified Stock</td>
+</tr>
+<tr>
+<td><code>AZURE_APPCONFIG</code></td>
+<td>string</td>
+<td>Recommandé</td>
+<td>-</td>
+<td><strong>Tous les projets Altazion</strong></td>
+</tr>
+<tr>
+<td><code>AZURE_APPCONFIG_ENV</code></td>
+<td>string</td>
+<td>Non</td>
+<td>-</td>
+<td><strong>Tous les projets Altazion</strong></td>
+</tr>
+<tr>
+<td><code>OTEL_LOGS_EXPORTER</code></td>
+<td>string</td>
+<td>Non</td>
+<td>-</td>
+<td>Tous les projets Altazion</td>
+</tr>
+<tr>
+<td><code>OTEL_TRACES_EXPORTER</code></td>
+<td>string</td>
+<td>Non</td>
+<td>-</td>
+<td>Tous les projets Altazion</td>
+</tr>
+<tr>
+<td><code>OTEL_METRICS_EXPORTER</code></td>
+<td>string</td>
+<td>Non</td>
+<td>-</td>
+<td>Tous les projets Altazion</td>
+</tr>
+<tr>
+<td><code>OTEL_ALTAZION_TRACES_ENABLED</code></td>
+<td>bool</td>
+<td>Non</td>
+<td>-</td>
+<td>Tous les projets Altazion</td>
+</tr>
+<tr>
+<td><code>OTEL_ALTAZION_TRACES_SOURCES</code></td>
+<td>string</td>
+<td>Non</td>
+<td>-</td>
+<td>Tous les projets Altazion</td>
+</tr>
+</tbody>
+</table>
+<p>* Obligatoire si remontée des disponibilités activée<br>** Obligatoire pour les batchs uniquement</p>
+<hr>
+<h2 id="architecture-de-unified-stock">Architecture de Unified Stock</h2>
+<h3 id="composants-principaux">Composants principaux</h3>
+<ol>
+<li><p><strong>API Web</strong> (<code>Altazion.Orchestrator.UnifiedStock.Web</code>)</p>
+<ul>
+<li>Exposition des endpoints REST pour :<ul>
+<li>Mouvements de stocks (entrées, sorties, transferts)</li>
+<li>Gestion des sources d&#39;approvisionnement</li>
+<li>Gestion des règles d&#39;approvisionnement</li>
+<li>Gestion des entrepôts et zones de stockage</li>
+<li>Consultation des stocks en mémoire</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Business Logic</strong> (<code>Altazion.Orchestrator.UnifiedStock.Business</code>)</p>
+<ul>
+<li><code>MovementsBll</code> : Gestion des mouvements de stocks (entrées, sorties, transferts)</li>
+<li><code>SupplySourcesBll</code> : Calcul et envoi des disponibilités vers Delivery Optimizer</li>
+<li><code>RedisHelper</code> : Gestion de la connexion Redis et des opérations en mémoire</li>
+<li><code>AzureServiceBusHelper</code> : Envoi des messages vers Azure Service Bus</li>
+<li><code>HttpClientHelper</code> : Communication avec Delivery Optimizer</li>
+</ul>
+</li>
+<li><p><strong>Batchs</strong> (<code>Altazion.Orchestrator.UnifiedStock.Batchs</code>)</p>
+<ul>
+<li><code>SyncImStocksToDbTaskChain</code> : Synchronisation des stocks Redis vers SQL</li>
+<li><code>MajSourceApproTaskChain</code> : Mise à jour des sources d&#39;approvisionnement</li>
+</ul>
+</li>
+</ol>
+<h3 id="flux-de-données">Flux de données</h3>
+<pre><code>Sources externes → Unified Stock (Redis) → Calcul des disponibilités → {Delivery Optimizer, Base SQL}
+</code></pre><ol>
+<li><strong>Réception des stocks</strong> : Les stocks arrivent depuis des sources d&#39;approvisionnement externes</li>
+<li><strong>Stockage en mémoire</strong> : Les stocks sont stockés dans Redis avec leurs règles d&#39;approvisionnement</li>
+<li><strong>Calcul des disponibilités</strong> : Application des règles (pourcentages, seuils, min/max)</li>
+<li><strong>Distribution</strong> :<ul>
+<li>Vers <strong>Delivery Optimizer</strong> : Stocks calculés par origine pour optimisation des livraisons</li>
+<li>Vers <strong>Base SQL</strong> : Disponibilités agrégées par canal de vente (via Azure Service Bus)</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p><strong>Dernière mise à jour :</strong> 18 Jan. 2025</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/orchestrator/unified-stock/ENV_UNIFIEDSTOCK.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

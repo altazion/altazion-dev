@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>StoreDevice | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="StoreDevice | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="storedevice">StoreDevice</h2>
+
+<p>La classe StoreDevice représente un équipement (device) en magasin tel qu&#39;une borne, une tablette ou un terminal de paiement.</p>
+<p>Propriétés publiques :</p>
+<ul>
+<li>Guid : Identifiant unique du device.</li>
+<li>DeviceType : Type de device codé sur 3 caractères.</li>
+<li>StoreId : Identifiant du magasin auquel appartient le device (nullable).</li>
+<li>Label : Libellé descriptif du device.</li>
+<li>IpAddress : Adresse IP du device.</li>
+<li>CashRegisterId : Identifiant de la caisse associée au device (nullable).</li>
+<li>Status : Statut du device codé sur 1 caractère.</li>
+<li>ParentDeviceId : Identifiant du device parent pour hiérarchie (nullable).</li>
+<li>LastUpdateTimestamp : Horodatage de la dernière mise à jour du device.</li>
+<li>CallbackUrl : URL de callback pour les notifications du device.</li>
+<li>IsMovable : Indique si le device est déplaçable.</li>
+<li>DepartmentId : Identifiant du rayon où se trouve le device (nullable).</li>
+<li>IsInUse : Indique si le device est actuellement utilisé.</li>
+<li>Code : Code court du device.</li>
+<li>ConfigurationJson : Configuration du device au format JSON.</li>
+<li>Description : Description détaillée du device.</li>
+<li>Orientation : Orientation du device (par exemple &quot;portrait&quot; ou &quot;landscape&quot;).</li>
+</ul>
+<h3 id="dclaration-typescript">D�claration TypeScript</h3>
+<pre><code class="lang-typescript">interface StoreDevice {
+  Guid: string; // Unique identifier (UUID) of the device
+  DeviceType: string | null; // Type of device (3-char code)
+  StoreId?: string | null; // Store identifier (UUID)
+  Label: string | null; // Descriptive label
+  IpAddress: string | null; // IP address
+  CashRegisterId?: string | null; // Cash register ID (UUID)
+  Status: string | null; // Status code (1 char)
+  ParentDeviceId?: string | null; // Parent device ID (UUID)
+  LastUpdateTimestamp: string; // Last update timestamp (ISO 8601 string)
+  CallbackUrl: string | null; // Callback URL
+  IsMovable: boolean; // Whether the device is movable
+  DepartmentId?: string | null; // Department ID (UUID)
+  IsInUse: boolean; // Whether the device is in use
+  Code: string | null; // Short code
+  ConfigurationJson: string | null; // JSON configuration
+  Description: string | null; // Detailed description
+  Orientation: string | null; // Orientation (eg. &quot;portrait&quot;, &quot;landscape&quot;)
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/fr-fr/reference/DataObjectBase/Core-Business/business/Altazion.PointOfSale.Model/StoreDevice/Altazion.PointOfSale.Model.StoreDevice.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>

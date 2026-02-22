@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Etendre la solution | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Etendre la solution | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="etendre-la-solution">Etendre la solution</h1>
+
+<p>Les possibilités d&#39;extension de la solution sont très différentes selon le fait que vous utilisiez nos outils en mode SaaS (hébergés par nos soins) ou OnPremise (installés sur vos serveurs)</p>
+<h2 id="saas">SaaS</h2>
+<p>Si vous utilisez notre solution en mode SaaS, vous ne pouvez pas étendre directement nos outils en injectant votre code directement sur nos serveurs. </p>
+<p>Vous pouvez toutefois intégrer vos personnalisation en développant des plugins que vous hébergerez sur votre infrastructure et qui pourront étendre l&#39;un des points de contributions de nos solutions.</p>
+<p>Vous pouvez, par exemple, écrire un <a href="../hub/extensibility/index.html">gestionnaire d&#39;évènement de type Webhook</a> pour réagir à la création d&#39;un nouveau client et synchroniser ses informations avec votre système CRM ; créer un template pour Signage ; ou encore écrire une page d&#39;extension pour Office.</p>
+<p>Consultez la description de chaque application pour en connaitre les points de contribution et méchanismes d&#39;extension.</p>
+<h2 id="on-premise">On Premise</h2>
+<p>A la différence du mode SaaS/Cloud, il est possible d&#39;ajouter des personnalisations &quot;codées&quot; dans notre solution Cloud. En complément des solutions d&#39;extensibilité utilisables en mode Cloud, il est aussi possible d&#39;écrire des extensions sous forme de classes .net et d&#39;utiliser <a href="https://medium.com/ividata-link/c-linjection-de-dépendances-di-et-l-inversion-de-contrôle-ioc-48dbe76cff6b">l&#39;inversion de contrôle et l&#39;injection de dépendance</a> pour insérer du code personnalisé dans l&#39;application. </p>
+<p>Ce mode d&#39;extensibilité vous permet une plus grande liberté, mais vous demandera, aussi, de connaître plus en détail la solution : si votre traitement est incorrect, vous pourrez engendrer erreurs et instabilité.</p>
+<p>Si vous n&#39;êtes pas familier avec l&#39;inversion de contrôle, le principe en est assez simple : dans de très nombreux endroits de notre solution, nous avons mis en place la possibilité pour vous d&#39;écrire un &quot;plug-in&quot;, sous la forme d&#39;une interface à implémenter, pour que vous puissiez remplacer le comportement standard de la solution. </p>
+<p>Par exemple, lors de l&#39;ajout au panier d&#39;un article dans le module Commerce, nous effectuons une vérification de disponibilité du produit pour savoir quelle quantité maximale peut être commandé. Ce traitement a un comportement par défaut qui effectue une vérification dans la base de données. Vous pouvez toutefois changer ce comportement, en implémentant l&#39;interface :</p>
+<pre><code class="lang-csharp">    IPanierStockCheck
+</code></pre><p>Par exemple :</p>
+<pre><code class="lang-csharp">    [Export(typeof(IPanierStockCheck))]
+    public class MaVerifStock : IPanierStockCheck
+    {
+        bool IPanierStockCheck.CheckStock(Guid art_guid, 
+            ref decimal quantite, Guid? magasin, string typeCommandable)
+        {
+            var stockProduit = ApiModuleStock.GetStock(art_guid, magasinGuid);
+            if(stockProduit.Front.Quantite &gt;= quantite)
+                return true;
+            else 
+            {
+                // on ajuste la quantité commandable
+                quantite = stockProduit.Front.Quantite; 
+                return false;
+            }
+        }
+    }
+</code></pre><p>Quelques pointeurs pour comprendre le fonctionnement général de l&#39;inversion de contrôle et son implémentation en technologies .net :</p>
+<ul>
+<li><a href="https://medium.com/ividata-link/c-linjection-de-dépendances-di-et-l-inversion-de-contrôle-ioc-48dbe76cff6b">https://medium.com/ividata-link/c-linjection-de-dépendances-di-et-l-inversion-de-contrôle-ioc-48dbe76cff6b</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/framework/mef/">https://docs.microsoft.com/en-us/dotnet/framework/mef/</a></li>
+</ul>
+<h3 id="sdk">SDK</h3>
+<p>Bien entendu, pour pouvoir implémenter l&#39;interface <code>IPanierStockCheck</code>, il vous faut d&#39;abord référencer sa définition. Nous mettons à disposition des développeurs un SDK, déployé sous forme de nuget herbergés sur Github.</p>
+<div class="WARNING"><h5>Warning</h5><p>Pour l&#39;instant, ce SDK est uniquement disponible sur demande, après signature d&#39;un NDA. Nous vous invitons à nous contacter via l&#39;adresse se trouvant sur le profil d&#39;altazion : <a href="https://github.com/altazion">https://github.com/altazion</a>.
+Une fois l&#39;accès accordé, vous pourrez ajouter la source de nuget en suivant le procédure ci-dessous.</p>
+</div>
+<p>Vous aurez besoin de vous connecter à un flux de package Github. Pour cela, le plus simple est de créer un token PAT ayant le droit <code>read:packages</code>, puis d&#39;ajouter l&#39;url correspondant à notre organisation. <a href="use-github-packages.html">Pour plus de détail, suivez ce guide détaillé</a></p>
+<p>En complément des packages nugets vous permettant de développer, vous trouverez dans notre SDK :</p>
+<ul>
+<li>la documentation des classes métier qui composent notre solution</li>
+<li>le descriptif de la base de données.</li>
+</ul>
+<h3 id="déployer">Déployer</h3>
+<p>Une fois l&#39;interface implémentée, ajoutez une balise d&#39;export signalant qu&#39;elle doit être utilisée, compilez puis déployez l&#39;assembly correspondante dans le dossier d&#39;extensibilité.</p>
+<p>La solution possède deux paths &quot;importants&quot; en configuration OnPremise :</p>
+<ul>
+<li>le(s) dossier(s) où se trouvent installés les différents modules de l&#39;application (en règle générale : %ProgramFiles%\simplement-e\apps{nom du module})</li>
+<li>le dossier sous lequel sera regroupé toutes les informations de configuration, et les fichiers spécifique à l&#39;instance de la solution (en règle générale %ALLUSERSPROFILE%\Cpoint[e]).</li>
+</ul>
+<p>Le dossier se trouvant dans %ALLUSERSPROFILE% permet de configurer et personnaliser l&#39;application, là où le dossier se trouvant sous %Program Files% contient notre applicatif &quot;éditeur&quot;.</p>
+<p>Pour plus de renseignement sur la procédure de déploiement, vous pouvez vous référer à :</p>
+<ul>
+<li>pour l&#39;installation d&#39;une extension (ajout d&#39;une fonctionnalité dans nos outils standard) : <a href="build-extension-onprem.html">consultez la procédure de build et de déploiement</a></li>
+<li>pour l&#39;installation d&#39;un développement spécifique (application complète utilisant notre SDK) : <a href="build-specifique-onprem.html">la procédure de build et de déploiement est différente</a></li>
+</ul>
+<h2 id="exemples">Exemples</h2>
+<p>Vous pourrez trouver des exemples d&#39;extensions sur notre github, dans la repository <a href="https://github.com/altazion/onpremise-extensibility-samples">altazion/onpremise-extensibility-samples</a></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/global/index.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Se connecter au SDK OnPremise | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Se connecter au SDK OnPremise | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="se-connecter-au-sdk-onpremise">Se connecter au SDK OnPremise</h1>
+
+<h2 id="créer-un-compte-github">Créer un compte Github</h2>
+<p>Si vous n&#39;en avez pas encore, créez un compte Github.</p>
+<h2 id="demander-laccès">Demander l&#39;accès</h2>
+<p>Pour l&#39;instant, l&#39;accès à notre SDK <em>OnPremise</em> est uniquement possible après avoir été accepté dans notre programme Partenaires. Pour plus de renseignements merci de nous contacter via l&#39;email présente sur notre profil Github <a href="https://github.com/altazion">https://github.com/altazion</a>.</p>
+<h2 id="créer-un-token-pat">Créer un token PAT</h2>
+<ul>
+<li>Accédez à vos options utilisateurs sur GitHub</li>
+</ul>
+<p><img src="use-github-packages-1.png" alt="options utilisateurs"></p>
+<ul>
+<li>Allez dans les options développeurs puis dans Personnal Access Token </li>
+<li>Créez un nouveau Token</li>
+</ul>
+<p><img src="use-github-packages-2.png" alt="nouveau pat"></p>
+<ul>
+<li>Donnez lui un nom puis cochez le choix read:packages</li>
+</ul>
+<p><img src="use-github-packages-3.png" alt="options pat"></p>
+<ul>
+<li>Validez la création</li>
+<li>Notez le code qui vous est donné en retour : vous ne pourrez plus le retrouver facilement après avoir quitté cette page</li>
+</ul>
+<h2 id="ajoutez-la-source-de-package-dans-visual-studio">Ajoutez la source de package dans visual studio</h2>
+<ul>
+<li>ouvrez visual studio</li>
+<li>ouvrez les options et cherchez le groupe &quot;Sources de packages nugets&quot;</li>
+<li>Ajoutez une ligne dans les sources avec les informations suivantes :<ul>
+<li>Nom : Altazion</li>
+<li>Source : <a href="https://nuget.pkg.github.com/altazion/index.json">https://nuget.pkg.github.com/altazion/index.json</a></li>
+</ul>
+</li>
+</ul>
+<p><img src="use-github-packages-4.png" alt="options pat"></p>
+<ul>
+<li>Créez un projet simple (une application console .net framework 4.6.1+) et cliquez sur <em>Gérer les packages nuget</em></li>
+<li>Modifiez la source dans l&#39;angle en haut à gauche pour choisir celle que vous venez de créer</li>
+</ul>
+<p><img src="use-github-packages-5.png" alt="page gérer les nugets de la solution"></p>
+<ul>
+<li>Saisissez votre identifiant Github et le token PAT en tant que mot de passe</li>
+</ul>
+<h1 id="contenu-des-packages-nugets">Contenu des packages nugets</h1>
+<p>Le sdk est mis à disposition sous formes de packages nugets, et est consitué de plusieurs ensembles.</p>
+<h2 id="développement-de-module-back-office">Développement de module back-office</h2>
+<p>A utiliser pour étendre Office, Orchestrator ou Automate.</p>
+<p><em><strong>Attention</strong>, jusqu&#39;à la version 2023.6 (prévue pour le 9 Juillet 2023), pour ces modules, nous vous invitons à utiliser les versions prélimimaires &quot;-beta&quot; si vous utilisez Kubernetes ou .net 5.0+ pour déployer nos outils OU la version &quot;standard&quot; si vous déployez via IIS, Azure Web App ou développez en .net framework 4.8. Veillez à ne pas mélanger les deux versions. A compter de la version 2023.6, la version &quot;-beta&quot; sera supprimée et vous pourrez basculer tous vos développements sur la branche principale.</em></p>
+<p><em>Les outils réalisés avec les branches &quot;non beta&quot; devront être développée en .net Framework 4.8, ceux développés avec les branches beta sont destinés à être utilisé dans .net core ou .net 5.0 et supérieur.</em></p>
+<p><em>A partir de la version 2023.6, la plateforme obligatoire pour les nouveaux développement est .net standard 2.0 pour les assemblies déployées en tant que modules d&#39;extension</em></p>
+<h3 id="altazion-core">altazion-core</h3>
+<table>
+<thead>
+<tr>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPointSoftware.Equihira.Common</td>
+</tr>
+<tr>
+<td>CPointSoftware.Equihira.Extensibility</td>
+</tr>
+</tbody>
+</table>
+<h3 id="altazion-basebusiness">altazion-basebusiness</h3>
+<table>
+<thead>
+<tr>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPointSoftware.Equihira.Business.Common</td>
+</tr>
+</tbody>
+</table>
+<h3 id="altazion-gestcom">altazion-gestcom</h3>
+<table>
+<thead>
+<tr>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPointSoftware.Equihira.Business.GestCom</td>
+</tr>
+</tbody>
+</table>
+<h3 id="altazion-server">altazion-server</h3>
+<table>
+<thead>
+<tr>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPoint.Equihira.CPoint.Business</td>
+</tr>
+<tr>
+<td>CPointSoftware.ECommerce.Business</td>
+</tr>
+<tr>
+<td>CPointSoftware.Equihira.Business.Legal</td>
+</tr>
+<tr>
+<td>CPointSoftware.Equihira.Business.Logistique</td>
+</tr>
+<tr>
+<td>CPointSoftware.Equihira.Business.PointOfSale</td>
+</tr>
+<tr>
+<td>CPointSoftware.Faneon.Business</td>
+</tr>
+</tbody>
+</table>
+<p>Utilisez ce package pour le développement de modules <strong>Office</strong> ou <strong>Orchestrator</strong>, ou pour la réalisation d&#39;applications externes (extranets, outils de support, etc.)</p>
+<h3 id="altazion-rails">altazion-rails</h3>
+<table>
+<thead>
+<tr>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPointSoftware.Equihira.Rails</td>
+</tr>
+</tbody>
+</table>
+<p>Utilisez ce package si vous souhaitez compléter <strong>Automate</strong> ou déployer vos batchs personnalisés. Ce nuget contient toutes les définitions de nos batchs standards dont vous pouvez éventuellement dériver pour modifier leur comportement.</p>
+<h2 id="développement-de-module-front-office">Développement de module front-office</h2>
+<p>A utiliser pour le développement de module s&#39;intégrant dans Commerce, Signage, Store ou Seller.</p>
+<h3 id="altazion-commerce">altazion-commerce</h3>
+<table>
+<thead>
+<tr>
+<th>Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPointSoftware.ECommerce.Tools</td>
+</tr>
+</tbody>
+</table>
+<p>Les modules développés en utilisant ce nuget peuvent être déployés dans Commerce, Signage, Store et Seller</p>
+<h2 id="développement-hub--edge">Développement Hub / Edge</h2>
+<p>Les deux packages :</p>
+<ul>
+<li><strong>altazion-hub-host</strong> </li>
+<li><strong>altazion-hub</strong> </li>
+</ul>
+<p>doivent être utilisés conjoitement pour tous les dévelopements de modules pour Altazion Hub.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/global/use-github-packages.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

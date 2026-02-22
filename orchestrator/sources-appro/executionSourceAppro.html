@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Ex&#233;cution d'une Source d'Approvisionnement | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Ex&#233;cution d'une Source d'Approvisionnement | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="exécution-dune-source-dapprovisionnement">Exécution d&#39;une Source d&#39;Approvisionnement</h1>
+
+<h2 id="généralités">Généralités</h2>
+<h3 id="déclenchement-du-calcul-dune-source-dapprovisionnement">Déclenchement du calcul d&#39;une source d&#39;approvisionnement</h3>
+<p>Le calcul d&#39;une source d&#39;approvisionnement peut être déclenchée de plusieurs façons :</p>
+<ul>
+<li>En réponse à un évènement (après un import de stocks, la modification d&#39;articles, la modification des sources/règles/traitements d&#39;approvisionnement, etc.)</li>
+<li>À heure fixe (tous les jours à 6h du matin par exemple)</li>
+<li>À intervalle régulier (toutes les deux heures par exemple)</li>
+<li>Manuellement</li>
+</ul>
+<p>N&#39;hésitez pas à vous rapprocher d&#39;Altazion afin de déterminer ensemble de la meilleure stratégie à adopter pour le déclenchement des sources d&#39;approvisionnement.</p>
+<h3 id="durée-dexécution-du-calcul">Durée d&#39;exécution du calcul</h3>
+<p>La durée du calcul dépend grandement des facteurs suivants :</p>
+<ul>
+<li>La taille de votre catalogue d&#39;articles.</li>
+<li>Le nombre d&#39;origines de stocks.</li>
+<li>La quantité et la complexité de vos règles.</li>
+<li>Si la source d&#39;approvisionnement est exécutée en base de données ou pour Unified Stock (Unified Stock est généralement plus rapide et impact moins la base de données principale).</li>
+</ul>
+<p>Ainsi le temps d&#39;exécution peut varier entre quelques secondes et plusieurs minutes. Bien que l&#39;exécution des sources d&#39;appro soit conçue pour limiter un maximum son impact sur le reste de votre système d&#39;information, Altazion recommande d&#39;exécuter les calculs complexes à des heures où le trafic sur votre base est faible (la nuit le plus souvent).</p>
+<h2 id="traçabilité">Traçabilité</h2>
+<h3 id="journalisation-et-remontée-des-traces">Journalisation et remontée des traces</h3>
+<p>Le processus d&#39;exécution d&#39;une source d&#39;approvisionnement est documenté par un système complet de traces vous permettant ainsi de garantir le bon fonctionnement de chacune des étapes.
+Ces traces sont affichées dans les journaux de l&#39;application et également remontées dans votre système de centralisation des logs (datadog par exemple) dans le service &quot;OMS&quot; et la Zone &quot;SourcesAppro&quot;.</p>
+<h3 id="traçabilité-des-opérations-sur-les-stocks">Traçabilité des opérations sur les stocks</h3>
+<p>Chaque source d&#39;approvisionnement dispose d&#39;une table temporaire de stocks qu&#39;il est possible de consulter afin d&#39;obtenir, pour chaque stock (combinaison article, origine de stock), des informations sur :</p>
+<ul>
+<li>Quelle règle affecte le stock</li>
+<li>Si le stock possède une quantité minimum et/ou maximum associée</li>
+<li>Quel traitement a fixé une éventuelle quantité minimum/maximum (dans le champ &quot;traitement&quot;)</li>
+<li>Si le stock est ignoré</li>
+<li><p>Quel traitement a rendu le stock ignoré (dans le champ &quot;traitement&quot;)</p>
+<p>Le champ traitement affiche en priorité le traitement ayant ignoré le stock. S&#39;il n&#39;y en a pas il affichera le dernier traitement qui a affecté les quantités. Si aucun traitement n&#39;affecte la ligne de stock, ce champ sera null.</p>
+</li>
+</ul>
+<h2 id="processus-de-calcul-dune-source-dapprovisionnement">Processus de calcul d&#39;une source d&#39;approvisionnement</h2>
+<p>L&#39;exécution d&#39;une source d&#39;approvisionnement se divise en trois étapes principales.</p>
+<h3 id="initialisation-de-la-source-dapprovisionnement">Initialisation de la source d&#39;approvisionnement</h3>
+<p>Cette étape vérifie la configuration de la source d&#39;approvisionnement, des règles et de leurs traitements.</p>
+<p><img src="img/TraitementSourceApproInit.png" alt="Phase d&#39;init d&#39;une source d&#39;appro"></p>
+<h3 id="import-des-données-nécessaires-au-calcul">Import des données nécessaires au calcul</h3>
+<p>Cette phase récupère et prépare les origines de stocks ainsi que leurs stocks pour le calcul des règles.
+<strong>Attention :</strong> Seul les stocks jugés valides sont importés. Pour cela, ils doivent satisfaire les conditions suivantes :</p>
+<ul>
+<li>Disposer d&#39;une quantité disponible supérieur à 0.</li>
+<li>Être disponible dans l&#39;emplacement</li>
+<li>Être un stock d&#39;article normal.</li>
+<li>Ne pas être issu d&#39;un article supprimé, non validé ou non publié</li>
+</ul>
+<p><img src="img/TraitementSourceApproImports.png" alt="Phase d&#39;import d&#39;une source d&#39;appro"></p>
+<h3 id="calcul-des-disponibilités-enregistrementexport-des-résultats">Calcul des disponibilités, enregistrement/export des résultats.</h3>
+<p>Cette dernière étape exécute les traitements et critères de disponibilités des règles de la source. Une fois tous les calculs terminés, les résultats sont enregistrés et exportés vers Delivery Optimizer et Unified Stock (si les modules sont actifs).</p>
+<p><img src="img/TraitementSourceApproCalculs.png" alt="Phase de calculs d&#39;une source d&#39;appro"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/orchestrator/sources-appro/executionSourceAppro.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

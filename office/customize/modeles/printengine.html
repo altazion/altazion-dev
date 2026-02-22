@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Format d'impression | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Format d'impression | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="format-dimpression">Format d&#39;impression</h1>
+
+<p>Les templates d&#39;impressions sont décrit dans des fichiers au format XML.</p>
+<p>Exemple de fichier :</p>
+<pre><code class="lang-XML">&lt;Document&gt;
+    &lt;Settings/&gt;
+    &lt;PageModel&gt;
+        &lt;Image position=&quot;0;0&quot; 
+            image=&quot;c:\facture.png&quot;/&gt;
+        &lt;String position=&quot;55;320&quot; text=&quot;Facture&quot; font=&quot;Arial; 8&quot;/&gt;
+
+    &lt;/PageModel&gt;
+    &lt;Page&gt;
+    &lt;/Page&gt;
+
+ &lt;/Document&gt;
+</code></pre><h2 id="description-du-format-xml">Description du format XML</h2>
+<h3 id="element-racine-document">Element racine <code>&lt;Document&gt;</code></h3>
+<p>Element enfant :  <code>&lt;Settings&gt;</code>, <code>&lt;PageModel&gt;</code>, <code>&lt;Page&gt;</code>, <code>&lt;SimpleReport&gt;</code></p>
+<h3 id="element-settings">Element <settings></settings></h3>
+<p>Une seule instance de l&#39;element Settings est autorisé.</p>
+<p>Element enfant :  <code>&lt;DefaultFont&gt;</code>, <code>&lt;DefaultColor&gt;</code>, <code>&lt;Unit&gt;</code></p>
+<h3 id="element-pagemodel">Element <code>&lt;PageModel&gt;</code></h3>
+<p>Défini le modèle de page qui sera appliqué. (comparable à un fond de page). Une seule instance de l&#39;element PageModel est autorisé.</p>
+<p>Element enfant : <code>&lt;Image&gt;</code>, <code>&lt;String&gt;</code>, <code>&lt;FilledRectangle&gt;</code>, <code>&lt;HollowRectangle&gt;</code>, <code>&lt;PageNumber&gt;</code>, <code>&lt;HorizontalLine&gt;</code></p>
+<h3 id="element-page">Element <code>&lt;Page&gt;</code></h3>
+<p>Défini une page dans le document à imprimer (seront imprimé dans l&#39;ordre : le PageModel en fond puis les elements de cette Page)</p>
+<p>Element enfant : <code>&lt;Image&gt;</code>, <code>&lt;String&gt;</code>, <code>&lt;FilledRectangle&gt;</code>, <code>&lt;HollowRectangle&gt;</code>, <code>&lt;PageNumber&gt;</code>, <code>&lt;HorizontalLine&gt;</code></p>
+<h3 id="element-simplereport">Element <code>&lt;SimpleReport&gt;</code></h3>
+<p>Permet de définir un report pour lequel la taille et la composition des lignes reste identique sur toutes les pages (l&#39;odre d&#39;impression PageModel puis SimpleReport est bien sûr réalisé). L&#39;entete (<code>&lt;header&gt;</code>) sera repris sur toutes les pages et peut contenir aussi bien un entete que le pied de page, les <code>&lt;rows&gt;</code> seront ajoutés les unes après les autres avec passage de page dès que cela est nécéssaire</p>
+<p>Element enfant : <code>&lt;Header&gt;</code>,<code>&lt;Row&gt;</code></p>
+<p>Attributs :</p>
+<ul>
+<li>bodyLocation : position du contenu du report (c&#39;est a dire l&#39;ensemble des rows) sous la forme &quot;x;y&quot; (ex : 65;48)</li>
+<li>bodySize : taille du contenu du report sous la forme &quot;width;height&quot; (ex : 550;450)</li>
+<li>rowSize : taille d&#39;une ligne sous la forme &quot;width;height&quot; (ex : 550;50)</li>
+</ul>
+<h3 id="element-header">Element <code>&lt;Header&gt;</code></h3>
+<p>Représente l&#39;entete (et le pied de page) d&#39;un report.Une seule instance de l&#39;element Header est autorisé par report.  </p>
+<p>Element enfant : <code>&lt;Image&gt;</code>, <code>&lt;String&gt;</code>, <code>&lt;FilledRectangle&gt;</code>, <code>&lt;HollowRectangle&gt;</code>, <code>&lt;PageNumber&gt;</code>, <code>&lt;HorizontalLine&gt;</code></p>
+<h3 id="element-row">Element <code>&lt;Row&gt;</code></h3>
+<p>Représente une ligne dans un report. Si aucun élément Row n&#39;est présent dans le Report, celui-ci n&#39;est pas imprimé.</p>
+<p>Element enfant : <code>&lt;Image&gt;</code>, <code>&lt;String&gt;</code>, <code>&lt;FilledRectangle&gt;</code>, <code>&lt;HollowRectangle&gt;</code>, <code>&lt;PageNumber&gt;</code>, <code>&lt;HorizontalLine&gt;</code></p>
+<h3 id="element-image">Element <code>&lt;Image&gt;</code></h3>
+<p>Ajoute une image dans un conteneur Page, PageModel etc.</p>
+<p>Attributs :</p>
+<ul>
+<li>position : position sous la forme &quot;x;y&quot; (ex : 65;48)</li>
+<li>image : path vers l&#39;image  (format de fichiers supportés : tous ceux de GDI+ dont : jpeg, gif, png, bmp...)<ul>
+<li>soit sous la forme &quot;pathverslefichier.jpg&quot; (ex : fondPage.jpg)</li>
+<li>soit sous la forme &quot;#nomdelassembly,nomdelaressource) (ex : #CPointSoftware.Tools,CPointSoftware.Tools.Logo.png)</li>
+</ul>
+</li>
+<li>size : defini la taille de l&#39;image sur la sortie au format &quot;width;height&quot;, si cet élément n&#39;est pas précisé, la taille de l&#39;image est utilisé.</li>
+</ul>
+<h3 id="element-text-ou-string">Element <code>&lt;Text&gt;</code> ou <code>&lt;String&gt;</code></h3>
+<p>Ajoute une chaine de caracteres dans un conteneur</p>
+<p>Attributs :</p>
+<ul>
+<li>position : position sous la forme &quot;x;y&quot; (ex : 65;48)</li>
+<li>text : texte à imprimer</li>
+<li>font : la fonte à utiliser, le format est le suivante : {font-face} [, {size}] [,{normal|bold|italic}]</li>
+<li>stringFormat : alignement : {center}|{far}|{near}</li>
+<li>color : couleur au format HTML : #XXXXXX ou l&#39;une des couleurs prédéfinies
+autoHeightExpand : si true, le champs s&#39;etendra automatiquement au niveau de la hauteur pour correspondre au texte </li>
+<li>size : defini la taille de la zone de texte sur la sortie au format &quot;width;height&quot;</li>
+</ul>
+<h3 id="element-horizontalline">Element <code>&lt;HorizontalLine&gt;</code></h3>
+<p>Dessine une ligne horizontale sur le conteneur</p>
+<p>Attributs :</p>
+<ul>
+<li>position : position sous la forme &quot;x;y&quot; (ex : 65;48)</li>
+<li>color : couleur au format HTML : #XXXXXX ou l&#39;une des couleurs prédéfinies
+-size : defini la taille de la ligne (avec le height=epaisseur du trait)</li>
+</ul>
+<h3 id="element-pagenumber">Element <code>&lt;PageNumber&gt;</code></h3>
+<p>Affiche le n° de la page dans un conteneur</p>
+<p>Attributs :</p>
+<ul>
+<li>position : position sous la forme &quot;x;y&quot; (ex : 65;48)</li>
+<li>format : le masque utilisé pour l&#39;impression, le texte renseigné dans cet attribut sera imprimé avec un remplacement à la string.format : format=&quot;Page {CurrentPage:00}&quot; donnera Page 01. Les champs connus sont CurrentPage, CurrPage et TotalPage</li>
+<li>font : la fonte à utiliser, le format est le suivante : {font-face} [, {size}] [,{normal|bold|italic}]</li>
+<li>stringFormat : alignement : {center}|{far}|{near}</li>
+<li>color : couleur au format HTML : #XXXXXX ou l&#39;une des couleurs prédéfinies</li>
+<li>autoHeightExpand : si true, le champs s&#39;etendra automatiquement au niveau de la hauteur pour correspondre au texte </li>
+<li>size : defini la taille de la zone de texte sur la sortie au format &quot;width;height&quot;</li>
+</ul>
+<h3 id="element-filledrectangle">Element <code>&lt;FilledRectangle&gt;</code></h3>
+<p>Affiche un rectangle (rempli) dans la page</p>
+<p>Attributs :</p>
+<ul>
+<li>position : position sous la forme &quot;x;y&quot; (ex : 65;48)</li>
+<li>color : couleur au format HTML : #XXXXXX ou l&#39;une des couleurs prédéfinies</li>
+<li>size : defini la taille de la zone de texte sur la sortie au format &quot;width;height&quot;</li>
+</ul>
+<h3 id="element-hollowrectanbgle">Element <code>&lt;HollowRectanbgle&gt;</code></h3>
+<p>Affiche un rectangle (vide) dans la page</p>
+<p>Attributs :</p>
+<ul>
+<li>position : position sous la forme &quot;x;y&quot; (ex : 65;48)</li>
+<li>color : couleur au format HTML : #XXXXXX ou l&#39;une des couleurs prédéfinies</li>
+<li>size : defini la taille de la zone de texte sur la sortie au format &quot;width;height&quot;</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/office/customize/modeles/printengine.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Module Operator pour Kubernetes | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Module Operator pour Kubernetes | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="module-operator-pour-kubernetes">Module Operator pour Kubernetes</h1>
+
+<div class="WARNING"><h5>Warning</h5><p>Les modules décrits dans cette page ne sont disponibles que pour nos clients utilisant la solution déployée en mode &quot;Isolé sur Azure&quot;</p>
+</div>
+<h2 id="altazion-operator">Altazion Operator</h2>
+<p>Le module operator est automatiquement déployé lors de l&#39;installation de la solution en mode &quot;Isolée&quot;.</p>
+<h3 id="configuration-du-module">Configuration du module</h3>
+<p>Les variables d&#39;environnement suivantes doivent être définies pour que le module soit opérationnel :</p>
+<table>
+<thead>
+<tr>
+<th>Nom</th>
+<th style="text-align:center">Optionnel ?</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AZURE_APPCONFIG</td>
+<td style="text-align:center"></td>
+<td>Chaine de connexion à la configuration centralisée sur Azure AppConfiguration</td>
+</tr>
+<tr>
+<td>LOKI_SERVER</td>
+<td style="text-align:center">X</td>
+<td>Url du serveur Loki pour l&#39;envoi des logs de progression des modules</td>
+</tr>
+<tr>
+<td>LOKI_USER</td>
+<td style="text-align:center">X</td>
+<td>Nom d&#39;utilisateur pour Loki</td>
+</tr>
+<tr>
+<td>LOKI_PASSWORD</td>
+<td style="text-align:center">X</td>
+<td>Mot de passe pour LOKI</td>
+</tr>
+</tbody>
+</table>
+<p>Ces différentes valeurs sont définies dans le fichier de déploiement de la solution et stockés sous forme de <em>Secrets</em> dans Kubernetes.</p>
+<h3 id="commandes-supportées">Commandes supportées</h3>
+<p>Le module n&#39;accepte aucune commande.</p>
+<h2 id="altazionoperatorcompanion">Altazion.Operator.Companion</h2>
+<p>Ce module permet de remonter des informations globales pour faciliter le monitoring et la détection d&#39;anomalies dans le déploiement. Il permet, par exemple :</p>
+<ul>
+<li>de suivre l&#39;état des commandes et ordres de préparation</li>
+<li>de surveiller les différentes files de traitements asynchrones</li>
+</ul>
+<h3 id="configuration-du-module-1">Configuration du module</h3>
+<p>En utilisant les variables d&#39;environnement suivantes, vous pourrez configurer le module :</p>
+<table>
+<thead>
+<tr>
+<th>Nom</th>
+<th style="text-align:center">Optionnel ?</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AZURE_APPCONFIG</td>
+<td style="text-align:center"></td>
+<td>Chaine de connexion à la configuration centralisée sur Azure AppConfiguration</td>
+</tr>
+<tr>
+<td>AZURE_APPCONFIG_ENV</td>
+<td style="text-align:center">X</td>
+<td>Si vous positionnez une valeur, celle-ci sera utilisée en tant que critère &quot;label&quot; pour les chaines de connexion</td>
+</tr>
+</tbody>
+</table>
+<p>Si vous avez des traitements personnalisés, vous pouvez ajouter la variable d&#39;environnement suivante pour ajouter vos files ServiceBus à la remontée des informations</p>
+<table>
+<thead>
+<tr>
+<th>Nom</th>
+<th style="text-align:center">Optionnel ?</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HUBCOMPANION_ADD_SERVICEBUS</td>
+<td style="text-align:center">X</td>
+<td>Une liste, séparée par des virgules de clef de configuration dans Azure AppConfig qui poitent chacune sur une chaine de connexion Service Bus</td>
+</tr>
+</tbody>
+</table>
+<h3 id="commandes-supportées-1">Commandes supportées</h3>
+<p>Le module n&#39;accepte aucune commande.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/hub/modules/tools/operator.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

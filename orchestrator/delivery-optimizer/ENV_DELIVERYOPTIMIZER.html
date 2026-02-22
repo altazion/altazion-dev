@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Variables d'environnement - Altazion Orchestrator - Delivery Optimizer | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Variables d'environnement - Altazion Orchestrator - Delivery Optimizer | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="variables-denvironnement---altazion-orchestrator---delivery-optimizer">Variables d&#39;environnement - Altazion Orchestrator - Delivery Optimizer</h1>
+
+<p>Ce document liste toutes les variables d&#39;environnement utilisées par l&#39;application.</p>
+<h2 id="convention-de-nommage">Convention de nommage</h2>
+<p>Les variables d&#39;environnement peuvent remplacer les paramètres d&#39;Azure App Configuration :</p>
+<ul>
+<li>Comparaison sans casse (case-insensitive)</li>
+<li>Le caractère <code>_</code> (underscore) dans la variable d&#39;environnement correspond au <code>:</code> (deux-points) dans Azure App Configuration</li>
+</ul>
+<p>Exemple : <code>ALTAZIONDELIVERYOPTIMIZER_COSMOSDBCONNECTIONSTRING</code> correspond à <code>AltazionDeliveryOptimizer:CosmosDBConnectionString</code></p>
+<hr>
+<h2 id="variables-denvironnement">Variables d&#39;environnement</h2>
+<h3 id="altazionsfsconfiguser"><code>ALTAZION_SFS_CONFIG_USER</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Oui</li>
+<li><strong>Description :</strong> Nom d&#39;utilisateur pour l&#39;authentification Basic Auth sur les endpoints de configuration des tenants (<code>/api/v1/tenants/{tenantId}/ *</code>)</li>
+</ul>
+<p><strong>ATTENTION</strong> Cette option ne peut pas être définie via une configuration Azure App Configuration, elle doit forcément être passée via une variable d&#39;environnement.</p>
+<h3 id="altazionsfsconfigpsw"><code>ALTAZION_SFS_CONFIG_PSW</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Oui</li>
+<li><strong>Description :</strong> Mot de passe pour l&#39;authentification Basic Auth sur les endpoints de configuration des tenants (<code>/api/v1/tenants/{tenantId}/ *</code>)</li>
+</ul>
+<p><strong>ATTENTION</strong> Cette option ne peut pas être définie via une configuration Azure App Configuration, elle doit forcément être passée via une variable d&#39;environnement.</p>
+<h3 id="altaziondeliveryoptimizercosmosdbconnectionstring"><code>ALTAZIONDELIVERYOPTIMIZER_COSMOSDBCONNECTIONSTRING</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Non (future normalisation des noms de variables)</li>
+<li><strong>Équivalent Azure App Config :</strong> <code>AltazionDeliveryOptimizer:CosmosDBConnectionString</code></li>
+<li><strong>Fallback :</strong> <code>AltazionSFS:CosmosDBConnectionString</code> </li>
+<li><strong>Description :</strong> Chaîne de connexion à la base de données MongoDB ou Azure CosmosDB (API MongoDB)</li>
+<li><strong>Détection du type :</strong><ul>
+<li>Si contient <code>&quot;mongo.cosmos.azure.com&quot;</code> : CosmosDB RU (Request Units)</li>
+<li>Sinon : MongoDB classique (compatible CosmosDB vCore)</li>
+</ul>
+</li>
+</ul>
+<h3 id="altazionsfscosmosdbconnectionstring"><code>ALTAZIONSFS_COSMOSDBCONNECTIONSTRING</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Oui </li>
+<li><strong>Équivalent Azure App Config :</strong> <code>AltazionSFS:CosmosDBConnectionString</code></li>
+<li><strong>Description :</strong> Chaîne de connexion à la base de données MongoDB ou Azure CosmosDB (API MongoDB)</li>
+<li><strong>Détection du type :</strong><ul>
+<li>Si contient <code>&quot;mongo.cosmos.azure.com&quot;</code> : CosmosDB RU (Request Units)</li>
+<li>Sinon : MongoDB classique (compatible CosmosDB vCore)</li>
+</ul>
+</li>
+</ul>
+<h3 id="altazionsfsnosharding"><code>ALTAZION_SFS_NOSHARDING</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>bool</code> (<code>true</code> ou <code>false</code>)</li>
+<li><strong>Obligatoire :</strong> Non</li>
+<li><strong>Valeur par défaut :</strong> <code>false</code></li>
+<li><strong>Description :</strong> Désactive le sharding (partitionnement) pour les collections MongoDB classiques</li>
+<li><strong>Note :</strong> N&#39;a aucun effet sur les bases CosmosDB RU, uniquement sur MongoDB classique et CosmosDB vCore</li>
+</ul>
+<p><strong>ATTENTION</strong> Cette option ne peut pas être définie via une configuration Azure App Configuration, elle doit forcément être passée via une variable d&#39;environnement.</p>
+<h3 id="altaziondeliveryoptimizerredisconnectionstring"><code>ALTAZIONDELIVERYOPTIMIZER_REDISCONNECTIONSTRING</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Oui</li>
+<li><strong>Équivalent Azure App Config :</strong> <code>AltazionDeliveryOptimizer:RedisConnectionString</code></li>
+<li><strong>Description :</strong> Chaîne de connexion au cache Redis / Azure Cache for Redis</li>
+<li><strong>Configuration Redis :</strong><ul>
+<li>Database utilisée : <code>2</code></li>
+<li>Timeout sync/async : 30 000 ms</li>
+<li>Compression : ZStandard, Snappy, Zlib</li>
+<li>Admin mode : Activé</li>
+</ul>
+</li>
+<li><strong>Important :</strong> Pour Azure Cache for Redis, configurer le paramètre <code>notify-keyspace-events</code> à <code>KEx</code></li>
+</ul>
+<h3 id="azureappconfig"><code>AZURE_APPCONFIG</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Format :</strong> <code>Endpoint=https://{nom}.azconfig.io;Id={id};Secret={secret}</code></li>
+<li><strong>Obligatoire :</strong> Recommandé en production</li>
+<li><strong>Description :</strong> Chaîne de connexion à Azure App Configuration</li>
+<li><strong>Fonction :</strong> Permet de centraliser toutes les configurations de l&#39;application dans Azure App Configuration</li>
+</ul>
+<p><strong>ATTENTION</strong> Cette option ne peut pas être définie via une configuration Azure App Configuration, elle doit forcément être passée via une variable d&#39;environnement.</p>
+<h3 id="azureappconfigenv"><code>AZURE_APPCONFIG_ENV</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Non</li>
+<li><strong>Valeur par défaut :</strong> <code>&quot;DEBUG&quot;</code></li>
+<li><strong>Description :</strong> Environnement cible pour Azure App Configuration (détermine le label à charger)</li>
+<li><strong>Valeurs :</strong><ul>
+<li><code>PROD</code>, <code>PRODUCTION</code>, <code>MAIN</code>, <code>SAAS</code> → Convertie en <code>&quot;PRODUCTION&quot;</code></li>
+<li>Autres valeurs → Conservées en MAJUSCULES</li>
+</ul>
+</li>
+</ul>
+<p><strong>ATTENTION</strong> Cette option ne peut pas être définie via une configuration Azure App Configuration, elle doit forcément être passée via une variable d&#39;environnement.</p>
+<h2 id="variables-pour-opentelemetry-observabilité">Variables pour OpenTelemetry (Observabilité)</h2>
+<p>Les variables suivantes sont utilisées pour la télémétrie et les traces distribuées :</p>
+<h3 id="otellogsexporter"><code>OTEL_LOGS_EXPORTER</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Non</li>
+<li><strong>Valeur recommandée :</strong> <code>otlp</code></li>
+<li><strong>Description :</strong> Type d&#39;exporteur pour les logs OpenTelemetry</li>
+</ul>
+<h3 id="oteltracesexporter"><code>OTEL_TRACES_EXPORTER</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Non</li>
+<li><strong>Valeur recommandée :</strong> <code>otlp</code></li>
+<li><strong>Description :</strong> Type d&#39;exporteur pour les traces OpenTelemetry</li>
+</ul>
+<h3 id="otelmetricsexporter"><code>OTEL_METRICS_EXPORTER</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Non</li>
+<li><strong>Valeur recommandée :</strong> <code>otlp</code></li>
+<li><strong>Description :</strong> Type d&#39;exporteur pour les métriques OpenTelemetry</li>
+</ul>
+<h3 id="otelaltaziontracesenabled"><code>OTEL_ALTAZION_TRACES_ENABLED</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>bool</code> (<code>True</code> ou <code>False</code>)</li>
+<li><strong>Obligatoire :</strong> Non</li>
+<li><strong>Valeur recommandée :</strong> <code>True</code></li>
+<li><strong>Description :</strong> Active ou désactive les traces Altazion</li>
+</ul>
+<h3 id="otelaltaziontracessources"><code>OTEL_ALTAZION_TRACES_SOURCES</code></h3>
+<ul>
+<li><strong>Type :</strong> <code>string</code></li>
+<li><strong>Obligatoire :</strong> Non</li>
+<li><strong>Valeur recommandée :</strong> <code>Altazion.*</code></li>
+<li><strong>Description :</strong> Pattern pour filtrer les sources de traces à capturer</li>
+<li><strong>Note :</strong> Permet de tracer les opérations dans les classes</li>
+</ul>
+<hr>
+<h2 id="résumé">Résumé</h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Obligatoire</th>
+<th>Équivalent App Config</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ALTAZION_SFS_CONFIG_USER</code></td>
+<td>string</td>
+<td>Oui</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>ALTAZION_SFS_CONFIG_PSW</code></td>
+<td>string</td>
+<td>Oui</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>ALTAZIONDELIVERYOPTIMIZER_COSMOSDBCONNECTIONSTRING</code></td>
+<td>string</td>
+<td>Oui</td>
+<td><code>AltazionDeliveryOptimizer:CosmosDBConnectionString</code></td>
+</tr>
+<tr>
+<td><code>ALTAZIONSFS_COSMOSDBCONNECTIONSTRING</code></td>
+<td>string</td>
+<td>Non (déprécié)</td>
+<td><code>AltazionSFS:CosmosDBConnectionString</code></td>
+</tr>
+<tr>
+<td><code>ALTAZION_SFS_NOSHARDING</code></td>
+<td>bool</td>
+<td>Non</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>ALTAZIONDELIVERYOPTIMIZER_REDISCONNECTIONSTRING</code></td>
+<td>string</td>
+<td>Oui</td>
+<td><code>AltazionDeliveryOptimizer:RedisConnectionString</code></td>
+</tr>
+<tr>
+<td><code>AZURE_APPCONFIG</code></td>
+<td>string</td>
+<td>Recommandé</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>AZURE_APPCONFIG_ENV</code></td>
+<td>string</td>
+<td>Non</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>Dernière mise à jour :</strong> 15 Oct. 2025</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/orchestrator/delivery-optimizer/ENV_DELIVERYOPTIMIZER.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

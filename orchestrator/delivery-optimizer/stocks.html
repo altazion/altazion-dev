@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>R&#233;cup&#233;ration des stocks et de la quantit&#233; maximale commandable | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="R&#233;cup&#233;ration des stocks et de la quantit&#233; maximale commandable | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="récupération-des-stocks-et-de-la-quantité-maximale-commandable">Récupération des stocks et de la quantité maximale commandable</h1>
+
+<h2 id="généralités">Généralités</h2>
+<p>Cette fonctionnalité permet de connaître le détail des stocks disponibles pour un ou plusieurs articles dans toutes les origines de stocks non saturés. Seuls sont comptabilisés les stocks supérieurs à 0. Un objet ou un tableau d&#39;objets de type <strong>StockQuery</strong> formaté en JSON contenant les détails de la recherche à effectuer doit être fourni dans le body de la requête API.</p>
+<p>Celui-ci doit contenir l&#39;un des trois champs suivant pour être valide :</p>
+<ul>
+<li>Le Guid de l&#39;article, <strong>artId</strong> (préférablement)</li>
+<li>La référence de l&#39;article, <strong>artRef</strong></li>
+<li>La clef primaire de l&#39;article, <strong>artPk</strong></li>
+</ul>
+<p>Le champ <strong>orderId</strong> correspond à l&#39;identifiant (Guid) d&#39;une commande. S&#39;il est renseigné, les stocks déjà reservés sur l&#39;article par cette commande ne seront pas déduis afin de ne pas fausser le résultat du calcul de stock. Ce champ est à renseigner dès que le client final à l&#39;origine de la requête a commencé un panier ou une commande.</p>
+<h2 id="limitation-du-calcul-de-stock-à-certaines-origines-de-stocks">Limitation du calcul de stock à certaines origines de stocks</h2>
+<p>L&#39;objet <strong>StockQuery</strong> permet de limiter la recherche des stocks à certaines origines de stock :</p>
+<ul>
+<li>En fournissant une liste de codes d&#39;origines où comptabiliser le stock dans le champ <strong>shipFrom</strong> (Exemple : [&quot;FRA:FRN:EVIAN&quot;, &quot;FRA:MAG:0001&quot;]). De cette façon, seul ces deux origines de stocks seront retenues pour le calcul des stocks, les autres seront ignorés.</li>
+<li>En fournissant une préfix des origines où comptabiliser le stock dans le champ <strong>prefix</strong> (Exemple : &quot;FRA&quot; ou &quot;FRA:MAG&quot;). Dans le cas où l&#39;on renseigne le préfix avec &quot;FRA&quot; par exemple, seules les origines de stocks françaises seront retenues pour le calcul des stocks. Si l&#39;on renseigne &quot;FRA:MAG&quot; (MAG = Magasin), cette fois, seuls les magasins français seront utilisés pour comptabiliser les stocks.</li>
+</ul>
+<h2 id="impact-de-la-configuration-de-lutilisateur-du-do-sur-le-calcul-des-stocks">Impact de la configuration de l&#39;utilisateur du DO sur le calcul des stocks</h2>
+<p>À noter que <strong>maxQuantity.maxOrderable</strong> peut varier en fonction de la configuration du module DO du tenant. Le champ <strong>SFSConfig.maxOrderableType</strong> associé au tenant est une énumération qui définie le comportement à adopter par l&#39;algorithme.</p>
+<ul>
+<li><strong>MINIMUM</strong> : Correspond au stock de l&#39;origine de stock où il est le plus faible</li>
+<li><strong>MAXIMUM</strong> : Correspond au stock de l&#39;origine de stock où il est le plus élevé</li>
+</ul>
+<h2 id="obtenir-les-stocks-pour-un-article">Obtenir les stocks pour un article</h2>
+<p><strong>POST : {tenantId}/stocks</strong></p>
+<h3 id="cas-dutilisations">Cas d&#39;utilisations</h3>
+<ul>
+<li>Arrivée sur une fiche produit</li>
+<li>Obtention des stocks d&#39;un article avant ajout au panier</li>
+</ul>
+<p>Il s&#39;agit d&#39;un appel API léger et très performant. </p>
+<p><strong>ATTENTION :</strong> Si vous avez besoin d&#39;obtenir les stocks de plusieurs articles, nous vous conseillons d&#39;utiliser l&#39;appel <strong>multiple-stocks</strong> décrit plus bas. Il est conçu pour ce cas de figure et sera par conséquent beaucoup plus rapide à s&#39;exécuter que de multiples appels au point <strong>stocks</strong>.</p>
+<h3 id="exemple-dun-appel-api">Exemple d&#39;un appel API</h3>
+<p>Le body suivant contient un objet de type <strong>StockQuery</strong>. Celui-ci correspond à une demande de stocks pour l&#39;article dont le Guid est &quot;4128d10e-1594-42a7-8c79-bde5181a20f5&quot; en ignorant les stocks déduits pour la commande ou le panier dont le Guid est &quot;3fa85f64-5717-4562-b3fc-2c963f66afa6&quot;.</p>
+<pre><code class="lang-json">{
+  &quot;artId&quot;: &quot;4128d10e-1594-42a7-8c79-bde5181a20f5&quot;,
+  &quot;orderId&quot;: &quot;3fa85f64-5717-4562-b3fc-2c963f66afa6&quot;
+}
+</code></pre><h3 id="réponse-du-do">Réponse du DO</h3>
+<p>En retour la fonction va renvoyer un objet de type <strong>StockResponse</strong>.</p>
+<pre><code class="lang-json">{
+  &quot;maxQty&quot;: {
+    &quot;available&quot;: 1847,
+    &quot;maxOrderable&quot;: 26,
+    &quot;code&quot;: &quot;FRA:MAG:0700&quot;,
+    &quot;reason&quot;: &quot;Quantité disponible restante&quot;
+  },
+  &quot;stocksDetails&quot;: null
+}
+</code></pre><p>Cette réponse contient l&#39;objet <strong>maxQty</strong> qui dispose des champs suivants :</p>
+<ul>
+<li><strong>available</strong> : la somme de tous les stocks disponibles</li>
+<li><strong>maxOrderable</strong> : la quantité maximum commandable en une fois</li>
+<li><strong>code</strong> : l&#39;origine de stock à laquelle correspond la quantité obtenue dans le champ <strong>maxOrderable</strong></li>
+<li><strong>reason</strong> : une explication sur la quantité obtenue dans le champ <strong>maxOrderable</strong> et le choix de l&#39;origine de stocks <strong>code</strong>. Ici il s&#39;agit de la quantité disponible restante dans l&#39;origine de stock &quot;FRA:MAG:0700&quot;</li>
+</ul>
+<h2 id="obtenir-les-stocks-pour-plusieurs-articles">Obtenir les stocks pour plusieurs articles</h2>
+<p><strong>POST : {tenantId}/multiple-stocks</strong></p>
+<h3 id="cas-dutilisations-1">Cas d&#39;utilisations</h3>
+<ul>
+<li>Disposer des stocks disponibles dans la descente produits</li>
+</ul>
+<h3 id="exemple-dun-appel-api-1">Exemple d&#39;un appel API</h3>
+<p>Le body suivant contient un tableau d&#39;objets de type <strong>StockQuery</strong>.</p>
+<pre><code class="lang-json">[
+  {
+    &quot;artId&quot;: &quot;4128d10e-1594-42a7-8c79-bde5181a20f5&quot;,
+    &quot;orderId&quot;: &quot;3fa85f64-5717-4562-b3fc-2c963f66afa6&quot;
+  },
+  {
+    &quot;artId&quot;: &quot;ddace66f-52c5-4530-bcf8-4af4a6002182&quot;,
+    &quot;orderId&quot;: &quot;3fa85f64-5717-4562-b3fc-2c963f66afa6&quot;
+  },
+  {
+    &quot;artId&quot;: &quot;b618e1a1-587b-4e7e-b87b-6ec891073bb9&quot;,
+    &quot;orderId&quot;: &quot;3fa85f64-5717-4562-b3fc-2c963f66afa6&quot;
+  }
+]
+</code></pre><h3 id="réponse-du-do-1">Réponse du DO</h3>
+<p>En retour la fonction va renvoyer un <strong>dictionnaire</strong> avec le Guid de chaque article en clef et l&#39;objet de type <strong>StockResponse</strong> correspondant en valeur.</p>
+<p><strong>ATTENTION</strong> : les <strong>artId</strong> fournis dans le body de la requête API n&#39;existant pas en base ne sont pas renvoyés dans la réponse de l&#39;appel. Il est donc important de tester si la clef existe dans la réponse dans votre code avant d&#39;utiliser la valeur.</p>
+<p>Ici l&#39;<strong>artId</strong> &quot;b618e1a1-587b-4e7e-b87b-6ec891073bb9&quot; figurant en 3ème position du tableau de la requête n&#39;existe pas en base, il n&#39;apparaît donc pas dans la réponse :</p>
+<pre><code class="lang-json">{
+  &quot;ddace66f-52c5-4530-bcf8-4af4a6002182&quot;: {
+    &quot;maxQty&quot;: {
+      &quot;available&quot;: 641,
+      &quot;maxOrderable&quot;: 47,
+      &quot;reason&quot;: &quot;Quantité disponible restante&quot;,
+      &quot;code&quot;: &quot;FRA:WEB:CENTRALE&quot;
+    },
+    &quot;stocksDetails&quot;: null
+  },
+  &quot;4128d10e-1594-42a7-8c79-bde5181a20f5&quot;: {
+    &quot;maxQty&quot;: {
+      &quot;available&quot;: 2101,
+      &quot;maxOrderable&quot;: 264,
+      &quot;reason&quot;: &quot;Quantité disponible restante&quot;,
+      &quot;code&quot;: &quot;FRA:WEB:CENTRALE&quot;
+    },
+    &quot;stocksDetails&quot;: null
+  }
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/orchestrator/delivery-optimizer/stocks.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

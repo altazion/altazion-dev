@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Traitement du panier et d&#233;termination par l'algorithme de la meilleure r&#233;partition d'exp&#233;ditions | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Traitement du panier et d&#233;termination par l'algorithme de la meilleure r&#233;partition d'exp&#233;ditions | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="traitement-du-panier-et-détermination-par-lalgorithme-de-la-meilleure-répartition-dexpéditions">Traitement du panier et détermination par l&#39;algorithme de la meilleure répartition d&#39;expéditions</h1>
+
+<p><strong>POST : {tenantId}/cart</strong></p>
+<h2 id="fonctionnement-de-lalgorithme">Fonctionnement de l&#39;algorithme</h2>
+<p>Cette fonction reçoit un objet de type <strong>Cart</strong> (un panier d&#39;articles, en format JSON passé dans le body de la requête) et détermine la meilleure répartition d&#39;expéditions pour ce panier. Comme pour les autres objets d&#39;entrées et de sorties du DO, son schéma détaillé est disponible dans le swagger du module.</p>
+<p>Pour commencer, différents traitements s&#39;exécutent afin de déterminer par quelles origines de stocks chacuns des articles contenus dans l&#39;objet <strong>Cart</strong> peuvent être expédiés. Si un ou plusieurs article ne peut être expédié par aucune origine de stock à la fin de tous les traitements, alors le panier est considéré comme non expédiable et le calcul de la répartition ne peut pas avoir lieux. Les lignes panier non expédiables sont renvoyés dans la liste <strong>SFSResponse.nonShippable</strong>. </p>
+<p>Si le <strong>Cart</strong> en entrée possède le champ <strong>excludeSplitComputation</strong> positionné à true (dans le cas où l&#39;on souhaite juste savoir si tout le panier est expédiable) alors le calcul de répartition n&#39;est pas effectué.</p>
+<p>Autrement, une fois toutes les possibilités d&#39;envois récupérées l&#39;algorithme génère les combinaisons de répartitions possibles. Afin de choisir la répartition proposant les envois les plus pertinents on applique ensuite une liste de critères de tri.</p>
+<p>Actuellement les critères sont les suivants, par ordre d&#39;importance :</p>
+<ul>
+<li>Le minimum d&#39;expéditions possibles</li>
+<li>La somme des priorités des <strong>StockOrigins</strong> choisis</li>
+<li>La distance moyenne la plus faible entre les origines de stocks (emplacements d&#39;expédition) et le client. Les coordonnées du client doivent être renseignées dans <strong>Cart.shippingAddress</strong>.</li>
+</ul>
+<p>Une fois ce tri réalisé l&#39;algorithme sélectionne la répartition la plus pertinente. La fonction renvoie finalement un objet de type <strong>SFSResponse</strong> dont la structure est expliquée en détail dans le swagger.</p>
+<h2 id="exemple-dappel-api">Exemple d&#39;appel API</h2>
+<p>Le JSON suivant contient décrit l&#39;objet <strong>Cart</strong> à passer dans le body de l&#39;appel API.</p>
+<pre><code class="lang-json">{
+  &quot;articles&quot;: [
+    {
+      &quot;artRef&quot;: &quot;106780&quot;,
+      &quot;qty&quot;: 2
+    },
+    {
+      &quot;artRef&quot;: &quot;236497&quot;,
+      &quot;qty&quot;: 1
+    },
+    {
+      &quot;artRef&quot;: &quot;907330&quot;,
+      &quot;qty&quot;: 3
+    },
+    {
+      &quot;artRef&quot;: &quot;924406&quot;,
+      &quot;qty&quot;: 1
+    }
+  ],
+  &quot;shippingAddress&quot;: {
+    &quot;lat&quot;: 48.86,
+    &quot;long&quot;: 2.34,
+    &quot;countryCode&quot;: &quot;FRA&quot;,
+    &quot;zipCode&quot;: &quot;00300&quot;
+  },
+  &quot;orderId&quot;: &quot;f02ee9d2-99e6-489d-a490-734e73dd4828&quot;,
+  &quot;orderType&quot;: &quot;Order&quot;
+}
+</code></pre><p>Le champ <strong>Cart.articles</strong> est obligatoire car il contient les différentes lignes du panier (<strong>CartLine</strong>). Pour qu&#39;une ligne soit valide, l&#39;un des champs <strong>artGuid</strong> (le plus performant) ou <strong>artRef</strong> (à limiter à des fins de tests) doit être renseigné ainsi que le champ <strong>qty</strong> correspondant à la quantité de l&#39;article commandé.</p>
+<p>Le champ <strong>shippingAddress</strong> contient les coordonnées du client et doit également être renseigné.
+Enfin, il est nécessaire de renseigner à la fois le Guid de la commande via le champ <strong>orderId</strong> ainsi que son type (<strong>Cart</strong> ou <strong>Order</strong>) dans le champ <strong>orderType</strong>.</p>
+<h2 id="réponse-du-serveur">Réponse du serveur</h2>
+<p>L&#39;objet de réponse <strong>SFSResponse</strong> se présente de la façon suivante :</p>
+<pre><code class="lang-json">{
+    &quot;totalPriority&quot;: 150,
+    &quot;avgDistance&quot;: 98129.72166408185,
+    &quot;splits&quot;: [
+        {
+            &quot;code&quot;: &quot;FRA:MAG:0107&quot;,
+            &quot;articles&quot;: {
+                &quot;71ba9615-99fd-4524-aabf-8f83b463c7ce&quot;: {
+                    &quot;reason&quot;: &quot;Normal Module&quot;,
+                    &quot;qty&quot;: 3
+                }
+            },
+            &quot;priority&quot;: 0,
+            &quot;coordinates&quot;: {
+                &quot;lat&quot;: 46.97035,
+                &quot;long&quot;: -1.33243
+            }
+        },
+        {
+            &quot;code&quot;: &quot;FRA:WEB:CENTRALE&quot;,
+            &quot;articles&quot;: {
+                &quot;fc4d7bee-ec31-4103-8175-979b2b4fa847&quot;: {
+                    &quot;reason&quot;: &quot;Normal Module&quot;,
+                    &quot;qty&quot;: 2
+                },
+                &quot;e3e90221-2d01-4d66-be16-5a2419bd84a9&quot;: {
+                    &quot;reason&quot;: &quot;Normal Module&quot;,
+                    &quot;qty&quot;: 1
+                },
+                &quot;03f3a22d-46ee-4a27-b45f-bf83f9f8c6ae&quot;: {
+                    &quot;reason&quot;: &quot;Normal Module&quot;,
+                    &quot;qty&quot;: 1
+                }
+            },
+            &quot;priority&quot;: 50,
+            &quot;coordinates&quot;: null
+        }
+    ]
+}
+</code></pre><p>La répartition optimale est contenu dans le champ <strong>splits</strong> de la réponse. Il s&#39;agit d&#39;un tableau de <strong>ShipmentSplit</strong> contenant les expéditions à effectuer par les origines de stocks selectionnées. L&#39;objectif premier du DeliveryOptimizer est de minimiser la taille de se tableau pour limiter le nombre d&#39;expédition.</p>
+<p>Un <strong>ShipmentSplit</strong> contient les informations suivantes :</p>
+<ul>
+<li><strong>code</strong>, qui correspond au code de l&#39;origine de stock sélectionnée</li>
+<li><strong>articles</strong>, qui contient un dictionnaire avec en clef le Guid de l&#39;article et en valeur le champ <strong>reason</strong> fournissant des informations sur le traitement à l&#39;origine du résultat et le champ <strong>qty</strong> contenant la quantités d&#39;articles à expédier.</li>
+<li><strong>priority</strong>, contient à titre informatif la priorité de l&#39;origine de stock, plus elle est élevée, plus cette origine sera prioritaire de le calcul de répartition.</li>
+<li><strong>coordinates</strong>, contient à titre informatif les coordonnées de l&#39;origine de stock.</li>
+</ul>
+<p>L&#39;objet contient également deux champs justifiants le choix de cette répartition :</p>
+<ul>
+<li><strong>totalPriority</strong>, qui est la somme des priorités de chaque origine de stock pondérée par le nombre d&#39;articles expédiés. L&#39;objectif secondaire du DO est de maximiser ce nombre.</li>
+<li><strong>avgDistance</strong>, qui représente la distance moyenne des origines de stock pondérée par le nombre d&#39;articles expédiés. L&#39;objectif tertiaire du DO est de minimiser ce nombre.</li>
+</ul>
+<h2 id="limitation-des-envois-à-certaines-origines-de-stocks">Limitation des envois à certaines origines de stocks</h2>
+<p>L&#39;objet Cart permet également de limiter le calcul de répartitions à certaines origines de stocks :</p>
+<ul>
+<li>En fournissant la liste des codes de StockOrigins dans le champs <strong>shipFrom</strong> (Exemple : [&quot;FRA:FRN:EVIAN&quot;, &quot;FRA:MAG:0001&quot;]). De cette façon, seul ces deux origines de stocks seront retenues pour le calcul de répartitions, les autres seront ignorés.</li>
+<li>En fournissant le préfix des StockOrigins où comptabiliser le stock dans <strong>prefix</strong> (Exemple : &quot;FRA&quot; ou &quot;FRA:MAG&quot;). Dans le cas où l&#39;on renseigne le préfix avec &quot;FRA&quot; par exemple, seules les origines de stocks françaises seront retenues pour le calcul de répartitions. Si l&#39;on renseigne &quot;FRA:MAG&quot;, cette fois, seuls les magasins français seront retenus pour le calcul de répartions.</li>
+</ul>
+<h2 id="simulation-dune-commande">Simulation d&#39;une commande</h2>
+<p>Si l&#39;objet <strong>Cart</strong> en entrée a <strong>isSimulated</strong> à true alors la commande n&#39;est pas ajoutée après le calcul de la répartition. Autrement la commande est ajoutée si les champ <strong>orderType</strong> et <strong>orderId</strong> contenus dans le <strong>Cart</strong> en entrée ne sont pas null.</p>
+<p>Simuler une commande peut être utile si cette dernière possède des contraintes d&#39;expéditions particulières telle que la nécessité d&#39;être expédiée depuis une seule origine de stocks par exemple.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/orchestrator/delivery-optimizer/repartition.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

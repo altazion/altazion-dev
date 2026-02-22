@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Relance pr&#233;pa (2) | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Relance pr&#233;pa (2) | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="span-idrelanceprepa2relance-prépa-2span"><span id='relanceprepa2'>Relance prépa (2)</span></h2>
+
+<p>Cet évènement est déclenché lorsqu&#39;une commande affectée à un préparateur n&#39;a pas été traitée dans les temps : 2eme relance</p>
+<p>Informations sur l&#39;évènement : </p>
+<ul>
+<li><strong>Catégorie</strong> : orchestrator</li>
+<li><strong>Code</strong> : PrepaCommandePoolRelance2</li>
+<li><strong>Classe de données</strong> : OmsCommandePoolEventDataWithActor</li>
+</ul>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">enum OmsCommandePoolActorKind
+{
+    VendeurMarketplace, // =0
+    Partenaire, // =1
+    Logisticien, // =2
+    Magasin, // =3
+}
+
+class MagasinBase
+{
+    Guid Guid { get; set; }
+    string Libelle { get; set; }
+    string Code { get; set; }
+    string CodePostal { get; set; }
+    string Adresse { get; set; }
+    string Ville { get; set; }
+    string AdressesIP { get; set; }
+    string Telephone { get; set; }
+    string Fax { get; set; }
+    string Email { get; set; }
+    string Pays { get; set; }
+    bool ActifPourCrossCanal { get; set; }
+}
+
+enum TypeStock
+{
+    NonStocke, // =0
+    Immateriel, // =1
+    StockeFifo, // =2
+    StockePump, // =3
+}
+
+enum MetaTypeArticle
+{
+    Produit, // =0
+    FraisDePort, // =1
+    Avantages, // =2
+    Services, // =3
+    Loyers, // =4
+    Lot, // =5
+    Financier, // =6
+    Taxe, // =7
+    LicenceEtBrevet, // =8
+}
+
+class ArticleBase
+{
+    TypeStock TypeStockage { get; set; }
+    bool EstImmateriel { get; }
+    bool EstArchive { get; set; }
+    bool EstLivrable { get; set; }
+    long ID { get; set; }
+    Guid Guid { get; set; }
+    decimal PuHT { get; set; }
+    decimal PuTTC { get; set; }
+    decimal PuTVA { get; }
+    decimal? PuPromoHT { get; set; }
+    decimal? PuPromoTTC { get; set; }
+    DateTime? DateDebutPromo { get; set; }
+    DateTime? DateFinPromo { get; set; }
+    DateTime DateCreation { get; set; }
+    string Libelle { get; set; }
+    string Reference { get; set; }
+    int FamilleID { get; set; }
+    string Description { get; set; }
+    System.Int32? SousFamilleId { get; set; }
+    int MarqueId { get; set; }
+    byte TauxTvaId { get; set; }
+    short TypeArticleId { get; set; }
+    bool EstUtilisableInternet { get; set; }
+    bool EstPrefacturable { get; set; }
+    bool EstMultiversion { get; set; }
+    bool EstGenerique { get; set; }
+    bool EstCompose { get; set; }
+    bool EstPartenaire { get; set; }
+    bool EstValide { get; set; }
+    int EtatCreation { get; set; }
+    decimal? PuConseilleHT { get; set; }
+    decimal? PuConseilleTTC { get; set; }
+    MetaTypeArticle MetaType { get; set; }
+    bool PromoDefinie { get; }
+    int ScoreRisque { get; set; }
+}
+
+class LigneBonCommande
+{
+    ArticleBase Article { get; set; }
+    Guid Guid { get; set; }
+    int NumeroLigne { get; set; }
+    Guid ArticleGuid { get; set; }
+    decimal Quantite { get; set; }
+    decimal PuHt { get; set; }
+    decimal PuTtc { get; set; }
+    decimal Montant { get; }
+    decimal QuantiteExpediee { get; set; }
+    decimal MontantExpedie { get; }
+    decimal QuantiteAnnulee { get; set; }
+    decimal QuantiteManquant { get; set; }
+    decimal QuantiteEnPreparation { get; set; }
+    Guid BonCommandeGuid { get; set; }
+    MetaTypeArticle TypeDeLigne { get; set; }
+}
+
+class IntentionReglement
+{
+    Guid Guid { get; set; }
+    Guid ModeReglementGuid { get; set; }
+    Guid BonCommandeGuid { get; set; }
+    decimal MontantOriginal { get; set; }
+    decimal Montant { get; set; }
+    DateTime DateEcheance { get; set; }
+    string NumPiece { get; set; }
+    bool EstRecu { get; set; }
+    bool EstValide { get; set; }
+    decimal? DepotBanqueId { get; set; }
+    Guid? ModeReglementDetailGuid { get; set; }
+}
+
+class ClientBase
+{
+    int Id { get; set; }
+    Guid Guid { get; set; }
+    string Nom { get; set; }
+    string Adresse { get; set; }
+    string CP { get; set; }
+    string PaysPk { get; set; }
+    string Ville { get; set; }
+    string MainEMail { get; set; }
+    short Importance { get; set; }
+    bool EstArchive { get; set; }
+    DateTime DateCreation { get; set; }
+    short TypeClient { get; set; }
+    string Telephone { get; set; }
+    string Mobile { get; set; }
+    string CompteCompta { get; set; }
+    string NumeroTva { get; set; }
+    string NomSeul { get; set; }
+    string PrenomSeul { get; set; }
+    string Civilite { get; set; }
+}
+
+class OmsCommandePoolEventDataWithActor
+{
+    OmsCommandePoolActorKind ActorKind { get; set; }
+    Guid ActorGuid { get; set; }
+    string ActorName { get; set; }
+    string ActorEmail { get; set; }
+    Guid ZonePreparationGuid { get; set; }
+    DateTime? DateMaximaleTraitement { get; set; }
+    Guid BcdGuid { get; set; }
+    string Numero { get; set; }
+    Guid ClientGuid { get; set; }
+    decimal MontantTtc { get; set; }
+    decimal MontantHt { get; set; }
+    string Origine { get; set; }
+    string Type { get; set; }
+    MagasinBase MagasinAssocie { get; set; }
+    LigneBonCommande[] Lignes { get; set; }
+    IntentionReglement[] IntentionsReglement { get; set; }
+    ClientBase Client { get; set; }
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/office/extensibility/events/oms/pool.relanceprepa2.autogen.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

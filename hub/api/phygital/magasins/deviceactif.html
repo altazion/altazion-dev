@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Device actif | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Device actif | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="device-actif">Device actif</h1>
+
+<h2 id="span-idconfigurationobtenir-la-confguration-du-devicespan"><span id='configuration'>Obtenir la confguration du device</span></h2>
+<p>Récupère la configuration du device actif.</p>
+<p>Url :<code>[GET] v2/device</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>Cette url n&#39;accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>DeviceConfigData</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class DeviceConfigData
+{
+    PhygitalSite.Systeme.DeviceController+SiteWebData SiteAssocie { get; set; }
+    PhygitalSite.Systeme.DeviceController+MagasinData MagasinAssocie { get; set; }
+    System.Guid DeviceGuid { get; set; }
+    string DeviceName { get; set; }
+    string IP { get; set; }
+    string XmlConfig { get; set; }
+    string MetaType { get; set; }
+    string ServerVersion { get; set; }
+    System.String[] ModulesInstalles { get; set; }
+    Dictionary&lt;System.String,System.String&gt; Options { get; set; }
+    string ProductKey { get; set; }
+    PhygitalSite.Systeme.DeviceController+AnimationGroupData AnimationGroup { get; set; }
+    PhygitalSite.Systeme.DeviceController+ProcessDataConfig OrderProcessConfig { get; set; }
+    CPointSoftware.ECommerce.Tools.ECommerceServer+PaysVentesInfo[] PaysVentes { get; set; }
+    CPointSoftware.ECommerce.Tools.ECommerceServer+ModuleClass[] ServerModulesClasses { get; set; }
+}
+
+class SiteWebData
+{
+    string Nom { get; set; }
+    string RootUrl { get; set; }
+}
+
+class MagasinData
+{
+    string Nom { get; set; }
+    System.Guid Guid { get; set; }
+    string Code { get; set; }
+    string MessageAccueil { get; set; }
+    string Responsable { get; set; }
+    string Telephone { get; set; }
+    string Email { get; set; }
+    string UrlPersonnalisee { get; set; }
+    decimal? Longitude { get; set; }
+    decimal? Latitude { get; set; }
+    string Adresse { get; set; }
+    string CodePostal { get; set; }
+    string CodePays { get; set; }
+    string Ville { get; set; }
+    string MessageHoraires { get; set; }
+    PhygitalSite.Systeme.DeviceController+MagasinHoraireData[] Horaires { get; set; }
+}
+
+class MagasinHoraireData
+{
+    string Jour { get; set; }
+    string Horaires { get; set; }
+}
+
+class AnimationGroupData
+{
+    string Libelle { get; set; }
+    System.Guid Guid { get; set; }
+}
+
+class ProcessDataConfig
+{
+    PhygitalSite.Systeme.DeviceController+ProcessKind DefaultProcessKind { get; set; }
+    string CustomProcessKind { get; set; }
+    PhygitalSite.Systeme.DeviceController+ProcessWebHook[] PostValidationWebhooks { get; set; }
+    PhygitalSite.Systeme.DeviceController+ProcessWebHook[] ReceiptWebHooks { get; set; }
+}
+
+enum ProcessKind
+{
+    Anonymous, // =0
+    Guest, // =1
+    NameOnly, // =2
+    Full, // =3
+    Custom, // =4
+}
+
+class ProcessWebHook
+{
+    string Url { get; set; }
+    string DataPlayloadType { get; set; }
+}
+
+class PaysVentesInfo
+{
+    string PayPk { get; set; }
+    string Libelle { get; set; }
+    string CodePostalRegex { get; set; }
+    string CodePostalNonAcceptesRegex { get; set; }
+    string TelRegex { get; set; }
+    string MobileRegex { get; set; }
+}
+
+class ModuleClass
+{
+    string Kind { get; set; }
+    string ClassName { get; set; }
+}
+</code></pre><h2 id="span-idtransfertpaniertransférer-le-panierspan"><span id='transfertpanier'>Transférer le panier</span></h2>
+<p>Envoie le panier actuellement associé au device à un autre.</p>
+<p>Url :<code>[GET] v2/device/send/{deviceGuid:guid}/cart</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>deviceGuid</strong> (System.Guid) : L&#39;identifiant du device destinataire</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/hub/api/phygital/magasins/deviceactif.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Pr&#233;sentation du module | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Pr&#233;sentation du module | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="présentation-du-module">Présentation du module</h1>
+
+<h2 id="généralités">Généralités</h2>
+<p>Le module Delivery Optimizer (DO) intervient dans le cadre du commerce unifié et permet aux origines de stocks (magasins, fournisseurs, stock propre, etc..) participantes des différents canaux d&#39;expédier des articles aux clients finaux depuis leurs stocks. Ceci permet de disposer de stocks totaux plus importants ainsi que des possibilités d&#39;expéditions plus intéressantes.</p>
+<p>De cette façon, Delivery Optimizer permet par exemple d&#39;expédier une partie d&#39;une commande depuis un entrepôt et une autre depuis un ou plusieurs magasins. Le but étant de minimiser le nombre d&#39;envois tout en répondant à d&#39;autres critères tel que minimiser la distance entre les expéditeurs et le client.</p>
+<p>Pour chaque canal de vente, le module permet de :</p>
+<ul>
+<li>Gérer les articles et leurs disponibilités à la vente</li>
+<li>Gérer et paramétrer les origines de stocks</li>
+<li>Gérer les commandes et paniers</li>
+<li>Obtenir le détail des disponibilités d&#39;un article ainsi que la quantité maximum commandable</li>
+<li>Obtenir la répartition optimale d&#39;un panier/d&#39;une commande à affecter aux différentes origines de stocks</li>
+</ul>
+<p>Le module se présente sous forme d’un serveur API à déployer dans votre solution et à appeler par les autres composants de votre système d&#39;information (canaux de ventes, système de gestion de commande, etc..).</p>
+<p>Il a vocation à s&#39;intégrer dans le reste de la solution Altazion de cette façon :</p>
+<p><img src="img/IntegrationDO.png" alt="Intégration Delivery Optimizer"></p>
+<h2 id="notion-de-dorigines-de-stocks-stockorigins">Notion de d&#39;origines de stocks (StockOrigins)</h2>
+<p>Les origines de stocks regroupent l&#39;ensemble des entités pouvant participer à l&#39;expédition de toute ou partie d&#39;une commande. Parmis ses entités on retrouve entre autres :</p>
+<ul>
+<li>Des magasins</li>
+<li>Des entrepots</li>
+<li>Des fournisseurs</li>
+</ul>
+<p>Les origines de stocks sont identifiées par un code qui doit être unique. Altazion utilise la syntax suivante pour les codes :</p>
+<p>&quot;{codePays}:{typeDeStockOrigin}:{identifiantStockOrigin}&quot;</p>
+<p>Par exemple, pour un magasin belge ayant pour identifiant &quot;0265&quot;, le code généré sera : &quot;BEL:MAG:0265&quot;.
+Le code d&#39;un fournisseur français ayant pour identifiant &quot;Evian&quot; sera : &quot;FRA:FRN:EVIAN&quot; </p>
+<h2 id="système-de-log-et-contrôle-de-la-verbosité">Système de log et contrôle de la verbosité</h2>
+<p>Le module DO dispose d’un système complet de log utilisant Datadog, un service de surveillance d’infrastructure qui est hébergé dans le cloud.</p>
+<p>Pour le configurer vous aurez besoin de fournir les variables d’environnements suivantes :</p>
+<ul>
+<li>DATADOG_SERVER, qui contient l’url vers votre serveur datadog</li>
+<li>DATADOG_KEY, qui est la clef d’accès à votre serveur</li>
+<li>DATADOG_TAGS (optionnel), qui contient les tags séparés par des virgules.</li>
+</ul>
+<p>L’intégralité des logs est affichée dans la console du module.</p>
+<h2 id="stockage-des-données">Stockage des données</h2>
+<h3 id="stockage-des-données-chaudes-dans-redis">Stockage des données chaudes dans REDIS</h3>
+<p>L&#39;intégralité des données est stockée dans un cache REDIS en version 6.0 ou supérieure permettant au module de proposer une réactivité en temps réel et des performances accrues par rapport à un stockage traditionnel en base de données. Afin d&#39;éviter d&#39;éventuelles pertes de données, ces données sont régulièrement synchronisé avec une base MongoDB. </p>
+<h3 id="stockage-des-données-froides-dans-mongodb">Stockage des données froides dans MongoDB</h3>
+<p>Le module est prévu pour fonctionner avec une base de données Mongo en version 4.2 ou supérieure compatible avec les notions de replica sets et de sharded clusters. Cette base permet de garder une trâce durable des données ainsi que de réhydrater le cache REDIS en cas d&#39;arrêt de ce dernier.</p>
+<h3 id="connexion-aux-bases">Connexion aux bases</h3>
+<p>La connexion à la base Mongo et au cache REDIS se fait grâce aux deux variables d’environnement suivantes :</p>
+<ul>
+<li>AZURE_APPCONFIG correspondant l’adresse du Azure App Configuration qui contient les connection strings des bases de données.</li>
+<li>AZURE_APPCONFIG_ENV qui contient l’environnement duquel récupérer la clef (DEV, PRODUCTION, etc…).</li>
+</ul>
+<h2 id="déploiement">Déploiement</h2>
+<p>Le module Altazion Delivery Optimizer est distribué sous forme d’un container Docker et peut ainsi être déployé facilement sur tous les environnements compatibles. Il expose le port 8080 par défaut. Pour vérifier son bon déploiement il est possible de se rendre sur l’URL du module qui devrait renvoyer la page suivante.</p>
+<p><img src="img/DOWelcomePage.png" alt="Page d&#39;accueil Module DO"></p>
+<p>À partir de là, il est possible de cliquer sur les boutons de la section « Tools » afin de se rendre sur les pages correspondantes.</p>
+<h2 id="swagger">Swagger</h2>
+<p>Le serveur API exporte un swagger respectant la norme OpenAPI 3.0.1 à l’adresse &quot;/swagger/v1/swagger.json&quot;</p>
+<p>Il dispose également d&#39;une interface web SwaggerUI permettant de facilement tester les points API disponibles ainsi que de consulter le détail des objets en entrée/sortie. Cette interface est disponible à l’adresse &quot;/swagger&quot;. Enfin permet également de consulter le détail, les définitions et la structure de tous les objets que vous pourriez être amené à manipuler en utilisant le module.</p>
+<p><img src="img/SwaggerUI.png" alt="Interface SwaggerUi permettant de tester les points API"></p>
+<h2 id="metrics-via-opentelemetry-et-prometheus">Metrics via OpenTelemetry et Prometheus</h2>
+<p><a href="https://opentelemetry.io/">OpenTelemetry</a> est un standard d&#39;APIs, de SDK et d&#39;outils permettant la collecte et l&#39;export de données de télémétries. Ces données sont exportées via <a href="https://prometheus.io/">Prometheus</a>, un logiciel libre de surveillance informatique (monitoring) et sont accessibles à l&#39;adresse &quot;/metrics&quot; du module.</p>
+<p><img src="img/Metrics.png" alt="Page de metrics"></p>
+<p>Ces metrics sont observées afin d&#39;obtenir des informations sur l&#39;état et les performances de la base et du module et peuvent être lues par un logiciel d&#39;affichage de metrics tel que <a href="https://grafana.com/">Grafana</a>.</p>
+<p>Actuellement, le module remonte les statistiques suivantes :</p>
+<ul>
+<li>L&#39;évolution du nombre de StockOrigins en base (&quot;stock-origin.total&quot;)</li>
+<li>L&#39;évolution du nombre d&#39;Articles en base (&quot;article.total&quot;)</li>
+<li>Le nombre total d&#39;interrogations de calcul de disponibilité article (&quot;stock.api_request_counter&quot;)</li>
+<li>Le nombre d&#39;interrogations de calcul de disponibilité article avec un stock &gt; 0 (&quot;stock.available_counter&quot;)</li>
+<li>Le nombre d&#39;interrogations de calcul de disponibilité article avec un stock &lt;= 0 (&quot;stock.unavailable_counter&quot;)</li>
+<li>Un histogramme sur le temps d&#39;exécution du calcul de stock (&quot;stock.api_request_duration&quot;)</li>
+<li>Le nombre total d&#39;appel au point api de calcul de la répartition d&#39;un panier (&quot;cart.api_request_counter&quot;)</li>
+<li>Le nombre d’interrogations de calcul de la répartition d&#39;un panier résultant à une répartition possible (&quot;cart.distribution_found_counter&quot;)</li>
+<li>Le nombre d’interrogations de calcul de la répartition d&#39;un panier sans répartition possible (&quot;cart.distribution_not_found_counter&quot;)</li>
+<li>Un histogramme sur le temps d&#39;exécution du calcul de répartition d&#39;un panier (&quot;cart.api_request_duration&quot;)</li>
+<li>Le nombre de paniers comportant du stock ignoré dans un StockOrigin car un autre panier l&#39;a reservé.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/orchestrator/delivery-optimizer/presentationmodule.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

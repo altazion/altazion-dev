@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Home page | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Home page | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="home-page">Home page</h1>
+
+<p>La personnalisation de la home est très simple : vous pouvez utiliser l&#39;un des trois <code>ThemablePanelControl</code> :</p>
+<ul>
+<li><code>HomePageBeforeContent</code> pour un sous header dans la home page</li>
+<li><code>HomePagePanel</code> pour le contenu principal</li>
+<li><code>HomePageAfterContent</code> pour le footer spécifique de la home</li>
+</ul>
+<p>En règle générale, seul le <code>HomePagePanel</code> est à personnaliser.</p>
+<h2 id="contenu-de-la-page">Contenu de la page</h2>
+<pre><code>&lt;asp:Content  ContentPlaceHolderID=&quot;head&quot; runat=&quot;server&quot; ID=&quot;head1&quot;&gt;
+    &lt;ecom:GoogleValidator runat=&quot;server&quot; /&gt;
+&lt;/asp:Content&gt;
+
+&lt;asp:Content ContentPlaceHolderID=&quot;BeforeContent&quot; runat=&quot;server&quot; ID=&quot;BeforeContent1&quot;&gt;
+    &lt;ecom:ThemablePanelControl ID=&quot;ThemablePanelControl1&quot; runat=&quot;server&quot; SkinID=&quot;HomePageBeforeContent&quot;&gt;&lt;/ecom:ThemablePanelControl&gt;
+&lt;/asp:Content&gt;
+
+&lt;asp:Content ID=&quot;Content1&quot; ContentPlaceHolderID=&quot;ContentPlaceHolder1&quot; runat=&quot;server&quot;&gt;
+    &lt;asp:ScriptManagerProxy ID=&quot;ScriptManagerProxy1&quot; runat=&quot;server&quot;&gt;
+    &lt;/asp:ScriptManagerProxy&gt;
+    &lt;ecom:ThemablePanelControl runat=&quot;server&quot; SkinID=&quot;HomePagePanel&quot; ID=&quot;HomePagePanel&quot;&gt;
+        &lt;Content&gt;
+            &lt;!--Placez le contenu de votre home ici--&gt;
+    &lt;/Content&gt;
+    &lt;/ecom:ThemablePanelControl&gt;
+
+&lt;/asp:Content&gt;
+
+&lt;asp:Content ContentPlaceHolderID=&quot;AfterContent&quot; runat=&quot;server&quot; ID=&quot;Content2&quot;&gt;
+    &lt;ecom:ThemablePanelControl ID=&quot;ThemablePanelControl2&quot; runat=&quot;server&quot; SkinID=&quot;HomePageAfterContent&quot;&gt;&lt;/ecom:ThemablePanelControl&gt;
+&lt;/asp:Content&gt;
+</code></pre><h2 id="exemple-de-personnalisation">Exemple de personnalisation</h2>
+<pre><code>&lt;ecom:ThemablePanelControl runat=&quot;server&quot; SkinID=&quot;HomePagePanel&quot; &gt;
+&lt;Content&gt;
+
+&lt;div class=&quot;content&quot;&gt;
+
+    &lt;ecom:CampagnePublicite runat=&quot;server&quot; TypeOperation=&quot;CARROUS&quot;  /&gt;
+
+    &lt;section class=&quot;main&quot;&gt;
+        &lt;div class=&quot;produit-home &quot;&gt;
+            &lt;div class=&quot;container&quot;&gt;
+                    &lt;h1&gt;&lt;strong&gt;&lt;ecom:SiteNom runat=&quot;server&quot; /&gt;&lt;/strong&gt; : &lt;ecom:SiteSlogan runat=&quot;server&quot; /&gt;&lt;/h1&gt;
+                &lt;div class=&quot;huile&quot;&gt;
+                    &lt;h2 class=&quot;row px-2&quot; id=&quot;vitrineHuileOlive&quot;&gt;&lt;ecom:VitrineLibelle runat=&quot;server&quot; CodeVitrine=&quot;HOMEHUILES&quot; /&gt;&lt;/h2&gt;
+                    &lt;div class=&quot;row&quot;&gt;
+
+                        &lt;ecom:VitrinesListeProduits ID=&quot;huiles&quot; runat=&quot;server&quot; CodeVitrine=&quot;HOMEHUILES&quot;
+                            ProductTemplateSkinID=&quot;ProduitSurLaHome&quot;
+                            NombreArticles=&quot;10&quot; TypeAffichage=&quot;Flux&quot; /&gt;
+
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;huile&quot;&gt;
+                    &lt;h2 class=&quot;row px-2&quot; id=&quot;vitrineTuron&quot;&gt;&lt;ecom:VitrineLibelle runat=&quot;server&quot; CodeVitrine=&quot;HOMETURON&quot; /&gt;&lt;/h2&gt;
+                    &lt;div class=&quot;row&quot;&gt;
+
+                                        &lt;ecom:VitrinesListeProduits ID=&quot;touron&quot; runat=&quot;server&quot; CodeVitrine=&quot;HOMETURON&quot;
+                            ProductTemplateSkinID=&quot;ProduitSurLaHome&quot;
+                            NombreArticles=&quot;10&quot; TypeAffichage=&quot;Flux&quot; /&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;huile&quot;&gt;
+                    &lt;h2 class=&quot;row px-2&quot; id=&quot;vitrinePaprika&quot;&gt;&lt;ecom:VitrineLibelle runat=&quot;server&quot; CodeVitrine=&quot;HOMEPAPRIKA&quot; /&gt;&lt;/h2&gt;
+                    &lt;div class=&quot;row&quot;&gt;
+
+                                        &lt;ecom:VitrinesListeProduits ID=&quot;paprika&quot; runat=&quot;server&quot; CodeVitrine=&quot;HOMEPAPRIKA&quot;
+                            ProductTemplateSkinID=&quot;ProduitSurLaHome&quot;
+                            NombreArticles=&quot;10&quot; TypeAffichage=&quot;Flux&quot; /&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;safran&quot;&gt;
+                    &lt;h2 class=&quot;row px-2&quot; id=&quot;vitrineSafran&quot;&gt;&lt;ecom:VitrineLibelle runat=&quot;server&quot; CodeVitrine=&quot;HOMESAFRAN&quot; /&gt;&lt;/h2&gt;
+                    &lt;div class=&quot;row&quot;&gt;
+
+                                        &lt;ecom:VitrinesListeProduits ID=&quot;safran&quot; runat=&quot;server&quot; CodeVitrine=&quot;HOMESAFRAN&quot;
+                            ProductTemplateSkinID=&quot;ProduitSurLaHome&quot;
+                            NombreArticles=&quot;10&quot; TypeAffichage=&quot;Flux&quot; /&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;footer-seo&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;div class=&quot;row seo&quot;&gt;
+                &lt;div class=&quot;col-md-6 seo-box px-0&quot;&gt;
+                    &lt;div class=&quot;seo1&quot;&gt;
+                        &lt;img class=&quot;seo-logo img-fluid&quot; src=&quot;/App_themes/LaPlaza/img/LaPlaza_logo-blanc.png&quot; alt=&quot;La Plaza&quot; /&gt;
+                        &lt;ecom:SeoContent runat=&quot;server&quot; CodeEmplacement=&quot;DESCPLAZA&quot; /&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-md-6 seo-box px-0&quot;&gt;
+                    &lt;div class=&quot;seo2&quot;&gt;
+                        &lt;ecom:SeoContent runat=&quot;server&quot; CodeEmplacement=&quot;DESCPLAZACOMPL&quot; /&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;row footer-1&quot;&gt;
+                &lt;div class=&quot;col-md-4 news footer-1-seo&quot;&gt;
+                    &lt;h4 class=&quot;titre&quot;&gt;
+                        &lt;ecom:SeoContentTitle runat=&quot;server&quot; CodeEmplacement=&quot;DESCPLAZANWL&quot; DefaultContent=&quot;Newsletter&quot; /&gt;
+                    &lt;/h4&gt;
+                    &lt;p&gt;                
+                        &lt;ecom:SeoContent runat=&quot;server&quot; CodeEmplacement=&quot;DESCPLAZANWL&quot; /&gt;
+                    &lt;/p&gt;
+
+                    &lt;div class=&quot;form-60  bt&quot;&gt;
+                        &lt;input type=&quot;text&quot; id=&#39;txtInscriptionNL&#39; placeholder=&quot;votre e-mail&quot;&gt;
+                        &lt;a href=&quot;#&quot; id=&quot;lnkInscriptionNL&quot; class=&quot;bt-rond&quot;&gt;GO&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-md-4 reseaux footer-1-seo&quot;&gt;
+                    &lt;h4 class=&quot;titre&quot;&gt;
+                    Suivez-nous
+                    &lt;/h4&gt;
+                    &lt;div class=&quot;lien-reseaux&quot;&gt;
+                    &lt;a href=&quot;https://www.facebook.com/LaPlaza.fr/&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;fab fa-facebook-f&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://www.instagram.com/laplaza.fr&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;fab fa-instagram&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-md-4 footer-1-seo huile&quot;&gt;
+                    &lt;h4 class=&quot;titre&quot;&gt;
+                        &lt;ecom:SeoContentTitle runat=&quot;server&quot; CodeEmplacement=&quot;DESCPLAZAOLIVE&quot; DefaultContent=&quot;Huile d’olive d’Espagne&quot; /&gt;
+                    &lt;/h4&gt;
+                    &lt;p&gt;&lt;ecom:SeoContent runat=&quot;server&quot; CodeEmplacement=&quot;DESCPLAZAOLIVE&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/div&gt;
+
+&lt;script async&gt;
+    $(&quot;#txtInscriptionNL&quot;).keypress(function(e) {
+        if(e.which==13) {
+            $(&quot;#lnkInscriptionNL&quot;).click();
+            e.preventDefault();
+            return false;                                    
+        }                                    
+    });
+
+    $(&quot;#lnkInscriptionNL&quot;).click(function(e) {
+        $(&quot;#lnkInscriptionNL&quot;).attr(&quot;disabled&quot;,&quot;disabled&quot;);
+        var txt = $(&quot;#txtInscriptionNL&quot;).val();
+        document.location = &quot;/newsletter.htm?action=abonner&amp;email=&quot; + encodeURIComponent(txt);
+        e.preventDefault();
+        return false;
+    });
+&lt;/script&gt;
+
+
+&lt;/Content&gt;
+&lt;/ecom:ThemablePanelControl&gt;
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/ecommerce/personnalisation/ecommerce-homepage.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Logs | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Logs | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="logs">Logs</h1>
+
+<h2 id="consultation">Consultation</h2>
+<h3 id="onpremise">OnPremise</h3>
+<p>Les logs sont regroupés en fonction de l&#39;application qui les génère. Chaque application de la solution a son propre dosier de traces, situé dans un sous-dossier spécifique sous la racine <a href="[https://aide.altazion.com/fr-fr/administration/onpremise/dossier.html](https://aide.altazion.com/fr-fr/administration/onpremise/dossier.html)">$ROOTBINFOLDER$</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>Nom du sous dossier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Back-Office/Gestion commerciale</td>
+<td>services\logs</td>
+</tr>
+<tr>
+<td>e-commerce</td>
+<td>e-commerce\logs</td>
+</tr>
+<tr>
+<td>API et intégrations externes</td>
+<td>integration\logs</td>
+</tr>
+<tr>
+<td>Serveur de traitement</td>
+<td>logistique\logs</td>
+</tr>
+<tr>
+<td>Outils d&#39;aide à la vente + API Phygitale</td>
+<td>poscentral\logs</td>
+</tr>
+</tbody>
+</table>
+<p>Certaines services (principalement le servirce &quot;OnPremise&quot; gérant les mises à jour et le monitoring du système) tracent dans un dossier logs directement situé sous <a href="https://aide.altazion.com/fr-fr/administration/onpremise/dossier.html">$ROOTBINFOLDER$</a>.</p>
+<div class="WARNING"><h5>Warning</h5><p>Pour des raisons purement techniques, le module de traitement &quot;batchs&quot; ne regroupe plus, depuis quelques versions les traces dans son dossier spécifique. Il utilise le paramètre <code>EServer.Service</code> des méthodes de traces pour déterminer le dossier de stockage.</p>
+<p>Cela ne devrait plus durer très longtemps, mais complique quelque peu la recherche des traces dans l&#39;interval :)</p>
+</div>
+<h4 id="fichiers-des-logs">Fichiers des logs</h4>
+<p>Les fichiers de logs sont regroupés en plusieurs ensembles de fichiers :</p>
+<ol>
+<li>Les fichiers d&#39;erreurs, journaliers, regroupent toutes les traces ... d&#39;erreurs... mais aussi les warnings. Ils sont nommés sous la forme <code>err_{date:yyyyMMdd}.log</code></li>
+<li>les fichiers généraux sont eux splitté en fichier horaire et contiennent toutes les traces, quelques soit le niveau de criticité. Ils sont nommés <code>infos_{date:yyyyMMdd}-{date:HH}.log</code></li>
+<li>vous pouvez aussi ajouter des fichiers de logs spécifiques (ils seront forcément au format &quot;horaire&quot;), cf. un peu plus bas.</li>
+</ol>
+<h4 id="format">Format</h4>
+<p>En mode OnPremise, les fichiers suivent les spécificités suivantes :</p>
+<ul>
+<li>au format &quot;texte délimité&quot;, le caractère de séparation entre colonne étant le pipe  <code>|</code></li>
+<li>encodé en format Windows &quot;de base&quot;</li>
+<li>une ligne par trace, les passages à la ligne dans la trace étant remplacés par des espaces</li>
+</ul>
+<p>Les différentes colonnes sont :</p>
+<ul>
+<li>date &amp; heure au format yyyy-MM-dd HH:mm:ss</li>
+<li>le type de trace : info, erreur, warning,critique (pour erreur critique)</li>
+<li>l&#39;id du process de l&#39;OS, sous la forme pid:xxxx ou xxxx est l&#39;identifiant du process</li>
+<li>la &quot;zone applicative&quot; dans laquelle s&#39;est déroulée la trace ou &quot;-&quot; pour des traces générales</li>
+<li>la trace en elle même</li>
+</ul>
+<p>exemple :</p>
+<pre><code class="lang-text">2019-04-09 19:17:52|info|pid:26528|Init|Redirection du dossier de configuration vers C:\ProgramData\CPoint\[e]\bin\config|
+2019-04-09 19:17:53|info|pid:26528|-|Copie des extensions MEF depuis C:\ProgramData\CPoint\[e]\bin\logistique\assemblies vers C:\ProgramData\CPoint\[e]\bin\logistique\runningInstance\26528\assemblies|
+2019-04-09 19:17:53|info|pid:26528|-|Copie des extensions MEF depuis C:\ProgramData\CPoint\[e]\extensibility\logistique\assemblies vers C:\ProgramData\CPoint\[e]\extensibility\logistique\runningInstance\26528\assemblies|
+</code></pre><h2 id="créer-des-traces">Créer des traces</h2>
+<p>Maintenant que vous savez comment consulter les traces, il reste à en créer... Pour cela, la solution propose une classe <a href="../api/CPointSoftware.Equihira.Business.Common.BasicLogHelper.html"><code>BasicLogHelper</code></a>.</p>
+<p>En utilisant cette classe, vous pouvez créer :</p>
+<ul>
+<li>des traces informatives &quot;simples&quot; via <a href="../api/CPointSoftware.Equihira.Business.Common.BasicLogHelper.html#CPointSoftware_Equihira_Business_Common_BasicLogHelper_TracerInfo_System_Int32_CPointSoftware_Equihira_Business_Common_EServer_Service_System_String_"><code>TracerInfo</code></a> et ses dérivées</li>
+<li>des traces &quot;warning&quot; (<a href="../api/CPointSoftware.Equihira.Business.Common.BasicLogHelper.html#CPointSoftware_Equihira_Business_Common_BasicLogHelper_TracerWarning_System_Int32_CPointSoftware_Equihira_Business_Common_EServer_Service_System_Exception_"><code>TracerWarning</code></a>) ou &quot;erreur&quot; (<a href="../api/CPointSoftware.Equihira.Business.Common.BasicLogHelper.html#CPointSoftware_Equihira_Business_Common_BasicLogHelper_TracerErreur_System_Int32_CPointSoftware_Equihira_Business_Common_EServer_Service_System_Exception_"><code>TracerErreur</code></a> ou <a href="../api/CPointSoftware.Equihira.Business.Common.BasicLogHelper.html#CPointSoftware_Equihira_Business_Common_BasicLogHelper_TracerErreurCritique_System_Int32_CPointSoftware_Equihira_Business_Common_EServer_Service_System_Exception_"><code>TracerErreurCritique</code></a>) à partir d&#39;une <code>Exception</code></li>
+<li>pour les erreurs, vous pouvez aussi utiliser une surchage de <a href="../api/CPointSoftware.Equihira.Business.Common.BasicLogHelper.html#CPointSoftware_Equihira_Business_Common_BasicLogHelper_TracerErreur_System_Int32_CPointSoftware_Equihira_Business_Common_EServer_Service_System_String_System_String_System_String_"><code>TracerErreur</code></a> qui accepte une erreur sous forme d&#39;une chaîne de caractères.</li>
+</ul>
+<p>Les paramètres de ces méthodes sont :</p>
+<ul>
+<li>une <strong>RjsId</strong> (c&#39;est à dire <a href="technique-multitenant.md">l&#39;identifiant du tenant</a>)</li>
+<li>un <strong><a href="../api/CPointSoftware.Equihira.Business.Common.EServer.Service.html">service</a></strong> dans lequel l&#39;évènement tracé s&#39;est passée. <em>Ce paramètre est maintenant ignoré dans la plupart de cas : c&#39;est l&#39;application hébergeant le code qui détermine le service.</em></li>
+<li>une <strong>zone</strong> qui permet de découper l&#39;application en plusieurs sections</li>
+<li>le <strong>message</strong> à tracer</li>
+<li>éventuellement un <strong>logFileName</strong> : le prefixe (à la place de <code>infos</code> ou  <code>err</code>) dans le nom du fichier</li>
+<li>en cas d&#39;erreur, en lieu et place de message vous pouvez passer une <code>Exception</code></li>
+</ul>
+<p>Quelques exemples d&#39;utilisation :</p>
+<pre><code class="lang-csharp">// tracer un message simple
+BasicLogHelper.TracerInfo(rjs_id, EServer.Service.GestionCommerciale, 
+    &quot;Désinstallation du module &quot; + urlModule);
+
+// tracer un message avec une &quot;zone applicative&quot; (ici Systeme)
+BasicLogHelper.TracerInfo(rjs_id, EServer.Service.GestionCommerciale, 
+    &quot;Systeme&quot;, &quot;Désinstallation du module &quot; + urlModule);
+
+// tracer une exception
+try 
+{
+// ... le code qui peut lancer l&#39;exception
+}
+catch (Exception ex)
+{
+    BasicLogHelper.TracerErreurCritique(rjs_id, EServer.Service.ECommerce,
+        &quot;Config&quot;, ex);
+}
+</code></pre><h2 id="considérations-avancées-onpremise">Considérations avancées OnPremise</h2>
+<p>Le module de trace est aussi capable de réaliser quelques opérations spécifiques, telle que :</p>
+<ul>
+<li>la centralisation des logs provenant de plusieurs serveurs (très utile en cas de service load-balancé par exemple)</li>
+<li>la compression et la suppression automatique des &quot;vieux&quot; fichiers de logs </li>
+</ul>
+<h3 id="centralisation">Centralisation</h3>
+<p>Si vous êtes dans une configuration OnPremise, le <em>serveur principal</em> peut être configuré pour centraliser les logs, les compresser et les archiver.
+<a href="tools-mainsrv.md">En savoir plus</a></p>
+<p>Si vous activez la centralisation des logs, ceux-ci sont déplacés, après 2h, du dossier décrit ci-dessus, vers un dossier configurable depuis la gestion commerciale. </p>
+<p>En complément de la centralisation, il est possible d&#39;activer un processus de compression et de suppression automatique après un certain délai.</p>
+<p>Pour configurer la centralisation des logs, vous devez définir l&#39;option suivante pour la raison juridique d&#39;id 1 en base de données :</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Groupe</th>
+<th>Option</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>System</td>
+<td>Logs</td>
+<td>PathCentralisation</td>
+<td><em>{le dossier dans lequel centraliser}</em></td>
+</tr>
+</tbody>
+</table>
+<p>Vous devez préciser le dossier sous la forme d&#39;un path accessible pour l&#39;utilisateur sous lequel tourne le service OnPremise. Si vous utilisez un lecteur partagé, par exemple, assurez vous que le mapping soit bien disponible et monté automatiquement. <strong>Dans la mesure du possible, il est plus pratique d&#39;utiliser un path UNC (sous la forme <code>\\server\nom_du_partage</code>).</strong></p>
+<p>Par exemple, avec le module d&#39;administration Powershell :</p>
+<pre><code class="lang-Powershell">&gt; Import-Module Altazion
+
+
+&gt; Connect-AltazionServer -ServerUrl *** -Username *** -Password ***
+
+Id Name
+-- ----
+ 1 Compte de test
+
+
+&gt; Set-AltazionSysOption -Section System -Group Logs -Option PathCentralisation 
+       -Value &#39;\\monserver\logs&#39;
+
+Section Group Option             Value
+------- ----- ------             -----
+System  Logs  PathCentralisation \\monserver\logs
+</code></pre><div class="NOTE"><h5>Note</h5><p>Pour des détails sur comment est implémenté la centralisation, <a href="tools-mainsrv.md">consultez la documentation sur le service &quot;on premise&quot;</a></p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/global/log-traces.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

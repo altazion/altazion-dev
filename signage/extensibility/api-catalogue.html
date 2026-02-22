@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>API Catalogue | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="API Catalogue | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="api-catalogue">API Catalogue</h1>
+
+<h2 id="implémenter-un-moteur-de-recherche">Implémenter un moteur de recherche</h2>
+<p>Le process d&#39;implémentation est exactement le même <a href="../../ecommerce/extensibility/code/business/recherche.html">que pour la partie e-commerce</a> (vous pouvez d&#39;ailleurs totalement partager le même module pour les deux outils).</p>
+<h3 id="suggestions">Suggestions</h3>
+<pre><code class="lang-csharp">    public interface IRechercheSuggestionProvider
+    {
+        VueSuggestionDS GetSuggestions(int rjs_id, int sit_pk, Guid? mag_guid, string[] keywords, int count = 10);
+    }
+</code></pre><h3 id="recherche-articles">Recherche articles</h3>
+<pre><code class="lang-csharp">    public interface IRechercheProvider4 
+    {
+        ContenuRecherche Get(int rjs_id, Guid? mag_guid, int sit_pk, decimal[] seg_pk, Guid vit_guid, decimal[] mar_pk, string[] keywords, RechercheCritereValeur[] criteres, int startIndex, int pageSize, CritereTri tri, OrdreTri ordre);
+
+        ContexteRecherche GetInfoContexte(int rjs_id, Guid? mag_guid, int sit_pk, decimal[] seg_pk, Guid vit_guid, decimal[] mar_pk, string[] keywords, RechercheCritereValeur[] criteres, int pageSize);
+
+        MinMaxContenuRecherche GetBornes(int rjs_id, Guid? mag_guid, int sit_pk, decimal[] seg_pk, Guid vit_guid, decimal[] mar_pk, string[] keywords, RechercheCritereValeur[] criteres, int startIndex, int pageSize, CritereTri tri, OrdreTri ordre);
+
+    }
+</code></pre><p>Cette interface remplace toutes les versions précédentes.</p>
+<h4 id="initialisation-du-module">Initialisation du module</h4>
+<h3 id="spécificités-signage">Spécificités Signage</h3>
+<p>Lorsque vous êtes en mode Signage, votre device est forcément connecté à un magasin : les méthodes ne permettant pas de réaliser une recherche avec un magasin peuvent être ignorées si vous implémentez une interface précédant la <code>IRechercheProvider4</code>.</p>
+<p>Si vous souhaitez réaliser un traitement légèrement différents entre le module Commerce et le module Signage, tout en conservant une grande partie commune, vous pouvez déterminer si votre classe de recherche est appelée via Signage en utilisant la propriété <code>ECommerceServer.SiteContentType</code> :</p>
+<pre><code class="lang-csharp">    if(ECommerceServer.SiteContentType == SiteContentType.Phygital
+    || ECommerceServer.SiteContentType == SiteContentType.Pos)
+    {
+        // vous êtes sur le module Signage ou le module Store
+    }
+</code></pre><h2 id="compléter-les-informations-produits">Compléter les informations produits</h2>
+<p>Vous pouvez ajouter ou modifier des informations en créant un composants MEF implémentant l&#39;interface <code>CPointSoftware.Equihira.Extensibility.IProvideMoreProductData</code> (dans le nuget altazion-signage) :</p>
+<pre><code class="lang-csharp">    public interface IProvideMoreProductData
+    {
+        void AddInfoToDetails(int rjs_id, int sit_pk, ArticlePhygitalDetail details);
+        void AddInfoToList(int rjs_id, int sit_pk, ArticlePhygitalBase[] items);
+    }
+</code></pre><p>par exemple :</p>
+<pre><code class="lang-csharp">    public class AddInfoPromo : IProvideMoreProductData
+    {
+        public void AddInfoToDetails(int rjs_id, int sit_pk, ArticlePhygitalDetail details)
+        {
+            if(details.PuPromoTTC.HasValue &amp;&amp; details.Description!=null)
+            {
+                details.Description = &quot;&lt;div class=&#39;infoPromo&#39;&gt;Promotion exceptionnelle !&lt;/div&gt;&quot; + details.Description;
+            }
+        }
+
+        public void AddInfoToList(int rjs_id, int sit_pk, ArticlePhygitalBase[] items)
+        {
+            throw new NotImplementedException();
+        }
+    }
+</code></pre><p>Vous devez implémenter au moins l&#39;une des méthodes suivantes :</p>
+<ul>
+<li><code>AddInfoToDetails</code> : permet d&#39;ajouter des informations dans l&#39;objet de la fiche produit complète</li>
+<li><code>AddInfoToList</code>: permet de compléter les articles dans les descentes produits et dans les listes telles que les produits associés.</li>
+</ul>
+<p>Vous trouverez un exemple dans le projet <a href="https://github.com/altazion/onpremise-extensibility-samples">onpremise-extensibility-samples</a>.</p>
+<h3 id="informations-de-fiche-produit">Informations de fiche produit</h3>
+<p>En ajoutant des informations via <code>AddInfoToDetails</code>, vous compléterez les données renvoyées par les point API :</p>
+<ul>
+<li><a href="https://www.altazion.dev/hub/api/phygital/catalogue/articles.html#span-idfichearticlefiche-articlespan">Fiche article</a></li>
+<li><a href="https://www.altazion.dev/hub/api/phygital/catalogue/articles.html#span-idfichearticleauhasardobtenir-un-article-au-hasardspan">Obtenir un produit au hasard</a></li>
+</ul>
+<p>Soit, dans le SDK, les données de :</p>
+<ul>
+<li><code>Phygital.ProductTools.ProductManager.getFromBase</code></li>
+<li><code>Phygital.ProductTools.ProductManager.getFromGuid</code></li>
+<li><code>Phygital.ProductTools.ProductManager.getFromRef</code></li>
+<li>la propriété <code>article</code> du scope associé au controleur <code>FicheProduitPage</code></li>
+</ul>
+<div class="NOTE"><h5>Note</h5><p>Lorsque vous demandez une fiche produit, la méthode de complétion des informations sur une liste de produits est déclenchées :</p>
+<ul>
+<li>pour les articles associés</li>
+<li>pour les instances si vous êtes dans le cadre d&#39;un produit générique / déclinable.</li>
+</ul>
+</div>
+<div class="WARNING"><h5>Warning</h5><p>Si vous modifiez les informations de disponibilités (<code>DisponibleCommande</code>, <code>DisponibleCentrale</code>, <code>DisponibleMagasin</code>) pour rendre un produit non disponible, vous devrez aussi ajouter un module de vérification de disponibilité (stock ou commandable) qui effectue les mêmes vérifications pour vous assurer que le produit ne puisse pas être ajouté au panier.</p>
+</div>
+<h3 id="informations-des-liste-de-produits">Informations des liste de produits</h3>
+<p>En modifiant les items dans la méthode <code>AddInfoToList</code>, vous impacterez les points API suivants :</p>
+<ul>
+<li><a href="https://www.altazion.dev/hub/api/phygital/catalogue/articles.html#span-idrechercherecherchespan">Recherche</a></li>
+<li><a href="https://www.altazion.dev/hub/api/phygital/catalogue/articles.html#span-idversionsdeclinaisonsobtenir-les-versions-dun-article-g%C3%A9n%C3%A9riquespan">Obtenir les instance d&#39;un article générique</a></li>
+</ul>
+<p>Ainsi que quelques points connextes :</p>
+<ul>
+<li><a href="https://www.altazion.dev/hub/api/phygital/catalogue/articles.html#span-idobtenirquickobtenir-les-infos-principales-dun-produitspan">Obtenir les infos principales d&#39;un produit</a></li>
+<li><a href="https://www.altazion.dev/hub/api/phygital/catalogue/articles.html#span-idfichearticledepubliefiche-article-d%C3%A9publi%C3%A9span">Obtenir un produit dépublié</a></li>
+</ul>
+<p>Soit, dans le SDK, les données de :</p>
+<ul>
+<li><code>Phygital.ProductTools.ProductManager.search</code></li>
+<li>la propriété <code>current</code> du scope associé au controleur <code>DescentePage</code></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/signage/extensibility/api-catalogue.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

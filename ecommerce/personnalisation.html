@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Personnaliser un site e-commerce | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Personnaliser un site e-commerce | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="personnaliser-un-site-e-commerce">Personnaliser un site e-commerce</h1>
+
+<h2 id="architecture-des-pages">Architecture des pages</h2>
+<p>Comme toute application basée sur la techno WebForms, les pages du site e-commerce sont composées de plusieurs éléments :</p>
+<ul>
+<li>un &quot;modèle&quot;, appelé MasterPage, qui contient tous les éléments communs à l&#39;ensemble des pages </li>
+<li>la page en elle même qui contient le code spécifique</li>
+<li>un ensemble de contrôles qui permettent de réutiliser du code.</li>
+</ul>
+<h3 id="masterpage">Masterpage</h3>
+<h3 id="contrôles">Contrôles</h3>
+<p>Le module e-commerce étant basé sur WebForms, il contient de nombreux contrôles, dans le namespace <code>Altazion.Commerce.Controls</code> qui sont à utiliser pour afficher des données dynamiques, provenant de la base de données ou d&#39;un calcul serveur. Ces controles sont à &quot;simplement&quot; poser dans le code source de la page. </p>
+<p>Par exemple, le code suivant ajoute un controle qui affiche une liste de 10 produits venant d&#39;une &quot;vitrine&quot; (une sélection de produits) :</p>
+<pre><code class="lang-HTML">&lt;div class=&quot;leftCol&quot;&gt;
+   &lt;ecom:VitrinesListeProduits 
+       ID=&quot;listeVitrine&quot; runat=&quot;server&quot; 
+       CodeVitrine=&quot;CODEVITRINE&quot;
+       ProductTemplateSkinID=&quot;ProduitSurLaHome&quot;
+       NombreArticles=&quot;10&quot; TypeAffichage=&quot;Flux&quot; /&gt;
+&lt;/div&gt;
+</code></pre><p>Les contrôles spécifiques à la solution ecommerce sont regroupé sous le prefixe &lt;ecom:... /&gt; (là où les contrôles standard ASP.net sont sous &lt;asp:... /&gt;). Vous trouverez une liste des éléments disponibles <a href="index.html">dans la partie &quot;contrôles e-commerce&quot; de la référence de classe</a>. </p>
+<div class="WARNING"><h5>Warning</h5><p>Certains contrôles ont des conditions d&#39;utilisations spécifiques qui sont décrit dans la documentation du contrôle.</p>
+</div>
+<h3 id="pages-standards">Pages standards</h3>
+<table>
+<thead>
+<tr>
+<th>path</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/default.aspx</td>
+<td>La home page générale du site</td>
+</tr>
+</tbody>
+</table>
+<h2 id="contenu-personnalisable">Contenu personnalisable</h2>
+<h3 id="publicités">Publicités</h3>
+<p>Les publicités sont des emplacements destinés à recevoir du contenu qui changera de façon fréquente en fonction de l&#39;actuatlité commerciale du site. On peut prendre pour exemple un carousel sur une home page, un emplacement de mise en avant promotionnel dans un panier, etc.</p>
+<p>N&#39;utilisez pas ce type de personnalisation si vous souhaitez simplement pouvoir configurer dans le back-office le contenu d&#39;un bloc, préférez dans ce cas des espaces SEO (cf. ci-dessous).</p>
+<p>Il existe plusieurs types de publicités :</p>
+<ul>
+<li>les blocs &quot;images&quot;</li>
+<li>les blocs &quot;Google Ads-format&quot;</li>
+<li>les blocs &quot;template html5&quot;</li>
+</ul>
+<h3 id="espaces-seo">Espaces SEO</h3>
+<p>Les espaces SEO sont des emplacements personnalisables dans vos pages qui, à la différences ces publicités ci-dessus, ne sont pas destinés à être modifiés en fonction d&#39;un planning commercial. On peut par exemple retrouver dans ces emplacements un contenu de footer, de la rassurance, des contenus spécialisés dans le référencement, etc.
+Pour déclarer un emplacement SEO, vous devez l&#39;insérer dans le fichier de thème (cf. ci-dessous) et l&#39;intégrer dans vos fichiers de personnalisations.</p>
+<p>Prenons comme exemple un espace de bas de page destiné à fournir des informations sur votre société :</p>
+<pre><code class="lang-HTML">&lt;p&gt;
+    &lt;ecom:SeoContent runat=&quot;server&quot; 
+      CodeEmplacement=&quot;DescSocieteFooter&quot;  /&gt;
+&lt;/p&gt;
+</code></pre><p>En complément de l&#39;ajout dans vos fichiers de personnalisations .skin, vous devez déclarer l&#39;emplacement dans votre fichier de thème, cf. ci-dessous</p>
+<h2 id="themes">Themes</h2>
+<p>La personnalisation de l&#39;aspect général d&#39;un site e-commerce se fait via la création d&#39;un thème.  Comme le module e-commerce est basé, plus ou moins, sur asp.net webforms, la création d&#39;un thème se base sur les &quot;skins&quot; de cette technologie. Pour définir l&#39;apparence d&#39;un site, il &quot;suffit&quot; de :</p>
+<ul>
+<li>créer un ensemble de .skin personnalisant la présentation du contenu</li>
+<li>ainsi que les css et les js correspondants</li>
+<li>ajouter d&#39;éventuels controles personnalisés spécifiques</li>
+<li>compléter le tout par un fichier de description et des images illustrant le thème</li>
+</ul>
+<h3 id="skins">Skins</h3>
+<p>Il est assez simple de modifier l&#39;apparence d&#39;un site en utilisant un ensemble de fichier .skin dans lequel vous pouvez placer des apparences &quot;remplaçant&quot; celles présentes dans les différentes pages.</p>
+<p>Si l&#39;on prend une page telle que la home, son contenu par défaut est extrêmement réduit : </p>
+<pre><code class="lang-XML">&lt;asp:Content ContentPlaceHolderID=&quot;BeforeContent&quot; 
+runat=&quot;server&quot; ID=&quot;BeforeContent1&quot;&gt;
+   &lt;ecom:ThemablePanelControl 
+       ID=&quot;ThemablePanelControl1&quot; runat=&quot;server&quot; SkinID=&quot;HomePageBeforeContent&quot;&gt;
+   &lt;/ecom:ThemablePanelControl&gt;
+&lt;/asp:Content&gt;
+
+&lt;asp:Content ID=&quot;Content1&quot; ContentPlaceHolderID=&quot;ContentPlaceHolder1&quot; runat=&quot;server&quot;&gt;
+   &lt;asp:ScriptManagerProxy 
+       ID=&quot;ScriptManagerProxy1&quot; runat=&quot;server&quot;&gt;
+   &lt;/asp:ScriptManagerProxy&gt;
+   &lt;ecom:ThemablePanelControl runat=&quot;server&quot; 
+       SkinID=&quot;HomePagePanel&quot; ID=&quot;HomePagePanel&quot;&gt;
+       &lt;Content&gt;
+           &lt;!-- placez le contenu de votre home ici --&gt;
+       &lt;/Content&gt;
+   &lt;/ecom:ThemablePanelControl&gt;
+&lt;/asp:Content&gt;
+
+&lt;asp:Content 
+   ContentPlaceHolderID=&quot;AfterContent&quot; runat=&quot;server&quot; ID=&quot;Content2&quot;&gt;
+   &lt;ecom:ThemablePanelControl 
+       ID=&quot;ThemablePanelControl2&quot; 
+       runat=&quot;server&quot; SkinID=&quot;HomePageAfterContent&quot;&gt;
+   &lt;/ecom:ThemablePanelControl&gt;
+&lt;/asp:Content&gt;
+</code></pre><p>Pour placer du contenu dans cette page via un fichier skin, il faut reprendre le contrôle de type <code>&lt;ecom:ThemablePanelControl /&gt;</code> et de l&#39;utiliser dans un fichier .skin (si le contrôle d&#39;origine a un <code>ID</code>, vous devrez l&#39;omettre dans ce fichier). Par exemple :</p>
+<p>Fichier <code>home.skin</code> :</p>
+<pre><code class="lang-XML">&lt;ecom:ThemablePanelControl runat=&quot;server&quot; 
+   SkinID=&quot;HomePagePanel&quot;&gt;
+   &lt;Content&gt;
+       &lt;div class=&#39;home-main-pub&#39;&gt;
+           &lt;ecom:CampagnePublicite runat=&quot;server&quot;
+               TypeOperation=&quot;CARROUS&quot;  /&gt;
+       &lt;/div&gt;
+   &lt;/Content&gt;
+&lt;/ecom:ThemablePanelControl&gt;
+</code></pre><p>Pour connaitre les noms des différentes zones personnalisables, il vous faudra regarder dans le fichier <code>.aspx</code> que vous souhaitez personnaliser. Tous les contrôles portant un SkinID sont personnalisables de façon spécifique. </p>
+<p>A l&#39;intérieur de ces personnalisations, vous pouvez poser : </p>
+<ul>
+<li>du code HTML simple</li>
+<li>des contrôles WebForms</li>
+<li>des contrôles spécifiques au module e-commerce</li>
+<li>des controles personnalisés (<code>.ascx</code>)</li>
+</ul>
+<h4 id="apparence-des-pages">Apparence des pages</h4>
+<table>
+<thead>
+<tr>
+<th>Page</th>
+<th>Détails</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="personnalisation/ecommerce-masterpage.html">MasterPage</a></td>
+<td>Contient les éléments communs à toutes les pages (header et footer par exemple)</td>
+</tr>
+<tr>
+<td><a href="personnalisation/ecommerce-homepage.html">Home</a></td>
+<td>La page d&#39;accueil du site</td>
+</tr>
+<tr>
+<td><a href="personnalisation/ecommerce-descente.html">Descente</a></td>
+<td>Les pages de listes de produits (descentes multi-facettes, recherches, etc.)</td>
+</tr>
+<tr>
+<td><a href="personnalisation/ecommerce-ficheproduit.html">Fiche produit</a></td>
+<td>La fiche produit</td>
+</tr>
+<tr>
+<td>Panier</td>
+<td></td>
+</tr>
+<tr>
+<td>Login</td>
+<td></td>
+</tr>
+<tr>
+<td>Confirmation Commande</td>
+<td></td>
+</tr>
+<tr>
+<td>Recu Commande</td>
+<td></td>
+</tr>
+<tr>
+<td>Espace Client</td>
+<td></td>
+</tr>
+<tr>
+<td>Suivi Commandes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="apparence-multiples-pour-les-produits">Apparence multiples pour les produits</h4>
+<p>Il existe plusieurs emplacements où il est possible d&#39;avoir une liste de produits :</p>
+<ol>
+<li>dans la descente / page de recherche</li>
+<li>dans un bloc d&#39;affichage d&#39;une selection</li>
+</ol>
+<p>Pour pouvoir définir des affichages différents en fonction de où se trouve affichés ces produits, il suffit de créer plusieurs templates en leur donnant des noms de <code>SkinID</code> différents. cf. <a href="personnalisation/ecommerce-descente.html">Personnaliser les affichages des produits</a></p>
+<p>Le même principe est utilisé pour créer des modèles de fiches produits.</p>
+<h3 id="css">CSS</h3>
+<h3 id="javascript">Javascript</h3>
+<h3 id="contrôles-personnalisés">Contrôles personnalisés</h3>
+<h3 id="fichier-de-thème">Fichier de thème</h3>
+<h3 id="templates-de-publicités">Templates de publicités</h3>
+<h4 id="images">Images</h4>
+<h4 id="html5">HTML5</h4>
+<h4 id="emplacements-seo">Emplacements SEO</h4>
+<p>Pour définir un emplacement utilisables dans les blocs SEO, vous devez décrire les différents emplacements et leur cas d&#39;utilisation, dans le fichier de thème.</p>
+<pre><code class="lang-xml">&lt;Theme xmlns=&quot;http://simplement-e.com/ecommerce/theme/theme.xsd&quot;&gt;
+...
+&lt;Seo&gt;
+    &lt;Emplacement code=&quot;DESCBLOCFOOTER&quot; libelle=&quot;Emplacement description dans le footer&quot;&gt;
+      &lt;SurTypePage type=&quot;Page&quot; /&gt;
+    &lt;/Emplacement&gt;
+&lt;/Seo&gt;
+...
+</code></pre><p>Le <code>code</code> sera à réutiliser dans le contrôle d&#39;affichage et doit être unique. Vous devez ensuite définir sur quel(s) type(s) de pages le contrôle peut s&#39;afficher, vous pouvez utiliser :</p>
+<ul>
+<li><code>Descente</code> pour les pages de recherches et de descentes produits. La configuration du contenu se fera, dans ce cas, dans la partie &quot;SEO&quot;</li>
+<li><code>Article</code> pour une fiche produit, vous devrez saisir les informations de ces blocs, directement dans les pages d&#39;édition e-commerce de chaque produit</li>
+<li><code>Home</code> : pour affichage uniquement sur la HomePage</li>
+<li><code>Page</code> : pour un bloc qui sera affiché sur toutes les pages incluant le tag (utilisez aussi cette valeur si vous souhaitez positionner le contrôle sur toutes les pages)</li>
+</ul>
+<p>Une fois cette définition créée, les contrôles vu précédemment affiche le contenu personnalisé:</p>
+<ul>
+<li><code>&lt;ecom:SeoContentTitle runat=&quot;server&quot; /&gt;</code> affichera l&#39;information &quot;Titre&quot; saisie dans la page de configuration</li>
+<li><code>&lt;ecom:SeoContent runat=&quot;server&quot;  /&gt;</code> affichera le contenu du bloc</li>
+</ul>
+<p>Par exemple, pour le thème suivant :</p>
+<pre><code class="lang-xml">&lt;Seo&gt;
+    &lt;Emplacement code=&quot;DESCBLOCHOME&quot; libelle=&quot;Emplacement description sur la home&quot;&gt;
+      &lt;SurTypePage type=&quot;Page&quot; /&gt;
+    &lt;/Emplacement&gt;
+&lt;/Seo&gt;
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/ecommerce/personnalisation.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

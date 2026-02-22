@@ -1,0 +1,597 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Architecture Logique - Plateforme Altazion SaaS | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Architecture Logique - Plateforme Altazion SaaS | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="architecture-logique---plateforme-altazion-saas">Architecture Logique - Plateforme Altazion SaaS</h1>
+
+<blockquote><p>Documentation de l&#39;architecture fonctionnelle et logique de la plateforme Altazion SaaS.</p>
+</blockquote>
+<hr>
+<h2 id="vue-densemble">Vue d&#39;ensemble</h2>
+<p>Cette plateforme déploie une solution SaaS complète pour la gestion retail, e-commerce et supply chain. L&#39;architecture est organisée en <strong>3 suites applicatives</strong> principales supportées par des <strong>services de données</strong> et des <strong>outils transverses</strong>.</p>
+<h2 id="architecture-logique---niveau-1--applications-métier">Architecture Logique - Niveau 1 : Applications Métier</h2>
+<pre><code class="lang-mermaid">graph TB
+    subgraph &quot;🏢 OFFICE SUITE&quot;
+        OM[Office Main]
+        OPIM[Office PIM]
+        OERP[Office ERP]
+        ORET[Office Retail]
+        OCONT[Office Content]
+        OCOM[Office Commerce]
+    end
+
+    subgraph &quot;🚚 SUPPLY CHAIN SUITE&quot;
+        OMAIN[Orchestrator Main]
+        DELIV[Delivery Optimizer]
+        USTOCK[Unified Stock]
+    end
+
+    subgraph &quot;🛒 ECOMMERCE SUITE&quot;
+        CENG[Commerce Engine]
+        CSIGN[Commerce Signage]
+        CSERV[Commerce Server]
+    end
+
+    subgraph &quot;🔄 BATCHS&quot;
+        BOM[Office Main Batchs]
+        BPIM[Office PIM Batchs]
+        BCONT[Office Content Batchs]
+        BERP[Office ERP Batchs]
+        BCOM[Office Commerce Batchs]
+        BRET[Office Retail Batchs&lt;br/&gt;💤 Prévu ultérieurement]
+        BORCH[Orchestrator Batchs]
+        BOMS[Orchestrator OMS Batchs]
+    end
+
+    style OM fill:#2196F3,stroke:#1976D2,color:#fff
+    style OPIM fill:#2196F3,stroke:#1976D2,color:#fff
+    style OERP fill:#2196F3,stroke:#1976D2,color:#fff
+    style ORET fill:#2196F3,stroke:#1976D2,color:#fff
+    style OCONT fill:#2196F3,stroke:#1976D2,color:#fff
+    style OCOM fill:#2196F3,stroke:#1976D2,color:#fff
+
+    style OMAIN fill:#00BCD4,stroke:#0097A7,color:#fff
+    style DELIV fill:#00BCD4,stroke:#0097A7,color:#fff
+    style USTOCK fill:#00BCD4,stroke:#0097A7,color:#fff
+
+    style CENG fill:#9C27B0,stroke:#7B1FA2,color:#fff
+    style CSIGN fill:#9C27B0,stroke:#7B1FA2,color:#fff
+    style CSERV fill:#9C27B0,stroke:#7B1FA2,color:#fff
+
+    style BRET fill:#BDBDBD,stroke:#757575,color:#fff
+</code></pre><hr>
+<h2 id="architecture-logique---niveau-2--support--infrastructure">Architecture Logique - Niveau 2 : Support &amp; Infrastructure</h2>
+<h3 id="vue-générale">Vue Générale</h3>
+<pre><code class="lang-mermaid">graph TB
+    subgraph &quot;💾 BASES DE DONNÉES&quot;
+        MONGO[(MongoDB vCore)]
+        REDIS[(Redis Enterprise)]
+        SQL[(SQL Server)]
+    end
+
+    subgraph &quot;🛠️ OUTILS DE SUPPORT ALTAZION&quot;
+        NOTIF[Service de Notification]
+        CACHE[Service Gestion Cache]
+    end
+
+    subgraph &quot;🏢 OFFICE SUITE&quot;
+        OM[Office Main]
+        OPIM[Office PIM]
+        OERP[Office ERP]
+        ORET[Office Retail]
+        OCONT[Office Content]
+        OCOM[Office Commerce]
+    end
+
+    subgraph &quot;🚚 SUPPLY CHAIN&quot;
+        OMAIN[Orchestrator Main]
+        DELIV[Delivery Optimizer]
+        USTOCK[Unified Stock]
+    end
+
+    subgraph &quot;🛒 ECOMMERCE&quot;
+        CENG[Commerce Engine]
+        CSIGN[Commerce Signage]
+        CSERV[Commerce Server]
+    end
+
+    %% Connexions Office
+    OM --&gt;|Principal| SQL
+    OM --&gt;|Certaines données| MONGO
+    OM --&gt;|Chat/IA| REDIS
+
+    OPIM --&gt; SQL
+    OERP --&gt; SQL
+    ORET --&gt; SQL
+    OCONT --&gt; SQL
+    OCONT --&gt; MONGO
+    OCOM --&gt; SQL
+
+    %% Connexions Supply Chain
+    OMAIN --&gt; SQL
+    DELIV --&gt;|Données| MONGO
+    DELIV --&gt;|Cache| REDIS
+    DELIV --&gt;|Appel API| USTOCK
+    USTOCK --&gt;|Cache| REDIS
+
+    %% Connexions ECommerce
+    CENG --&gt;|Principal| SQL
+    CENG --&gt;|Paniers| MONGO
+    CENG --&gt;|Sessions| REDIS
+    CENG --&gt;|Appel API| DELIV
+
+    CSIGN --&gt; SQL
+    CSIGN --&gt; REDIS
+
+    CSERV --&gt; SQL
+    CSERV --&gt; MONGO
+
+    %% Style des bases de données
+    style MONGO fill:#4DB33D,stroke:#3E8E2E,color:#fff
+    style REDIS fill:#DC382D,stroke:#B02A21,color:#fff
+    style SQL fill:#0078D4,stroke:#005A9E,color:#fff
+
+    style NOTIF fill:#FF6F00,stroke:#E65100,color:#fff
+    style CACHE fill:#FF6F00,stroke:#E65100,color:#fff
+</code></pre><hr>
+<h3 id="vue-office-suite">Vue Office Suite</h3>
+<pre><code class="lang-mermaid">graph TB
+    subgraph &quot;💾 BASES DE DONNÉES&quot;
+        MONGO[(MongoDB vCore)]
+        REDIS[(Redis Enterprise)]
+        SQL[(SQL Server)]
+    end
+
+    subgraph &quot;🏢 OFFICE SUITE&quot;
+        OM[Office Main]
+        OPIM[Office PIM]
+        OERP[Office ERP]
+        ORET[Office Retail]
+        OCONT[Office Content]
+        OCOM[Office Commerce]
+    end
+
+    %% Connexions Office Main
+    OM --&gt;|Principal| SQL
+    OM --&gt;|Certaines données| MONGO
+    OM --&gt;|Chat/IA| REDIS
+
+    %% Connexions Office PIM
+    OPIM --&gt;|Principal| SQL
+    OPIM --&gt;|DPP - Infos produits avancées| MONGO
+
+    %% Connexions Office ERP
+    OERP --&gt;|Principal| SQL
+
+    %% Connexions Office Retail
+    ORET --&gt;|Principal| SQL
+
+    %% Connexions Office Content
+    OCONT --&gt;|Secondaire| SQL
+    OCONT --&gt;|Principal| MONGO
+
+    %% Connexions Office Commerce
+    OCOM --&gt;|Principal| SQL
+
+    %% Style des applications Office
+    style OM fill:#2196F3,stroke:#1976D2,color:#fff
+    style OPIM fill:#2196F3,stroke:#1976D2,color:#fff
+    style OERP fill:#2196F3,stroke:#1976D2,color:#fff
+    style ORET fill:#2196F3,stroke:#1976D2,color:#fff
+    style OCONT fill:#2196F3,stroke:#1976D2,color:#fff
+    style OCOM fill:#2196F3,stroke:#1976D2,color:#fff
+
+    %% Style des bases de données
+    style MONGO fill:#4DB33D,stroke:#3E8E2E,color:#fff
+    style REDIS fill:#DC382D,stroke:#B02A21,color:#fff
+    style SQL fill:#0078D4,stroke:#005A9E,color:#fff
+</code></pre><hr>
+<h3 id="vue-supply-chain-suite">Vue Supply Chain Suite</h3>
+<pre><code class="lang-mermaid">graph TB
+    subgraph &quot;💾 BASES DE DONNÉES&quot;
+        MONGO[(MongoDB vCore)]
+        REDIS[(Redis Enterprise)]
+        SQL[(SQL Server)]
+    end
+
+    subgraph &quot;🚚 SUPPLY CHAIN SUITE&quot;
+        OMAIN[Orchestrator Main]
+        DELIV[Delivery Optimizer]
+        USTOCK[Unified Stock]
+    end
+
+    %% Connexions Orchestrator Main
+    OMAIN --&gt;|Principal| SQL
+
+    %% Connexions Delivery Optimizer
+    DELIV --&gt;|Données principales| MONGO
+    DELIV --&gt;|Cache| REDIS
+    DELIV --&gt;|Appel API| USTOCK
+
+    %% Connexions Unified Stock
+    USTOCK --&gt;|Cache principal| REDIS
+
+    %% Style des applications Supply Chain
+    style OMAIN fill:#00BCD4,stroke:#0097A7,color:#fff
+    style DELIV fill:#00BCD4,stroke:#0097A7,color:#fff
+    style USTOCK fill:#00BCD4,stroke:#0097A7,color:#fff
+
+    %% Style des bases de données
+    style MONGO fill:#4DB33D,stroke:#3E8E2E,color:#fff
+    style REDIS fill:#DC382D,stroke:#B02A21,color:#fff
+    style SQL fill:#0078D4,stroke:#005A9E,color:#fff
+</code></pre><hr>
+<h3 id="vue-ecommerce-suite">Vue ECommerce Suite</h3>
+<pre><code class="lang-mermaid">graph TB
+    subgraph &quot;💾 BASES DE DONNÉES&quot;
+        MONGO[(MongoDB vCore)]
+        REDIS[(Redis Enterprise)]
+        SQL[(SQL Server)]
+    end
+
+    subgraph &quot;🚚 SUPPLY CHAIN&quot;
+        DELIV[Delivery Optimizer]
+    end
+
+    subgraph &quot;🛒 ECOMMERCE SUITE&quot;
+        CENG[Commerce Engine]
+        CSIGN[Commerce Signage]
+        CSERV[Commerce Server]
+    end
+
+    %% Connexions Commerce Engine
+    CENG --&gt;|Principal| SQL
+    CENG --&gt;|Paniers| MONGO
+    CENG --&gt;|Sessions| REDIS
+    CENG --&gt;|Appel API| DELIV
+
+    %% Connexions Commerce Signage
+    CSIGN --&gt;|Principal| SQL
+    CSIGN --&gt;|Cache| REDIS
+
+    %% Connexions Commerce Server
+    CSERV --&gt;|Principal| SQL
+    CSERV --&gt;|Données secondaires| MONGO
+
+    %% Style des applications ECommerce
+    style CENG fill:#9C27B0,stroke:#7B1FA2,color:#fff
+    style CSIGN fill:#9C27B0,stroke:#7B1FA2,color:#fff
+    style CSERV fill:#9C27B0,stroke:#7B1FA2,color:#fff
+
+    %% Style Supply Chain (référencé)
+    style DELIV fill:#00BCD4,stroke:#0097A7,color:#fff
+
+    %% Style des bases de données
+    style MONGO fill:#4DB33D,stroke:#3E8E2E,color:#fff
+    style REDIS fill:#DC382D,stroke:#B02A21,color:#fff
+    style SQL fill:#0078D4,stroke:#005A9E,color:#fff
+</code></pre><hr>
+<h2 id="détail-des-composants">Détail des Composants</h2>
+<h3 id="office-suite-back-office">Office Suite (Back-Office)</h3>
+<table>
+<thead>
+<tr>
+<th>Composant</th>
+<th>Description</th>
+<th>Image Docker</th>
+<th>Dépendances</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Office Main</strong></td>
+<td>Point d&#39;entrée principal du back-office</td>
+<td><code>altazion-office-main</code></td>
+<td>SQL (principal), MongoDB (certaines données), Redis (chat/IA)</td>
+</tr>
+<tr>
+<td><strong>Office PIM</strong></td>
+<td>Gestion des articles et catalogue produits</td>
+<td><code>altazion-office-pim</code></td>
+<td>SQL Server, MongoDB (infos produits avancées : DPP)</td>
+</tr>
+<tr>
+<td><strong>Office ERP</strong></td>
+<td>Gestion de l&#39;entreprise (finances, RH, etc.)</td>
+<td><code>altazion-office-erp</code></td>
+<td>SQL Server</td>
+</tr>
+<tr>
+<td><strong>Office Retail</strong></td>
+<td>Back-office pour la gestion des magasins</td>
+<td><code>altazion-office-retail</code></td>
+<td>SQL Server</td>
+</tr>
+<tr>
+<td><strong>Office Content</strong></td>
+<td>Gestion du contenu headless (CMS)</td>
+<td><code>altazion-office-content</code></td>
+<td>SQL Server, MongoDB (données principales)</td>
+</tr>
+<tr>
+<td><strong>Office Commerce</strong></td>
+<td>Back-office pour le e-commerce</td>
+<td><code>altazion-office-commerce</code></td>
+<td>SQL Server</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Batchs associés :</strong> Office Main Batchs, Office PIM Batchs, Office Content Batchs, Office ERP Batchs, Office Commerce Batchs, Office Retail Batchs <em>(prévu ultérieurement)</em></p>
+<hr>
+<h3 id="supply-chain-suite-orchestration-logistique">Supply Chain Suite (Orchestration Logistique)</h3>
+<table>
+<thead>
+<tr>
+<th>Composant</th>
+<th>Description</th>
+<th>Image Docker</th>
+<th>Dépendances</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Orchestrator Main</strong></td>
+<td>Back-office logistique et orchestration principale</td>
+<td><code>altazion/orchestrator-main</code></td>
+<td>SQL Server</td>
+</tr>
+<tr>
+<td><strong>Delivery Optimizer</strong></td>
+<td>Optimisation des livraisons et routage</td>
+<td><code>altazion/delivery-optimizer</code></td>
+<td>MongoDB vCore, Redis Enterprise</td>
+</tr>
+<tr>
+<td><strong>Unified Stock</strong></td>
+<td>Gestion unifiée des stocks multicanaux</td>
+<td><code>altazion/oms-unifiedstock</code></td>
+<td>Redis Enterprise</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Batchs associés :</strong> Orchestrator Batchs (pour les 3 composants), Orchestrator OMS Batchs (progression commandes/bons de préparation)</p>
+<hr>
+<h3 id="ecommerce-suite-front-end-commerce">ECommerce Suite (Front-End Commerce)</h3>
+<table>
+<thead>
+<tr>
+<th>Composant</th>
+<th>Description</th>
+<th>Image Docker</th>
+<th>Dépendances</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Commerce Engine</strong></td>
+<td>Moteur e-commerce headless (API)</td>
+<td><code>altazion-commerce-engine</code></td>
+<td>SQL Server, MongoDB (paniers), Redis (sessions), Delivery Optimizer (API)</td>
+</tr>
+<tr>
+<td><strong>Commerce Signage</strong></td>
+<td>Vente sur devices digitaux en magasin (bornes, affichage)</td>
+<td></td>
+<td>SQL Server, Redis</td>
+</tr>
+<tr>
+<td><strong>Commerce Server</strong></td>
+<td>Couche de rendu côté serveur (SSR)</td>
+<td></td>
+<td>SQL Server, MongoDB</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Batchs associés :</strong> Aucun prévu pour l&#39;instant</p>
+<hr>
+<h3 id="bases-de-données--cache">Bases de Données &amp; Cache</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Usage</th>
+<th>Composants utilisateurs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MongoDB vCore</strong></td>
+<td>Stockage NoSQL pour paniers, certaines données</td>
+<td>Delivery Optimizer, Office Main, Office Content, Commerce Engine, Commerce Server</td>
+</tr>
+<tr>
+<td><strong>Redis Enterprise</strong></td>
+<td>Cache haute performance, sessions, chat/IA</td>
+<td>Unified Stock, Delivery Optimizer, Office Main (chat/IA), Commerce Engine (sessions), Commerce Signage</td>
+</tr>
+<tr>
+<td><strong>SQL Server</strong></td>
+<td>Base de données transverse principale</td>
+<td>Presque tous les composants Office, Supply Chain et ECommerce</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="outils-de-support-altazion">Outils de Support Altazion</h3>
+<table>
+<thead>
+<tr>
+<th>Outil</th>
+<th>Description</th>
+<th>Image Docker</th>
+<th>Dépendances</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Service de Notification</strong></td>
+<td>Gestion des notifications de changement (type Service Bus/Kafka/NATS)</td>
+<td><code>altazion-internal-notifapp</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Service Gestion Cache</strong></td>
+<td>Gestion centralisée du cache Redis</td>
+<td><code>altazion-redis-cachetools</code></td>
+<td>Redis Enterprise, SQL Server</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="déploiement-k8s">Déploiement K8S</h3>
+<p>Les composants suivants ont besoin d&#39;être accèdés par des utilisateurs externes : </p>
+<ul>
+<li>Tout Office-*</li>
+<li>Orchestrator-Main</li>
+</ul>
+<p>Les composants suivants ont besoin d&#39;un ingress avec protection contre DDOS :</p>
+<ul>
+<li>Commerce Engine</li>
+<li>Commerce Signage</li>
+</ul>
+<p>Ces composants peuvent avoir un ingress &quot;semi privé&quot; :</p>
+<ul>
+<li>Unified Stocks</li>
+<li>Delivery Optimizer</li>
+<li>altazion-internal-notifapp</li>
+<li>altazion-redis-cachetools</li>
+</ul>
+<p><em>Documentation logique maintenue par l&#39;équipe DevOps Altazion</em>
+<em>Dernière mise à jour : 19 janvier 2026</em></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/clients/pour-expertime/architecture.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

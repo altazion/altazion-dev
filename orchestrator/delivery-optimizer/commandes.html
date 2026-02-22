@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Gestion des commandes | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Gestion des commandes | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="gestion-des-commandes">Gestion des commandes</h1>
+
+<h2 id="synchronisation-périodique-interne-des-commandes-avec-mongodb">Synchronisation périodique interne des commandes avec MongoDB</h2>
+<p>Les commandes stockées dans REDIS doivent être régulièrement synchronisées avec MongoDB afin de garantir la persistance des données.
+Pour cela Delivery Optimizer déclenche un batch de synchronisation toutes les dix minutes. Celui-ci va, pour chaque raison juridique (tenant) exécuter les opérations suivantes :</p>
+<ul>
+<li>Regarder si sa <strong>ConfigDo.enableInternalOrderSync</strong> est positionnée à true, si non, le traitement s&#39;arrête pour se tenant et le batch passe au tenant suivant.</li>
+<li>Récupérer les commandes en cours sur REDIS.</li>
+<li>Enregistrer ces commandes dans MongoDB.</li>
+</ul>
+<p>Vous pouvez désactiver cette synchronisation automatique en positionnant <strong>ConfigDo.enableInternalOrderSync</strong> à false.</p>
+<h2 id="upsert-ajoutmise-à-jour-dune-commande">Upsert (Ajout/Mise à jour) d&#39;une commande</h2>
+<p><strong>POST : {tenantId}/order</strong></p>
+<p>Cette fonction reçoit un objet de type <strong>Order</strong> (en format JSON dans le body de la requête) et l&#39;ajoute en base si elle n&#39;existe pas ou la <strong>redéfini entièrement</strong> si elle existe.</p>
+<h3 id="exemple-dappel-api">Exemple d&#39;appel API</h3>
+<p>L&#39;exemple ci-dessous décrit l&#39;objet <strong>Order</strong> à passer dans le body et les champs qu&#39;il contient. Tous les champs excepté <strong>expiresAt</strong> sont <strong>obligatoires</strong></p>
+<pre><code class="lang-json">{
+  &quot;orderId&quot;: &quot;3fa85f64-5717-4562-b3fc-2c963f66afa6&quot;,
+  &quot;tenantId&quot;: 0,
+  &quot;lastUpdated&quot;: &quot;2025-09-22T10:01:20.624Z&quot;,
+  &quot;expiresAt&quot;: &quot;2025-09-23T11:01:20.624Z&quot;,
+  &quot;type&quot;: &quot;Order&quot;,
+  &quot;lines&quot;: [
+    {
+      &quot;code&quot;: &quot;FRA:MAG:0125&quot;,
+      &quot;artGuid&quot;: &quot;c420a0b0-fd50-446a-b2e0-18ab3bf4c460&quot;,
+      &quot;qty&quot;: 1
+    },
+    {
+      &quot;code&quot;: &quot;FRA:MAG:0953&quot;,
+      &quot;artGuid&quot;: &quot;4128d10e-1594-42a7-8c79-bde5181a20f5&quot;,
+      &quot;qty&quot;: 2
+    }
+  ]
+}
+</code></pre><p>Le champ <strong>orderId</strong> contient le Guid de la commande, <strong>tenantId</strong> l&#39;identifiant du client. <strong>type</strong> correspond au le type de commande (Order, Cart ou ExternalOrder). <strong>lastUpdated</strong> indique la dernière date de modification de la commande et <strong>expiresAt</strong> (optionnel) sa date d&#39;expiration si elle est renseignée.
+Le contenu de la commande se trouve dans le champ <strong>lines</strong>. Il s&#39;agit d&#39;un tableau de <strong>OrderLine</strong> structuré comme ceci :</p>
+<ul>
+<li><strong>code</strong> qui correspond au code de l&#39;origine de stock qui traitera l&#39;article</li>
+<li><strong>artGuid</strong>, l&#39;identifiant unique de l&#39;article à traiter</li>
+<li><strong>qty</strong>, la quantité d&#39;article à expédier</li>
+</ul>
+<h3 id="réponse-du-serveur">Réponse du serveur</h3>
+<p>La méthode renvoie un booléen : True si la commande a été ajoutée, false si elle existait déjà et a été modifiée</p>
+<h2 id="replacement-de-toutes-les-commandes">Replacement de toutes les commandes</h2>
+<p><strong>PUT : {tenantId}/orders</strong></p>
+<p>Cette fonction reçoit un tableau d&#39;objets de type <strong>Order</strong> (en format JSON dans le body de la requête). Elle permet de remplacer <strong>toutes</strong> les commandes contenues dans les bases Redis et Mongo par celles envoyées dans le body.</p>
+<h2 id="suppression-dune-commande">Suppression d&#39;une commande</h2>
+<p><strong>DELETE : {tenantId}/order/byid/{idCommande}</strong></p>
+<p>Supprime une commande par son Guid. Cette méthode est typiquement utilisée lorsqu&#39;un client décide de supprimer un panier en cours ou que le panier expire sur le site.</p>
+<p>La méthode renvoie un booléen : True si la commande a été trouvée et supprimée, false si elle n&#39;existe pas en base.</p>
+<h2 id="suppression-dune-commande-par-code-dorigine-de-stock">Suppression d&#39;une commande par code d&#39;origine de stock</h2>
+<p><strong>DELETE : {tenantId}/order/byid/{idCommande}/code/{code}</strong></p>
+<p>Lorsqu&#39;une expédition est effectuée par une origine de stock il est nécessaire de supprimer la partie de la commande associée à cet emplacement (<strong>OrderLine</strong>) afin d&#39;en réduire la saturation. Pour cela on passe le tenantId, l&#39;id de la commande ainsi que le code de l&#39;origine de stock.</p>
+<p>Il est également judicieux d&#39;utiliser cette méthode pour supprimer une commande de type e-resa (avec retrait en magasin) puisse que l&#39;intégralité de la commande est expédiée par une origine de stock magasin dont on connait le code. À noter qu&#39;une commande qui ne contient plus aucune ligne est supprimée.</p>
+<p>La méthode renvoie un booléen : True si la commande a été trouvée et que les lignes ont été supprimées, false si elle n&#39;existe pas en base.</p>
+<h2 id="récupération-dune-commande-par-son-id">Récupération d&#39;une commande par son Id</h2>
+<p><strong>GET : {tenantId}/order/{orderId}</strong></p>
+<p>Permet d&#39;obtenir un objet <strong>Order</strong> décrivant l&#39;état actuel d&#39;une commande ou d&#39;un panier ayant été enregistrée en base dans les <strong>Articles</strong> et <strong>StockOrigins</strong>. L&#39;état d&#39;une commande varie au fur et à mesure que les <strong>OrderLine</strong> qui la compose sont expédiés.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/orchestrator/delivery-optimizer/commandes.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

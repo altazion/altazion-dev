@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>DeliveryMode | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="DeliveryMode | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="deliverymode">DeliveryMode</h2>
+
+<p>La classe DeliveryMode représente un mode de livraison dans le système logistique. Elle contient diverses propriétés permettant de définir ses caractéristiques, contraintes et disponibilités.</p>
+<p>Propriétés publiques:</p>
+<ul>
+<li>Guid : Identifiant unique du mode de livraison.</li>
+<li>ProviderId : Identifiant du prestataire associé.</li>
+<li>Order : Ordre de priorité ou d&#39;affichage.</li>
+<li>ProductGuid : Identifiant optionnel du produit lié.</li>
+<li>MaxVolume : Volume maximum autorisé pour la livraison.</li>
+<li>MaxWeight : Poids maximum autorisé.</li>
+<li>MaxValue : Valeur maximale autorisée pour la livraison.</li>
+<li>MaxHeight, MaxWidth, MaxDepth : Dimensions maximales (hauteur, largeur, profondeur) autorisées.</li>
+<li>AllowsMultiplePackages : Indique si plusieurs colis sont autorisés.</li>
+<li>IsExceptional : Indique si le mode est exceptionnel.</li>
+<li>IsActive : Indique si le mode est actif.</li>
+<li>VolumeMargin : Marge de volume à considérer.</li>
+<li>MaxDeveloped : Dimension maximale développée.</li>
+<li>AverageDelay : Délai moyen de livraison en jours.</li>
+<li>IsDeliveryPoints : Indique si ce mode concerne des points de livraison.</li>
+<li>MinWeight : Poids minimum accepté.</li>
+<li>MaxNumberPerPeriod : Nombre maximum de livraisons autorisées par période.</li>
+<li>PeriodType : Type de période (ex: jour, semaine) pour la limitation.</li>
+<li>PeriodDuration : Durée de la période.</li>
+<li>SiteId : Identifiant du site associé.</li>
+<li>SiteValidationUrl : URL de validation sur le site.</li>
+<li>MinValue : Valeur minimum requise pour utiliser ce mode.</li>
+<li>Label : Libellé affiché pour ce mode.</li>
+<li>AverageCostTtc : Coût moyen TTC.</li>
+<li>AverageCostHt : Coût moyen hors taxes.</li>
+<li>IsAvailableEcommerce : Disponibilité sur e-commerce.</li>
+<li>IsAvailablePos : Disponibilité sur point de vente physique.</li>
+<li>IsAvailableClickAndMortar : Disponibilité en click and mortar.</li>
+<li>Priority : Priorité numérique.</li>
+<li>DeliveryType : Type de livraison exprimé en chaîne (remplace l&#39;énumération TypeLivraison).</li>
+<li>IsArchived : Indique si ce mode est archivé.</li>
+<li>PublicHtml : Contenu HTML public associé.</li>
+</ul>
+<p>Constantes définies dans la classe (pour les types de livraison) :</p>
+<ul>
+<li>DeliveryTypeHome = &quot;DOMI&quot; (livraison domicile)</li>
+<li>DeliveryTypeRelayPoint = &quot;PTRL&quot; (point relais)</li>
+<li>DeliveryTypeStoreDelivery = &quot;LMAG&quot; (livraison magasin)</li>
+<li>DeliveryTypePickup = &quot;RETR&quot; (retrait)</li>
+</ul>
+<p>L&#39;énumération liée TypeLivraison définit les mêmes types que les constantes avec les valeurs:
+DOMI, PTRL, LMAG, RETR.</p>
+<h3 id="dclaration-typescript">D�claration TypeScript</h3>
+<pre><code class="lang-typescript">interface DeliveryMode {
+    Guid: string;
+    ProviderId: number;
+    Order: number;
+    ProductGuid?: string | null;
+    MaxVolume?: number | null;
+    MaxWeight?: number | null;
+    MaxValue?: number | null;
+    MaxHeight?: number | null;
+    MaxWidth?: number | null;
+    MaxDepth?: number | null;
+    AllowsMultiplePackages: boolean;
+    IsExceptional: boolean;
+    IsActive: boolean;
+    VolumeMargin?: number | null;
+    MaxDeveloped?: number | null;
+    AverageDelay?: number | null;
+    IsDeliveryPoints: boolean;
+    MinWeight: number;
+    MaxNumberPerPeriod?: number | null;
+    PeriodType?: string | null;
+    PeriodDuration?: number | null;
+    SiteId?: number | null;
+    SiteValidationUrl?: string | null;
+    MinValue: number;
+    Label?: string | null;
+    AverageCostTtc?: number | null;
+    AverageCostHt?: number | null;
+    IsAvailableEcommerce: boolean;
+    IsAvailablePos: boolean;
+    IsAvailableClickAndMortar: boolean;
+    Priority: number;
+    DeliveryType?: string | null;
+    IsArchived: boolean;
+    PublicHtml?: string | null;
+}
+
+// Constants for DeliveryType
+const DeliveryTypeHome = &quot;DOMI&quot;;
+const DeliveryTypeRelayPoint = &quot;PTRL&quot;;
+const DeliveryTypeStoreDelivery = &quot;LMAG&quot;;
+const DeliveryTypePickup = &quot;RETR&quot;;
+
+// Enum equivalent in TypeScript
+enum TypeLivraison {
+    DOMI = &quot;DOMI&quot;,
+    PTRL = &quot;PTRL&quot;,
+    LMAG = &quot;LMAG&quot;,
+    RETR = &quot;RETR&quot;
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/fr-fr/reference/DataObjectBase/Core-Business/business/Altazion.Logistics.Model/DeliveryMode/Altazion.Logistics.Model.DeliveryMode.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>

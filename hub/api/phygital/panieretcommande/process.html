@@ -1,0 +1,1104 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Process | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Process | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="process">Process</h1>
+
+<h2 id="span-idajouterreglementajouter-un-règlementspan"><span id='ajouterreglement'>Ajouter un règlement</span></h2>
+<p>Ajoute un règlement</p>
+<p>Url :<code>[GET] v2/process/reglement/add/{guid:guid}?reference={reference:string}&amp;montant={montant:decimal?}&amp;valide={valide:System.Boolean?}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>guid</strong> (System.Guid) : Le guid du mode de règlement</li>
+<li><strong>reference</strong> (string) : Par exemple le numéro de transaction CB, ou l&#39;identifiant du bon d&#39;achat</li>
+<li><strong>montant</strong> (decimal?) : Le montant du règlement (ne pas renseigner pour utiliser le montant restant à payer)</li>
+<li><strong>valide</strong> (System.Boolean?) : True si le règlement est totalement terminée, false si des opérations ultérieures (par exemple une validation par un journal d&#39;opération, ou la reception physique du règlement) sont nécessaires</li>
+</ul>
+<p>Type de retour : <code>ResumeProcess</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResumeProcess
+{
+    System.Guid ClientGuid { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    decimal MontantTTCRestant { get; set; }
+    string MontantTTCRestantFormate { get; set; }
+    System.Guid ModeLivraisonGuid { get; set; }
+    string ModeLivraison { get; set; }
+    decimal ModeLivraisonMontantTTC { get; set; }
+    DateTime DateLivraisonPrevue { get; set; }
+    bool DemandeAdresseLivraison { get; set; }
+    bool DemandePointLivraison { get; set; }
+    bool EstLivraisonMagasin { get; set; }
+    string NomDestinataire { get; set; }
+    bool EstValidable { get; set; }
+    bool EstTerminee { get; set; }
+    string NumeroCommande { get; set; }
+    System.Guid GuidCommande { get; set; }
+    System.String[] Tags { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+    CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+    CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
+}
+</code></pre><h2 id="span-idchoixptlivrchoisir-le-point-de-livraisonspan"><span id='choixptlivr'>Choisir le point de livraison</span></h2>
+<p>Définit le point de livraison (relais, magasin) de la commande</p>
+<p>Url :<code>[GET] v2/process/livraison/relais/{guid:guid}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>guid</strong> (System.Guid)</li>
+</ul>
+<p>Type de retour : <code>ResumeProcess</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResumeProcess
+{
+    System.Guid ClientGuid { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    decimal MontantTTCRestant { get; set; }
+    string MontantTTCRestantFormate { get; set; }
+    System.Guid ModeLivraisonGuid { get; set; }
+    string ModeLivraison { get; set; }
+    decimal ModeLivraisonMontantTTC { get; set; }
+    DateTime DateLivraisonPrevue { get; set; }
+    bool DemandeAdresseLivraison { get; set; }
+    bool DemandePointLivraison { get; set; }
+    bool EstLivraisonMagasin { get; set; }
+    string NomDestinataire { get; set; }
+    bool EstValidable { get; set; }
+    bool EstTerminee { get; set; }
+    string NumeroCommande { get; set; }
+    System.Guid GuidCommande { get; set; }
+    System.String[] Tags { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+    CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+    CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
+}
+</code></pre><h2 id="span-idconnexionloginconnecter-un-utilisateur-par-ses-identifiantsspan"><span id='connexionlogin'>Connecter un utilisateur par ses identifiants</span></h2>
+<p>Connecte un utilisateur et l&#39;associe à la commande</p>
+<p>Url :<code>[GET] v2/process/login/user?username={username:string}&amp;pwd={pwd:string}&amp;mode={mode:string}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>username</strong> (string) : Le nom d&#39;utilisateur (e-mail, à priori)</li>
+<li><strong>pwd</strong> (string) : Le mot de passe (cf remarques)</li>
+<li><strong>mode</strong> (string) : Le mode de connexion. Seule la valeur &#39;silent&#39; est autorisé actuellement</li>
+</ul>
+<p>Type de retour : <code>ResumeProcess</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResumeProcess
+{
+    System.Guid ClientGuid { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    decimal MontantTTCRestant { get; set; }
+    string MontantTTCRestantFormate { get; set; }
+    System.Guid ModeLivraisonGuid { get; set; }
+    string ModeLivraison { get; set; }
+    decimal ModeLivraisonMontantTTC { get; set; }
+    DateTime DateLivraisonPrevue { get; set; }
+    bool DemandeAdresseLivraison { get; set; }
+    bool DemandePointLivraison { get; set; }
+    bool EstLivraisonMagasin { get; set; }
+    string NomDestinataire { get; set; }
+    bool EstValidable { get; set; }
+    bool EstTerminee { get; set; }
+    string NumeroCommande { get; set; }
+    System.Guid GuidCommande { get; set; }
+    System.String[] Tags { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+    CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+    CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
+}
+</code></pre><h2 id="span-idconnexionparguidconnecter-un-utilisateur-par-son-identifiant-internespan"><span id='connexionparguid'>Connecter un utilisateur par son identifiant interne</span></h2>
+<p>Connecte un utilisateur et l&#39;associe à la commande</p>
+<p>Url :<code>[GET] v2/process/login/byguid/{clientGuid:guid}?mode={mode:string}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>clientGuid</strong> (System.Guid)</li>
+<li><strong>mode</strong> (string)</li>
+</ul>
+<p>Type de retour : <code>ResumeProcess</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResumeProcess
+{
+    System.Guid ClientGuid { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    decimal MontantTTCRestant { get; set; }
+    string MontantTTCRestantFormate { get; set; }
+    System.Guid ModeLivraisonGuid { get; set; }
+    string ModeLivraison { get; set; }
+    decimal ModeLivraisonMontantTTC { get; set; }
+    DateTime DateLivraisonPrevue { get; set; }
+    bool DemandeAdresseLivraison { get; set; }
+    bool DemandePointLivraison { get; set; }
+    bool EstLivraisonMagasin { get; set; }
+    string NomDestinataire { get; set; }
+    bool EstValidable { get; set; }
+    bool EstTerminee { get; set; }
+    string NumeroCommande { get; set; }
+    System.Guid GuidCommande { get; set; }
+    System.String[] Tags { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+    CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+    CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
+}
+</code></pre><h2 id="span-idconnexioncreationcréer-un-nouveau-clientspan"><span id='connexioncreation'>Créer un nouveau client</span></h2>
+<p>Créé un nouveau client et l&#39;affecte à la commande</p>
+<p>Url :<code>[PUT] v2/process/client?mode={mode:string}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>en tant que body, un objet CompteEtAdresseClientProcess : Les informations du client</li>
+<li><strong>mode</strong> (string) : le mode de création. Seule la valeur &#39;order&#39; est autorisé actuellement</li>
+</ul>
+<p>Url :<code>[POST] v2/process/client/new?mode={mode:string}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>en tant que body, un objet CompteEtAdresseClientProcess : Les informations du client</li>
+<li><strong>mode</strong> (string) : le mode de création. Seule la valeur &#39;order&#39; est autorisé actuellement</li>
+</ul>
+<p>Type de retour : <code>ResumeProcess</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResumeProcess
+{
+    System.Guid ClientGuid { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    decimal MontantTTCRestant { get; set; }
+    string MontantTTCRestantFormate { get; set; }
+    System.Guid ModeLivraisonGuid { get; set; }
+    string ModeLivraison { get; set; }
+    decimal ModeLivraisonMontantTTC { get; set; }
+    DateTime DateLivraisonPrevue { get; set; }
+    bool DemandeAdresseLivraison { get; set; }
+    bool DemandePointLivraison { get; set; }
+    bool EstLivraisonMagasin { get; set; }
+    string NomDestinataire { get; set; }
+    bool EstValidable { get; set; }
+    bool EstTerminee { get; set; }
+    string NumeroCommande { get; set; }
+    System.Guid GuidCommande { get; set; }
+    System.String[] Tags { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+    CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+    CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
+}
+
+class CompteEtAdresseClientProcess
+{
+    string Password { get; set; }
+    CreoIgnem.Phygital.Tools.CompteEtAdresseClientProcessLoyalty Fidelite { get; set; }
+    System.Guid Guid { get; set; }
+    string Civilite { get; set; }
+    string Nom { get; set; }
+    string Prenom { get; set; }
+    string Adresse { get; set; }
+    string Ville { get; set; }
+    string Telephone { get; set; }
+    string Mobile { get; set; }
+    string CP { get; set; }
+    string PayPk { get; set; }
+    string Region { get; set; }
+    string Email { get; set; }
+}
+</code></pre><h2 id="span-idadrlivraisondefinirchoisir-adresse-livraisonspan"><span id='adrlivraisondefinir'>Choisir adresse livraison</span></h2>
+<p>Change l&#39;adresse de livraison de la commande en cours (pour les livraisons au domicile)</p>
+<p>Url :<code>[GET] v2/process/livraison/adresse/{guid:guid}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>guid</strong> (System.Guid)</li>
+</ul>
+<p>Type de retour : <code>ResumeProcess</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResumeProcess
+{
+    System.Guid ClientGuid { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    decimal MontantTTCRestant { get; set; }
+    string MontantTTCRestantFormate { get; set; }
+    System.Guid ModeLivraisonGuid { get; set; }
+    string ModeLivraison { get; set; }
+    decimal ModeLivraisonMontantTTC { get; set; }
+    DateTime DateLivraisonPrevue { get; set; }
+    bool DemandeAdresseLivraison { get; set; }
+    bool DemandePointLivraison { get; set; }
+    bool EstLivraisonMagasin { get; set; }
+    string NomDestinataire { get; set; }
+    bool EstValidable { get; set; }
+    bool EstTerminee { get; set; }
+    string NumeroCommande { get; set; }
+    System.Guid GuidCommande { get; set; }
+    System.String[] Tags { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+    CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+    CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
+}
+</code></pre><h2 id="span-idnouvelleadressecréer-une-nouvelle-adressespan"><span id='nouvelleadresse'>Créer une nouvelle adresse</span></h2>
+<p>Créé une nouvelle adresse</p>
+<p>Url :<code>[POST] v2/process/client/adresses/new?mode={mode:string}&amp;estFacturation={estFacturation:bool}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>en tant que body, un objet AdresseClientProcess : le détail de l&#39;adresse</li>
+<li><strong>mode</strong> (string) : le mode de création. Seule la valeur &#39;order&#39; est autorisé actuellement</li>
+<li><strong>estFacturation</strong> (bool) : true si il s&#39;agit d&#39;une adresse de facturation, false pour une adresse de livraison</li>
+</ul>
+<p>Type de retour : <code>ResumeProcess</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResumeProcess
+{
+    System.Guid ClientGuid { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    decimal MontantTTCRestant { get; set; }
+    string MontantTTCRestantFormate { get; set; }
+    System.Guid ModeLivraisonGuid { get; set; }
+    string ModeLivraison { get; set; }
+    decimal ModeLivraisonMontantTTC { get; set; }
+    DateTime DateLivraisonPrevue { get; set; }
+    bool DemandeAdresseLivraison { get; set; }
+    bool DemandePointLivraison { get; set; }
+    bool EstLivraisonMagasin { get; set; }
+    string NomDestinataire { get; set; }
+    bool EstValidable { get; set; }
+    bool EstTerminee { get; set; }
+    string NumeroCommande { get; set; }
+    System.Guid GuidCommande { get; set; }
+    System.String[] Tags { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+    CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+    CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
+}
+
+class AdresseClientProcess
+{
+    System.Guid Guid { get; set; }
+    string Civilite { get; set; }
+    string Nom { get; set; }
+    string Prenom { get; set; }
+    string Adresse { get; set; }
+    string Ville { get; set; }
+    string Telephone { get; set; }
+    string Mobile { get; set; }
+    string CP { get; set; }
+    string PayPk { get; set; }
+    string Region { get; set; }
+    string Email { get; set; }
+}
+</code></pre><h2 id="span-iddeconnexionprocessdeconnecter-la-session-activespan"><span id='deconnexionprocess'>Deconnecter la session active</span></h2>
+<p>Deconnecte la session active (efface le panier, et deconnecte l&#39;utilisateur)</p>
+<p>Url :<code>[GET] v2/process/disconnect</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>Cette url n&#39;accepte aucun paramètre</li>
+</ul>
+<p>Url :<code>[GET] v2/process/logout</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>Cette url n&#39;accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>ResumeProcess</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResumeProcess
+{
+    System.Guid ClientGuid { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    decimal MontantTTCRestant { get; set; }
+    string MontantTTCRestantFormate { get; set; }
+    System.Guid ModeLivraisonGuid { get; set; }
+    string ModeLivraison { get; set; }
+    decimal ModeLivraisonMontantTTC { get; set; }
+    DateTime DateLivraisonPrevue { get; set; }
+    bool DemandeAdresseLivraison { get; set; }
+    bool DemandePointLivraison { get; set; }
+    bool EstLivraisonMagasin { get; set; }
+    string NomDestinataire { get; set; }
+    bool EstValidable { get; set; }
+    bool EstTerminee { get; set; }
+    string NumeroCommande { get; set; }
+    System.Guid GuidCommande { get; set; }
+    System.String[] Tags { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+    CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+    CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
+}
+</code></pre><h2 id="span-iddeconnexionseuledéconnecter-un-clientspan"><span id='deconnexionseule'>Déconnecter un client</span></h2>
+<p>Déconnecte le client actif</p>
+<p>Url :<code>[GET] v2/process/login/clear</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>Cette url n&#39;accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>ResumeProcess</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResumeProcess
+{
+    System.Guid ClientGuid { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    decimal MontantTTCRestant { get; set; }
+    string MontantTTCRestantFormate { get; set; }
+    System.Guid ModeLivraisonGuid { get; set; }
+    string ModeLivraison { get; set; }
+    decimal ModeLivraisonMontantTTC { get; set; }
+    DateTime DateLivraisonPrevue { get; set; }
+    bool DemandeAdresseLivraison { get; set; }
+    bool DemandePointLivraison { get; set; }
+    bool EstLivraisonMagasin { get; set; }
+    string NomDestinataire { get; set; }
+    bool EstValidable { get; set; }
+    bool EstTerminee { get; set; }
+    string NumeroCommande { get; set; }
+    System.Guid GuidCommande { get; set; }
+    System.String[] Tags { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+    CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+    CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
+}
+</code></pre><h2 id="span-idnomlivraisondefinirdéfinir-le-nom-de-la-personne-retirant-le-colisspan"><span id='nomlivraisondefinir'>Définir le nom de la personne retirant le colis</span></h2>
+<p>Définit le nom de la personne qui retirera le colis</p>
+<p>Url :<code>[GET] v2/process/livraison/nom/{nom}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>nom</strong> (string) : Le nom de la personne qui retirera le colis</li>
+</ul>
+<p>Url :<code>[POST] v2/process/livraison/nom</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>Cette url n&#39;accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>ResumeProcess</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResumeProcess
+{
+    System.Guid ClientGuid { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    decimal MontantTTCRestant { get; set; }
+    string MontantTTCRestantFormate { get; set; }
+    System.Guid ModeLivraisonGuid { get; set; }
+    string ModeLivraison { get; set; }
+    decimal ModeLivraisonMontantTTC { get; set; }
+    DateTime DateLivraisonPrevue { get; set; }
+    bool DemandeAdresseLivraison { get; set; }
+    bool DemandePointLivraison { get; set; }
+    bool EstLivraisonMagasin { get; set; }
+    string NomDestinataire { get; set; }
+    bool EstValidable { get; set; }
+    bool EstTerminee { get; set; }
+    string NumeroCommande { get; set; }
+    System.Guid GuidCommande { get; set; }
+    System.String[] Tags { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+    CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+    CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
+}
+</code></pre><h2 id="span-idterminerfinaliser-une-commandespan"><span id='terminer'>Finaliser une commande</span></h2>
+<p>Valide une commande</p>
+<p>Url :<code>[GET] v2/process/terminer?mode={mode:string}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>mode</strong> (string) : A ne pas renseigner, prévu pour usage interne</li>
+</ul>
+<p>Type de retour : <code>CommandeTermine</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class CommandeTermine
+{
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.LignePanier[] Articles { get; set; }
+    string MessageConfirmation { get; set; }
+    System.Guid ClientGuid { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    decimal MontantTTCRestant { get; set; }
+    string MontantTTCRestantFormate { get; set; }
+    System.Guid ModeLivraisonGuid { get; set; }
+    string ModeLivraison { get; set; }
+    decimal ModeLivraisonMontantTTC { get; set; }
+    DateTime DateLivraisonPrevue { get; set; }
+    bool DemandeAdresseLivraison { get; set; }
+    bool DemandePointLivraison { get; set; }
+    bool EstLivraisonMagasin { get; set; }
+    string NomDestinataire { get; set; }
+    bool EstValidable { get; set; }
+    bool EstTerminee { get; set; }
+    string NumeroCommande { get; set; }
+    System.Guid GuidCommande { get; set; }
+    System.String[] Tags { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+    CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+    CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
+}
+
+class LignePanier
+{
+    CPointSoftware.Equihira.Common.MetaTypeArticle TypeArticle { get; set; }
+    string Identifiant { get; set; }
+    string IdentifiantLigneParent { get; set; }
+    string Libelle { get; set; }
+    string Reference { get; set; }
+    System.Guid ArticleGuid { get; set; }
+    decimal Quantite { get; set; }
+    string GroupePanier { get; set; }
+    decimal PuOriginalHT { get; set; }
+    decimal PuOriginalTTC { get; set; }
+    decimal PuFinalTTC { get; set; }
+    decimal PuFinalHT { get; set; }
+    decimal RemiseHT { get; set; }
+    decimal RemiseTTC { get; set; }
+    string ImageUrl { get; set; }
+    bool LigneMiseAJour { get; set; }
+    string Marque { get; set; }
+    string PrixFormate { get; set; }
+    string PrixOriginalFormate { get; set; }
+    string RemiseFormatee { get; set; }
+    string PctPromo { get; set; }
+    Guid? MagasinGuid { get; set; }
+    string Groupe { get; set; }
+    bool NonModifiable { get; set; }
+    System.String[] AttributsDifferentiants { get; set; }
+    System.String[] DonneesPersonnalisees { get; set; }
+    System.String[] DetailsFraisAnnexes { get; set; }
+    System.Boolean? DisponibleMagasin { get; set; }
+    decimal? QuantiteDisponibleMagasin { get; set; }
+    System.Boolean? DisponibleCentrale { get; set; }
+    decimal? QuantiteDisponibleCentrale { get; set; }
+    CPointSoftware.Equihira.Extensibility.PointOfSale.DigitalSignage.GroupeArticlesAssocies[] GroupesArticlesAssocies { get; set; }
+}
+
+class AdresseClientProcess
+{
+    System.Guid Guid { get; set; }
+    string Civilite { get; set; }
+    string Nom { get; set; }
+    string Prenom { get; set; }
+    string Adresse { get; set; }
+    string Ville { get; set; }
+    string Telephone { get; set; }
+    string Mobile { get; set; }
+    string CP { get; set; }
+    string PayPk { get; set; }
+    string Region { get; set; }
+    string Email { get; set; }
+}
+
+class PointLivraisonDetailProcess
+{
+    CreoIgnem.Phygital.Tools.PointLivraisonHoraireProcess[] Horaires { get; set; }
+    string Commentaires { get; set; }
+    System.Guid Guid { get; set; }
+    string Civilite { get; set; }
+    string Nom { get; set; }
+    string Adresse { get; set; }
+    string Ville { get; set; }
+    string Telephone { get; set; }
+    string CP { get; set; }
+    string Email { get; set; }
+    string Indication { get; set; }
+    System.String[] Services { get; set; }
+    CreoIgnem.Phygital.Tools.GeoLocalisationPointLivraisonProcess Localisation { get; set; }
+    bool EstActif { get; set; }
+}
+
+class ReglementProcess
+{
+    System.Guid Guid { get; set; }
+    string Reference { get; set; }
+    System.Guid ModeReglementGuid { get; set; }
+    decimal Montant { get; set; }
+    bool EstValide { get; set; }
+}
+</code></pre><h2 id="span-idconnexionanonymelance-un-process-de-commande-anonymespan"><span id='connexionanonyme'>Lance un process de commande anonyme</span></h2>
+<p>Démarre un process de commande sans identification du client</p>
+<p>Url :<code>[GET] v2/process/login/anonymous</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>Cette url n&#39;accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>ResumeProcess</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResumeProcess
+{
+    System.Guid ClientGuid { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    decimal MontantTTCRestant { get; set; }
+    string MontantTTCRestantFormate { get; set; }
+    System.Guid ModeLivraisonGuid { get; set; }
+    string ModeLivraison { get; set; }
+    decimal ModeLivraisonMontantTTC { get; set; }
+    DateTime DateLivraisonPrevue { get; set; }
+    bool DemandeAdresseLivraison { get; set; }
+    bool DemandePointLivraison { get; set; }
+    bool EstLivraisonMagasin { get; set; }
+    string NomDestinataire { get; set; }
+    bool EstValidable { get; set; }
+    bool EstTerminee { get; set; }
+    string NumeroCommande { get; set; }
+    System.Guid GuidCommande { get; set; }
+    System.String[] Tags { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+    CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+    CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
+}
+</code></pre><h2 id="span-idconnexionguestlance-un-process-de-commande-guestspan"><span id='connexionguest'>Lance un process de commande guest</span></h2>
+<p>Démarre un process via un guest-checkout</p>
+<p>Url :<code>[POST] v2/process/login/guest?username={username:string}&amp;mode={mode:string}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>username</strong> (string) : L&#39;email de connexion</li>
+<li>en tant que body, un objet CompteEtAdresseClientProcess : Les informations du client</li>
+<li><strong>mode</strong> (string) : Le mode de connexion. Seule la valeur &#39;silent&#39; est autorisé actuellement</li>
+</ul>
+<p>Type de retour : <code>ResumeProcess</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResumeProcess
+{
+    System.Guid ClientGuid { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    decimal MontantTTCRestant { get; set; }
+    string MontantTTCRestantFormate { get; set; }
+    System.Guid ModeLivraisonGuid { get; set; }
+    string ModeLivraison { get; set; }
+    decimal ModeLivraisonMontantTTC { get; set; }
+    DateTime DateLivraisonPrevue { get; set; }
+    bool DemandeAdresseLivraison { get; set; }
+    bool DemandePointLivraison { get; set; }
+    bool EstLivraisonMagasin { get; set; }
+    string NomDestinataire { get; set; }
+    bool EstValidable { get; set; }
+    bool EstTerminee { get; set; }
+    string NumeroCommande { get; set; }
+    System.Guid GuidCommande { get; set; }
+    System.String[] Tags { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+    CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+    CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
+}
+
+class CompteEtAdresseClientProcess
+{
+    string Password { get; set; }
+    CreoIgnem.Phygital.Tools.CompteEtAdresseClientProcessLoyalty Fidelite { get; set; }
+    System.Guid Guid { get; set; }
+    string Civilite { get; set; }
+    string Nom { get; set; }
+    string Prenom { get; set; }
+    string Adresse { get; set; }
+    string Ville { get; set; }
+    string Telephone { get; set; }
+    string Mobile { get; set; }
+    string CP { get; set; }
+    string PayPk { get; set; }
+    string Region { get; set; }
+    string Email { get; set; }
+}
+
+class CompteEtAdresseClientProcessLoyalty
+{
+    System.Guid[] ProgrammesAActiver { get; set; }
+    CreoIgnem.Phygital.Tools.CompteEtAdresseClientProcessAccount[] IdentifiantsExistants { get; set; }
+}
+
+class CompteEtAdresseClientProcessAccount
+{
+    System.Guid ProgrammeGuid { get; set; }
+    string Identifiant { get; set; }
+}
+</code></pre><h2 id="span-idlistercouponslister-les-couponsspan"><span id='listercoupons'>Lister les coupons</span></h2>
+<p>Obtient la liste des coupons actifs pour un mode de règlement et pour le client connecté</p>
+<p>Url :<code>[GET] v2/process/reglement/modes/{modeGuid:guid}/coupons</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>modeGuid</strong> (System.Guid) : L&#39;identifiant du mode de règlement</li>
+</ul>
+<p>Type de retour : <code>AvantageClient[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class AvantageClient
+{
+    System.Guid Guid { get; set; }
+    string Reference { get; set; }
+    bool EstUtilisable { get; set; }
+    string Libelle { get; set; }
+    string Conditions { get; set; }
+    string LimitesArticles { get; set; }
+    string Groupe { get; set; }
+    bool EstUtilise { get; set; }
+    decimal Montant { get; set; }
+    decimal MontantOriginal { get; set; }
+    bool EstLimiteArticle { get; set; }
+    DateTime DateMaxUtilisation { get; set; }
+    DateTime DateMinUtilisation { get; set; }
+    string TypeBlocage { get; set; }
+    Guid? IdBlocage { get; set; }
+    DateTime? DateBlocage { get; set; }
+    CPointSoftware.Equihira.Extensibility.Process.EtatAvantageClient Etat { get; set; }
+    Guid? IdClient { get; set; }
+}
+
+enum EtatAvantageClient
+{
+    Available, // =0
+    Used, // =1
+    InvalidDates, // =2
+    NotAvailable, // =3
+}
+</code></pre><h2 id="span-idmodifieradressemodifier-une-adressespan"><span id='modifieradresse'>Modifier une adresse</span></h2>
+<p>Modifie une adresse</p>
+<p>Url :<code>[POST] v2/process/client/adresses/{guid:guid}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>en tant que body, un objet AdresseClientProcess</li>
+<li><strong>guid</strong> (System.Guid)</li>
+</ul>
+<p>Type de retour : <code>ResumeProcess</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResumeProcess
+{
+    System.Guid ClientGuid { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    decimal MontantTTCRestant { get; set; }
+    string MontantTTCRestantFormate { get; set; }
+    System.Guid ModeLivraisonGuid { get; set; }
+    string ModeLivraison { get; set; }
+    decimal ModeLivraisonMontantTTC { get; set; }
+    DateTime DateLivraisonPrevue { get; set; }
+    bool DemandeAdresseLivraison { get; set; }
+    bool DemandePointLivraison { get; set; }
+    bool EstLivraisonMagasin { get; set; }
+    string NomDestinataire { get; set; }
+    bool EstValidable { get; set; }
+    bool EstTerminee { get; set; }
+    string NumeroCommande { get; set; }
+    System.Guid GuidCommande { get; set; }
+    System.String[] Tags { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+    CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+    CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
+}
+
+class AdresseClientProcess
+{
+    System.Guid Guid { get; set; }
+    string Civilite { get; set; }
+    string Nom { get; set; }
+    string Prenom { get; set; }
+    string Adresse { get; set; }
+    string Ville { get; set; }
+    string Telephone { get; set; }
+    string Mobile { get; set; }
+    string CP { get; set; }
+    string PayPk { get; set; }
+    string Region { get; set; }
+    string Email { get; set; }
+}
+</code></pre><h2 id="span-idcarnetdadressesobtenir-la-liste-des-adressesspan"><span id='carnetdadresses'>Obtenir la liste des adresses</span></h2>
+<p>Obtient la liste des adresses du client</p>
+<p>Url :<code>[GET] v2/process/client/adresses</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>Cette url n&#39;accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>AdresseClientProcess[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class AdresseClientProcess
+{
+    System.Guid Guid { get; set; }
+    string Civilite { get; set; }
+    string Nom { get; set; }
+    string Prenom { get; set; }
+    string Adresse { get; set; }
+    string Ville { get; set; }
+    string Telephone { get; set; }
+    string Mobile { get; set; }
+    string CP { get; set; }
+    string PayPk { get; set; }
+    string Region { get; set; }
+    string Email { get; set; }
+}
+</code></pre><h2 id="span-idnomlivraisonobtenir-le-nom-de-la-personne-retirant-le-colisspan"><span id='nomlivraison'>Obtenir le nom de la personne retirant le colis</span></h2>
+<p>Obtient le nom de la personne qui retirera le colis</p>
+<p>Url :<code>[GET] v2/process/livraison/nom</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>Cette url n&#39;accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>string</code></p>
+<h2 id="span-idlistemodesreglementsobtenir-les-modes-de-règlementsspan"><span id='listemodesreglements'>Obtenir les modes de règlements</span></h2>
+<p>Obtient les différents modes de règlement</p>
+<p>Url :<code>[GET] v2/process/reglement/modes?devices={devices:string}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>devices</strong> (string) : Liste des codes des devices disponibles sur l&#39;écran interactif, séparés par des espaces, virgules ou point-virgules</li>
+</ul>
+<p>Type de retour : <code>ModeReglementProcess[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ModeReglementProcess
+{
+    System.Guid Guid { get; set; }
+    string Libelle { get; set; }
+    bool AvecDetails { get; set; }
+    bool AvecCoupons { get; set; }
+    string ModuleLocal { get; set; }
+    string XmlData { get; set; }
+    CPointSoftware.Equihira.Common.TypeReglement TypeReglement { get; set; }
+}
+
+enum TypeReglement
+{
+    NonRenseigne, // =0
+    Cheque, // =1
+    CB, // =2
+    CBMultiple, // =3
+    Virement, // =4
+    Traite, // =5
+    MouvementCompta, // =6
+    PaiementDirectFournisseur, // =7
+    ChequesCadeaux, // =8
+    Especes, // =9
+    DevisesEtrangeres, // =10
+    AvanceParAssocie, // =11
+    SurEnCours, // =12
+    BonsAchats, // =13
+    GesteCommercial, // =14
+    TitreRestaurant, // =15
+    TitreVacances, // =16
+    Prelevement, // =17
+}
+</code></pre><h2 id="span-idetatprocessobtenir-létatspan"><span id='etatprocess'>Obtenir l&#39;état</span></h2>
+<p>Récupère l&#39;état/le résumé du process</p>
+<p>Url :<code>[GET] v2/process</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>Cette url n&#39;accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>ResumeProcess</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResumeProcess
+{
+    System.Guid ClientGuid { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    decimal MontantTTCRestant { get; set; }
+    string MontantTTCRestantFormate { get; set; }
+    System.Guid ModeLivraisonGuid { get; set; }
+    string ModeLivraison { get; set; }
+    decimal ModeLivraisonMontantTTC { get; set; }
+    DateTime DateLivraisonPrevue { get; set; }
+    bool DemandeAdresseLivraison { get; set; }
+    bool DemandePointLivraison { get; set; }
+    bool EstLivraisonMagasin { get; set; }
+    string NomDestinataire { get; set; }
+    bool EstValidable { get; set; }
+    bool EstTerminee { get; set; }
+    string NumeroCommande { get; set; }
+    System.Guid GuidCommande { get; set; }
+    System.String[] Tags { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+    CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+    CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
+}
+
+class AdresseClientProcess
+{
+    System.Guid Guid { get; set; }
+    string Civilite { get; set; }
+    string Nom { get; set; }
+    string Prenom { get; set; }
+    string Adresse { get; set; }
+    string Ville { get; set; }
+    string Telephone { get; set; }
+    string Mobile { get; set; }
+    string CP { get; set; }
+    string PayPk { get; set; }
+    string Region { get; set; }
+    string Email { get; set; }
+}
+
+class PointLivraisonDetailProcess
+{
+    CreoIgnem.Phygital.Tools.PointLivraisonHoraireProcess[] Horaires { get; set; }
+    string Commentaires { get; set; }
+    System.Guid Guid { get; set; }
+    string Civilite { get; set; }
+    string Nom { get; set; }
+    string Adresse { get; set; }
+    string Ville { get; set; }
+    string Telephone { get; set; }
+    string CP { get; set; }
+    string Email { get; set; }
+    string Indication { get; set; }
+    System.String[] Services { get; set; }
+    CreoIgnem.Phygital.Tools.GeoLocalisationPointLivraisonProcess Localisation { get; set; }
+    bool EstActif { get; set; }
+}
+
+class PointLivraisonHoraireProcess
+{
+    string Jour { get; set; }
+    string DebutPeriode1 { get; set; }
+    string DebutPeriode2 { get; set; }
+    string FinPeriode1 { get; set; }
+    string FinPeriode2 { get; set; }
+}
+
+class GeoLocalisationPointLivraisonProcess
+{
+    decimal Lattitude { get; set; }
+    decimal Longitude { get; set; }
+}
+
+class ReglementProcess
+{
+    System.Guid Guid { get; set; }
+    string Reference { get; set; }
+    System.Guid ModeReglementGuid { get; set; }
+    decimal Montant { get; set; }
+    bool EstValide { get; set; }
+}
+</code></pre><h2 id="span-idlisteptlivrobtenir-liste-points-livraisonspan"><span id='listeptlivr'>Obtenir liste points livraison</span></h2>
+<p>Obtenir la liste des points de livraison pour un mode</p>
+<p>Url :<code>[GET] v2/process/livraison/relais/{mlvGuid:guid}/{cp}?ville={ville:string}&amp;pays={pays:string}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>mlvGuid</strong> (System.Guid)</li>
+<li><strong>cp</strong> (string)</li>
+<li><strong>ville</strong> (string)</li>
+<li><strong>pays</strong> (string)</li>
+</ul>
+<p>Type de retour : <code>PointLivraisonProcess[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class PointLivraisonProcess
+{
+    System.Guid Guid { get; set; }
+    string Civilite { get; set; }
+    string Nom { get; set; }
+    string Adresse { get; set; }
+    string Ville { get; set; }
+    string Telephone { get; set; }
+    string CP { get; set; }
+    string Email { get; set; }
+    string Indication { get; set; }
+    System.String[] Services { get; set; }
+    CreoIgnem.Phygital.Tools.GeoLocalisationPointLivraisonProcess Localisation { get; set; }
+    bool EstActif { get; set; }
+}
+
+class GeoLocalisationPointLivraisonProcess
+{
+    decimal Lattitude { get; set; }
+    decimal Longitude { get; set; }
+}
+</code></pre><h2 id="span-idretirerreglementsretirer-tous-les-règlementspan"><span id='retirerreglements'>Retirer tous les règlement</span></h2>
+<p>Retire tous les règlements</p>
+<p>Url :<code>[GET] v2/process/reglement/clear</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>Cette url n&#39;accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>ResumeProcess</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResumeProcess
+{
+    System.Guid ClientGuid { get; set; }
+    decimal MontantTTC { get; set; }
+    string MontantTTCFormate { get; set; }
+    decimal MontantTTCRestant { get; set; }
+    string MontantTTCRestantFormate { get; set; }
+    System.Guid ModeLivraisonGuid { get; set; }
+    string ModeLivraison { get; set; }
+    decimal ModeLivraisonMontantTTC { get; set; }
+    DateTime DateLivraisonPrevue { get; set; }
+    bool DemandeAdresseLivraison { get; set; }
+    bool DemandePointLivraison { get; set; }
+    bool EstLivraisonMagasin { get; set; }
+    string NomDestinataire { get; set; }
+    bool EstValidable { get; set; }
+    bool EstTerminee { get; set; }
+    string NumeroCommande { get; set; }
+    System.Guid GuidCommande { get; set; }
+    System.String[] Tags { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseLivraison { get; set; }
+    CreoIgnem.Phygital.Tools.AdresseClientProcess AdresseFacturation { get; set; }
+    CreoIgnem.Phygital.Tools.PointLivraisonDetailProcess PointLivraisonAdresse { get; set; }
+    CreoIgnem.Phygital.Tools.ReglementProcess[] Reglements { get; set; }
+}
+</code></pre><h2 id="span-idverife-mailvérification-dun-e-mailspan"><span id='verife-mail'>Vérification d&#39;un e-mail</span></h2>
+<p>Vérifie l&#39;état d&#39;inscription d&#39;un e-mail</p>
+<p>Url :<code>[GET] v2/process/checkemail?email={email:string}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>email</strong> (string) : L&#39;e-mail à vérifier</li>
+</ul>
+<p>Type de retour : <code>MailCheckResult</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class MailCheckResult
+{
+    bool EstDejaExistante { get; set; }
+    string Suggestion { get; set; }
+    bool AvantagesFideliteDisponibles { get; set; }
+    string Source { get; set; }
+    bool EstInvalide { get; set; }
+    bool EstAvecCompteClient { get; set; }
+    bool EstGuest { get; set; }
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/hub/api/phygital/panieretcommande/process.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

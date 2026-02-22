@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Publicit&#233;s | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Publicit&#233;s | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="publicités">Publicités</h1>
+
+<h2 id="span-iddesactiverdésactiver-une-publicitéspan"><span id='desactiver'>Désactiver une publicité</span></h2>
+<p>Désactive une publicité, la rendant non visible.</p>
+<p>Url :<code>[GET] app/commercial/opecom/publicite/{guid:guid}/devalider</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>guid</strong> (System.Guid) : L&#39;identifiant de la publicité</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+<h2 id="span-idediterpubmodifier-les-détails-dune-publicité-classiquespan"><span id='editerpub'>Modifier les détails d&#39;une publicité (classique)</span></h2>
+<p>Met à jour les détails d&#39;une opération publicitaire utilisant le module de présentation &#39;classique&#39;</p>
+<p>Url :<code>[POST] app/commercial/opecom/publicite/base</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>en tant que body, un objet Publicite : La publicité à modifier</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Publicite
+{
+    System.Guid Guid { get; set; }
+    DateTime DateDebut { get; set; }
+    DateTime DateFin { get; set; }
+    string Libelle { get; set; }
+    string TypeOpe { get; set; }
+    GestomWebApi.Commercial.OpeCommController+PubliciteItem[] Items { get; set; }
+}
+
+class PubliciteItem
+{
+    string Emplacement { get; set; }
+    string ImageUrl { get; set; }
+    string DestinationUrl { get; set; }
+    string Contexte { get; set; }
+    System.Int32? Largeur { get; set; }
+    System.Int32? Hauteur { get; set; }
+    string Titre { get; set; }
+    string TypeMime { get; set; }
+}
+</code></pre><h2 id="span-idediterpubxmlmodifier-les-détails-dune-publicité-xmlspan"><span id='editerpubxml'>Modifier les détails d&#39;une publicité XML</span></h2>
+<p>Met à jour les détails d&#39;une opération publicitaire utilisant le templating XML</p>
+<p>Url :<code>[POST] app/commercial/opecom/publicite/xml</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>en tant que body, un objet PubliciteXml : La publicité à modifier</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class PubliciteXml
+{
+    System.Guid Guid { get; set; }
+    DateTime DateDebut { get; set; }
+    DateTime DateFin { get; set; }
+    string Libelle { get; set; }
+    string TypeOpe { get; set; }
+    GestomWebApi.Commercial.OpeCommController+PubliciteXmlItem[] Items { get; set; }
+}
+
+class PubliciteXmlItem
+{
+    string TemplateCode { get; set; }
+    GestomWebApi.Commercial.OpeCommController+PubliciteXmlVariable[] Variables { get; set; }
+}
+</code></pre><h2 id="span-idcreernouvelle-opération-publicitairespan"><span id='creer'>Nouvelle opération publicitaire</span></h2>
+<p>Créé une nouvelle opération commerciale de type publicité</p>
+<p>Url :<code>[POST] app/commercial/opecom/publicite/new</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>en tant que body, un objet NouvellePublicite</li>
+</ul>
+<p>Type de retour : <code>Guid</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class NouvellePublicite
+{
+    System.Guid DestinationGuid { get; set; }
+    System.Guid CampagneGuid { get; set; }
+    string TypeOpe { get; set; }
+    string Libelle { get; set; }
+    DateTime DateDebut { get; set; }
+    DateTime DateFin { get; set; }
+}
+</code></pre><h2 id="span-iddetailspubobtenir-les-détails-dune-publicité-classiquespan"><span id='detailspub'>Obtenir les détails d&#39;une publicité (classique)</span></h2>
+<p>Récupère les détails d&#39;une opération publicitaire utilisant le module &#39;classique&#39;</p>
+<p>Url :<code>[GET] app/commercial/opecom/publicite/{opeGuid:guid}/base</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>opeGuid</strong> (System.Guid) : L&#39;identifiant de la publicité</li>
+</ul>
+<p>Type de retour : <code>PubliciteData</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class PubliciteData
+{
+    bool EstValide { get; set; }
+    System.Guid Guid { get; set; }
+    DateTime DateDebut { get; set; }
+    DateTime DateFin { get; set; }
+    string Libelle { get; set; }
+    string TypeOpe { get; set; }
+    GestomWebApi.Commercial.OpeCommController+PubliciteItem[] Items { get; set; }
+}
+
+class PubliciteItem
+{
+    string Emplacement { get; set; }
+    string ImageUrl { get; set; }
+    string DestinationUrl { get; set; }
+    string Contexte { get; set; }
+    System.Int32? Largeur { get; set; }
+    System.Int32? Hauteur { get; set; }
+    string Titre { get; set; }
+    string TypeMime { get; set; }
+}
+</code></pre><h2 id="span-iddetailspubxmlobtenir-les-détails-dune-publicité-xmlspan"><span id='detailspubxml'>Obtenir les détails d&#39;une publicité XML</span></h2>
+<p>Récupère les détails d&#39;une opération publicitaire utilisant le templating XML</p>
+<p>Url :<code>[GET] app/commercial/opecom/publicite/{opeGuid:guid}/xml</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>opeGuid</strong> (System.Guid) : L&#39;identifiant de la publicité</li>
+</ul>
+<p>Type de retour : <code>PubliciteXmlData</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class PubliciteXmlData
+{
+    GestomWebApi.Commercial.OpeCommController+PubliciteXmlTemplateData[] Templates { get; set; }
+    bool EstValide { get; set; }
+    System.Guid Guid { get; set; }
+    DateTime DateDebut { get; set; }
+    DateTime DateFin { get; set; }
+    string Libelle { get; set; }
+    string TypeOpe { get; set; }
+    GestomWebApi.Commercial.OpeCommController+PubliciteXmlItem[] Items { get; set; }
+}
+
+class PubliciteXmlTemplateData
+{
+    string TemplateCode { get; set; }
+    string Libelle { get; set; }
+    GestomWebApi.Commercial.OpeCommController+PubliciteXmlParametre[] Parametres { get; set; }
+    GestomWebApi.Commercial.OpeCommController+PubliciteXmlItem NewElement { get; set; }
+}
+
+class PubliciteXmlParametre
+{
+    string Nom { get; set; }
+    string Type { get; set; }
+}
+
+class PubliciteXmlItem
+{
+    string TemplateCode { get; set; }
+    GestomWebApi.Commercial.OpeCommController+PubliciteXmlVariable[] Variables { get; set; }
+}
+
+class PubliciteXmlVariable
+{
+    string Nom { get; set; }
+    string Valeur { get; set; }
+    string TypeValeur { get; set; }
+}
+</code></pre><h2 id="span-iduploadurlobtenir-une-url-pour-uploader-une-imagespan"><span id='uploadurl'>Obtenir une url pour uploader une image</span></h2>
+<p>Obtient une url pour uploader une image</p>
+<p>Url :<code>[GET] app/commercial/opecom/helper/getuploadurl/{opeGuid:guid}/{extension}?etape={etape:int}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>opeGuid</strong> (System.Guid) : L&#39;identifiant de l&#39;opération</li>
+<li><strong>extension</strong> (string) : L&#39;extension (sans le point) du fichier</li>
+<li><strong>etape</strong> (int) : L&#39;identifiant de l&#39;étape / de la page</li>
+</ul>
+<p>Type de retour : <code>UploadUrl</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class UploadUrl
+{
+    string Upload { get; set; }
+    string Result { get; set; }
+    string Method { get; set; }
+    Dictionary&lt;System.String,System.String&gt; HeadersToAdd { get; set; }
+}
+</code></pre><h2 id="span-idsupprimersupprimer-une-publicitéspan"><span id='supprimer'>Supprimer une publicité</span></h2>
+<p>Supprime une publicité.</p>
+<p>Url :<code>[DELETE] app/commercial/opecom/publicite/{guid:guid}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>guid</strong> (System.Guid) : L&#39;identifiant de la publicité</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+<h2 id="span-idactivervalider-une-publicitéspan"><span id='activer'>Valider une publicité</span></h2>
+<p>Valide une publicité, afin qu&#39;elle puisse être affichée.</p>
+<p>Url :<code>[GET] app/commercial/opecom/publicite/{guid:guid}/valider</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>guid</strong> (System.Guid)</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/hub/api/serveur/commercial/publicites.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

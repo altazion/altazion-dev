@@ -1,0 +1,401 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Pr&#233;paration | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Pr&#233;paration | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="préparation">Préparation</h1>
+
+<h2 id="span-idsaisiepreparationenregistrer-la-préparationspan"><span id='saisiepreparation'>Enregistrer la préparation</span></h2>
+<p>Enregistre la préparation d&#39;un bon de préparation</p>
+<p>Url :<code>[POST] api/logistique/preparation/prepa/{bonprepaGuid:guid}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>bonprepaGuid</strong> (System.Guid) : L&#39;identifiant du bon de préparation</li>
+<li>en tant que body, un objet PreparationBonPreparation : Le contenu de la préparation</li>
+</ul>
+<p>Url :<code>[POST] api/logistique/preparation/prepa/{bonprepaNum}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>en tant que body, un objet PreparationBonPreparation : Le contenu de la préparation</li>
+<li><strong>bonprepaNum</strong> (string) : Le numéro du bon de préparation</li>
+</ul>
+<p>Type de retour : <code>BonPreparation</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class BonPreparation
+{
+    System.Guid Guid { get; set; }
+    string Numero { get; set; }
+    DateTime DateCreation { get; set; }
+    decimal MontantCommande { get; set; }
+    string Etat { get; set; }
+    bool EstValide { get; set; }
+    bool EstDeclenchee { get; set; }
+    bool EstEncours { get; set; }
+    bool EstTermine { get; set; }
+    bool EstAnnule { get; set; }
+    GestomWebApi.Logistique.PreparationController+LigneBonPreparation[] Lignes { get; set; }
+    System.Guid CliGuid { get; set; }
+    string CliNom { get; set; }
+    string CliEmail { get; set; }
+    string CliCP { get; set; }
+    System.Guid BonCommandeGuid { get; set; }
+}
+
+class PreparationBonPreparation
+{
+    GestomWebApi.Logistique.PreparationController+LigneExpeditionBonPreparation[] Lignes { get; set; }
+    bool EstPartielle { get; set; }
+}
+
+class LigneExpeditionBonPreparation
+{
+    Guid? Guid { get; set; }
+    string Reference { get; set; }
+    decimal QtePreparee { get; set; }
+    decimal? QteExpediee { get; set; }
+}
+</code></pre><h2 id="span-idexpeditionexpédier-un-bon-de-prépaspan"><span id='expedition'>Expédier un bon de prépa</span></h2>
+<p>Enregistre la préparation et l&#39;expédition d&#39;un bon de préparation</p>
+<p>Url :<code>[POST] api/logistique/preparation/expe/{bonprepaGuid:guid}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>bonprepaGuid</strong> (System.Guid) : L&#39;identifiant du bon de préparation</li>
+<li>en tant que body, un objet ExpeditionBonPreparation : Le contenu de la préparation</li>
+</ul>
+<p>Url :<code>[POST] api/logistique/preparation/expe/{bonprepaNum}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li>en tant que body, un objet ExpeditionBonPreparation : Le contenu de la préparation</li>
+<li><strong>bonprepaNum</strong> (string) : Le numéro du bon de préparation</li>
+</ul>
+<p>Type de retour : <code>BonPreparation</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class BonPreparation
+{
+    System.Guid Guid { get; set; }
+    string Numero { get; set; }
+    DateTime DateCreation { get; set; }
+    decimal MontantCommande { get; set; }
+    string Etat { get; set; }
+    bool EstValide { get; set; }
+    bool EstDeclenchee { get; set; }
+    bool EstEncours { get; set; }
+    bool EstTermine { get; set; }
+    bool EstAnnule { get; set; }
+    GestomWebApi.Logistique.PreparationController+LigneBonPreparation[] Lignes { get; set; }
+    System.Guid CliGuid { get; set; }
+    string CliNom { get; set; }
+    string CliEmail { get; set; }
+    string CliCP { get; set; }
+    System.Guid BonCommandeGuid { get; set; }
+}
+
+class LigneBonPreparation
+{
+    System.Guid Guid { get; set; }
+    long ArticleId { get; set; }
+    string Reference { get; set; }
+    string Libelle { get; set; }
+    decimal Pu { get; set; }
+    decimal QteCommandeOriginelle { get; set; }
+    decimal QteAnnonce { get; set; }
+    decimal QtePreparee { get; set; }
+    decimal QteCommandeAPreparee { get; set; }
+    Guid? GuidArticle { get; set; }
+    string Ref { get; set; }
+    string UrlGestcom { get; set; }
+}
+
+class ExpeditionBonPreparation
+{
+    GestomWebApi.Logistique.PreparationController+LigneExpeditionBonPreparation[] Lignes { get; set; }
+    GestomWebApi.Logistique.PreparationController+Colis[] Colis { get; set; }
+    GestomWebApi.Logistique.PreparationController+PieceComptable[] PieceComptable { get; set; }
+}
+
+class LigneExpeditionBonPreparation
+{
+    Guid? Guid { get; set; }
+    string Reference { get; set; }
+    decimal QtePreparee { get; set; }
+    decimal? QteExpediee { get; set; }
+}
+
+class Colis
+{
+    Guid? ModeLivraisonGuid { get; set; }
+    string ModeLivraisonCode { get; set; }
+    string Numero { get; set; }
+    DateTime DateExpedition { get; set; }
+    string UrlSuivi { get; set; }
+}
+
+class PieceComptable
+{
+    string Type { get; set; }
+    string Numero { get; set; }
+    string Url { get; set; }
+}
+</code></pre><h2 id="remarques-préparation--expédition">Remarques (préparation &amp; expédition)</h2>
+<p>Sauf précisions contraires dues à une configuration spécifique, vous pouvez appeler ces points api à plusieurs occasions :</p>
+<p>1) lors de la préparation de la commande vous pouvez appeler au choix, le point API de <strong>saisie de préparation</strong> OU le <strong>point d&#39;expédition</strong> (en ajoutant uniquement les <code>Lignes</code> et en ne précisant que la quantité préparée sur celles-ci). Le bon de prépa sera alors amené à l&#39;étape &quot;Préparé&quot;. </p>
+<p>2) lors de <strong>l&#39;expédition</strong>, en précisant les <code>Lignes</code> avec la quantité expédiée ainsi que, si cela est disponible, les <code>Colis</code> et les <code>PiecesComptables</code>. Le bon de préparation sera alors terminé.</p>
+<p>Vous pouvez, bien entendu, combiner les deux appels en un seul si vous réalisez les deux opérations en même temps. Nous vous invitons par contre à ne pas faire plusieurs appels pour chaque étape. Si vous devez néanmoins faire des appels multiples à la phase 1 veillez à bien préciser à chaque appel la quantité TOTALE préparée : chaque appel remplacera le précédent.</p>
+<p>A noter que si la mise à jour du bon de préparation se fait en temps réel, les traitements de progression de l&#39;OMS seront réalisés en asynchrones. Les quantités sont donc appliquées immédiatement, mais l&#39;état du bon de préparation n&#39;est potentiellement mis à jour qu&#39;après quelques instants.</p>
+<p>Pour recevoir une notification sur la progression du bon de préparation, vous devez vous enregistrer en tant que <a href="https://www.altazion.dev/office/extensibility/events/logistique/preparation.html">gestionnaire d&#39;évènement ou de notification</a>. </p>
+<p>En cas d&#39;erreur, le point API vous renverra :</p>
+<table>
+<thead>
+<tr>
+<th>Code HTTP</th>
+<th>Signification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td>Le format du body JSON en entrée est invalide</td>
+</tr>
+<tr>
+<td>404</td>
+<td>L&#39;identifiant du bon de préparation est invalide, ou le bon de préparation est introuvable</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Le bon de préparation est dans un état ne permettant pas cette modification</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Le bon de préparation a déjà été terminé</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Les données sont incohérentes (vous avez par exemple déclaré une expédition de plus de produits que contenu dans le bon de préparation)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="span-idpreparationobtenir-un-bon-de-prépaspan"><span id='preparation'>Obtenir un bon de prépa</span></h2>
+<p>Obtient le détail d&#39;un bon de préparation</p>
+<p>Url :<code>[GET] api/logistique/preparation/{bonprepaNum}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>bonprepaNum</strong> (string)</li>
+</ul>
+<p>Url :<code>[GET] api/logistique/preparation/{bprGuid:guid}</code></p>
+<p>Paramètres : </p>
+<ul>
+<li><strong>bprGuid</strong> (System.Guid)</li>
+</ul>
+<p>Type de retour : <code>BonPreparationComplet</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class BonPreparationComplet
+{
+    GestomWebApi.Logistique.PreparationController+BonPreparationComplet+LivraisonInfos Livraison { get; set; }
+    GestomWebApi.Logistique.PreparationController+BonPreparationComplet+Col InfosColis { get; set; }
+    GestomWebApi.Logistique.PreparationController+BonPreparationComplet+AdresseInfos Facturation { get; set; }
+    System.Guid Guid { get; set; }
+    string Numero { get; set; }
+    DateTime DateCreation { get; set; }
+    decimal MontantCommande { get; set; }
+    string Etat { get; set; }
+    bool EstValide { get; set; }
+    bool EstDeclenchee { get; set; }
+    bool EstEncours { get; set; }
+    bool EstTermine { get; set; }
+    bool EstAnnule { get; set; }
+    GestomWebApi.Logistique.PreparationController+LigneBonPreparation[] Lignes { get; set; }
+    System.Guid CliGuid { get; set; }
+    string CliNom { get; set; }
+    string CliEmail { get; set; }
+    string CliCP { get; set; }
+    System.Guid BonCommandeGuid { get; set; }
+}
+
+class LivraisonInfos
+{
+    System.Guid GuidModeLivraison { get; set; }
+    string LibelleModeLivraison { get; set; }
+    int PrestaPk { get; set; }
+    GestomWebApi.Logistique.PreparationController+BonPreparationComplet+AdresseInfos AdresseInfos { get; set; }
+}
+
+class AdresseInfos
+{
+    string Code { get; set; }
+    string Nom { get; set; }
+    string Adresse { get; set; }
+    string CodePostal { get; set; }
+    string Ville { get; set; }
+}
+
+class Col
+{
+    int NbColis { get; set; }
+    GestomWebApi.Logistique.PreparationController+BonPreparationComplet+Colis[] LesColis { get; set; }
+}
+
+class Colis
+{
+    string Numero { get; set; }
+    int PkTransporteur { get; set; }
+    string LibelleTransporteur { get; set; }
+}
+
+class LigneBonPreparation
+{
+    System.Guid Guid { get; set; }
+    long ArticleId { get; set; }
+    string Reference { get; set; }
+    string Libelle { get; set; }
+    decimal Pu { get; set; }
+    decimal QteCommandeOriginelle { get; set; }
+    decimal QteAnnonce { get; set; }
+    decimal QtePreparee { get; set; }
+    decimal QteCommandeAPreparee { get; set; }
+    Guid? GuidArticle { get; set; }
+    string Ref { get; set; }
+    string UrlGestcom { get; set; }
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/hub/api/serveur/logistique/preparation.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

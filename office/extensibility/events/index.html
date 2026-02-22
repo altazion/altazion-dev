@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>&#201;v&#232;nements | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="&#201;v&#232;nements | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="évènements">Évènements</h1>
+
+<p>En utilisant les évènements, vous pourrez ajouter des traitements personnalisés lorsque certaines modifications ont lieu ou au cours de certains process. Par exemple, vous pourrez réagir à l&#39;annulation d&#39;une commande, à la création d&#39;une nouvelle marque, etc.</p>
+<h2 id="comment-utiliser-les-évènements-">Comment utiliser les évènements ?</h2>
+<p>Si vous utilisez nos solutions en mode hébergé, vous devez forcément utiliser le mode des webhooks pour réaliser vos personnalisations. Un webhook est simplement un appel à une API ou à un service externe qui sera déclenché par la solution lors de l&#39;évènement.</p>
+<div class="NOTE"><h5>Note</h5><p>En plus de permettre l&#39;utilisation des webhooks, les solutions déployées en OnPremise permettent d&#39;ajouter du code personnalisé spécifique <a href="../../extensions/events.html">En savoir plus</a>.</p>
+</div>
+<p>Il existe plusieurs connecteurs vers des services externes &quot;standards&quot; vous permettant de démarrer rapidement, avec un minimum de développement l&#39;intégration de vos personnalisations.</p>
+<h2 id="webhooks-sortants">Webhooks sortants</h2>
+<p>Un <em>webhook sortant</em> est un appel à un service externe déclenché lorsqu&#39;un évènement se produit. Il vous permet d&#39;étendre la solution sous la forme d&#39;un modèle d&#39;exécution à la demande, très adaptés à des environnements de type Serverless (Amazon Lambda, Azure Functions, Google Cloud Functions, etc.) ou à des outils d&#39;orchestration tels que Zapier, IFTTT ou Microsoft Flow.</p>
+<h3 id="webhooks-api-rest">Webhooks API REST</h3>
+<p>Il s&#39;agit de la solution la plus ouverte en termes de possibilités et probablement aussi la plus simple : lors de chaque évènement, un appel API est lancé vers une url externe avec le détail de l&#39;évènement.</p>
+<ul>
+<li>au format REST</li>
+<li>sans authentification ou avec une authentification BASIC ou BEARER</li>
+<li>avec un playload au format JSON</li>
+</ul>
+<p>Vous pouvez utliser votre propre serveur et réaliser une simple Web API pour gérer les évènements ou utiliser des solutions Serverless telles que :</p>
+<ul>
+<li><a href="https://aws.amazon.com/fr/lambda/">AWZ Lambda</a></li>
+<li><a href="https://azure.microsoft.com/fr-fr/services/functions/">Azure Functions</a></li>
+<li><a href="https://cloud.google.com/functions/">Google Cloud Functions</a>
+etc.</li>
+</ul>
+<h4 id="implémenter-un-gestionnaire-de-webhook">Implémenter un gestionnaire de webhook</h4>
+<p>Vous pouvez utiliser n&#39;importe quel language pour implémenter un service web gérant vos évènements. Il suffit pour cela que votre service soit accessible sur une url publique, accepte un playload json et retourne un code HTTP 200 en fin de traitement pour valider que le webhook a fonctionné. </p>
+<p>Les données de l&#39;évènement sont envoyées dans un objet JSON prenant la forme :</p>
+<pre><code class="lang-json">{
+  &quot;EventKind&quot;:&quot;.. le code du type d&#39;évènement...&quot;,
+  &quot;EventCategory&quot;:&quot;... la catégorie de l&#39;évènement...&quot;,
+  &quot;Data&quot; : {
+     /*... l&#39;objet de donnée spécifique à l&#39;évènement ...*/
+  }
+}
+</code></pre><p>dans lequel :</p>
+<ul>
+<li><strong>EventKind</strong> correspond au code de l&#39;évènement</li>
+<li><strong>EventCategory</strong> correspond à la catégorie de l&#39;évènement</li>
+<li><strong>Data</strong> contient l&#39;objet spécifique à l&#39;évènement.</li>
+</ul>
+<p>Par exemple, pour une <a href="catalogue/marques.html">création de marque</a>, le playpload prendra la forme : </p>
+<pre><code class="lang-json">{
+  &quot;EventKind&quot;:&quot;CreationMarque&quot;,
+  &quot;EventCategory&quot;:&quot;e/rp&quot;,
+  &quot;Data&quot; : {
+     &quot;MarPk&quot;:1478,
+     &quot;Libelle&quot;:&quot;Marque démo&quot;,
+     &quot;Code&quot;:null,
+     &quot;EstInterne&quot;:false
+  }
+}
+</code></pre><h4 id="exemples-dimplémentations">Exemples d&#39;implémentations</h4>
+<p>Un exemple &quot;simple&quot; réalisé sur <strong>Azure Functions</strong> :</p>
+<pre><code class="lang-csharp">using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Newtonsoft.Json;
+
+namespace Altazion.DemoWebhook
+{
+    public static class DemoWebhookAzureFunction
+    {
+        class EventData
+        {
+            public string EventKind {get; set;}
+            public string EventCategory {get; set;}
+            public CreationMarqueEventData Data {get; set;}
+        }
+
+        class CreationMarqueEventData
+        {
+            public int MarPk { get; set; }
+            public string Libelle { get; set; }
+            public string Code { get; set; }
+            public bool EstInterne { get; set; }
+        }
+
+        [FunctionName(&quot;DemoWebhookAzureFunction&quot;)]
+        public static async Task&lt;object&gt; Run([HttpTrigger(WebHookType = &quot;genericJson&quot;)]HttpRequestMessage req, TraceWriter log)
+        {
+            string jsonContent = await req.Content.ReadAsStringAsync();
+            EventData eventData = JsonConvert.DeserializeObject&lt;EventData&gt;(jsonContent);
+
+           if(eventData.EventKind.Equals(&quot;CreationMarque&quot;)) {
+               // faire le traitement associé à la création
+                int marque_pk = eventData.Data.MarPk;
+           }
+
+            return req.CreateResponse(HttpStatusCode.OK, new
+            {
+                result=&quot;OK&quot;
+            });
+        }
+    }
+}
+</code></pre><h3 id="azure-service-bus">Azure Service Bus</h3>
+<h4 id="exemples-dimplémentations-1">Exemples d&#39;implémentations</h4>
+<p>Un exemple &quot;simple&quot; réalisé via le connecteur Azure Service Bus de <strong>Azure functions</strong>:</p>
+<pre><code class="lang-csharp">using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.ServiceBus.Messaging;
+using Newtonsoft.Json;
+
+namespace Altazion.DemoServiceBus
+{
+    public static class DemoServiceBus
+    {
+        class EventData
+        {
+            public string EventKind {get; set;}
+            public string EventCategory {get; set;}
+            public CreationMarqueEventData Data {get; set;}
+        }
+
+        class CreationMarqueEventData
+        {
+            public int MarPk { get; set; }
+            public string Libelle { get; set; }
+            public string Code { get; set; }
+            public bool EstInterne { get; set; }
+        }
+
+        [FunctionName(&quot;DemoServiceBus&quot;)]
+        public static void Run([ServiceBusTrigger(&quot;Marques&quot;, AccessRights.Listen, Connection = &quot;test-altazion_SERVICEBUS&quot;)]string myQueueItem, TraceWriter log)
+        {
+            EventData eventData = JsonConvert.DeserializeObject&lt;EventData&gt;(myQueueItem);
+            if(eventData.EventKind.Equals(&quot;CreationMarque&quot;)) {
+               // faire le traitement associé à la création
+                int marque_pk = eventData.Data.MarPk;
+           }
+        }
+    }
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/office/extensibility/events/index.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

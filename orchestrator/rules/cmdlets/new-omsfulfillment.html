@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>New-OmsFullfilment | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="New-OmsFullfilment | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="new-omsfullfilment">New-OmsFullfilment</h1>
+
+<p>Créé un nouvel ordre de préparation (un BPR ou un BPF) à partir d&#39;une liste de lignes de commandes et d&#39;une source d&#39;approvisionnement</p>
+<p>Si vous avez déjà calculé une suggestion de préparation pour un ensemble de lignes (par exemple, via Select-OmsOrderLines), vous pouvez simplement créer l&#39;ordre de prépa :</p>
+<pre><code class="lang-powershell">    New-OmsFullfilment
+
+        $suggestionrows
+
+        # valide automatiquement l&#39;ordre de prépa
+        -AutoConfirm
+</code></pre><p>Si vos lignes n&#39;ont pas encore été affecté à un mode de préparation, vous pouvez créer un ordre en définissant la source :</p>
+<pre><code class="lang-powershell">    New-OmsFullfilment
+
+        $orderrows
+
+        # Le fournisseur drop-shipping qui préparera la commande
+        -Supplier $supplier
+
+        # OU le magasin 
+        -Store $store
+
+        # OU le dépot de stock
+        -Warehouse $depot
+        -UseDefaultWarehouse
+
+        # valide automatiquement l&#39;ordre de prépa
+        -AutoConfirm
+</code></pre><div class="WARNING"><h5>Warning</h5><p>Si vous utilisez cette signature sur des lignes ayant déjà été pré-associées à un mode de préparation, vous remplacerez cette suggestion par la valeur forcée.</p>
+</div>
+<h2 id="paramètres">Paramètres</h2>
+<p>Pour des lignes pré-associées :</p>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$suggestion</td>
+<td>Pipeline</td>
+<td>Une liste de ligne pré-associées à un ou plusieurs modes de préparation. <em>Vous pouvez aussi passer un objet Order entier</em></td>
+</tr>
+</tbody>
+</table>
+<p>Pour des lignes non associées à un mode de prépa :</p>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$orderrows</td>
+<td>Pipeline</td>
+<td>Les lignes à traiter pour créer l&#39;ordre de prépa. Si ces lignes sont pré-associé à un autre mode, celui-ci sera remplacé.<em>Vous pouvez aussi passer un objet Order entier</em></td>
+</tr>
+<tr>
+<td>UseDefaultWarehouse</td>
+<td>Switch</td>
+<td>[Ne peut pas être utilisé avec les autres Switchs de cette table] Affecte toutes les lignes à une préparation sur stock, dans le dépot par défaut/principal</td>
+</tr>
+<tr>
+<td>Warehouse</td>
+<td>DataObject</td>
+<td>[Ne peut pas être utilisé avec les autres Switchs de cette table] Affecte toutes les lignes à une prépa sur stock réalisé dans le dépot passé en valeur de ce paramètre</td>
+</tr>
+<tr>
+<td>Store</td>
+<td>DataObject</td>
+<td>[Ne peut pas être utilisé avec les autres Switchs de cette table] Affecte toutes les lignes à une prépa dans le magasin passé en valeur</td>
+</tr>
+<tr>
+<td>Supplier</td>
+<td>DataObject</td>
+<td>[Ne peut pas être utilisé avec les autres Switchs de cette table] Affecte toutes les lignes à une prépa Drop-shipping associé au fournisseur passé en tant que valeur</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE"><h5>Note</h5><p>Le résultat de Select-OmsOrderLine est un tableau d&#39;objet Order. Si celui-ci ne contient qu&#39;une ligne, vous pouvez le passer en paramètre à New-OmsFulfillmentOrder. Si le paramètre pipeline en entrée contient plus d&#39;un Order, cette commande lancera une exception InvalidOperationException.</p>
+</div>
+<div class="IMPORTANT"><h5>Important</h5><p>Vous ne pouvez, bien entendu, n&#39;utiliser qu&#39;un seul des paramètres suivants pour un même appel à New-OmsFullfilment :</p>
+<ul>
+<li>Store</li>
+<li>Supplier</li>
+<li>Warehouse</li>
+<li>DefaultWarehouse</li>
+</ul>
+<p>L&#39;utilisation de plus d&#39;une de ces options résultera en une exception ArgumentException.</p>
+</div>
+<p>Les paramètres communs : </p>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AutoConfirm</td>
+<td>Switch</td>
+<td>Valide automatiquement l&#39;ordre de préparation pour qu&#39;il soit envoyé ou mis à réalisation</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/orchestrator/rules/cmdlets/new-omsfulfillment.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

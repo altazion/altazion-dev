@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ProductBundle | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="ProductBundle | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="productbundle">ProductBundle</h2>
+
+<p>La classe ProductBundle représente un lot promotionnel (bundle) composé de plusieurs articles dans le catalogue. Elle contient les propriétés suivantes :</p>
+<ul>
+<li>Guid : identifiant unique du lot.</li>
+<li>Label : libellé du lot.</li>
+<li>Reference : référence du lot.</li>
+<li>BundleGroupGuid : identifiant du groupe de lots parent.</li>
+<li>IsArchived : indique si le lot est archivé.</li>
+<li>IsDiscountPercentage : indique si la remise est exprimée en pourcentage.</li>
+<li>IsFixedPrice : indique si le prix du lot est fixe.</li>
+<li>AmountIncludingTax : montant TTC du lot, nullable.</li>
+<li>AmountExcludingTax : montant HT du lot, nullable.</li>
+<li>DiscountPercentage : pourcentage de remise appliqué au lot, nullable.</li>
+<li>Relevance : pertinence du lot pour le tri ou l&#39;affichage.</li>
+<li>StartDate : date de début de validité du lot.</li>
+<li>EndDate : date de fin de validité du lot.</li>
+<li>ImageUrlTiny, ImageUrlSmall, ImageUrlMedium, ImageUrlBig : URLs des images du lot en différentes tailles.</li>
+<li>IsActive : propriété calculée indiquant si le lot est actuellement actif, c&#39;est-à-dire non archivé et dans sa période de validité.</li>
+</ul>
+<p>Les validations pour cette classe portent notamment sur la présence de l&#39;identifiant unique, la longueur maximale des chaînes (Label, Reference, URLs d&#39;images), la cohérence entre les dates de début et fin, et la présence de l&#39;identifiant du groupe de lots.</p>
+<h3 id="dclaration-typescript">D�claration TypeScript</h3>
+<pre><code class="lang-typescript">interface ProductBundle {
+  Guid: string; // Unique identifier (GUID)
+  Label: string; // Bundle label
+  Reference: string; // Bundle reference
+  BundleGroupGuid: string; // Parent bundle group GUID
+  IsArchived: boolean; // Is the bundle archived
+  IsDiscountPercentage: boolean; // Is discount expressed in percentage
+  IsFixedPrice: boolean; // Is the price fixed
+  AmountIncludingTax?: number | null; // Amount including tax (nullable)
+  AmountExcludingTax?: number | null; // Amount excluding tax (nullable)
+  DiscountPercentage?: number | null; // Discount percentage (nullable)
+  Relevance: number; // Relevance for sorting/display
+  StartDate: string; // Start date (ISO 8601 string)
+  EndDate: string; // End date (ISO 8601 string)
+  ImageUrlTiny?: string | null; // Tiny image URL
+  ImageUrlSmall?: string | null; // Small image URL
+  ImageUrlMedium?: string | null; // Medium image URL
+  ImageUrlBig?: string | null; // Big image URL
+  readonly IsActive: boolean; // Computed property, active status
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/fr-fr/reference/DataObjectBase/Core-Business/business/Altazion.Pim.Model/ProductBundle/Altazion.Pim.Model.ProductBundle.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>

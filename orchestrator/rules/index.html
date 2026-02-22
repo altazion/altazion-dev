@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Moteur de r&#232;gles de pr&#233;paration | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Moteur de r&#232;gles de pr&#233;paration | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="moteur-de-règles-de-préparation">Moteur de règles de préparation</h1>
+
+<h2 id="fonctionnement-général">Fonctionnement général</h2>
+<h2 id="règles-standards">Règles standards</h2>
+<p>Il existe quelques règles pré-définies, que vous pouvez configurer au travers d&#39;Office. Ces règles sont <a href="https://aide.altazion.com/fr-fr/orchestrator/prepa-mep.html">consultables sur le site d&#39;aide général</a></p>
+<h2 id="ecrire-des-règles-personnalisées">Ecrire des règles personnalisées</h2>
+<p>La création de règles personnalisées se fait via l&#39;écriture d&#39;un fichier RuleSet contenant à la fois :</p>
+<ul>
+<li>vos règles</li>
+<li>la définition des conditions de priorisations entre-elles.</li>
+</ul>
+<h3 id="fichier-de-ruleset">Fichier de ruleset</h3>
+<pre><code class="lang-xml">&lt;OrderSplitOptions&gt;
+
+    &lt;Rule code=&quot;maRegle&quot;&gt;
+        &lt;Step id=&quot;ClickNCollect&quot; customizable=&quot;false&quot;&gt;&lt;![CDATA[
+            # votre code powershell de mise en préparation
+        ]]&gt;&lt;/Step&gt;        
+    &lt;/Rule&gt;
+
+    &lt;Ruleset prefer=&quot;Priority&quot;&gt;
+        &lt;Rule code=&quot;maRegle&quot; /&gt;
+    &lt;/Ruleset&gt;
+
+&lt;/OrderSplitOptions&gt;
+</code></pre><h3 id="cmdlet-standards">Cmdlet standards</h3>
+<table>
+<thead>
+<tr>
+<th>Commandes</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Confirm-OmsFullFilment</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cmdlets/exit-omsrule.html">Exit-OmsRule</a></td>
+<td>Termine l&#39;exécution de la règle actuelle, par défaut sans enregistrer le résultat.</td>
+</tr>
+<tr>
+<td>Invoke-OmsExternalApi</td>
+<td>Invoke une api externe pour traiter un bon de commande</td>
+</tr>
+<tr>
+<td><a href="cmdlets/get-omssortalgorithm.html">Get-OmsSortAlgorithm</a></td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="cmdlets/get-omssupplier.html">Get-OmsSupplier</a></td>
+<td>Obtient une liste de fournisseur de marchandises</td>
+</tr>
+<tr>
+<td><a href="cmdlets/new-omsfulfillment.html">New-OmsFulfillment</a></td>
+<td>Crée un nouvel ordre de préparation</td>
+</tr>
+<tr>
+<td><a href="cmdlets/select-omsorderlines.html">Select-OmsOrderLines</a></td>
+<td>Obtient un ensemble de ligne de commandes, en les associants éventuellement à un sourcing</td>
+</tr>
+<tr>
+<td><a href="cmdlets/trace-omsonorder.html">Trace-OmsOnOrder</a></td>
+<td>Ajoute une trace dans le dossier du bon de commande</td>
+</tr>
+<tr>
+<td><a href="cmdlets/update-omsfulfillment.html">Update-OmsFulfillment</a></td>
+<td>Met à jour un ordre de préparation</td>
+</tr>
+<tr>
+<td><a href="cmdlets/update-omsorder.html">Update-OmsOrder</a></td>
+<td>Met à jour un bon de commande</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE"><h5>Note</h5><p>Vous pouvez aussi étendre la solution en implémentant <a href="extensibilite.html">vos propres Cmdlets</a>.</p>
+</div>
+<h3 id="deployer-vos-règles">Deployer vos règles</h3>
+<h4 id="saas">SaaS</h4>
+<p>Si vous utilisez notre solution en mode SaaS, vous pouvez tout simplement utiliser notre interface de configuration dans <em>Paramètres</em> &gt; <em>Logistique</em> &gt; <em>Règles de préparation</em> et de passer en mode <em>Avancé</em> pour accèder à l&#39;écran de configuration des règles.</p>
+<p>Celui-ci vous permettra de coller votre fichier de configuration, et de le renseigner un ensemble de commandes de tests pour valider le comportement. N&#39;hésitez pas à tester et finaliser vos règles dans l&#39;interface.</p>
+<h4 id="onpremise">OnPremise</h4>
+<p>En solution onPremise, vous pouvez utiliser deux procédures pour déployer vos règles :</p>
+<ul>
+<li>comme pour le mode Saas, vous pouvez utiliser l&#39;interface d&#39;Altazion Office pour écrire vos règles</li>
+<li><p>vous pouvez créer et déposer un fichier dans votre dossier <a href="https://aide.altazion.com/fr-fr/administration/onpremise/dossier.html#dossiers-dextensibilit%C3%A9">d&#39;extensibilité &quot;logistique&quot;</a>. Le fichier devra se nommer :</p>
+<p>  {EXTFOLDER}\bin\oms-rulesets.xml</p>
+</li>
+</ul>
+<div class="NOTE"><h5>Note</h5><p>Vous pourrez utiliser cette seconde solution pour réaliser des déploiements depuis un système de gestion de source via un build CI/DevOps par exemple. </p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/orchestrator/rules/index.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

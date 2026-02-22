@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PaymentMethod | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="PaymentMethod | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="paymentmethod">PaymentMethod</h2>
+
+<p>La classe PaymentMethod représente un mode de règlement (moyen de paiement) utilisable dans le système.</p>
+<p>Propriétés publiques :</p>
+<ul>
+<li>Guid : Identifiant unique du mode de règlement (GUID).</li>
+<li>IsPrimary : Indique si ce mode est le mode principal.</li>
+<li>AccountingCode : Code du compte comptable associé.</li>
+<li>Priority : Priorité d&#39;affichage (ordre de tri).</li>
+<li>WebModuleUrl : URL du module web pour traitement du paiement.</li>
+<li>ReturnModuleUrl : URL de retour après traitement du paiement.</li>
+<li>Name : Nom du mode de règlement.</li>
+<li>Type : Type de règlement (carte bancaire, chèque, virement, etc.).</li>
+<li>MerchantKey : Clé marchand fournie par le prestataire.</li>
+<li>MerchantKeyComplement : Complément de la clé marchand (ex. clé secrète).</li>
+<li>ClassName : Classe technique utilisée pour le traitement.</li>
+<li>IsECommerceEnabled : Indique si utilisable sur site e-commerce.</li>
+<li>IsPosEnabled : Indique si utilisable en point de vente web.</li>
+<li>IsClickAndCollectEnabled : Indique si utilisable en click &amp; collect.</li>
+<li>IsMicroTransactionsEnabled : Indique si utilisable pour micro-transactions.</li>
+<li>ProviderId : Identifiant du prestataire de paiement.</li>
+<li>IsEditable : Indique si modifiable par l&#39;utilisateur.</li>
+<li>IsMarketplaceEnabled : Indique si utilisable sur marketplaces.</li>
+<li>IsBackOfficeEnabled : Indique si utilisable en gestion commerciale.</li>
+<li>PaymentDelay : Délai de paiement en jours.</li>
+<li>File1 : Fichier 1 en données binaires associé au mode.</li>
+<li>File2 : Fichier 2 en données binaires associé au mode.</li>
+<li>IsRRR : Indique si mode de type RRR (Règlement Rapide Reconductible).</li>
+<li>AdditionalData : Chaîne complémentaire d&#39;informations additionnelles.</li>
+</ul>
+<h3 id="dclaration-typescript">D�claration TypeScript</h3>
+<pre><code class="lang-typescript">interface PaymentMethod {
+  Guid: string; // Unique identifier (GUID)
+  IsPrimary: boolean; // Indicates if primary method
+  AccountingCode: string | null; // Accounting account code
+  Priority: number; // Display priority
+  WebModuleUrl: string | null; // Web module URL for payment
+  ReturnModuleUrl: string | null; // Return URL after payment
+  Name: string | null; // Payment method name
+  Type: PaymentMethodKind; // Type of payment method
+  MerchantKey: string | null; // Merchant key
+  MerchantKeyComplement: string | null; // Key complement
+  ClassName: string | null; // Technical class name
+  IsECommerceEnabled: boolean; // Usable on e-commerce
+  IsPosEnabled: boolean; // Usable on point of sale
+  IsClickAndCollectEnabled: boolean; // Usable for click &amp; collect
+  IsMicroTransactionsEnabled: boolean; // Usable for micro-transactions
+  ProviderId: number; // Payment provider identifier
+  IsEditable: boolean; // Modifiable by user
+  IsMarketplaceEnabled: boolean; // Usable on marketplaces
+  IsBackOfficeEnabled: boolean; // Usable for back-office
+  PaymentDelay: number; // Payment delay in days
+  File1: Uint8Array | null; // Binary file 1
+  File2: Uint8Array | null; // Binary file 2
+  IsRRR: boolean; // Indicates if RRR type
+  AdditionalData: string | null; // Additional information string
+}
+
+// Note: PaymentMethodKind enum should be defined separately.
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/fr-fr/reference/DataObjectBase/Core-Business/business/Altazion.Erp.Model/ModeReglement/Altazion.Commerce.Model.PaymentMethod.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>

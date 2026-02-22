@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Historique des mouvements de stock | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Historique des mouvements de stock | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="historique-des-mouvements-de-stock">Historique des mouvements de stock</h1>
+
+<h2 id="généralités">Généralités</h2>
+<p>Le module de traitement des stocks de Unified Stock permet de conserver un historique des stocks reçus depuis les sources d&#39;approvisionnement ou des modules d&#39;intégrations de stocks en les enregistrant dans un stream REDIS sur la base <strong>DB1</strong>. Cet historique permet de garder une trace temporaire des opérations dans Unified Stock et peut-être interrogé afin d&#39;être stocké à long terme ou à des fins de diagnostic.</p>
+<p><strong>Attention :</strong> l&#39;historique est réinitialisé à chaque fois que le cache REDIS est vidé, il ne s&#39;agit donc pas d&#39;une solution de stockage à long terme.</p>
+<p>Cette historisation est automatique et se fait sur réception de nouvelles données de stocks depuis les sources d&#39;approvisionnement, les modules d&#39;intégrations de stocks ou encore les APIs.</p>
+<p>Les mouvements de stocks enregistrés dans le stream contiennent :</p>
+<ul>
+<li>La date de l&#39;enregistrement précise à la milliseconde dans REDIS. <strong>Attention, il ne s&#39;agit pas de la date où le mouvement a eu lieu dans l&#39;emplacement.</strong></li>
+<li>Le rang d&#39;enregistrement. Si plusieurs mouvements sont sauvegardés durant la même milliseconde, cela permet de les classer par ordre d&#39;enregistrement.</li>
+<li>La référence de l&#39;article.</li>
+<li>Le code de l&#39;emplacement.</li>
+<li>Le type d&#39;emplacement.</li>
+<li>La quantité disponible en stock.</li>
+</ul>
+<p><strong>Attention</strong>, seuls les changements de quantités en stocks qui parviennent au module d&#39;intégration des stocks sont effectivement enregistrés.</p>
+<p>Dans le cadre de l&#39;exécution des sources d&#39;approvisionnement, seul les stocks considérés comme <strong>valides</strong> sont envoyés à Unified Stock. De plus la configuration de l&#39;option <strong>UnifiedStockIncludeIgnoredStocks</strong> influe également sur le nombre de stocks envoyés à US. Pour plus d&#39;information, consultez les sections de documentation dédiées.</p>
+<p>De plus si vous constatez des disparités entre les mouvements de stocks dans vos emplacements et ceux historisés par Unified Stock en journée, cela peut indiquer un disfonctionnement de vos modules d&#39;intégrations de stocks spécifiques.</p>
+<h2 id="points-api-principaux">Points API principaux</h2>
+<p>Le module de traitement des stocks dispose d&#39;APIs permettant d&#39;interroger l&#39;historique des mouvements de stocks.
+Tous les points API sont détaillés dans le swagger et sont accompagnés d&#39;une définition des objets d&#39;envois et de retours.</p>
+<p><img src="img/SwaggerUIStockMovements.png" alt="Interface SwaggerUi StockMovements"></p>
+<h3 id="ajout-dentrées-dans-lhistorique">Ajout d&#39;entrées dans l&#39;historique</h3>
+<p>Comme expliqué plus haut, l&#39;historisation des données se fait automatiquement sur réception de nouveaux stocks. Pour insérer de nouveaux stocks dans Unified Stock, consultez la documentation sur les APIs du module de traitement de stocks.</p>
+<h3 id="lire-lhistorique-entre-deux-dates">Lire l&#39;historique entre deux dates</h3>
+<p><strong>POST : {tenantId}/stocks/movements/dates</strong></p>
+<p>Ce point API permet d&#39;obtenir les mouvements de stocks entre deux dates (incluses). Pour cela il est nécessaire de passer un objet JSON contenant les champs suivant dans le body de la requête :</p>
+<ul>
+<li><strong>from</strong> : la date UTC (incluse) en à partir de laquelle récupérer les mouvements de stocks. Doit être inférieure à <strong>to</strong>.</li>
+<li><strong>to</strong> : la date UTC (incluse) jusqu&#39;à laquelle récupérer les mouvements de stocks. Doit être supérieure à <strong>from</strong>.</li>
+<li><strong>count</strong> : Permet de limiter le nombre d&#39;entrées à recupérer. Si <strong>count</strong> a une valeur plus importante que le nombre total de mouvements enregistrés, alors tous les mouvements sont récupérés. Peut être null et n&#39;est pas pris en compte si inférieur ou égal à 0. </li>
+<li><strong>orderBy</strong> : Si <strong>0</strong>, classe les mouvements de stocks du plus ancien au plus récent. Si <strong>1</strong>, classe les mouvements de stocks du plus récent au plus ancien. </li>
+</ul>
+<p>Les champs <strong>count</strong> et <strong>orderBy</strong> se cumule :\
+Par exemple si <strong>count</strong> est à 10 et <strong>orderBy</strong> à 0, Unified Stock va récupérer les 10 premiers mouvements du plus ancien au plus récent à partir de la date <strong>from</strong>.\
+Si <strong>count</strong> est à 10 et <strong>orderBy</strong> à 1, Unified Stock va récupérer les 10 derniers mouvements du plus récent au plus ancien à partir de la date <strong>to</strong>.</p>
+<p><img src="img/GetStockMovementsDates.png" alt="SwaggerUi historique entre deux dates"></p>
+<h3 id="lire-lhistorique-entre-deux-ids">Lire l&#39;historique entre deux IDs</h3>
+<p><strong>POST : {tenantId}/stocks/movements/ids</strong></p>
+<p>Lorsqu&#39;un mouvement de stock est ajouté au stream, REDIS va lui attribuer un identifiant de ce type :\
+<strong>1740740428332-28</strong> où la partie avant le <strong>&quot;-&quot;</strong> correspond à un Epoch &amp; Unix Timestamp représentant le nombre de millisecondes écoulées depuis le 1 Janvier 1970 à 00h00:00. La partie après le <strong>&quot;-&quot;</strong> correspond au rang d&#39;insertion dans la base dans le cas où plusieurs mouvements ont été enregistrés durant la même milliseconde.</p>
+<p>Ce point API permet de récupérer les mouvements de stocks compris entre deux IDs (incluses). Pour cela il est nécessaire de passer un objet JSON contenant les champs suivant dans le body de la requête :</p>
+<ul>
+<li><strong>fromId</strong> : l&#39;ID à partir de laquelle récupérer les mouvements de stocks. Doit être inférieure à <strong>toId</strong>. Si l&#39;ID demandée n&#39;existe pas en base, l&#39;ID suivante existante en base sera utilisée. Il est également possible de renseigner &quot;-&quot; pour choisir la toute première ID enregistrée (la plus ancienne).</li>
+<li><strong>toId</strong> : l&#39;ID jusqu&#39;à laquelle récupérer les mouvements de stocks. Doit être supérieure à <strong>fromId</strong>. Si l&#39;ID demandée n&#39;existe pas en base, l&#39;ID précédente existante en base sera utilisée. Il est également possible de renseigner &quot;+&quot; pour choisir la toute dernière ID enregistrée (la plus récente).</li>
+</ul>
+<p>Les champs <strong>count</strong> et <strong>orderBy</strong> ont un comportement identique à la lecture d&#39;historique par dates.</p>
+<p><img src="img/GetStockMovementsIds.png" alt="SwaggerUi historique entre deux IDs"></p>
+<h3 id="obtenir-le-nombre-dentrées-dans-lhistorique">Obtenir le nombre d&#39;entrées dans l&#39;historique</h3>
+<p><strong>GET : {tenantId}/stocks/movements/length</strong></p>
+<p>Ce point API permet de récupérer le nombre de mouvements de stocks actuellement enregistrés dans le stream REDIS. Il peut être utilisé à des fins de diagnostic ou pour savoir s&#39;il est nécessaire de supprimer les anciennes entrées.</p>
+<h3 id="raccourcir-la-taille-de-lhistorique">Raccourcir la taille de l&#39;historique</h3>
+<p><strong>DELETE : {tenantId}/stocks/movements/trim/{maxLength}</strong></p>
+<p>Ce point API permet de raccourcir l&#39;historique en supprimant les entrées les plus anciennes si leur nombre dépasse le paramètre entier positif <strong>maxLength</strong>. Il permet également de vider entièrement l&#39;historique si <strong>maxLength</strong> est égal à 0.</p>
+<p>Renvoie le nombre d&#39;entrées supprimées.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/orchestrator/unified-stock/historisationstocks.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

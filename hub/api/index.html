@@ -1,0 +1,340 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+  
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-17974923-7');
+    </script>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Nos APIs | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Nos APIs | Aide - Altazion">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  
+  
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+              
+              <script type="text/javascript">
+              
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+              
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+              
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+              
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+              
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="nos-apis">Nos APIs</h1>
+
+<p>Vous trouverez dans cette section la description de nos APIs au format REST. Si vous utilisiez nos WebServices SOAP, les points API decrit dans cette partie de l&#39;aide remplacent les méthodes que vous utilisiez.</p>
+<h2 id="nos-différentes-apis">Nos différentes APIs</h2>
+<p>Elles sont regroupées en trois grandes parties, en fonction de leur destination et/ou de leur contexte d&#39;utilisation :</p>
+<ul>
+<li>les API Principales permettent de connecter une application métier à l&#39;intégralité de notre plateforme et sont à privilégier dans le cadre d&#39;une application complexe, modifiant directement les données de votre entreprise</li>
+<li>Les API e-commerce sont exclusivement disponibles dans un site e-commerce et permettent d&#39;interagir avec le catalogue de ce dernier ainsi qu&#39;avec tous les process de commande</li>
+<li>Les API Phygitales sont destinées aux devices d&#39;aides à la ventes : elles sont par exemple utilisée dans nos tablettes vendeurs, outils d&#39;aides à la ventes, etc.</li>
+</ul>
+<p>Il est à noter que le niveau de sécurité de l&#39;api e-commerce est très réduit.</p>
+<h2 id="conventions-dappels">Conventions d&#39;appels</h2>
+<p>Les APIs suivent les principes habituels des services REST : chaque opération est réalisée via un appel HTTP/HTTPS à une url donnée, éventuellement complétée de paramètres ou d&#39;un corps de requête. Lorsqu&#39;un corps de requete est demandé, celui-ci devra être passé au format JSON, avec un ContentType &quot;application/json&quot;.</p>
+<p>Les données passées en tant que paramètres d&#39;url doivent suivre les conventions suivantes :</p>
+<ul>
+<li>Les valeurs numériques seront présentées sans séparateur de regroupement et, dans le cas de valeur décimales, en utilisant le point . (ascii 0x2E) comme séparateur décimal</li>
+<li>Les valeurs dates seront formatées selon la RFC 3339 et exprimées en UTC (par exemple 2010-01-01T00:00:01Z représente le 1er Janvier 2010 à minuit et 1 seconde UTC.</li>
+<li>Les valeurs booléennes peuvent être passées sous la forme de true/false</li>
+</ul>
+<h2 id="codes-derreurs">Codes d&#39;erreurs</h2>
+<p>Toutes les opérations retourne l&#39;état de leur résultat via un code HTTP standard. Si vous obtenez un code de la classe 4xx ou 5xx, l&#39;appel à échoué.</p>
+<p>Lorsqu&#39;un appel échoue, le résultat contient la classe suivante, sérialisée en JSON :</p>
+<pre><code class="lang-csharp">class WebServiceErrorDetails
+{
+    string Message { get; set; }
+    int ErrorCode { get; set; }
+    int? ErrorIdentifier { get; set; }
+}
+</code></pre><p>Le champ ErrorCode reprend le code de status HTTP.</p>
+<p>Les codes status suivants sont utilisés de façon standard dans toute l&#39;API :</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>409</td>
+<td>Conflict</td>
+<td>Les données fournies pour identifier le tenant sont en conflit avec les données envoyées. Vérifiez vos identifiants</td>
+</tr>
+<tr>
+<td>412</td>
+<td>PréconditionFailed</td>
+<td>Le serveur est dans un état invalide pour effectuer cette opération, il peut par exemple s&#39;agir d&#39;un problème de configuration</td>
+</tr>
+<tr>
+<td>418</td>
+<td>-</td>
+<td>La cible de l&#39;appel n&#39;est pas valide</td>
+</tr>
+<tr>
+<td>404</td>
+<td>NotFound</td>
+<td>L&#39;un des éléments de l&#39;appel n&#39;a pas été trouvé</td>
+</tr>
+<tr>
+<td>405</td>
+<td>MethodNotAllowed</td>
+<td>L&#39;un des éléments de l&#39;appel est dans un état ne permettant pas l&#39;opération</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td>Vous n&#39;avez pas les autorisations pour réaliser cette opération</td>
+</tr>
+<tr>
+<td>400</td>
+<td>BadRequest</td>
+<td>L&#39;opération viole une règle de gestion</td>
+</tr>
+</tbody>
+</table>
+<p>En complément du code HTTP général, le libellé vous donnera plus d&#39;information. Afin de permettre la localisation des messages d&#39;erreurs, le champ ErrorIdentifier est renseigné si plus d&#39;informations sont nécessaires. Ce champ peut prendre les valeurs suivantes :</p>
+<pre><code class="lang-csharp">SiteInvalide = 5000;
+MagasinInvalide = 5041;
+ModuleRechercheInvalide = 5050;
+
+PanierErreurManipulation = 5100;
+PanierModeLivraisonIndisponible = 5101;
+PanierCodeAvantageInvalide = 5113;
+PanierRegleAvantageIncorrecte = 5115;
+ClientNonConnecte = 5100;
+AdresseDonneeManquante = 5107;
+AdresseDonneeInvalide = 5108;
+CommandeEtatInvalide = 5319;
+</code></pre><h2 id="exemple-dappel">EXEMPLE D&#39;APPEL</h2>
+<p>Obtenir les détails d&#39;un article depuis les APIs principales :</p>
+<pre><code class="lang-text">GET http://demo-api-simplement-e.azurewebsites.net/api/catalogue/articles/000008/data HTTP/1.1
+cache-control: no-cache
+Authorization: Basic R**********************************************************==
+Accept: */*
+Host: demo-api-simplement-e.azurewebsites.net
+accept-encoding: gzip, deflate
+Connection: keep-alive
+
+
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Length: 1675
+Content-Type: application/json; charset=utf-8
+Expires: -1
+Vary: Accept-Encoding
+Date: Thu, 14 Dec 2017 13:52:43 GMTGET http://demo-api-simplement-e.azurewebsites.net/api/catalogue/articles/000008/data HTTP/1.1
+cache-control: no-cache
+Authorization: Basic ******
+Accept: */*
+Host: demo-api-simplement-e.azurewebsites.net
+accept-encoding: gzip, deflate
+Connection: keep-alive
+{
+    &quot;AutresReferences&quot;: null,
+    &quot;EmplacementStockMagasin&quot;: &quot;Inconnu&quot;,
+    &quot;Dimensions&quot;: null,
+    &quot;Taxes&quot;: null,
+    &quot;Parent&quot;: null,
+    &quot;Disponibilites&quot;: null,
+    &quot;Instances&quot;: null,
+    &quot;Documents&quot;: null,
+    &quot;Videos&quot;: null,
+    &quot;MoreImages&quot;: [],
+    &quot;Labels&quot;: null,
+    &quot;Attributs&quot;: {
+        &quot;42232ade-9d98-44a7-a9dd-06b44d86084f&quot;: &quot;False&quot;,
+        &quot;a8f0cf4e-87b3-4330-b747-1293e8fd50a0&quot;: &quot;112g&quot;,
+        &quot;8edd8a5c-4dcd-4755-8ec0-2262c130af3e&quot;: &quot;34g&quot;,
+        &quot;be87c2b8-25e2-4758-89c6-2a60fe3c985b&quot;: &quot;False&quot;,
+        &quot;0d7f6856-169b-4ed0-8b2e-2cd712b9dc9f&quot;: &quot;False&quot;,
+        &quot;6820cfc6-a9ca-4e5a-8b33-3c59a6f3bb52&quot;: &quot;Fraise&quot;,
+        &quot;3ef27b27-8aa4-4852-8d77-508dd3cc18c7&quot;: &quot;Conserver au frais 1 jour avant de consommer&quot;,
+        &quot;0969d3fe-b00c-461c-8a5c-53190e4be498&quot;: &quot;Pâte feuilletée, Sucre glace, Lait, Oeuf, Fraise, Sucre, Farine, Crème liquide, Vanille&quot;,
+        &quot;cb00acfd-dc59-4a4e-9e27-53eddfbc2f9f&quot;: &quot;False&quot;,
+        &quot;0c2ff3b6-0c4d-4f5b-95fc-7715da77e7da&quot;: &quot;False&quot;,
+        &quot;2d483472-c600-48b9-a95e-87829ade479f&quot;: &quot;114g&quot;,
+        &quot;0f73e6fd-0c5d-4135-8d80-8bd56817b49e&quot;: &quot;False&quot;,
+        &quot;7ac80cd0-f12f-47d0-93ae-afe6ea5f62b6&quot;: &quot;762kcal&quot;,
+        &quot;51af4605-a8ba-4bc9-827b-b465814bf4fb&quot;: &quot;False&quot;,
+        &quot;2a62193d-7a9e-4d4a-9d82-c8c59a8425b5&quot;: &quot;False&quot;,
+        &quot;abebf55d-6c39-43fd-8c33-cad864aaaf18&quot;: &quot;False&quot;,
+        &quot;fb44706c-b03b-4780-aff3-d5bf7cbe3aa2&quot;: &quot;False&quot;,
+        &quot;d9fd174f-84f8-4707-ab0d-d9f6b6843cff&quot;: &quot;False&quot;,
+        &quot;4109a60c-cd4b-40cc-90d2-ec836c70e296&quot;: &quot;False&quot;,
+        &quot;2d972dc7-a881-4132-9f31-f9d11d2fca26&quot;: &quot;Individuel&quot;,
+        &quot;d6d87a3d-ef1d-421c-ab3d-fb4b9b1fc42e&quot;: &quot;False&quot;
+    },
+    &quot;AttributsPrives&quot;: {},
+    &quot;LogosUrls&quot;: null,
+    &quot;ArticlesAssocies&quot;: null,
+    &quot;SuggestionsAuto&quot;: null,
+    &quot;Services&quot;: null,
+    &quot;Avis&quot;: null,
+    &quot;Url&quot;: null,
+    &quot;OriginalImageUrl&quot;: null,
+    &quot;EstEnPromo&quot;: false,
+    &quot;PctRemise&quot;: null,
+    &quot;AllTags&quot;: [],
+    &quot;IntermediateImage&quot;: null,
+    &quot;Marque&quot;: null,
+    &quot;SegmentationPrincipalePk&quot;: null,
+    &quot;MainImage&quot;: null,
+    &quot;SmallImage&quot;: null,
+    &quot;Tag&quot;: null,
+    &quot;DisponibleCommande&quot;: false,
+    &quot;DisponibleCentrale&quot;: false,
+    &quot;DisponibleMagasin&quot;: false,
+    &quot;TypeStockage&quot;: &quot;StockePump&quot;,
+    &quot;EstArchive&quot;: false,
+    &quot;EstLivrable&quot;: true,
+    &quot;ID&quot;: 62329,
+    &quot;Guid&quot;: &quot;7bc07706-7c8b-4d4e-8f3d-f7a7db3cbd89&quot;,
+    &quot;PuHT&quot;: 0,
+    &quot;PuTTC&quot;: 0,
+    &quot;PuPromoHT&quot;: null,
+    &quot;PuPromoTTC&quot;: null,
+    &quot;DateDebutPromo&quot;: null,
+    &quot;DateFinPromo&quot;: null,
+    &quot;Libelle&quot;: &quot;Mille feuilles fraises&quot;,
+    &quot;Reference&quot;: &quot;000008&quot;,
+    &quot;Description&quot;: &quot;L&#39;un des plus grands classiques des desserts français se pare désormais de ses fraises les plus fondantes et sucrées pour satisfaire pleinement vos exigences !&quot;,
+    &quot;MarqueId&quot;: -1,
+    &quot;EstUtilisableInternet&quot;: true,
+    &quot;EstMultiversion&quot;: true,
+    &quot;EstGenerique&quot;: false,
+    &quot;EstCompose&quot;: false,
+    &quot;PuConseilleHT&quot;: 1.55,
+    &quot;PuConseilleTTC&quot;: 1.7,
+    &quot;MetaType&quot;: &quot;Produit&quot;
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/e46297dbf63e630f368d9d8763e4f17d8fabca6f/hub/api/index.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
