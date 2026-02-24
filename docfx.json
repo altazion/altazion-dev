@@ -2,9 +2,6 @@
   "metadata": [],
   "build": {
     "markdownEngineName": "markdig",
-    "markdownEngineProperties": {
-      "markdigExtensions": ["mermaid"]
-    },
     "content": [
       {
         "files": [
