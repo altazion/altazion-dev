@@ -12,6 +12,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Install DocFX plugins
+      run: npm install
+      working-directory: docs    
     - uses: nunit/docfx-action@v2.4.0
       name: Compilation DocFX
       with: 
