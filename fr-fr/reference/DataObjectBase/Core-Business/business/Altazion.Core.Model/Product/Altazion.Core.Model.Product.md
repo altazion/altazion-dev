@@ -1,80 +1,82 @@
 ﻿## Product
 
-La classe Product représente un produit dans le système Altazion. Elle contient les propriétés suivantes :
+Représente un produit dans le système Altazion avec ses nombreuses caractéristiques et états.
 
-- StorageType : le type de gestion des stocks pour ce produit.
-- IsDeleted : indique si le produit est supprimé.
-- IsShippable : indique si le produit est livrable.
-- Id : identifiant unique du produit.
-- Guid : identifiant unique global (GUID) du produit.
-- PriceWOTax : prix hors taxes du produit.
-- Price : prix toutes taxes comprises.
-- VAT : montant de la TVA calculé (prix TTC moins prix HT).
-- DiscountedPriceWOTax : prix promotionnel hors taxes, s'il y a une promotion.
-- DiscountedPrice : prix promotionnel TTC, s'il y a une promotion.
-- DiscountStartDate : date de début de la promotion.
-- DiscountEndDate : date de fin de la promotion.
-- CreationDate : date de création du produit.
-- Label : libellé du produit.
-- Sku : référence SKU du produit.
-- FamilyId : identifiant de la famille du produit.
-- Description : description détaillée du produit.
-- SubFamilyId : identifiant optionnel de la sous-famille du produit.
-- BrandId : identifiant de la marque.
-- VatId : identifiant du taux de TVA applicable.
-- ProductTypeId : identifiant du type de produit.
-- UsableOnDigitalTools : indique si le produit est utilisable sur les outils digitaux.
-- IsForInvoicableElements : indique si le produit peut être pré-facturé.
-- IsMultiVariations : indique si le produit possède plusieurs variations.
-- IsMainVariation : indique si ce produit est la variation principale.
-- IsAssembly : indique si le produit est un assemblage de plusieurs produits.
-- IsExternalVendorEnabled : indique si la vente via un vendeur externe est activée.
-- IsProductComplete : indique si le produit est complet et valide.
-- CurrentCreationStep : étape actuelle de création du produit.
-- RecommendedPriceWOTax : prix conseillé HT.
-- RecommendedPrice : prix conseillé TTC.
-- MetaType : type de méta-produit (enum ProductMetaType).
-- RiskScore : score de risque associé au produit.
-- ParentProductId : identifiant du produit parent si applicable.
-- IsHighDemand : indique si le produit est en forte demande.
-- IsSubscription : indique si le produit est un abonnement.
-- IsPackage : indique si le produit est un forfait.
-- IsImported : indique si le produit est importé.
-- AllowsDecimalQuantity : indique si le produit autorise les quantités décimales.
-- ExternalCode : code externe pour intégration tierce.
-- CompositionType : type de composition (ex : "ASB" pour assemblage).
-- IsSimplified : indique si mode saisie simplifié.
-- LockedByUserId : GUID de l'utilisateur verrouillant le produit pour édition.
-- UnitId : identifiant de l'unité utilisée pour les quantités.
-- QuantityPerUnit : quantité contenue par unité.
-- StockManagementMode : mode de gestion du stock (enum StockManagementMode).
-- PriceIndexId : identifiant de l'indice de prix.
-- PriceIndexMultiplier : multiplicateur appliqué à l'indice de prix.
-- PriceIndexFeesRate : taux de frais appliqué sur l'indice.
+Propriétés publiques :
+- StorageType : Type de gestion des stocks pour ce produit.
+- IsDeleted : Indique si le produit est supprimé.
+- IsShippable : Indique si le produit est livrable.
+- Id : Identifiant unique du produit.
+- Guid : Identifiant global unique du produit.
+- PriceWOTax : Prix hors taxes du produit.
+- Price : Prix toutes taxes comprises.
+- VAT : Montant de la TVA (calculé comme Price - PriceWOTax).
+- DiscountedPriceWOTax : Prix promotionnel hors taxes, nullable.
+- DiscountedPrice : Prix promotionnel TTC, nullable.
+- DiscountStartDate : Date de début de la promotion, nullable.
+- DiscountEndDate : Date de fin de la promotion, nullable.
+- CreationDate : Date de création du produit.
+- Label : Libellé du produit.
+- Sku : Référence SKU.
+- FamilyId : Identifiant de la famille produit.
+- Description : Description du produit.
+- SubFamilyId : Identifiant facultatif de la sous-famille.
+- BrandId : Identifiant de la marque.
+- VatId : Identifiant du taux de TVA.
+- ProductTypeId : Identifiant du type de produit.
+- UsableOnDigitalTools : Indique si le produit est utilisable sur des outils digitaux.
+- IsForInvoicableElements : Indique si le produit peut être pré-facturé.
+- IsMultiVariations : Indique si le produit a plusieurs variations.
+- IsMainVariation : Indique si le produit est la variation principale.
+- IsAssembly : Indique si le produit est un assemblage.
+- IsExternalVendorEnabled : Indique si la vente via un vendeur externe est activée.
+- IsProductComplete : Indique si le produit est complet et valide.
+- CurrentCreationStep : Étape actuelle de création du produit.
+- RecommendedPriceWOTax : Prix conseillé hors taxes, nullable.
+- RecommendedPrice : Prix conseillé TTC, nullable.
+- MetaType : Type de méta-produit (enum ProductMetaType).
+- RiskScore : Score de risque associé.
+- ParentProductId : Identifiant du produit parent s'il existe.
+- IsHighDemand : Indique si le produit est en forte demande.
+- IsSubscription : Indique si le produit est un abonnement.
+- IsPackage : Indique si le produit est un forfait.
+- IsImported : Indique si le produit est importé.
+- AllowsDecimalQuantity : Indique si les quantités décimales sont autorisées.
+- ExternalCode : Code externe pour intégrations tierces.
+- CompositionType : Type de composition du produit.
+- IsSimplified : Indique si le mode de saisie simplifié est utilisé.
+- LockedByUserId : Identifiant de l'utilisateur verrouillant le produit.
+- UnitId : Identifiant de l'unité de mesure.
+- QuantityPerUnit : Quantité contenue par unité, nullable.
+- StockManagementMode : Mode de gestion du stock (enum StockManagementMode).
+- PriceIndexId : Identifiant de l'indice de prix, nullable.
+- PriceIndexMultiplier : Multiplicateur sur l'indice de prix, nullable.
+- PriceIndexFeesRate : Taux de frais sur l'indice, nullable.
+- ExternalDppUrl : URL du Passeport Numérique Produit externe.
 
-Cette classe contient également des méthodes pour convertir le type de méta-produit en chaîne et inversement, et la surcharge ToString() retourne une chaîne composée du SKU et du label.
+Cette classe comprend aussi des méthodes statiques pour convertir les types de méta-produit entre chaîne et enum, et surcharge la méthode ToString() pour afficher le SKU et le libellé.
 
-Enums associées :
-- ProductMetaType : définition des types de méta-produits (Products, Shipping, Discounts, etc.).
-- StorageType : méthodes de gestion des stocks (NoStorage, FIFO, WeightedAverage, etc.).
-- StockManagementMode : modes de gestion du stock unitaire (Undifferentiated, ByBatchNumber, ByUnitIdentifier).
+Enums définis dans le même namespace importants :
+- ProductMetaType : Définit les types de méta-produits (Produits, Livraison, Remises, Services, etc.).
+- StorageType : Définit les méthodes de gestion des stocks (Aucun stock, FIFO, Moyenne pondérée, etc.).
+- StockManagementMode : Définit les modes de gestion du stock unitaire (non différencié, par lot, par identifiant).
 
 ### D�claration TypeScript
 ```typescript
-export interface Product {
-  StorageType: StorageType;
+interface Product {
+  StorageType: 'NoStorage' | 'NotPhysicalObject' | 'FIFO' | 'WeightedAverage';
   IsDeleted: boolean;
   IsShippable: boolean;
   Id: number;
-  Guid: string;
+  Guid: string; // UUID string
   PriceWOTax: number;
   Price: number;
-  readonly VAT: number;
+  readonly VAT: number; // computed
   DiscountedPriceWOTax?: number | null;
   DiscountedPrice?: number | null;
-  DiscountStartDate?: string | null;
-  DiscountEndDate?: string | null;
-  CreationDate: string;
+  DiscountStartDate?: string | null; // ISO date string
+  DiscountEndDate?: string | null; // ISO date string
+  CreationDate: string; // ISO date string
   Label: string;
   Sku: string;
   FamilyId: number;
@@ -93,7 +95,7 @@ export interface Product {
   CurrentCreationStep: number;
   RecommendedPriceWOTax?: number | null;
   RecommendedPrice?: number | null;
-  MetaType: ProductMetaType;
+  MetaType: 'Products' | 'Shipping' | 'Discounts' | 'Services' | 'Rents' | 'Bundles' | 'Financial' | 'Tax' | 'Licence';
   RiskScore: number;
   ParentProductId?: number | null;
   IsHighDemand: boolean;
@@ -104,37 +106,13 @@ export interface Product {
   ExternalCode: string;
   CompositionType: string;
   IsSimplified: boolean;
-  LockedByUserId?: string | null;
+  LockedByUserId?: string | null; // UUID string
   UnitId?: number | null;
   QuantityPerUnit?: number | null;
-  StockManagementMode: StockManagementMode;
-  PriceIndexId?: string | null;
+  StockManagementMode: 0 | 1 | 2; // byte enum
+  PriceIndexId?: string | null; // UUID string
   PriceIndexMultiplier?: number | null;
   PriceIndexFeesRate?: number | null;
-}
-
-export enum ProductMetaType {
-  Products,
-  Shipping,
-  Discounts,
-  Services,
-  Rents,
-  Bundles,
-  Financial,
-  Tax,
-  Licence
-}
-
-export enum StorageType {
-  NoStorage,
-  NotPhysicalObject,
-  FIFO,
-  WeightedAverage
-}
-
-export enum StockManagementMode {
-  Undifferentiated = 0,
-  ByBatchNumber = 1,
-  ByUnitIdentifier = 2
+  ExternalDppUrl: string;
 }
 ```
