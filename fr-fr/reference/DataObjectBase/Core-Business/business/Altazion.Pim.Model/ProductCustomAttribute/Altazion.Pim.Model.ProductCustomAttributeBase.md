@@ -1,27 +1,31 @@
 ﻿## ProductCustomAttributeBase
 
-Cette classe représente un attribut personnalisé de produit avec ses différentes valeurs possibles.
+Représente un attribut personnalisé de produit avec ses différentes valeurs possibles (numérique, booléenne, textuelle, date ou énumérée).
 
 Propriétés publiques :
-- AttributeGuid : Identifiant unique (GUID) de l'attribut.
-- DecimalValue : Valeur numérique (decimal nullable) de l'attribut.
-- BooleanValue : Valeur booléenne (nullable) de l'attribut.
-- TextValue : Valeur textuelle (string) de l'attribut. Si aucune valeur courte n'est disponible, une version longue peut être utilisée.
-- DateValue : Valeur de date (DateTimeOffset nullable) de l'attribut.
+- EnumeratedValue (int?) : Valeur provenant d'une énumération. Elle peut être nulle si non définie.
+- AttributeGuid (Guid) : Identifiant unique de l'attribut. C'est la clé unique qui identifie cet attribut.
+- DecimalValue (decimal?) : Valeur numérique associée à l'attribut. Optionnelle.
+- BooleanValue (bool?) : Valeur booléenne associée à l'attribut. Optionnelle.
+- TextValue (string) : Valeur textuelle associée à l'attribut. Optionnelle.
+- DateValue (DateTimeOffset?) : Valeur de date associée à l'attribut. Optionnelle.
 
-Méthodes importantes :
-- GetKey() : retourne la clé unique de l'objet qui est ici l'AttributeGuid.
-- FromDataRow(DataRow dr) : initialise les propriétés de l'objet à partir d'une ligne de données, en extrayant les différentes valeurs stockées.
-
-Cette classe est marquée par l'attribut SqlDataConcept indiquant qu'elle correspond à la table "catalog_articles_attributs" dans la base "Catalog" et la notion "ProductCustomAttribute".
+Cette classe permet d'initialiser ses propriétés à partir d'une ligne de données (DataRow) et la clé unique de l'objet est basée sur AttributeGuid.
 
 ### D�claration TypeScript
 ```typescript
-export interface ProductCustomAttributeBase {
-  AttributeGuid: string; // GUID
+interface ProductCustomAttributeBase {
+  /** Value from an enumeration. Nullable if not set */
+  EnumeratedValue?: number | null;
+  /** Unique identifier of the attribute */
+  AttributeGuid: string;
+  /** Numeric value associated with the attribute, optional */
   DecimalValue?: number | null;
+  /** Boolean value associated with the attribute, optional */
   BooleanValue?: boolean | null;
+  /** Textual value associated with the attribute, optional */
   TextValue?: string | null;
-  DateValue?: string | null; // ISO 8601 string or null
+  /** Date value associated with the attribute, optional */
+  DateValue?: string | null; // ISO 8601 string format
 }
 ```

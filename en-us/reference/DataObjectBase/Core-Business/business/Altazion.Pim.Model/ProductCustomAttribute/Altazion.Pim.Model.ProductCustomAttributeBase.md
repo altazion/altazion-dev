@@ -1,27 +1,31 @@
 ﻿## ProductCustomAttributeBase
 
-This class represents a product custom attribute with its various possible values.
+Represents a product custom attribute with its various possible value types (numeric, boolean, textual, date, or enumerated).
 
 Public properties:
-- AttributeGuid: Unique identifier (GUID) of the attribute.
-- DecimalValue: Numeric value (nullable decimal) of the attribute.
-- BooleanValue: Boolean value (nullable) of the attribute.
-- TextValue: Text value (string) of the attribute. If no short text value is available, a long text value may be used.
-- DateValue: Date value (nullable DateTimeOffset) of the attribute.
+- EnumeratedValue (int?) : Value from an enumeration. It can be null if not set.
+- AttributeGuid (Guid) : Unique identifier of the attribute. This is the unique key identifying this attribute.
+- DecimalValue (decimal?) : Numeric value associated with the attribute. Optional.
+- BooleanValue (bool?) : Boolean value associated with the attribute. Optional.
+- TextValue (string) : Textual value associated with the attribute. Optional.
+- DateValue (DateTimeOffset?) : Date value associated with the attribute. Optional.
 
-Key methods:
-- GetKey(): returns the unique key of the object, here the AttributeGuid.
-- FromDataRow(DataRow dr): initializes the object's properties from a data row, extracting the stored values.
-
-The class is decorated with a SqlDataConcept attribute indicating it maps to the "catalog_articles_attributs" table in the "Catalog" database with the concept "ProductCustomAttribute".
+This class supports initializing its properties from a data row (DataRow) and uses AttributeGuid as the unique key of the object.
 
 ### TypeScript class
 ```typescript
-export interface ProductCustomAttributeBase {
-  AttributeGuid: string; // GUID
+interface ProductCustomAttributeBase {
+  /** Value from an enumeration. Nullable if not set */
+  EnumeratedValue?: number | null;
+  /** Unique identifier of the attribute */
+  AttributeGuid: string;
+  /** Numeric value associated with the attribute, optional */
   DecimalValue?: number | null;
+  /** Boolean value associated with the attribute, optional */
   BooleanValue?: boolean | null;
+  /** Textual value associated with the attribute, optional */
   TextValue?: string | null;
-  DateValue?: string | null; // ISO 8601 string or null
+  /** Date value associated with the attribute, optional */
+  DateValue?: string | null; // ISO 8601 string format
 }
 ```
