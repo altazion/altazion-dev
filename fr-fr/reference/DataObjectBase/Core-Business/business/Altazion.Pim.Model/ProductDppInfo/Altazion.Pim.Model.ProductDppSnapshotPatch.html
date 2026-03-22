@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-17974923-7');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ProductDppSnapshotPatch | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="ProductDppSnapshotPatch | Aide - Altazion">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+  
+  
+  
+    <script defer="" src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+
+              <script type="text/javascript">
+
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="productdppsnapshotpatch">ProductDppSnapshotPatch</h2>
+
+<p>Classe représentant une mise à jour partielle d'un snapshot DPP (Passeport Numérique Produit). Seuls les champs non nuls sont appliqués lors de la mise à jour, un champ nul signifiant que la valeur existante ne doit pas être modifiée.</p>
+<p>Propriétés publiques :</p>
+<ul>
+<li>AccessLevel : Niveau d'accès requis pour consulter le snapshot.</li>
+<li>Note : Note libre décrivant le contexte du snapshot.</li>
+<li>ValidFrom : Date de début de validité du snapshot.</li>
+<li>ValidTo : Date de fin de validité du snapshot.</li>
+<li>ManufacturingSiteGln : GLN GS1 du site de fabrication.</li>
+<li>ManufacturingCountryCode : Code pays ISO 3166-1 alpha-2 du pays de fabrication.</li>
+<li>Gtins : Liste des GTINs (Global Trade Item Number) spécifiques à ce snapshot.</li>
+</ul>
+<p>Données environnementales :</p>
+<ul>
+<li>CarbonFootprint : Empreinte carbone du produit pour ce snapshot.</li>
+<li>RecycledContentPercent : Pourcentage de contenu recyclé dans le produit.</li>
+<li>ExpectedLifespanYears : Durée de vie attendue du produit en années.</li>
+<li>RepairabilityScore : Indice de réparabilité sur 10.</li>
+<li>EnergyEfficiencyClass : Classe d'efficacité énergétique selon EU Energy Label.</li>
+<li>Materials : Liste des matières composant le produit.</li>
+<li>HazardousSubstances : Liste des substances dangereuses présentes.</li>
+</ul>
+<p>Conformité &amp; fin de vie :</p>
+<ul>
+<li>ConformityDeclarations : Liste des déclarations de conformité réglementaire.</li>
+<li>EndOfLifeInstructions : Instructions de fin de vie multilingues.</li>
+</ul>
+<p>Accès Professional :</p>
+<ul>
+<li>RepairDocuments : Liste des documents techniques de réparation et démontage.</li>
+<li>SpareParts : Liste des pièces détachées disponibles.</li>
+</ul>
+<p>Accès Regulatory :</p>
+<ul>
+<li>SupplyChain : Étapes de la chaîne d'approvisionnement.</li>
+</ul>
+<p>Emballage &amp; labels environnementaux :</p>
+<ul>
+<li>Packaging : Informations sur l'emballage (matériau, recyclabilité).</li>
+<li>EnvironmentalLabels : Labels environnementaux et certifications écologiques associés.</li>
+</ul>
+<h3 id="dclaration-typescript">D�claration TypeScript</h3>
+<pre><code class="lang-typescript">interface ProductDppSnapshotPatch {
+  AccessLevel?: DppAccessLevel;
+  Note?: string;
+  ValidFrom?: string; // DateOnly format YYYY-MM-DD
+  ValidTo?: string; // DateOnly format YYYY-MM-DD
+  ManufacturingSiteGln?: string;
+  ManufacturingCountryCode?: string;
+  Gtins?: string[];
+
+  CarbonFootprint?: ProductDppCarbonFootprint;
+  RecycledContentPercent?: number;
+  ExpectedLifespanYears?: number;
+  RepairabilityScore?: number;
+  EnergyEfficiencyClass?: string;
+  Materials?: ProductDppMaterial[];
+  HazardousSubstances?: ProductDppHazardousSubstance[];
+
+  ConformityDeclarations?: ProductDppConformityDeclaration[];
+  EndOfLifeInstructions?: ProductDppEndOfLifeInstruction[];
+
+  RepairDocuments?: ProductDppRepairDocument[];
+  SpareParts?: ProductDppSparePart[];
+
+  SupplyChain?: ProductDppSupplyChainStep[];
+
+  Packaging?: ProductDppPackagingInfo[];
+  EnvironmentalLabels?: ProductDppEnvironmentalLabel[];
+}
+
+// Supporting interfaces should be declared similarly, based on their definitions.
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/master/fr-fr/reference/DataObjectBase/Core-Business/business/Altazion.Pim.Model/ProductDppInfo/Altazion.Pim.Model.ProductDppSnapshotPatch.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>
