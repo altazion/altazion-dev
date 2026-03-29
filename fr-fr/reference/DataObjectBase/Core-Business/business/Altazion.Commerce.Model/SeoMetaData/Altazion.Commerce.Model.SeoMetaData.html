@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-17974923-7');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>SeoMetaData | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="SeoMetaData | Aide - Altazion">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+  
+  
+  
+    <script defer="" src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+
+              <script type="text/javascript">
+
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="seometadata">SeoMetaData</h2>
+
+<p>La classe <code>SeoMetaData</code> représente les métadonnées SEO configurées pour une page du site e-commerce.</p>
+<h3 id="propriétés-publiques-">Propriétés publiques :</h3>
+<ul>
+<li><code>PageTitle</code> : Obtient ou définit le titre HTML de la page.</li>
+<li><code>Keywords</code> : Obtient ou définit les mots-clés SEO de la page sous forme de tableau de chaînes.</li>
+<li><code>Description</code> : Obtient ou définit la méta description de la page.</li>
+<li><code>PageH1</code> : Obtient ou définit le titre H1 associé à la page.</li>
+<li><code>PageHeaderContent</code> : Obtient ou définit un contenu d'en-tête additionnel de la page.</li>
+<li><code>JsonLd</code> : Obtient ou définit un contenu JSON-LD configuré pour la page, utilisé pour des données structurées.</li>
+<li><code>SocialMetaJson</code> : Obtient ou définit la configuration JSON des balises sociales (OpenGraph, TwitterCard) au format JSON.</li>
+<li><code>RobotNoIndex</code> : Indique si la page doit être exclue de l'indexation par les robots.</li>
+<li><code>RobotNoFollow</code> : Indique si les robots ne doivent pas suivre les liens sur la page.</li>
+<li><code>CanInheritInSubPages</code> : Indique si les sous-pages peuvent hériter de ces métadonnées SEO.</li>
+<li><code>ContentKind</code> : Le type de contenu ciblé par ces métadonnées (exemple : type de page).</li>
+<li><code>ContentId</code> : L'identifiant du contenu ciblé.</li>
+<li><code>Guid</code> : Identifiant unique de la définition SEO.</li>
+<li><code>SiteId</code> : Identifiant du site concerné.</li>
+</ul>
+<p>La classe charge ses données à partir d'une ligne SQL et parse notamment des directives robots (noindex, nofollow). Elle effectue aussi des validations sur la cohérence et les formats de ses propriétés.</p>
+<h3 id="dclaration-typescript">D�claration TypeScript</h3>
+<pre><code class="lang-typescript">interface SeoMetaData {
+  PageTitle?: string;
+  Keywords?: string[];
+  Description?: string;
+  PageH1?: string;
+  PageHeaderContent?: string;
+  JsonLd?: string;
+  SocialMetaJson?: string;
+  RobotNoIndex: boolean;
+  RobotNoFollow: boolean;
+  CanInheritInSubPages: boolean;
+  ContentKind?: string;
+  ContentId?: string;
+  Guid: string; // Guid as string
+  SiteId: number;
+}
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/master/fr-fr/reference/DataObjectBase/Core-Business/business/Altazion.Commerce.Model/SeoMetaData/Altazion.Commerce.Model.SeoMetaData.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>
