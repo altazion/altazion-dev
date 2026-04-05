@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-17974923-7');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ReturnServiceCaseWorkQueueProjection | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="ReturnServiceCaseWorkQueueProjection | Aide - Altazion">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+  
+  
+  
+    <script defer="" src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+
+              <script type="text/javascript">
+
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="returnservicecaseworkqueueprojection">ReturnServiceCaseWorkQueueProjection</h2>
+
+<p>Work queue projection focused on store, workshop, and logistics operations.</p>
+<p>Public properties:</p>
+<ul>
+<li>Id: Unique identifier of the object (primary key).</li>
+<li>TenantId: Tenant identifier.</li>
+<li>CaseId: Unique identifier of the return service case.</li>
+<li>RootCaseId: Identifier of the root case.</li>
+<li>ParentCaseId: Identifier of the parent case, if any.</li>
+<li>CaseNumber: Human-readable case number.</li>
+<li>CaseType: Type of return service case.</li>
+<li>GlobalStatus: Overall status of the case.</li>
+<li>CurrentPhase: Current phase in the workflow.</li>
+<li>CurrentStepCode: Code of the current workflow step.</li>
+<li>CurrentStepStatus: Status of the current workflow step.</li>
+<li>Priority: Priority level of the case.</li>
+<li>QueueCode: Code for the work queue.</li>
+<li>AssignedTeam: Team assigned to the case.</li>
+<li>AssignedUserId: Identifier of the assigned user.</li>
+<li>IsBlocked: Indicates whether the case is blocked.</li>
+<li>CreatedAt: Creation date and time.</li>
+<li>LastEventAt: Date and time of the last event.</li>
+<li>StoreId: Identifier of the involved store.</li>
+<li>WarehouseId: Identifier of the associated warehouse.</li>
+<li>CustomerId: Identifier of the customer.</li>
+<li>CustomerDisplayName: Display name of the customer.</li>
+<li>MainProductId: Identifier of the main product.</li>
+<li>MainProductLabel: Label of the main product.</li>
+<li>MainSerialNumber: Main product serial number.</li>
+<li>ActiveLineCount: Number of active lines.</li>
+<li>BlockedLineCount: Number of blocked lines.</li>
+<li>OpenLineCount: Number of open lines.</li>
+<li>LineIds: List of associated line identifiers.</li>
+<li>Tags: List of tags for filtering or categorization.</li>
+</ul>
+<h3 id="typescript-class">TypeScript class</h3>
+<pre><code class="lang-typescript">interface ReturnServiceCaseWorkQueueProjection {
+  id: string;
+  tenantId: number;
+  caseId: string; // Guid
+  rootCaseId: string; // Guid
+  parentCaseId?: string; // Guid or null
+  caseNumber: string;
+  caseType: ReturnServiceCaseType;
+  globalStatus: ReturnServiceCaseStatus;
+  currentPhase: WorkflowPhase;
+  currentStepCode: string;
+  currentStepStatus: WorkflowStepStatus;
+  priority: ReturnServiceCasePriority;
+  queueCode: string;
+  assignedTeam: string;
+  assignedUserId?: string; // Guid or null
+  isBlocked: boolean;
+  createdAt: string; // DateTimeOffset ISO string
+  lastEventAt?: string; // DateTimeOffset ISO string or null
+  storeId?: string; // Guid or null
+  warehouseId?: string; // Guid or null
+  customerId?: string; // Guid or null
+  customerDisplayName: string;
+  mainProductId?: string; // Guid or null
+  mainProductLabel: string;
+  mainSerialNumber: string;
+  activeLineCount: number;
+  blockedLineCount: number;
+  openLineCount: number;
+  lineIds: string[]; // array of Guids
+  tags: string[];
+}
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/master/en-us/reference/DataObjectBase/Core-Business/business/Altazion.Logistics.Model/Returns/ReturnServiceCaseWorkQueueProjection/Altazion.Logistics.Model.ReturnServiceCaseWorkQueueProjection.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../../../../../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../../styles/main.js"></script>
+  </body>
+</html>
