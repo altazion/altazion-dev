@@ -1,28 +1,36 @@
 ﻿## ProductDppInfo
 
-Classe représentant les informations du Passeport Numérique Produit (DPP) associées à une référence produit (SKU/GTIN).
-Elle contient une liste de snapshots versionnés par périodes et origines de fabrication, conforme aux exigences GS1 et ESPR.
+La classe ProductDppInfo représente les informations du Passeport Numérique Produit (DPP) associées à une référence produit (SKU/GTIN). Elle contient notamment :
 
-Propriétés publiques :
+- Id : Identifiant unique du produit auquel ce DPP est rattaché, utilisé comme clé documentaire Mongo pour garantir un DPP unique par produit.
 - ManufacturerGln : GLN GS1 du fabricant du produit, stable pour tous les snapshots.
-- EsprCategory : Catégorie ESPR du produit (par exemple "textile", "electronics", "furniture"), déterminant les exigences spécifiques d'éco-conception au niveau européen.
-- EsprDelegatedActRef : Référence de l'acte délégué ESPR applicable à ce produit (ex : "EU 2023/XXXX" ou identifiant interne).
-- Snapshots : Liste des snapshots DPP versionnés, ordonnée par ordre croissant de ValidFrom.
-- AuditLog : Journal d'audit des modifications DPP, chronologiquement ordonné, alimenté automatiquement à chaque mutation.
+- EsprCategory : Catégorie ESPR du produit (ex : textile, electronics), déterminant les exigences spécifiques d'éco-conception au niveau européen.
+- EsprDelegatedActRef : Référence de l'acte délégué ESPR applicable à ce produit.
+- Snapshots : Liste des snapshots DPP versionnés, ordonnés par date de validité (ValidFrom croissant), représentant les différentes versions des données produit selon période et origine de fabrication.
+- AuditLog : Journal d'audit des modifications DPP, ordonné chronologiquement, alimenté automatiquement à chaque mutation.
 
-Méthode publique :
-- ResolveSnapshot(gtin, date, siteGln = null, minimumAccess = Internal) : Résout et retourne le snapshot applicable pour un exemplaire donné selon un algorithme de priorité prenant en compte GTIN, site GLN, date et minimum d'accès.
+La classe fournit aussi une méthode ResolveSnapshot qui permet de résoudre le snapshot DPP applicable pour un exemplaire donné selon plusieurs critères de priorité incluant le GTIN, la date, le site de fabrication (GLN), et un niveau d'accès minimum, retournant le snapshot le plus précis disponible.
+
 
 ### D�claration TypeScript
 ```typescript
 interface ProductDppInfo {
+  id: string; // Guid
   manufacturerGln: string;
   esprCategory: string;
   esprDelegatedActRef: string;
   snapshots: ProductDppSnapshot[];
   auditLog: ProductDppAuditEntry[];
-  resolveSnapshot(gtin: string, date: string, siteGln?: string | null, minimumAccess?: DppAccessLevel): ProductDppSnapshot | null;
+
+  resolveSnapshot(gtin: string, date: string, siteGln?: string, minimumAccess?: DppAccessLevel): ProductDppSnapshot | null;
 }
 
-// Note: ProductDppSnapshot, ProductDppAuditEntry, DppAccessLevel are assumed to be defined elsewhere.
+interface ProductDppSnapshot { /* see related class definition */ }
+interface ProductDppAuditEntry { /* see related class definition */ }
+enum DppAccessLevel {
+  Internal = 0,
+  Regulatory = 10,
+  Professional = 20,
+  Public = 30
+}
 ```

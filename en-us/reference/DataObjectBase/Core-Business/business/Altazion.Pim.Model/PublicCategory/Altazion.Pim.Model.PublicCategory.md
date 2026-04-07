@@ -1,52 +1,55 @@
 ﻿## PublicCategory
 
-The PublicCategory class represents a public category (segmentation) of products visible to customers, used to organize the commercial catalog.
-
-Defined constants:
-- CategoryTypeProduct: category type for standard products (value "P").
-- CategoryTypeSecondary: category type for secondary or complementary categories (value "C").
-- CategoryTypeSpecialOffers: category type for benefits and promotions (value "A").
+Represents a public product category (segmentation) visible to customers, used to organize the commercial catalog.
 
 Public properties:
-- Id: unique identifier (primary key) of the public category.
-- ParentCategoryId: identifier of the parent category (self-reference for hierarchy).
-- Label: category label.
-- InternetFlag: flag indicating visibility on the Internet (boolean).
-- Type: category type (1-character code).
-- BigImage: URL or path to the large image of the category.
-- Thumbnail: URL or path to the category thumbnail.
-- Banner: URL or path to the category banner.
-- CustomUrl: custom URL for the category (slug, permalink).
-- SortLabel: label used for alphabetical sorting.
-- ExternalCode: external code of the category (for third-party integrations).
-- Code: internal code of the category.
-- CategoryType: associated business category.
-- Importance: level of importance or priority of the category.
-- PublicComment: public comment visible to customers.
-- Description: description of the category.
-- HtmlHeader: custom HTML header for the category.
-- ApplyHeaderToChildren: indicates whether the header should be applied to child categories (boolean).
+
+- Id: Unique identifier (primary key) of the public category.
+- ParentCategoryId: Identifier of the parent category for hierarchical structure.
+- Label: Label of the category.
+- InternetFlag: Flag indicating visibility on the Internet.
+- Type: Category type (1-character code).
+- BigImage: URL or path of the category's large image.
+- Thumbnail: URL or path of the category thumbnail.
+- Banner: URL or path of the category banner.
+- CustomUrl: Custom URL (slug/permalink) for the category.
+- SortLabel: Label used for alphabetical sorting.
+- ExternalCode: External code for third-party integrations.
+- Code: Internal code of the category.
+- CategoryGroup: Associated business category.
+- Importance: Level of importance or priority.
+- PublicComment: Public comment visible to customers.
+- Description: Description of the category.
+- HtmlHeader: Custom HTML header.
+- ApplyHeaderToChildren: Indicates if header applies to child categories.
+
+Constants:
+
+- CategoryTypeProduct: Type for standard products ("P").
+- CategoryTypeSecondary: Type for secondary or complementary categories ("C").
+- CategoryTypeSpecialOffers: Type for offers and promotions ("A").
 
 ### TypeScript class
 ```typescript
 interface PublicCategory {
   Id: number;
   ParentCategoryId?: number | null;
-  Label: string;
+  Label: string | null;
   InternetFlag: boolean;
-  Type: string;
-  BigImage?: string | null;
-  Thumbnail?: string | null;
-  Banner?: string | null;
-  CustomUrl?: string | null;
-  SortLabel?: string | null;
-  ExternalCode?: string | null;
-  Code?: string | null;
-  CategoryType?: string | null;
+  Type: string | null;
+  BigImage: string | null;
+  Thumbnail: string | null;
+  Banner: string | null;
+  CustomUrl: string | null;
+  SortLabel: string | null;
+  ExternalCode: string | null;
+  Code: string | null;
+  CategoryGroup: string | null;
   Importance: number;
-  PublicComment?: string | null;
-  Description?: string | null;
-  HtmlHeader?: string | null;
+  PublicComment: string | null;
+  Description: string | null;
+  HtmlHeader: string | null;
   ApplyHeaderToChildren: boolean;
+  // Constants as static readonly would be represented separately if needed
 }
 ```
