@@ -2,24 +2,29 @@
 
 The `SeoMetaData` class represents the SEO metadata configured for a page on the e-commerce site.
 
-### Public Properties:
-
-- `PageTitle`: Gets or sets the HTML title of the page.
-- `Keywords`: Gets or sets the SEO keywords of the page as a string array.
-- `Description`: Gets or sets the meta description of the page.
-- `PageH1`: Gets or sets the H1 heading associated with the page.
-- `PageHeaderContent`: Gets or sets additional header content for the page.
-- `JsonLd`: Gets or sets JSON-LD content configured for the page, used for structured data.
-- `SocialMetaJson`: Gets or sets the social tags configuration (OpenGraph, TwitterCard) as a JSON string.
-- `RobotNoIndex`: Indicates if the page should be excluded from indexing by robots.
-- `RobotNoFollow`: Indicates if robots should not follow links on the page.
-- `CanInheritInSubPages`: Indicates if sub-pages can inherit these SEO metadata.
-- `ContentKind`: The content type targeted by these metadata (e.g., page type).
+### Public properties:
+- `PageTitle`: The HTML title of the page.
+- `Keywords`: An array of SEO keywords for the page.
+- `Description`: The meta description of the page.
+- `PageH1`: The H1 title associated with the page.
+- `PageHeaderContent`: Additional HTML header content for the page.
+- `JsonLd`: JSON-LD content configured for the page, used to enhance SEO.
+- `SocialMetaJson`: JSON configuration for social tags (OpenGraph, TwitterCard), stored as a JSON string.
+- `RobotNoIndex`: Indicates if the page should be excluded from indexing (robots noindex).
+- `RobotNoFollow`: Indicates if robots should not follow links (nofollow).
+- `RobotNoArchive`: Indicates if robots should not cache the page (noarchive).
+- `RobotNoSnippet`: Indicates if robots should not display snippets (nosnippet).
+- `RobotNoImageIndex`: Indicates if robots should not index images (noimageindex).
+- `CanInheritInSubPages`: Indicates if subpages can inherit these metadata.
+- `ContentKind`: The type of content targeted by the SEO metadata.
 - `ContentId`: The identifier of the targeted content.
-- `Guid`: Unique identifier of the SEO metadata definition.
-- `SiteId`: Identifier of the site concerned.
+- `Guid`: Unique identifier of the SEO definition.
+- `SiteId`: Identifier of the concerned site.
 
-The class initializes from a SQL data row and parses robot directives (noindex, nofollow). It also performs validation on coherence and property formats.
+### Notable methods:
+- `ToRobotString()`: Returns the robots directive string based on the boolean flags (e.g., "noindex, nofollow"), or null if no restrictions are set.
+
+This class enables detailed management of page SEO settings, including indexation robot directives, classic meta tags, and enriched metadata such as JSON-LD or social media tags.
 
 
 ### TypeScript class
@@ -34,10 +39,13 @@ interface SeoMetaData {
   SocialMetaJson?: string;
   RobotNoIndex: boolean;
   RobotNoFollow: boolean;
+  RobotNoArchive: boolean;
+  RobotNoSnippet: boolean;
+  RobotNoImageIndex: boolean;
   CanInheritInSubPages: boolean;
   ContentKind?: string;
   ContentId?: string;
-  Guid: string; // Guid as string
+  Guid: string;  // UUID string
   SiteId: number;
 }
 ```
