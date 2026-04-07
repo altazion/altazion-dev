@@ -1,30 +1,28 @@
 ﻿## CustomerAddress
 
-The CustomerAddress class represents a customer address in the system (corresponding to the gestcom_clients_adresses table).
+This class represents a customer address in the Altazion ERP system, corresponding to the database table gestcom_clients_adresses.
 
 Public properties:
-
 - AddressGuid: Unique identifier (GUID) for the address.
 - CustomerGuid: GUID of the associated customer.
-- IsActive: Indicates whether the address is active.
-- Title: Formal title or salutation.
+- IsActive: Indicates if the address is active.
+- Title: Salutation or title.
 - Company: Company name.
-- FullName: Full name of the person or entity.
-- StreetAddress: The street address.
+- FullName: Full name (read-only property).
+- FirstName: First name.
+- LastName: Last name.
+- StreetAddress: Postal address.
 - PostalCode: Postal code.
-- City: City name.
+- City: City.
 - CountryCode: Country code.
 - Phone: Phone number.
 - Email: Email address.
-- IsBillingAddress: Indicates if this address is used for billing.
+- IsBillingAddress: Indicates if this is the billing address.
 - SiteId: Identifier of the associated site.
-- IsDefault: Indicates if this address is the default address.
-- Region: Geographical region.
+- IsDefault: Indicates if this is the default address.
+- Region: Region.
 - IsTemporary: Indicates if the address is temporary.
 - Mobile: Mobile phone number.
-
-This class is designed to store and manage all the relevant information for a customer address with its various attributes and status.
-
 
 ### TypeScript class
 ```typescript
@@ -34,7 +32,9 @@ interface CustomerAddress {
   IsActive: boolean;
   Title?: string | null;
   Company?: string | null;
-  FullName?: string | null;
+  FullName?: string | null; // read-only
+  FirstName?: string | null;
+  LastName?: string | null;
   StreetAddress?: string | null;
   PostalCode?: string | null;
   City?: string | null;
