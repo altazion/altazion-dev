@@ -1,62 +1,46 @@
 ﻿## Theme
 
-Classe représentant un thème e-commerce qui constitue la racine logique des définitions, routes et ressources partagées.
+Représente un thème e-commerce, racine logique des définitions, routes et ressources partagées.
 
 Propriétés publiques :
-
-- Id : Identifiant technique unique du thème (Guid).
-- TenantId : Identifiant du tenant propriétaire du thème (int).
-- Name : Nom lisible du thème (string).
-- IsActive : Booléen indiquant si le thème est actif.
-- Revision : Numéro de révision de la configuration du thème (int).
-- LastUpdated : Date de la dernière mise à jour de la configuration (DateTimeOffset), initialisé à la date UTC actuelle.
-- Metadata : Métadonnées libres liées au thème, de type ThemeMetadata (peut être null).
-- Options : Dictionnaire de paires clé/valeur (string/string) pour stocker des options de configuration spécifiques au thème.
-- Assets : Liste de liens d'assets globaux associés au thème (liste de ThemeAssetLink).
+- Id (Guid) : Identifiant technique du thème.
+- TenantId (int) : Identifiant du tenant propriétaire du thème.
+- Name (string) : Nom lisible du thème.
+- IsActive (bool) : Indique si le thème est actif.
+- Revision (int) : Révision de configuration du thème.
+- LastUpdated (DateTimeOffset) : Date de dernière mise à jour de la configuration.
+- Metadata (ThemeMetadata) : Métadonnées libres du thème.
+- Options (Dictionary<string, string>) : Options de configuration spécifiques du thème, pour stocker des paramètres.
+- LibraryReference (ThemeLibraryReference) : Référence éventuelle vers un package de la librairie standard dont ce thème est issu.
+- Assets (List<ThemeAssetLink>) : Liens d'assets globaux associés au thème.
+- SharedSections (List<ThemeSharedSection>) : Sections partagées réutilisables par les pages du thème.
 
 Constantes définies dans la classe :
+- FrontEndRuntime : clé pour indiquer le runtime frontend utilisé.
+- FrontEndRuntimeUseNone, FrontEndRuntimeUseVanilla, FrontEndRuntimeUseHtmx, FrontEndRuntimeUseVue, FrontEndRuntimeUseCustom : valeurs possibles pour le runtime frontend.
+- FrontEndBootstrap : clé pour la configuration bootstrap frontend.
+- FrontEndBootstrapAuto, FrontEndBootstrapManual : valeurs possibles pour bootstrap.
+- FrontEndSdkVersion : clé pour la version du SDK frontend.
+- FrontEndSdkVersionLatest : valeur indiquant la dernière version.
+- FrontEndSdkCdn : clé pour le CDN du SDK.
+- FrontEndSdkCdnUnpkg, FrontEndSdkCdnJsDeliver : valeurs possibles des CDN.
 
-- FrontEndRuntime, avec plusieurs valeurs possibles comme none, vanilla, htmx, vue, custom.
-- FrontEndBootstrap, avec les valeurs auto et manual.
-- FrontEndSdkVersion avec la constante Latest.
-- FrontEndSdkCdn avec les valeurs unpkg et jsdelivr.
-
-Ces constantes servent vraisemblablement à configurer certains aspects du runtime frontend, bootstrap et SDK associés au thème.
 
 ### D�claration TypeScript
 ```typescript
 interface Theme {
-  id: string; // GUID
-  tenantId: number;
-  name: string;
-  isActive: boolean;
-  revision: number;
-  lastUpdated: string; // ISO 8601 date string
-  metadata?: ThemeMetadata | null;
-  options: { [key: string]: string };
-  assets: ThemeAssetLink[];
+  id: string; // GUID - Technical identifier of the theme
+  tenantId: number; // Identifier of the tenant owner
+  name: string; // Readable name of the theme
+  isActive: boolean; // Whether the theme is active
+  revision: number; // Configuration revision number
+  lastUpdated: string; // ISO string date for last update
+  metadata?: ThemeMetadata; // Optional free metadata
+  options: { [key: string]: string }; // Configuration options dictionary
+  libraryReference?: ThemeLibraryReference; // Optional reference to standard library package
+  assets: ThemeAssetLink[]; // List of global asset links
+  sharedSections?: ThemeSharedSection[]; // Optional list of reusable shared sections
 }
 
-// Constants related to FrontEndRuntime environment
-const FrontEndRuntime = {
-  UseNone: "none",
-  UseVanilla: "vanilla",
-  UseHtmx: "htmx",
-  UseVue: "vue",
-  UseCustom: "custom"
-};
-
-const FrontEndBootstrap = {
-  Auto: "auto",
-  Manual: "manual"
-};
-
-const FrontEndSdkVersion = {
-  Latest: "latest"
-};
-
-const FrontEndSdkCdn = {
-  Unpkg: "unpkg",
-  JsDeliver: "jsdelivr"
-};
+// Constants for runtime and bootstrap can be defined as enums or constants in TS as needed.
 ```
