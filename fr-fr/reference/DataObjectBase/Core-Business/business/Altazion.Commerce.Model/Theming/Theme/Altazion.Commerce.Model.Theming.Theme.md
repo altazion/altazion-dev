@@ -1,40 +1,62 @@
 ﻿## Theme
 
-Classe représentant un thème e-commerce, qui est la racine logique des définitions, des routes et des ressources partagées au sein du thème.
+Classe représentant un thème e-commerce qui constitue la racine logique des définitions, routes et ressources partagées.
 
 Propriétés publiques :
-- Id : Identifiant technique unique du thème de type Guid.
-- TenantId : Identifiant du tenant propriétaire du thème, de type int.
-- Name : Nom lisible du thème, de type string.
-- IsActive : Indique si le thème est actif, booléen.
-- Revision : Révision de la configuration du thème, de type int.
-- LastUpdated : Date de dernière mise à jour de la configuration, de type DateTimeOffset, initialisée à la date UTC actuelle.
-- Metadata : Métadonnées libres associées au thème, de type ThemeMetadata.
-- Assets : Liste des liens d'assets globaux associés au thème, de type List<ThemeAssetLink>.
+
+- Id : Identifiant technique unique du thème (Guid).
+- TenantId : Identifiant du tenant propriétaire du thème (int).
+- Name : Nom lisible du thème (string).
+- IsActive : Booléen indiquant si le thème est actif.
+- Revision : Numéro de révision de la configuration du thème (int).
+- LastUpdated : Date de la dernière mise à jour de la configuration (DateTimeOffset), initialisé à la date UTC actuelle.
+- Metadata : Métadonnées libres liées au thème, de type ThemeMetadata (peut être null).
+- Options : Dictionnaire de paires clé/valeur (string/string) pour stocker des options de configuration spécifiques au thème.
+- Assets : Liste de liens d'assets globaux associés au thème (liste de ThemeAssetLink).
+
+Constantes définies dans la classe :
+
+- FrontEndRuntime, avec plusieurs valeurs possibles comme none, vanilla, htmx, vue, custom.
+- FrontEndBootstrap, avec les valeurs auto et manual.
+- FrontEndSdkVersion avec la constante Latest.
+- FrontEndSdkCdn avec les valeurs unpkg et jsdelivr.
+
+Ces constantes servent vraisemblablement à configurer certains aspects du runtime frontend, bootstrap et SDK associés au thème.
 
 ### D�claration TypeScript
 ```typescript
 interface Theme {
-  id: string; // Guid
+  id: string; // GUID
   tenantId: number;
   name: string;
   isActive: boolean;
   revision: number;
   lastUpdated: string; // ISO 8601 date string
-  metadata?: ThemeMetadata;
+  metadata?: ThemeMetadata | null;
+  options: { [key: string]: string };
   assets: ThemeAssetLink[];
 }
 
-interface ThemeMetadata {
-  // Define properties depending on ThemeMetadata class structure if available
-}
+// Constants related to FrontEndRuntime environment
+const FrontEndRuntime = {
+  UseNone: "none",
+  UseVanilla: "vanilla",
+  UseHtmx: "htmx",
+  UseVue: "vue",
+  UseCustom: "custom"
+};
 
-interface ThemeAssetLink {
-  id: string; // Guid
-  usage: string;
-  provider?: string;
-  assetKey: string;
-  url?: string;
-  metadata?: { [key: string]: string };
-}
+const FrontEndBootstrap = {
+  Auto: "auto",
+  Manual: "manual"
+};
+
+const FrontEndSdkVersion = {
+  Latest: "latest"
+};
+
+const FrontEndSdkCdn = {
+  Unpkg: "unpkg",
+  JsDeliver: "jsdelivr"
+};
 ```
