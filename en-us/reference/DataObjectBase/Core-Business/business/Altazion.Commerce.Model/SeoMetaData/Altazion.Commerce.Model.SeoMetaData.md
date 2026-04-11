@@ -1,51 +1,50 @@
 ﻿## SeoMetaData
 
-The `SeoMetaData` class represents the SEO metadata configured for a page on the e-commerce site.
+The SeoMetaData class represents the SEO metadata configured for a site page within the Altazion system. It stores and manages various SEO-related properties such as the page title, description, keywords, and specific settings for search engine robots and social networks.
 
-### Public properties:
-- `PageTitle`: The HTML title of the page.
-- `Keywords`: An array of SEO keywords for the page.
-- `Description`: The meta description of the page.
-- `PageH1`: The H1 title associated with the page.
-- `PageHeaderContent`: Additional HTML header content for the page.
-- `JsonLd`: JSON-LD content configured for the page, used to enhance SEO.
-- `SocialMetaJson`: JSON configuration for social tags (OpenGraph, TwitterCard), stored as a JSON string.
-- `RobotNoIndex`: Indicates if the page should be excluded from indexing (robots noindex).
-- `RobotNoFollow`: Indicates if robots should not follow links (nofollow).
-- `RobotNoArchive`: Indicates if robots should not cache the page (noarchive).
-- `RobotNoSnippet`: Indicates if robots should not display snippets (nosnippet).
-- `RobotNoImageIndex`: Indicates if robots should not index images (noimageindex).
-- `CanInheritInSubPages`: Indicates if subpages can inherit these metadata.
-- `ContentKind`: The type of content targeted by the SEO metadata.
-- `ContentId`: The identifier of the targeted content.
-- `Guid`: Unique identifier of the SEO definition.
-- `SiteId`: Identifier of the concerned site.
+Public properties:
+- Guid: Unique identifier for the SEO definition.
+- SiteId: Identifier of the concerned site.
+- ContentId: Identifier of the targeted content.
+- ContentKind: Type of content targeted by the metadata.
+- CanInheritInSubPages: Indicates if the metadata can be inherited by subpages.
+- PageTitle: HTML title of the page.
+- Keywords: Array of SEO keywords.
+- Description: Meta description of the page.
+- PageH1: H1 title associated with the page.
+- PageHeaderContent: Additional HTML header content for the page.
+- JsonLd: Configured JSON-LD structured data for the page.
+- SocialMetaJson: JSON configuration for social tags like OpenGraph and TwitterCard.
+- RobotNoIndex: Indicates if the page should be excluded from indexing.
+- RobotNoFollow: Indicates if robots should not follow links.
+- RobotNoArchive: Indicates if robots should not cache the page.
+- RobotNoSnippet: Indicates if robots should not show snippets.
+- RobotNoImageIndex: Indicates if robots should not index images.
 
-### Notable methods:
-- `ToRobotString()`: Returns the robots directive string based on the boolean flags (e.g., "noindex, nofollow"), or null if no restrictions are set.
+Important method:
+- ToRobotString(): Returns a string corresponding to the robots directive based on the boolean properties.
 
-This class enables detailed management of page SEO settings, including indexation robot directives, classic meta tags, and enriched metadata such as JSON-LD or social media tags.
-
+This class derives from DataObjectBase and is used to handle and validate SEO metadata in the Altazion commerce context.
 
 ### TypeScript class
 ```typescript
 interface SeoMetaData {
-  PageTitle?: string;
-  Keywords?: string[];
-  Description?: string;
-  PageH1?: string;
-  PageHeaderContent?: string;
-  JsonLd?: string;
-  SocialMetaJson?: string;
-  RobotNoIndex: boolean;
-  RobotNoFollow: boolean;
-  RobotNoArchive: boolean;
-  RobotNoSnippet: boolean;
-  RobotNoImageIndex: boolean;
-  CanInheritInSubPages: boolean;
-  ContentKind?: string;
-  ContentId?: string;
-  Guid: string;  // UUID string
-  SiteId: number;
+  Guid: string; // Unique identifier (GUID) of the SEO definition
+  SiteId: number; // Identifier of the site
+  ContentId: string | null; // Identifier of the targeted content
+  ContentKind: string | null; // Type of the content
+  CanInheritInSubPages: boolean; // Indicates if metadata can be inherited by subpages
+  PageTitle: string | null; // HTML title of the page
+  Keywords?: string[]; // SEO keywords array
+  Description: string | null; // Meta description
+  PageH1: string | null; // H1 title of the page
+  PageHeaderContent: string | null; // Additional HTML header content
+  JsonLd: string | null; // JSON-LD structured content
+  SocialMetaJson: string | null; // JSON configuration for social meta tags
+  RobotNoIndex: boolean; // Robots noindex directive
+  RobotNoFollow: boolean; // Robots nofollow directive
+  RobotNoArchive: boolean; // Robots noarchive directive
+  RobotNoSnippet: boolean; // Robots nosnippet directive
+  RobotNoImageIndex: boolean; // Robots noimageindex directive
 }
 ```
