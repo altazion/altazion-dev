@@ -1,44 +1,58 @@
 ﻿## ECommerceOfferRule
 
-La classe ECommerceOfferRule représente une règle associée à une offre e-commerce. Elle contient les propriétés suivantes :
+La classe ECommerceOfferRule représente une règle appliquée à une offre e-commerce. Elle contient les propriétés suivantes :
 
-- Guid : Identifiant unique de la règle.
-- OfferGuid : Identifiant unique de l'offre associée à la règle.
-- Type : Type de la règle.
-- MinimumAmount : Montant minimum requis pour appliquer la règle (optionnel).
-- MaximumAmount : Montant maximum pour lequel la règle est applicable (optionnel).
-- Incentive : Libellé de l'incitation associée à la règle.
-- IncentiveDisplayAmount : Montant déclencheur pour afficher l'incitation (optionnel).
-- SourceShowcaseGuid : Identifiant unique de la vitrine source associée à la règle (optionnel).
-- Percentage : Pourcentage associé à la règle.
-- IsPercentage : Indique si la règle est basée sur un pourcentage.
-- MinimumQuantity : Quantité minimum requise pour appliquer la règle (optionnel).
-- MaximumQuantity : Quantité maximum pour laquelle la règle est applicable (optionnel).
-- IsShippingFeeLimited : Indique si la règle est limitée aux frais de port.
-- ApplicationShowcaseGuid : Identifiant unique de la vitrine cible pour l'application de la règle (optionnel).
-- IsApplicationLimitedToOneShowcase : Indique si l'application de la règle est limitée à une seule vitrine.
-- AppliesToEachProduct : Indique si la règle s'applique à chaque produit individuellement.
+- Guid : Identifiant unique de la règle.
+- OfferGuid : Identifiant unique de l'offre associée.
+- Type : Type de la règle.
+- MinimumAmount : Montant minimum requis pour appliquer la règle, optionnel.
+- MaximumAmount : Montant maximum applicable pour la règle, optionnel.
+- Incentive : Libellé de l'incitation associée.
+- IncentiveDisplayAmount : Montant déclencheur pour afficher l'incitation, optionnel.
+- SourceShowcaseGuid : Identifiant unique de la vitrine source associée, optionnel.
+- Percentage : Pourcentage associé à la règle.
+- IsPercentage : Indique si la règle est basée sur un pourcentage.
+- MinimumQuantity : Quantité minimum requise pour appliquer la règle, optionnel.
+- MaximumQuantity : Quantité maximum applicable pour la règle, optionnel.
+- IsShippingFeeLimited : Booléen indiquant si la règle est limitée aux frais de port.
+- ApplicationShowcaseGuid : Identifiant unique de la vitrine cible pour appliquer la règle, optionnel.
+- IsApplicationLimitedToOneShowcase : Indique si la règle est limitée à une seule vitrine.
+- AppliesToEachProduct : Indique si la règle s'applique à chaque produit individuellement.
+- XmlData : Donnée XML associée à la règle.
+- IncludesShippingFeesInAmount : Indique si le montant inclut les frais de port.
+- IsLoyaltyTrigger : Indique si la règle déclenche un traitement fidélité.
+- ApplicationTypeCode : Code brut du type d'application.
+- CombinedRule1Guid : Identifiant de la première règle dans le cas d'une combinaison, optionnel.
+- CombinedRule2Guid : Identifiant de la seconde règle dans le cas d'une combinaison, optionnel.
+- CombineOperator : Opérateur logique pour la combinaison de règles.
 
-Cette classe dérive de DataObjectBase et est associée à une table SQL nommée "ecommerce_reglesavantages".
+Cette classe permet de gérer des règles complexes de promotions ou avantages liés aux offres e-commerce en fonction de critères comme montants, quantités, vitrines, ou combinaisons logiques.
 
 ### D�claration TypeScript
 ```typescript
 interface ECommerceOfferRule {
-  Guid: string; // Unique identifier of the rule (GUID)
-  OfferGuid: string; // Unique identifier of the associated offer (GUID)
-  Type: string; // Type of the rule
-  MinimumAmount?: number; // Minimum amount required to apply the rule (nullable)
-  MaximumAmount?: number; // Maximum amount for which the rule is applicable (nullable)
-  Incentive: string; // Label of the incentive associated with the rule
-  IncentiveDisplayAmount?: number; // Amount to trigger the display of the incentive (nullable)
-  SourceShowcaseGuid?: string; // Unique identifier of the source showcase (nullable, GUID)
-  Percentage: number; // Percentage associated with the rule
-  IsPercentage: boolean; // Indicates if the rule is percentage-based
-  MinimumQuantity?: number; // Minimum quantity required to apply the rule (nullable)
-  MaximumQuantity?: number; // Maximum quantity for which the rule applies (nullable)
-  IsShippingFeeLimited: boolean; // Indicates if the rule is limited to shipping fees
-  ApplicationShowcaseGuid?: string; // Unique identifier of the target showcase (nullable, GUID)
-  IsApplicationLimitedToOneShowcase: boolean; // Indicates if application is limited to one showcase
-  AppliesToEachProduct: boolean; // Indicates if rule applies to each product individually
+  Guid: string;
+  OfferGuid: string;
+  Type: string;
+  MinimumAmount?: number | null;
+  MaximumAmount?: number | null;
+  Incentive: string;
+  IncentiveDisplayAmount?: number | null;
+  SourceShowcaseGuid?: string | null;
+  Percentage: number;
+  IsPercentage: boolean;
+  MinimumQuantity?: number | null;
+  MaximumQuantity?: number | null;
+  IsShippingFeeLimited: boolean;
+  ApplicationShowcaseGuid?: string | null;
+  IsApplicationLimitedToOneShowcase: boolean;
+  AppliesToEachProduct: boolean;
+  XmlData: string;
+  IncludesShippingFeesInAmount: boolean;
+  IsLoyaltyTrigger: boolean;
+  ApplicationTypeCode: string;
+  CombinedRule1Guid?: string | null;
+  CombinedRule2Guid?: string | null;
+  CombineOperator: string;
 }
 ```
