@@ -1,15 +1,15 @@
 ﻿## QuoteLineWithRef
 
-La classe QuoteLineWithRef représente une ligne de devis avec une référence produit. Elle hérite de la classe QuoteLine.
+La classe QuoteLineWithRef étend la classe QuoteLine et représente une ligne de devis avec une référence produit supplémentaire.
 
 Propriétés publiques :
-- ProductReference : chaîne de caractères représentant la référence du produit associée à la ligne du devis.
+- ProductReference : string, la référence du produit associée à la ligne de devis.
 
-Cette propriété est chargée depuis une ligne de données, notamment à partir de la colonne 'art_ref' dans un DataRow.
+Cette classe surcharge également la méthode FromDataRow pour initialiser la propriété ProductReference à partir d'une colonne "art_ref" dans une DataRow.
 
 ### D�claration TypeScript
 ```typescript
-interface QuoteLineWithRef {
-  ProductReference: string | null;
+interface QuoteLineWithRef extends QuoteLine {
+  ProductReference?: string;
 }
 ```

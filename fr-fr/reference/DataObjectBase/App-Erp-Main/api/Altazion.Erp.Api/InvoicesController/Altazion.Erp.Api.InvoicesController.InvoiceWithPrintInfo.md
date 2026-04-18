@@ -1,21 +1,20 @@
 ﻿## InvoiceWithPrintInfo
 
-La classe InvoiceWithPrintInfo étend la classe Invoice et représente une facture avec des informations supplémentaires liées à l'impression.
+La classe InvoiceWithPrintInfo étend la classe Invoice pour inclure des informations supplémentaires liées à l'impression et au téléchargement des factures clients dans le système ERP.
 
 Propriétés publiques :
-- InvoiceDownloadUrl (string) : URL pour télécharger la facture au format PDF.
-- PrintCount (int) : nombre de fois que la facture a été imprimée.
-- ClientGuid (Guid?) [ignoré lors de la sérialisation JSON] : identifiant unique du client associé à la facture.
+- InvoiceDownloadUrl : chaîne de caractères représentant l'URL pour télécharger la facture au format PDF.
+- ClientGuid : identifiant unique (GUID) du client auquel la facture est associée. Cette propriété est marquée avec JsonIgnoreCondition.Always, ce qui signifie qu'elle est ignorée lors de la sérialisation en JSON.
 
-Méthodes protégées :
-- FromDataRow(DataRow dr) : initialise les propriétés à partir d'une ligne de données, récupérant notamment PrintCount et ClientGuid.
+Fonctionnalité :
+- La méthode protégée FromDataRow surcharge la méthode de la classe parente pour mapper les données d'une ligne DataRow aux propriétés de la classe. Elle récupère en plus du mapping standard le nombre d'impressions (PrintCount) et le GUID du client (ClientGuid).
 
 
 ### D�claration TypeScript
 ```typescript
 interface InvoiceWithPrintInfo {
-  InvoiceDownloadUrl: string;
-  PrintCount: number;
-  ClientGuid?: string; // GUID as string, nullable
+  InvoiceDownloadUrl: string | null; // URL to download the invoice PDF
+  ClientGuid?: string; // Nullable GUID (UUID) of the client, ignored in JSON serialization
+  // Properties inherited from Invoice are not redefined here
 }
 ```

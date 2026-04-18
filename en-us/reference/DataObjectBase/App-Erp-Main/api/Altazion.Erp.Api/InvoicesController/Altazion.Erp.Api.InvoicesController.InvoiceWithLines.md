@@ -1,13 +1,19 @@
 ﻿## InvoiceWithLines
 
-The InvoiceWithLines class inherits from the Invoice class and represents an invoice along with its detailed lines.
+The InvoiceWithLines class extends the Invoice class and represents an invoice along with its detailed lines.
 
-Public Properties:
-- Lines: an array of InvoiceLine objects representing the detailed lines of the invoice.
+Public properties:
+- Lines: an array of InvoiceLine objects representing the lines of the invoice. Each line corresponds to an invoiced item or product with associated details.
 
 ### TypeScript class
 ```typescript
-interface InvoiceWithLines extends Invoice {
-  Lines?: InvoiceLine[];
+interface InvoiceWithLines {
+  Lines: InvoiceLine[];
+  // Plus toutes les propriétés héritées de Invoice
 }
+
+interface InvoiceLine {
+  // Propriétés définies dans InvoiceLine
+}
+
 ```

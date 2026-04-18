@@ -1,15 +1,15 @@
 ﻿## QuoteLineWithRef
 
-The QuoteLineWithRef class represents a quote line with a product reference. It inherits from the QuoteLine class.
+The class QuoteLineWithRef extends the QuoteLine class and represents a quote line including an additional product reference.
 
-Public Properties:
-- ProductReference: a string that holds the product reference associated with the quote line.
+Public properties:
+- ProductReference: string, the product reference associated with the quote line.
 
-This property is populated from a data row, particularly from the 'art_ref' column.
+This class also overrides the FromDataRow method to initialize the ProductReference property from the "art_ref" column in a DataRow.
 
 ### TypeScript class
 ```typescript
-interface QuoteLineWithRef {
-  ProductReference: string | null;
+interface QuoteLineWithRef extends QuoteLine {
+  ProductReference?: string;
 }
 ```

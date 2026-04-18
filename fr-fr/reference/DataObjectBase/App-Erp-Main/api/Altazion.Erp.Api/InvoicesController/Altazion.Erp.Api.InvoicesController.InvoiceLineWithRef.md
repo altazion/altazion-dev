@@ -1,18 +1,18 @@
 ﻿## InvoiceLineWithRef
 
-Cette classe représente une ligne détaillée d'une facture avec des références supplémentaires sur le produit.
+Classe représentant une ligne de facture étendue avec des références produit.
 
 Propriétés publiques :
-- ProductSku : chaîne de caractères, la référence (SKU) du produit lié à la ligne de facture.
-- ProductTypeId : entier court (short), identifiant du type de produit ou de la tarification.
-- VatId : octet (byte), identifiant du taux de TVA appliqué au produit.
+- ProductSku : chaîne de caractères représentant la référence (SKU) du produit.
+- ProductTypeId : entier court (short) identifiant le type/prix du produit.
+- VatId : octet (byte) représentant l'identifiant de la TVA applicable au produit.
 
-La classe hérite de InvoiceLine et surcharge la méthode FromDataRow pour initialiser ces propriétés depuis une ligne de données, en ajoutant la récupération des informations spécifiques au produit (type, référence SKU, TVA).
+Cette classe hérite de InvoiceLine et surcharge la méthode FromDataRow pour remplir les propriétés spécifiques depuis une ligne de données (DataRow).
 
 ### D�claration TypeScript
 ```typescript
 interface InvoiceLineWithRef {
-  ProductSku: string | null;
+  ProductSku?: string | null;
   ProductTypeId: number;
   VatId: number;
 }

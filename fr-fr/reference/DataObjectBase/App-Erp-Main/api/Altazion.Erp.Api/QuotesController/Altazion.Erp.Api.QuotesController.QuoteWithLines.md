@@ -1,14 +1,13 @@
 ﻿## QuoteWithLines
 
-Cette classe représente un devis avec ses lignes détaillées. Elle hérite de la classe Quote (non détaillée ici) et ajoute une propriété publique :
+La classe QuoteWithLines hérite de Quote et représente un devis enrichi avec ses lignes associées.
 
-- Lines : une liste de QuoteLineWithRef, représentant les lignes du devis contenant des références produits.
-
-Chaque élément de la liste Lines correspond à une ligne détaillée du devis, fournissant ainsi l'ensemble des détails du devis complet incluant ses lignes.
+Propriétés :
+- Lines : Liste de QuoteLineWithRef représentant les lignes du devis. Chaque ligne contient des détails sur les produits associés au devis, incluant une référence produit.
 
 ### D�claration TypeScript
 ```typescript
-interface QuoteWithLines {
-  Lines: QuoteLineWithRef[]; // List of detailed quote lines with product references
+interface QuoteWithLines extends Quote {
+    Lines: QuoteLineWithRef[];
 }
 ```
