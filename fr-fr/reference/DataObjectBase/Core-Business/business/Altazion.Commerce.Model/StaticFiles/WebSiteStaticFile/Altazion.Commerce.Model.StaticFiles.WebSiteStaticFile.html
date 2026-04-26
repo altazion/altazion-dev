@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-17974923-7');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>WebSiteStaticFile | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="WebSiteStaticFile | Aide - Altazion">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+  
+  
+  
+    <script defer="" src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+
+              <script type="text/javascript">
+
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="websitestaticfile">WebSiteStaticFile</h2>
+
+<p>La classe WebSiteStaticFile représente un fichier statique configuré pour un site e-commerce. Ce fichier peut contenir un contenu saisi directement ou mis en cache lorsqu'il est généré automatiquement.</p>
+<p>Propriétés publiques :</p>
+<ul>
+<li>Id : Identifiant technique unique du document (type Guid).</li>
+<li>TenantId : Identifiant du tenant propriétaire du document (int).</li>
+<li>SiteId : Identifiant du site concerné (int).</li>
+<li>Type : Type fonctionnel du fichier statique (string), exemples : sitemap, robots.txt, llms.txt, googleverification.</li>
+<li>Url : URL virtuelle du fichier dans le site (string), attendue relative au site et débutant par &quot;~/&quot;.</li>
+<li>HostName : Nom d'hôte ou domaine auquel ce fichier est restreint (string, nullable). Si null, le fichier est applicable à tous les domaines.</li>
+<li>LanguageCode : Code langue ou culture auquel ce fichier est restreint (string, nullable). Si null, le fichier s'applique à toutes les langues.</li>
+<li>IsActive : Indique si ce fichier est actif (bool), par défaut true.</li>
+<li>IsGenerated : Indique si le contenu est produit automatiquement par un générateur (bool).</li>
+<li>Content : Contenu courant du fichier (string, nullable). Pour un fichier généré, il s'agit du cache du dernier rendu.</li>
+<li>ContentType : Type MIME du fichier publié (string, nullable).</li>
+<li>ContentEncoding : Nom de l'encodage du contenu publié (string, nullable).</li>
+<li>GeneratorClassName : Nom complet de la classe qui génère le contenu (string, nullable). La classe doit hériter de WebSiteStaticFileGeneratorBase.</li>
+<li>GeneratorProperties : Dictionnaire des paramètres libres transmis au générateur (Dictionary&lt;string, string&gt;), initialisé vide.</li>
+<li>Revision : Révision du document (int).</li>
+<li>CreatedAt : Date de création du document (DateTimeOffset), initialisé à la date UTC actuelle.</li>
+<li>CreatedBy : Identifiant ou nom du créateur (string, nullable).</li>
+<li>LastUpdated : Date de dernière mise à jour (DateTimeOffset), initialisé à la date UTC actuelle.</li>
+<li>LastUpdatedBy : Identifiant ou nom du dernier intervenant (string, nullable).</li>
+<li>LastGenerated : Date de la dernière génération effective du contenu mis en cache (DateTimeOffset?, nullable).</li>
+<li>LastGenerationStatus : Statut de la dernière tentative de génération (string, nullable).</li>
+<li>LastGenerationError : Message d'erreur de la dernière tentative de génération (string, nullable).</li>
+<li>LastGenerationDurationMs : Durée en millisecondes de la dernière tentative de génération (long?, nullable).</li>
+</ul>
+<h3 id="dclaration-typescript">D�claration TypeScript</h3>
+<pre><code class="lang-typescript">interface WebSiteStaticFile {
+  id: string; // Guid
+  tenantId: number;
+  siteId: number;
+  type: string;
+  url: string;
+  hostName?: string | null;
+  languageCode?: string | null;
+  isActive: boolean;
+  isGenerated: boolean;
+  content?: string | null;
+  contentType?: string | null;
+  contentEncoding?: string | null;
+  generatorClassName?: string | null;
+  generatorProperties: { [key: string]: string };
+  revision: number;
+  createdAt: string; // DateTimeOffset as ISO string
+  createdBy?: string | null;
+  lastUpdated: string; // DateTimeOffset as ISO string
+  lastUpdatedBy?: string | null;
+  lastGenerated?: string | null; // DateTimeOffset as ISO string or null
+  lastGenerationStatus?: string | null;
+  lastGenerationError?: string | null;
+  lastGenerationDurationMs?: number | null;
+}
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/master/fr-fr/reference/DataObjectBase/Core-Business/business/Altazion.Commerce.Model/StaticFiles/WebSiteStaticFile/Altazion.Commerce.Model.StaticFiles.WebSiteStaticFile.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../../../../../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../../styles/main.js"></script>
+  </body>
+</html>

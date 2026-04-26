@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-17974923-7');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ProductDppSnapshot | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="ProductDppSnapshot | Aide - Altazion">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+  
+  
+  
+    <script defer="" src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+
+              <script type="text/javascript">
+
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="productdppsnapshot">ProductDppSnapshot</h2>
+
+<p>Class representing a snapshot of Digital Product Passport (DPP) data valid for a given period and manufacturing origin. The same product may have multiple active snapshots simultaneously if different GTINs or sites have different compositions.</p>
+<p>Public properties:</p>
+<ul>
+<li>SnapshotId: Unique identifier for the snapshot, used for explicit linking from ProductUnitPassport.DppSnapshotId.</li>
+<li>ValidFrom: Start date of validity (null means since the product's origin).</li>
+<li>ValidTo: End date of validity (null means still ongoing).</li>
+<li>ManufacturingSiteGln: GS1 GLN of the manufacturing site concerned by this snapshot (null means all sites).</li>
+<li>ManufacturingCountryCode: ISO 3-letter country code of manufacturing (null means all countries).</li>
+<li>Gtins: List of GTINs specific to this snapshot. If empty, snapshot applies to all product GTINs.</li>
+<li>AccessLevel: Minimum access level required to view this snapshot (default Internal).</li>
+<li>Note: Free note describing the context of this snapshot.</li>
+<li>RecalledBatches: List of recalled batches in the snapshot context.</li>
+<li>CarbonFootprint: Carbon footprint of the product for this origin/period.</li>
+<li>Materials: Material composition of the product for this origin/period.</li>
+<li>RecycledContentPercent: Percentage of recycled content in the product.</li>
+<li>ExpectedLifespanYears: Expected lifespan of the product in years.</li>
+<li>RepairabilityScore: Repairability score out of 10.</li>
+<li>EnergyEfficiencyClass: Energy efficiency class (EU Energy Label).</li>
+<li>HazardousSubstances: List of hazardous substances present in the product.</li>
+<li>ConformityDeclarations: Regulatory conformity declarations associated.</li>
+<li>EndOfLifeInstructions: Multilingual end-of-life instructions.</li>
+<li>RepairDocuments: Technical repair and disassembly documents (professional access).</li>
+<li>SpareParts: Spare parts available (professional access).</li>
+<li>SupplyChain: Supply chain steps (regulatory access).</li>
+<li>Packaging: Packaging info complying with ESPR eco-design requirements.</li>
+<li>EnvironmentalLabels: Environmental labels and ecological certifications.</li>
+</ul>
+<p>Method:</p>
+<ul>
+<li>IsActiveAt(date): Determines if this snapshot is active at the given date.</li>
+</ul>
+<h3 id="typescript-class">TypeScript class</h3>
+<pre><code class="lang-typescript">interface ProductDppSnapshot {
+  SnapshotId: string; // Guid
+  ValidFrom?: string | null; // DateOnly nullable
+  ValidTo?: string | null; // DateOnly nullable
+  ManufacturingSiteGln?: string | null;
+  ManufacturingCountryCode?: string | null;
+  Gtins: string[];
+  AccessLevel: number; // DppAccessLevel enum number
+  Note?: string | null;
+  RecalledBatches: ProductDppRecalledBatch[];
+  CarbonFootprint?: ProductDppCarbonFootprint | null;
+  Materials: ProductDppMaterial[];
+  RecycledContentPercent?: number | null;
+  ExpectedLifespanYears?: number | null;
+  RepairabilityScore?: number | null;
+  EnergyEfficiencyClass?: string | null;
+  HazardousSubstances: ProductDppHazardousSubstance[];
+  ConformityDeclarations: ProductDppConformityDeclaration[];
+  EndOfLifeInstructions: ProductDppEndOfLifeInstruction[];
+  RepairDocuments: ProductDppRepairDocument[];
+  SpareParts: ProductDppSparePart[];
+  SupplyChain: ProductDppSupplyChainStep[];
+  Packaging: ProductDppPackagingInfo[];
+  EnvironmentalLabels: ProductDppEnvironmentalLabel[];
+  IsActiveAt(date: string): boolean;
+}
+
+// Note: DateOnly typed properties are strings in ISO date format (YYYY-MM-DD).
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/master/en-us/reference/DataObjectBase/Core-Business/business/Altazion.Pim.Model/ProductDppInfo/Altazion.Pim.Model.ProductDppSnapshot.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>
