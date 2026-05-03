@@ -1,0 +1,992 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-17974923-7');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Stocks | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Stocks | Aide - Altazion">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  
+  
+    <script defer="" src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+
+              <script type="text/javascript">
+
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="stocks">Stocks</h1>
+
+<h2 id="annuler-des-ordres-de-transfert-de-stock"><span id='annulerordrestransfertstock'>Annuler des ordres de transfert de stock</span></h2>
+<p>Annule des ordres de transfert de stock</p>
+<p>Url :<code>[POST] api/stocks/transferts/annuler</code></p>
+<p>Paramètres :</p>
+<ul>
+<li>en tant que body, un objet Guid[] : La liste des IDs de transfert à annuler</li>
+</ul>
+<p>Type de retour : <code>ResultatOperation[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResultatOperation
+{
+	System.Guid OperationGuid { get; set; }
+	bool IsSuccess { get; set; }
+	string Message { get; set; }
+}
+
+</code></pre>
+<h2 id="annuler-un-ordre-de-transfert-de-stock"><span id='annulerordretransfertstock'>Annuler un ordre de transfert de stock</span></h2>
+<p>Annule un ordre de transfert de stock</p>
+<p>Url :<code>[DELETE] api/stocks/transferts/{IDTransfert}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>IDTransfert</strong> (System.Guid) : L'ID de transfert à annuler</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+<h2 id="confirmer-des-ordres-de-transfert-de-stock"><span id='confirmerordrestransfertstock'>Confirmer des ordres de transfert de stock</span></h2>
+<p>Confirme des ordres de transfert de stock</p>
+<p>Url :<code>[PUT] api/stocks/transferts/confirmer</code></p>
+<p>Paramètres :</p>
+<ul>
+<li>en tant que body, un objet Guid[] : La liste des IDs de transfert à confirmer</li>
+</ul>
+<p>Type de retour : <code>ResultatOperation[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResultatOperation
+{
+	System.Guid OperationGuid { get; set; }
+	bool IsSuccess { get; set; }
+	string Message { get; set; }
+}
+
+</code></pre>
+<h2 id="confirmer-un-ordre-de-transfert-de-stock"><span id='confirmerordretransfertstock'>Confirmer un ordre de transfert de stock</span></h2>
+<p>Confirme un ordre de transfert de stock</p>
+<p>Url :<code>[PUT] api/stocks/transferts/confirmer/{IDTransfert}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>IDTransfert</strong> (System.Guid) : L'ID de transfert à confirmer</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+<h2 id="créer-des-ordres-de-transfert-de-stock"><span id='creerordrestransfertstock'>Créer des ordres de transfert de stock</span></h2>
+<p>Créé des ordres de transfert de stock</p>
+<p>Url :<code>[POST] api/stocks/transferts/creer</code></p>
+<p>Paramètres :</p>
+<ul>
+<li>en tant que body, un objet TransfertStockByEmplacements[] : Une liste d'objets de type TransfertStockByEmplacements</li>
+</ul>
+<p>Type de retour : <code>Guid[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class TransfertStockByEmplacements
+{
+	string NumeroDocument { get; set; }
+	System.Guid IDEmplacementOrigine { get; set; }
+	System.Guid IDEmplacementDestination { get; set; }
+	CPointSoftware.Equihira.Business.Logistique.StocksBllEx+LigneTransfert[] LignesTransfert { get; set; }
+	string Raison { get; set; }
+	bool ValidationAuto { get; set; }
+}
+
+</code></pre>
+<h2 id="créer-un-nouveau-dépôt"><span id='creerdepot'>Créer un nouveau dépôt</span></h2>
+<p>Créé un nouveau dépôt</p>
+<p>Url :<code>[POST] api/stocks/depots</code></p>
+<p>Paramètres :</p>
+<ul>
+<li>en tant que body, un objet NewDepot : Le dépot à créer</li>
+</ul>
+<p>Type de retour : <code>Depot</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Depot
+{
+	bool EstArchive { get; set; }
+	GestomWebApi.Logistique.StockController+Emplacement[] Emplacements { get; set; }
+	System.Guid ID { get; set; }
+	string Nom { get; set; }
+}
+
+class NewDepot
+{
+	string Nom { get; set; }
+}
+
+</code></pre>
+<h2 id="créer-un-nouvel-emplacement"><span id='creeremplacement'>Créer un nouvel emplacement</span></h2>
+<p>Créé un nouvel emplacement</p>
+<p>Url :<code>[POST] api/stocks/emplacements</code></p>
+<p>Paramètres :</p>
+<ul>
+<li>en tant que body, un objet NewEmplacement : Les informations sur l'emplacement à créer</li>
+</ul>
+<p>Type de retour : <code>Emplacement</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Emplacement
+{
+	bool EstArchive { get; set; }
+	Guid? ZonePreparationGuid { get; set; }
+	System.Guid ID { get; set; }
+	string Libelle { get; set; }
+	string Code { get; set; }
+	System.Guid IdDepot { get; set; }
+}
+
+class NewEmplacement
+{
+	string Libelle { get; set; }
+	string Code { get; set; }
+	System.Guid IdDepot { get; set; }
+}
+
+</code></pre>
+<h2 id="créer-un-ordre-de-transfert-de-stock"><span id='creerordretransfertstock'>Créer un ordre de transfert de stock</span></h2>
+<p>Créé un ordre de transfert de stock</p>
+<p>Url :<code>[POST] api/stocks/transfert/creer</code></p>
+<p>Paramètres :</p>
+<ul>
+<li>en tant que body, un objet TransfertStockByEmplacements : Un objet de type TransfertStockByEmplacements</li>
+</ul>
+<p>Type de retour : <code>Guid</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class TransfertStockByEmplacements
+{
+	string NumeroDocument { get; set; }
+	System.Guid IDEmplacementOrigine { get; set; }
+	System.Guid IDEmplacementDestination { get; set; }
+	CPointSoftware.Equihira.Business.Logistique.StocksBllEx+LigneTransfert[] LignesTransfert { get; set; }
+	string Raison { get; set; }
+	bool ValidationAuto { get; set; }
+}
+
+class LigneTransfert
+{
+	System.Guid ArticleGuid { get; set; }
+	decimal Quantite { get; set; }
+}
+
+</code></pre>
+<h2 id="créer-une-mise-en-stock"><span id='creermiseenstock'>Créer une mise en stock</span></h2>
+<p>Créé une mise en stock</p>
+<p>Url :<code>[POST] api/stocks/misesenstock/creer</code></p>
+<p>Paramètres :</p>
+<ul>
+<li>en tant que body, un objet MiseEnStock : Un objet de type MiseEnStock</li>
+</ul>
+<p>Type de retour : <code>Guid[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class MiseEnStock
+{
+	string Libelle { get; set; }
+	CPointSoftware.Equihira.Business.Logistique.TypeMiseEnStock TypeMiseEnStock { get; set; }
+	Guid? IDSource { get; set; }
+	Guid? IDUtilisateur { get; set; }
+	string Commentaire { get; set; }
+	CPointSoftware.Equihira.Business.Logistique.ArticleAMettreEnStock[] Articles { get; set; }
+}
+
+enum TypeMiseEnStock
+{
+	Manuelle, // =0
+	Commande, // =1
+	Inventaire, // =2
+	Autre, // =3
+}
+
+class ArticleAMettreEnStock
+{
+	System.Guid ArticleGuid { get; set; }
+	CPointSoftware.Equihira.Business.Logistique.TypeMiseEnStock TypeMiseEnStock { get; set; }
+	Guid? LigneSourceGuid { get; set; }
+	decimal Quantite { get; set; }
+	decimal PuHt { get; set; }
+	Guid? EmplacementPrefere { get; set; }
+	string TypeOperation { get; set; }
+}
+
+</code></pre>
+<h2 id="forcer-limport-dun-stock-darticle"><span id='forcerimportstockdarticle'>Forcer l'import d'un stock d'article</span></h2>
+<p>Force l'import d'un stock d'article</p>
+<p>Url :<code>[POST] api/stocks/emplacements/{codeEmp}/forcerimport</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>codeEmp</strong> (string) : Le code de l'emplacement</li>
+<li>en tant que body, un objet StockImport : Un objet de type StockImport</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class StockImport
+{
+	GestomWebApi.Logistique.StockController+ArticleIdentifiant TypeID { get; set; }
+	string ArticleID { get; set; }
+	decimal Quantite { get; set; }
+	System.Boolean? EstDispo { get; set; }
+}
+
+</code></pre>
+<h2 id="importer-des-stocks-darticle-en-masse"><span id='importstocksarticlesenmasse'>Importer des stocks d'article en masse</span></h2>
+<p>Importe des stocks d'articles en masse</p>
+<p>Url :<code>[POST] api/stocks/emplacements/{codeEmp}/import</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>codeEmp</strong> (string) : Le code de l'emplacement</li>
+<li>en tant que body, un objet StockImport[] : Une liste d'objets de type StockImport</li>
+</ul>
+<p>Type de retour : <code>String[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class StockImport
+{
+	GestomWebApi.Logistique.StockController+ArticleIdentifiant TypeID { get; set; }
+	string ArticleID { get; set; }
+	decimal Quantite { get; set; }
+	System.Boolean? EstDispo { get; set; }
+}
+
+enum ArticleIdentifiant
+{
+	ArticleGuid, // =0
+	ArticleRef, // =1
+	ArticleEan, // =2
+}
+
+</code></pre>
+<h2 id="modifier-un-dépôt"><span id='modifierdepot'>Modifier un dépôt</span></h2>
+<p>Modifie un dépôt</p>
+<p>Url :<code>[PUT] api/stocks/depots</code></p>
+<p>Paramètres :</p>
+<ul>
+<li>en tant que body, un objet UpdateDepot : Le dépot à modifier</li>
+</ul>
+<p>Type de retour : <code>Depot</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Depot
+{
+	bool EstArchive { get; set; }
+	GestomWebApi.Logistique.StockController+Emplacement[] Emplacements { get; set; }
+	System.Guid ID { get; set; }
+	string Nom { get; set; }
+}
+
+class UpdateDepot
+{
+	System.Guid ID { get; set; }
+	string Nom { get; set; }
+}
+
+</code></pre>
+<h2 id="modifier-un-emplacement"><span id='modifieremplacement'>Modifier un emplacement</span></h2>
+<p>Modifie un emplacement</p>
+<p>Url :<code>[PUT] api/stocks/emplacements</code></p>
+<p>Paramètres :</p>
+<ul>
+<li>en tant que body, un objet UpdateEmplacement : Les informations sur l'emplacement à modifier</li>
+</ul>
+<p>Type de retour : <code>Emplacement</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Emplacement
+{
+	bool EstArchive { get; set; }
+	Guid? ZonePreparationGuid { get; set; }
+	System.Guid ID { get; set; }
+	string Libelle { get; set; }
+	string Code { get; set; }
+	System.Guid IdDepot { get; set; }
+}
+
+class UpdateEmplacement
+{
+	System.Guid ID { get; set; }
+	string Libelle { get; set; }
+	string Code { get; set; }
+	System.Guid IdDepot { get; set; }
+}
+
+</code></pre>
+<h2 id="modifier-une-ligne-de-mise-en-stock"><span id='modifierlignemiseenstock'>Modifier une ligne de mise en stock</span></h2>
+<p>Modifie une ligne de mise en stock</p>
+<p>Url :<code>[PATCH] api/stocks/misesenstock/ligne/{IDLigneMiseEnStock}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>IDLigneMiseEnStock</strong> (System.Guid) : L'ID de la ligne de mise en stock à modifier</li>
+<li>en tant que body, un objet ArticleAMettreEnStock : Un objet de type ArticleAMettreEnStock</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ArticleAMettreEnStock
+{
+	System.Guid ArticleGuid { get; set; }
+	CPointSoftware.Equihira.Business.Logistique.TypeMiseEnStock TypeMiseEnStock { get; set; }
+	Guid? LigneSourceGuid { get; set; }
+	decimal Quantite { get; set; }
+	decimal PuHt { get; set; }
+	Guid? EmplacementPrefere { get; set; }
+	string TypeOperation { get; set; }
+}
+
+</code></pre>
+<h2 id="modifier-une-mise-en-stock"><span id='modifiermiseenstock'>Modifier une mise en stock</span></h2>
+<p>Modifie une mise en stock</p>
+<p>Url :<code>[PATCH] api/stocks/misesenstock/{IDMiseEnStock}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>IDMiseEnStock</strong> (System.Guid) : L'ID de la mise en stock à modifier</li>
+<li>en tant que body, un objet MiseEnStock : Un objet de type MiseEnStock</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class MiseEnStock
+{
+	string Libelle { get; set; }
+	CPointSoftware.Equihira.Business.Logistique.TypeMiseEnStock TypeMiseEnStock { get; set; }
+	Guid? IDSource { get; set; }
+	Guid? IDUtilisateur { get; set; }
+	string Commentaire { get; set; }
+	CPointSoftware.Equihira.Business.Logistique.ArticleAMettreEnStock[] Articles { get; set; }
+}
+
+</code></pre>
+<h2 id="obtenir-la-liste-des-dépôts"><span id='obtenirdepots'>Obtenir la liste des dépôts</span></h2>
+<p>Récupère la liste des dépôts</p>
+<p>Url :<code>[GET] api/stocks/depots?inclureArchive={inclureArchive:System.Boolean?}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>inclureArchive</strong> (System.Boolean?) : Inclure ou non les dépôts archivés</li>
+</ul>
+<p>Type de retour : <code>Depot[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Depot
+{
+	bool EstArchive { get; set; }
+	GestomWebApi.Logistique.StockController+Emplacement[] Emplacements { get; set; }
+	System.Guid ID { get; set; }
+	string Nom { get; set; }
+}
+
+class Emplacement
+{
+	bool EstArchive { get; set; }
+	Guid? ZonePreparationGuid { get; set; }
+	System.Guid ID { get; set; }
+	string Libelle { get; set; }
+	string Code { get; set; }
+	System.Guid IdDepot { get; set; }
+}
+
+</code></pre>
+<h2 id="obtenir-la-liste-des-emplacements"><span id='obteniremplacements'>Obtenir la liste des emplacements</span></h2>
+<p>Récupère la liste des emplacements</p>
+<p>Url :<code>[GET] api/stocks/emplacements?inclureArchive={inclureArchive:System.Boolean?}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>inclureArchive</strong> (System.Boolean?) : Inclure ou non les emplacements archivés</li>
+</ul>
+<p>Type de retour : <code>Emplacement[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Emplacement
+{
+	bool EstArchive { get; set; }
+	Guid? ZonePreparationGuid { get; set; }
+	System.Guid ID { get; set; }
+	string Libelle { get; set; }
+	string Code { get; set; }
+	System.Guid IdDepot { get; set; }
+}
+
+</code></pre>
+<h2 id="obtenir-le-stock-dun-article-dans-un-emplacement"><span id='obtenirstockarticleparemplacement'>Obtenir le stock d'un article dans un emplacement</span></h2>
+<p>Obtient le stock d'un article dans un emplacement</p>
+<p>Url :<code>[GET] api/stocks/articles/id/{idArticle}/emplacement/{idEmplacement}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>idArticle</strong> (System.Guid) : ID de l'article</li>
+<li><strong>idEmplacement</strong> (System.Guid) : ID de l'emplacement</li>
+</ul>
+<p>Type de retour : <code>Stock</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Stock
+{
+	System.Guid Id { get; set; }
+	System.Guid ArticleId { get; set; }
+	DateTimeOffset DateEntree { get; set; }
+	decimal? PrixUnitaire { get; set; }
+	decimal? Quantite { get; set; }
+	bool EstDispo { get; set; }
+	decimal QuantiteReservee { get; set; }
+	decimal QuantiteReelle { get; set; }
+	System.Guid IdEmplacement { get; set; }
+	string LibelleEmplacement { get; set; }
+	System.Guid IdDepot { get; set; }
+	string LibelleDepot { get; set; }
+}
+
+</code></pre>
+<h2 id="obtenir-les-emplacements-dun-dépôt"><span id='obteniremplacementsdundepot'>Obtenir les emplacements d'un dépôt</span></h2>
+<p>Récupère les emplacements d'un dépôt</p>
+<p>Url :<code>[GET] api/stocks/depots/{id}/emplacements?inclureArchive={inclureArchive:System.Boolean?}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>id</strong> (System.Guid) : L'id du dépôts dont on souhaite récupérer les emplacements</li>
+<li><strong>inclureArchive</strong> (System.Boolean?) : Inclure ou non les emplacements archivés</li>
+</ul>
+<p>Type de retour : <code>Emplacement[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Emplacement
+{
+	bool EstArchive { get; set; }
+	Guid? ZonePreparationGuid { get; set; }
+	System.Guid ID { get; set; }
+	string Libelle { get; set; }
+	string Code { get; set; }
+	System.Guid IdDepot { get; set; }
+}
+
+</code></pre>
+<h2 id="obtenir-les-mises-en-stock-en-cours"><span id='obtenirmiseenstockencours'>Obtenir les mises en stock en cours</span></h2>
+<p>Obtient un ordre de mise en stock</p>
+<p>Url :<code>[GET] api/stocks/misesenstock/encours</code></p>
+<p>Paramètres :</p>
+<ul>
+<li>Cette url n'accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>MiseEnStockFull[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class MiseEnStockFull
+{
+	GestomWebApi.Logistique.StockController+StockEntree StockEntree { get; set; }
+	GestomWebApi.Logistique.StockController+LigneEntree[] LignesEntree { get; set; }
+}
+
+</code></pre>
+<h2 id="obtenir-les-stocks-dun-article"><span id='obtenirstocksarticle'>Obtenir les stocks d'un article</span></h2>
+<p>Obtient les stocks d'un article</p>
+<p>Url :<code>[GET] api/stocks/articles/ref/{articleRef}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>articleRef</strong> (string) : Référence de l'article</li>
+</ul>
+<p>Url :<code>[GET] api/stocks/articles/id/{idArticle}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>idArticle</strong> (System.Guid) : ID de l'article</li>
+</ul>
+<p>Type de retour : <code>Stock[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Stock
+{
+	System.Guid Id { get; set; }
+	System.Guid ArticleId { get; set; }
+	DateTimeOffset DateEntree { get; set; }
+	decimal? PrixUnitaire { get; set; }
+	decimal? Quantite { get; set; }
+	bool EstDispo { get; set; }
+	decimal QuantiteReservee { get; set; }
+	decimal QuantiteReelle { get; set; }
+	System.Guid IdEmplacement { get; set; }
+	string LibelleEmplacement { get; set; }
+	System.Guid IdDepot { get; set; }
+	string LibelleDepot { get; set; }
+}
+
+</code></pre>
+<h2 id="obtenir-les-stocks-dun-article-dans-un-dépôt"><span id='obtenirstocksarticlepardepot'>Obtenir les stocks d'un article dans un dépôt</span></h2>
+<p>Obtient les stocks d'un article dans un dépôt</p>
+<p>Url :<code>[GET] api/stocks/articles/id/{idArticle}/depot/{idDepot}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>idArticle</strong> (System.Guid) : ID de l'article</li>
+<li><strong>idDepot</strong> (System.Guid) : ID du dépôt</li>
+</ul>
+<p>Type de retour : <code>Stock[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Stock
+{
+	System.Guid Id { get; set; }
+	System.Guid ArticleId { get; set; }
+	DateTimeOffset DateEntree { get; set; }
+	decimal? PrixUnitaire { get; set; }
+	decimal? Quantite { get; set; }
+	bool EstDispo { get; set; }
+	decimal QuantiteReservee { get; set; }
+	decimal QuantiteReelle { get; set; }
+	System.Guid IdEmplacement { get; set; }
+	string LibelleEmplacement { get; set; }
+	System.Guid IdDepot { get; set; }
+	string LibelleDepot { get; set; }
+}
+
+</code></pre>
+<h2 id="obtenir-tous-les-dépôts-et-leur-emplacements"><span id='obtenirdepotsetemplacements'>Obtenir tous les dépôts et leur emplacements</span></h2>
+<p>Récupère tous les dépots avec la liste de leurs emplacements</p>
+<p>Url :<code>[GET] api/stocks/depots/emplacements</code></p>
+<p>Paramètres :</p>
+<ul>
+<li>Cette url n'accepte aucun paramètre</li>
+</ul>
+<p>Type de retour : <code>Depot[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Depot
+{
+	bool EstArchive { get; set; }
+	GestomWebApi.Logistique.StockController+Emplacement[] Emplacements { get; set; }
+	System.Guid ID { get; set; }
+	string Nom { get; set; }
+}
+
+</code></pre>
+<h2 id="obtenir-un-dépôt"><span id='obtenirdepot'>Obtenir un dépôt</span></h2>
+<p>Récupère un dépôt par son ID</p>
+<p>Url :<code>[GET] api/stocks/depots/{id}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>id</strong> (System.Guid) : L'id du dépôt à récuperer</li>
+</ul>
+<p>Type de retour : <code>Depot</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Depot
+{
+	bool EstArchive { get; set; }
+	GestomWebApi.Logistique.StockController+Emplacement[] Emplacements { get; set; }
+	System.Guid ID { get; set; }
+	string Nom { get; set; }
+}
+
+</code></pre>
+<h2 id="obtenir-un-emplacement"><span id='obteniremplacement'>Obtenir un emplacement</span></h2>
+<p>Récupère un emplacement par son ID</p>
+<p>Url :<code>[GET] api/stocks/emplacements/{id}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>id</strong> (System.Guid) : L'id de l'emplacement à rechercher</li>
+</ul>
+<p>Type de retour : <code>Emplacement</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Emplacement
+{
+	bool EstArchive { get; set; }
+	Guid? ZonePreparationGuid { get; set; }
+	System.Guid ID { get; set; }
+	string Libelle { get; set; }
+	string Code { get; set; }
+	System.Guid IdDepot { get; set; }
+}
+
+</code></pre>
+<h2 id="obtenir-un-emplacement-par-son-code"><span id='obteniremplacementsparcode'>Obtenir un emplacement par son code</span></h2>
+<p>Récupère un emplacements par son code</p>
+<p>Url :<code>[GET] api/stocks/emplacements/code/{code}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>code</strong> (string) : L'id de l'emplacement à rechercher</li>
+</ul>
+<p>Type de retour : <code>Emplacement</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class Emplacement
+{
+	bool EstArchive { get; set; }
+	Guid? ZonePreparationGuid { get; set; }
+	System.Guid ID { get; set; }
+	string Libelle { get; set; }
+	string Code { get; set; }
+	System.Guid IdDepot { get; set; }
+}
+
+</code></pre>
+<h2 id="obtenir-un-ordre-de-mise-en-stock"><span id='obtenirordremiseenstock'>Obtenir un ordre de mise en stock</span></h2>
+<p>Obtient un ordre de mise en stock</p>
+<p>Url :<code>[GET] api/stocks/misesenstock/{IDMiseEnStock}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>IDMiseEnStock</strong> (System.Guid) : L'ID de la mise en stock à récupérer</li>
+</ul>
+<p>Type de retour : <code>MiseEnStockFull</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class MiseEnStockFull
+{
+	GestomWebApi.Logistique.StockController+StockEntree StockEntree { get; set; }
+	GestomWebApi.Logistique.StockController+LigneEntree[] LignesEntree { get; set; }
+}
+
+class StockEntree
+{
+	System.Guid Id { get; set; }
+	DateTime Date { get; set; }
+	string Libelle { get; set; }
+	bool EstConfirme { get; set; }
+	bool EstTermine { get; set; }
+	string Type { get; set; }
+	Guid? IdUtilisateur { get; set; }
+	string Commentaire { get; set; }
+}
+
+class LigneEntree
+{
+	System.Guid Id { get; set; }
+	string Type { get; set; }
+	System.Guid IdEntree { get; set; }
+	System.Guid IdStock { get; set; }
+	System.Guid ArticleId { get; set; }
+	Guid? IdLigneCommandeFournisseur { get; set; }
+	decimal Quantite { get; set; }
+	decimal? PrixUnitaire { get; set; }
+	decimal? FraisAnnexesUnitaires { get; set; }
+}
+
+</code></pre>
+<h2 id="obtenir-une-ligne-de-mise-en-stock"><span id='obtenirlignemiseenstock'>Obtenir une ligne de mise en stock</span></h2>
+<p>Obtient une ligne de mise en stock</p>
+<p>Url :<code>[GET] api/stocks/misesenstock/ligne/{IDMiseEnStock}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>IDMiseEnStock</strong> (System.Guid) : L'ID de la mise en stock à récupérer</li>
+</ul>
+<p>Type de retour : <code>LigneEntree</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class LigneEntree
+{
+	System.Guid Id { get; set; }
+	string Type { get; set; }
+	System.Guid IdEntree { get; set; }
+	System.Guid IdStock { get; set; }
+	System.Guid ArticleId { get; set; }
+	Guid? IdLigneCommandeFournisseur { get; set; }
+	decimal Quantite { get; set; }
+	decimal? PrixUnitaire { get; set; }
+	decimal? FraisAnnexesUnitaires { get; set; }
+}
+
+</code></pre>
+<h2 id="supprimer-un-dépôt"><span id='supprimerdepot'>Supprimer un dépôt</span></h2>
+<p>Supprime un dépôt</p>
+<p>Url :<code>[DELETE] api/stocks/depots/{id}?forcer={forcer:System.Boolean?}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>id</strong> (System.Guid) : ID du dépôt à supprimer</li>
+<li><strong>forcer</strong> (System.Boolean?) : Permet de forcer la suppression d'un dépôt</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+<h2 id="supprimer-un-emplacement"><span id='supprimeremplacement'>Supprimer un emplacement</span></h2>
+<p>Supprime un emplacement</p>
+<p>Url :<code>[DELETE] api/stocks/emplacements/{id}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>id</strong> (System.Guid) : ID de l'emplacement à supprimer</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+<h2 id="supprimer-un-ordre-de-mise-en-stock"><span id='supprimerordremiseenstock'>Supprimer un ordre de mise en stock</span></h2>
+<p>Supprime un ordre de mise en stock</p>
+<p>Url :<code>[DELETE] api/stocks/misesenstock/{IDMiseEnStock}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>IDMiseEnStock</strong> (System.Guid) : L'ID de la mise en stock à valider</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+<h2 id="supprimer-une-ligne-de-mise-en-stock"><span id='supprimerlignemiseenstock'>Supprimer une ligne de mise en stock</span></h2>
+<p>Supprime une ligne de mise en stock</p>
+<p>Url :<code>[DELETE] api/stocks/misesenstock/ligne/{IDLigneMiseEnStock}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>IDLigneMiseEnStock</strong> (System.Guid) : L'ID de la ligne de mise en stock à supprimer</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+<h2 id="valider-des-ordres-de-transfert-de-stock"><span id='validerordrestransfertstock'>Valider des ordres de transfert de stock</span></h2>
+<p>Valide des ordres de transfert de stock</p>
+<p>Url :<code>[PUT] api/stocks/transferts/valider</code></p>
+<p>Paramètres :</p>
+<ul>
+<li>en tant que body, un objet Guid[] : La liste des IDs de transfert à valider</li>
+</ul>
+<p>Type de retour : <code>ResultatOperation[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResultatOperation
+{
+	System.Guid OperationGuid { get; set; }
+	bool IsSuccess { get; set; }
+	string Message { get; set; }
+}
+
+</code></pre>
+<h2 id="valider-un-ordre-de-mise-en-stock"><span id='validerordremiseenstock'>Valider un ordre de mise en stock</span></h2>
+<p>Valide un ordre de mise en stock</p>
+<p>Url :<code>[PUT] api/stocks/misesenstock/valider</code></p>
+<p>Paramètres :</p>
+<ul>
+<li>en tant que body, un objet Guid[] : L'ID de la mise en stock à valider</li>
+</ul>
+<p>Url :<code>[PUT] api/stocks/misesenstock/valider/{IDMiseEnStock}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li>en tant que body, un objet Guid[] : L'ID de la mise en stock à valider</li>
+</ul>
+<p>Type de retour : <code>ResultatOperation</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class ResultatOperation
+{
+	System.Guid OperationGuid { get; set; }
+	bool IsSuccess { get; set; }
+	string Message { get; set; }
+}
+
+</code></pre>
+<p>Exception(s) :</p>
+<ul>
+<li><strong>400</strong> : La validation n'a pas pu être réalisée</li>
+</ul>
+<h2 id="valider-un-ordre-de-transfert-de-stock"><span id='validerordretransfertstock'>Valider un ordre de transfert de stock</span></h2>
+<p>Valide un ordre de transfert de stock</p>
+<p>Url :<code>[PUT] api/stocks/transferts/valider/{IDTransfert}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>IDTransfert</strong> (System.Guid) : L'ID de transfert à valider</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+<h2 id="ajouter-une-ligne-de-stock-retiré"><span id='ajouterstockretire'>Ajouter une ligne de stock retiré</span></h2>
+<p>Remplace les stocks retirés dans un magasin pour un article</p>
+<p>Url :<code>[POST] api/stocks/retires</code></p>
+<p>Paramètres :</p>
+<ul>
+<li>en tant que body, un objet AjoutStockRetire : Les informations sur la ligne de stock à retirer</li>
+<li>en tant que body, un objet PatchStockRetire[] : Les lignes de stocks retirés à remplacer</li>
+</ul>
+<p>Url :<code>[PATCH] api/stocks/retires/magasin/{idMagasin}/article/{idArticle}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li>en tant que body, un objet AjoutStockRetire : Les informations sur la ligne de stock à retirer</li>
+<li><strong>idMagasin</strong> (System.Guid) : L'ID du magasin</li>
+<li><strong>idArticle</strong> (System.Guid) : L'ID d'article</li>
+<li>en tant que body, un objet PatchStockRetire[] : Les lignes de stocks retirés à remplacer</li>
+</ul>
+<p>Type de retour : <code>Guid[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class AjoutStockRetire
+{
+	System.Guid IdArticle { get; set; }
+	System.Guid IdMagasin { get; set; }
+	decimal Quantite { get; set; }
+	string Libelle { get; set; }
+	System.DateTimeOffset? DateDebut { get; set; }
+	System.DateTimeOffset? DateFin { get; set; }
+}
+
+class PatchStockRetire
+{
+	decimal Quantite { get; set; }
+	string Libelle { get; set; }
+	System.DateTimeOffset? DateDebut { get; set; }
+	System.DateTimeOffset? DateFin { get; set; }
+}
+
+</code></pre>
+<h2 id="obtenir-les-stocks-retirés-dun-article"><span id='obtenirstockretiresarticle'>Obtenir les stocks retirés d'un article</span></h2>
+<p>Obtient les stocks retirés d'un article pour tous les magasins</p>
+<p>Url :<code>[GET] api/stocks/retires/article/{idArticle}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>idArticle</strong> (System.Guid) : L'ID d'article</li>
+</ul>
+<p>Type de retour : <code>StockRetire[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class StockRetire
+{
+	System.Guid Id { get; set; }
+	System.Guid IdUtilisateur { get; set; }
+	DateTimeOffset DateMiseAJour { get; set; }
+	System.Guid IdArticle { get; set; }
+	System.Guid IdMagasin { get; set; }
+	decimal Quantite { get; set; }
+	string Libelle { get; set; }
+	System.DateTimeOffset? DateDebut { get; set; }
+	System.DateTimeOffset? DateFin { get; set; }
+}
+
+</code></pre>
+<h2 id="obtenir-les-stocks-retirés-dun-article-dans-un-magasin"><span id='obtenirstockretiresarticlemagasin'>Obtenir les stocks retirés d'un article dans un magasin</span></h2>
+<p>Obtient les stocks retirés d'un article dans un magasin</p>
+<p>Url :<code>[GET] api/stocks/retires/magasin/{idMagasin}/article/{idArticle}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>idMagasin</strong> (System.Guid) : L'ID du magasin</li>
+<li><strong>idArticle</strong> (System.Guid) : L'ID d'article</li>
+</ul>
+<p>Type de retour : <code>StockRetire[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class StockRetire
+{
+	System.Guid Id { get; set; }
+	System.Guid IdUtilisateur { get; set; }
+	DateTimeOffset DateMiseAJour { get; set; }
+	System.Guid IdArticle { get; set; }
+	System.Guid IdMagasin { get; set; }
+	decimal Quantite { get; set; }
+	string Libelle { get; set; }
+	System.DateTimeOffset? DateDebut { get; set; }
+	System.DateTimeOffset? DateFin { get; set; }
+}
+
+</code></pre>
+<h2 id="obtenir-les-stocks-retirés-dun-magasin"><span id='obtenirstockretiresmagasin'>Obtenir les stocks retirés d'un magasin</span></h2>
+<p>Obtient les stocks retirés d'un magasin</p>
+<p>Url :<code>[GET] api/stocks/retires/magasin/{idMagasin}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>idMagasin</strong> (System.Guid) : L'ID du magasin</li>
+</ul>
+<p>Type de retour : <code>StockRetire[]</code></p>
+<p>Type(s) de données :</p>
+<pre><code class="lang-csharp">class StockRetire
+{
+	System.Guid Id { get; set; }
+	System.Guid IdUtilisateur { get; set; }
+	DateTimeOffset DateMiseAJour { get; set; }
+	System.Guid IdArticle { get; set; }
+	System.Guid IdMagasin { get; set; }
+	decimal Quantite { get; set; }
+	string Libelle { get; set; }
+	System.DateTimeOffset? DateDebut { get; set; }
+	System.DateTimeOffset? DateFin { get; set; }
+}
+
+</code></pre>
+<h2 id="supprimer-une-ligne-de-stock-retiré"><span id='supprimerstockretire'>Supprimer une ligne de stock retiré</span></h2>
+<p>Supprime une ligne de stock retiré</p>
+<p>Url :<code>[DELETE] api/stocks/retires/{idStockRetire}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>idStockRetire</strong> (System.Guid) : L'ID du stock retiré</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+<h2 id="supprimer-une-ligne-de-stock-retiré-pour-un-magasin-et-un-article"><span id='supprimerstockretiremagasinarticle'>Supprimer une ligne de stock retiré pour un magasin et un article</span></h2>
+<p>Supprime les lignes de stock retirés pour un magasin et un article</p>
+<p>Url :<code>[DELETE] api/stocks/retires/magasin/{idMagasin}/article/{idArticle}</code></p>
+<p>Paramètres :</p>
+<ul>
+<li><strong>idMagasin</strong> (System.Guid) : L'ID du magasin</li>
+<li><strong>idArticle</strong> (System.Guid) : L'ID d'article</li>
+</ul>
+<p>Type de retour : <code>bool</code></p>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/master/hub/api/utilisateur/logistique/stocks.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>
