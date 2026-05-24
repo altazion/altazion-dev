@@ -14,8 +14,9 @@ Type(s) de données :
 ```csharp
 class String
 {
-	int Length { get; }
 	Char Chars { get; }
+	int Length { get; }
 }
 
 ```
+
