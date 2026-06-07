@@ -2,33 +2,6 @@
   href: index.md
 - name: APIs Altazion Hub
   href: hub-api.md
-- name: ECommerce
-  href: ecommerce/index.md
-  items: 
-  - name: Clients
-    href: ecommerce/clients/index.md
-    items: 
-    - name: Wishlists
-      href: ecommerce/clients/wishlists.md
-      items: 
-  - name: Process
-    href: ecommerce/process/index.md
-    items: 
-    - name: Client
-      href: ecommerce/process/client.md
-      items: 
-    - name: Panier
-      href: ecommerce/process/panier.md
-      items: 
-    - name: Validation
-      href: ecommerce/process/validation.md
-      items: 
-  - name: Catalogue
-    href: ecommerce/catalogue/index.md
-    items: 
-    - name: Articles
-      href: ecommerce/catalogue/articles.md
-      items: 
 - name: Utilisateur
   href: utilisateur/index.md
   items: 
