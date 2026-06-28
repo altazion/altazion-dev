@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-17974923-7');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Product | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Product | Aide - Altazion">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+  
+  
+  
+    <script defer="" src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+
+              <script type="text/javascript">
+
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="product">Product</h2>
+
+<p>Représente un produit dans le système Altazion avec ses nombreuses caractéristiques et états.</p>
+<p>Propriétés publiques :</p>
+<ul>
+<li>StorageType : Type de gestion des stocks pour ce produit.</li>
+<li>IsDeleted : Indique si le produit est supprimé.</li>
+<li>IsShippable : Indique si le produit est livrable.</li>
+<li>Id : Identifiant unique du produit.</li>
+<li>Guid : Identifiant global unique du produit.</li>
+<li>PriceWOTax : Prix hors taxes du produit.</li>
+<li>Price : Prix toutes taxes comprises.</li>
+<li>VAT : Montant de la TVA (calculé comme Price - PriceWOTax).</li>
+<li>DiscountedPriceWOTax : Prix promotionnel hors taxes, nullable.</li>
+<li>DiscountedPrice : Prix promotionnel TTC, nullable.</li>
+<li>DiscountStartDate : Date de début de la promotion, nullable.</li>
+<li>DiscountEndDate : Date de fin de la promotion, nullable.</li>
+<li>CreationDate : Date de création du produit.</li>
+<li>Label : Libellé du produit.</li>
+<li>Sku : Référence SKU.</li>
+<li>FamilyId : Identifiant de la famille produit.</li>
+<li>Description : Description du produit.</li>
+<li>SubFamilyId : Identifiant facultatif de la sous-famille.</li>
+<li>BrandId : Identifiant de la marque.</li>
+<li>VatId : Identifiant du taux de TVA.</li>
+<li>ProductTypeId : Identifiant du type de produit.</li>
+<li>UsableOnDigitalTools : Indique si le produit est utilisable sur des outils digitaux.</li>
+<li>IsForInvoicableElements : Indique si le produit peut être pré-facturé.</li>
+<li>IsMultiVariations : Indique si le produit a plusieurs variations.</li>
+<li>IsMainVariation : Indique si le produit est la variation principale.</li>
+<li>IsAssembly : Indique si le produit est un assemblage.</li>
+<li>IsExternalVendorEnabled : Indique si la vente via un vendeur externe est activée.</li>
+<li>IsProductComplete : Indique si le produit est complet et valide.</li>
+<li>CurrentCreationStep : Étape actuelle de création du produit.</li>
+<li>RecommendedPriceWOTax : Prix conseillé hors taxes, nullable.</li>
+<li>RecommendedPrice : Prix conseillé TTC, nullable.</li>
+<li>MetaType : Type de méta-produit (enum ProductMetaType).</li>
+<li>RiskScore : Score de risque associé.</li>
+<li>ParentProductId : Identifiant du produit parent s'il existe.</li>
+<li>IsHighDemand : Indique si le produit est en forte demande.</li>
+<li>IsSubscription : Indique si le produit est un abonnement.</li>
+<li>IsPackage : Indique si le produit est un forfait.</li>
+<li>IsImported : Indique si le produit est importé.</li>
+<li>AllowsDecimalQuantity : Indique si les quantités décimales sont autorisées.</li>
+<li>ExternalCode : Code externe pour intégrations tierces.</li>
+<li>CompositionType : Type de composition du produit.</li>
+<li>IsSimplified : Indique si le mode de saisie simplifié est utilisé.</li>
+<li>LockedByUserId : Identifiant de l'utilisateur verrouillant le produit.</li>
+<li>UnitId : Identifiant de l'unité de mesure.</li>
+<li>QuantityPerUnit : Quantité contenue par unité, nullable.</li>
+<li>StockManagementMode : Mode de gestion du stock (enum StockManagementMode).</li>
+<li>PriceIndexId : Identifiant de l'indice de prix, nullable.</li>
+<li>PriceIndexMultiplier : Multiplicateur sur l'indice de prix, nullable.</li>
+<li>PriceIndexFeesRate : Taux de frais sur l'indice, nullable.</li>
+<li>ExternalDppUrl : URL du Passeport Numérique Produit externe.</li>
+</ul>
+<p>Cette classe comprend aussi des méthodes statiques pour convertir les types de méta-produit entre chaîne et enum, et surcharge la méthode ToString() pour afficher le SKU et le libellé.</p>
+<p>Enums définis dans le même namespace importants :</p>
+<ul>
+<li>ProductMetaType : Définit les types de méta-produits (Produits, Livraison, Remises, Services, etc.).</li>
+<li>StorageType : Définit les méthodes de gestion des stocks (Aucun stock, FIFO, Moyenne pondérée, etc.).</li>
+<li>StockManagementMode : Définit les modes de gestion du stock unitaire (non différencié, par lot, par identifiant).</li>
+</ul>
+<h3 id="dclaration-typescript">D�claration TypeScript</h3>
+<pre><code class="lang-typescript">interface Product {
+  StorageType: 'NoStorage' | 'NotPhysicalObject' | 'FIFO' | 'WeightedAverage';
+  IsDeleted: boolean;
+  IsShippable: boolean;
+  Id: number;
+  Guid: string; // UUID string
+  PriceWOTax: number;
+  Price: number;
+  readonly VAT: number; // computed
+  DiscountedPriceWOTax?: number | null;
+  DiscountedPrice?: number | null;
+  DiscountStartDate?: string | null; // ISO date string
+  DiscountEndDate?: string | null; // ISO date string
+  CreationDate: string; // ISO date string
+  Label: string;
+  Sku: string;
+  FamilyId: number;
+  Description: string;
+  SubFamilyId?: number | null;
+  BrandId: number;
+  VatId: number;
+  ProductTypeId: number;
+  UsableOnDigitalTools: boolean;
+  IsForInvoicableElements: boolean;
+  IsMultiVariations: boolean;
+  IsMainVariation: boolean;
+  IsAssembly: boolean;
+  IsExternalVendorEnabled: boolean;
+  IsProductComplete: boolean;
+  CurrentCreationStep: number;
+  RecommendedPriceWOTax?: number | null;
+  RecommendedPrice?: number | null;
+  MetaType: 'Products' | 'Shipping' | 'Discounts' | 'Services' | 'Rents' | 'Bundles' | 'Financial' | 'Tax' | 'Licence';
+  RiskScore: number;
+  ParentProductId?: number | null;
+  IsHighDemand: boolean;
+  IsSubscription: boolean;
+  IsPackage: boolean;
+  IsImported: boolean;
+  AllowsDecimalQuantity: boolean;
+  ExternalCode: string;
+  CompositionType: string;
+  IsSimplified: boolean;
+  LockedByUserId?: string | null; // UUID string
+  UnitId?: number | null;
+  QuantityPerUnit?: number | null;
+  StockManagementMode: 0 | 1 | 2; // byte enum
+  PriceIndexId?: string | null; // UUID string
+  PriceIndexMultiplier?: number | null;
+  PriceIndexFeesRate?: number | null;
+  ExternalDppUrl: string;
+}
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/master/fr-fr/reference/DataObjectBase/Core-Business/business/Altazion.Core.Model/Product/Altazion.Core.Model.Product.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>

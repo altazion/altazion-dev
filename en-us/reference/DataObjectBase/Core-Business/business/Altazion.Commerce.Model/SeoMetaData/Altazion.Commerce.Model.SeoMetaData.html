@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-17974923-7');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>SeoMetaData | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="SeoMetaData | Aide - Altazion">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+  
+  
+  
+    <script defer="" src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+
+              <script type="text/javascript">
+
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="seometadata">SeoMetaData</h2>
+
+<p>The SeoMetaData class represents the SEO metadata configured for a site page within the Altazion system. It stores and manages various SEO-related properties such as the page title, description, keywords, and specific settings for search engine robots and social networks.</p>
+<p>Public properties:</p>
+<ul>
+<li>Guid: Unique identifier for the SEO definition.</li>
+<li>SiteId: Identifier of the concerned site.</li>
+<li>ContentId: Identifier of the targeted content.</li>
+<li>ContentKind: Type of content targeted by the metadata.</li>
+<li>CanInheritInSubPages: Indicates if the metadata can be inherited by subpages.</li>
+<li>PageTitle: HTML title of the page.</li>
+<li>Keywords: Array of SEO keywords.</li>
+<li>Description: Meta description of the page.</li>
+<li>PageH1: H1 title associated with the page.</li>
+<li>PageHeaderContent: Additional HTML header content for the page.</li>
+<li>JsonLd: Configured JSON-LD structured data for the page.</li>
+<li>SocialMetaJson: JSON configuration for social tags like OpenGraph and TwitterCard.</li>
+<li>RobotNoIndex: Indicates if the page should be excluded from indexing.</li>
+<li>RobotNoFollow: Indicates if robots should not follow links.</li>
+<li>RobotNoArchive: Indicates if robots should not cache the page.</li>
+<li>RobotNoSnippet: Indicates if robots should not show snippets.</li>
+<li>RobotNoImageIndex: Indicates if robots should not index images.</li>
+</ul>
+<p>Important method:</p>
+<ul>
+<li>ToRobotString(): Returns a string corresponding to the robots directive based on the boolean properties.</li>
+</ul>
+<p>This class derives from DataObjectBase and is used to handle and validate SEO metadata in the Altazion commerce context.</p>
+<h3 id="typescript-class">TypeScript class</h3>
+<pre><code class="lang-typescript">interface SeoMetaData {
+  Guid: string; // Unique identifier (GUID) of the SEO definition
+  SiteId: number; // Identifier of the site
+  ContentId: string | null; // Identifier of the targeted content
+  ContentKind: string | null; // Type of the content
+  CanInheritInSubPages: boolean; // Indicates if metadata can be inherited by subpages
+  PageTitle: string | null; // HTML title of the page
+  Keywords?: string[]; // SEO keywords array
+  Description: string | null; // Meta description
+  PageH1: string | null; // H1 title of the page
+  PageHeaderContent: string | null; // Additional HTML header content
+  JsonLd: string | null; // JSON-LD structured content
+  SocialMetaJson: string | null; // JSON configuration for social meta tags
+  RobotNoIndex: boolean; // Robots noindex directive
+  RobotNoFollow: boolean; // Robots nofollow directive
+  RobotNoArchive: boolean; // Robots noarchive directive
+  RobotNoSnippet: boolean; // Robots nosnippet directive
+  RobotNoImageIndex: boolean; // Robots noimageindex directive
+}
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/master/en-us/reference/DataObjectBase/Core-Business/business/Altazion.Commerce.Model/SeoMetaData/Altazion.Commerce.Model.SeoMetaData.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../../../../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-17974923-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-17974923-7');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PurchaseOrder | Aide - Altazion</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="PurchaseOrder | Aide - Altazion">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../../../../../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="">
+  
+  
+  
+    <script defer="" src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <ul>
+                  <li class="title"><a href="/"><img src="https://aide.altazion.com/logo.png"></a></li>
+                  <li class="subtitle"><span>Aide</span></li>
+                  <li class="item" id="lnkSiteAide"><a href="https://aide.altazion.com">Utilisateurs</a></li>
+                  <li class="item" id="lnkSiteDev"><a href="https://www.altazion.dev">Développeurs</a></li>
+                  <li class="item" id="lnkSiteInterne" style="display:none"><a href="https://e-doc-dev.azurewebsites.net">Doc interne</a></li>
+                  <li class="item" id="lnkSiteLearning" style="display:none"><a href="https://www.altazion-learning.com">e-learning</a></li>
+              </ul>
+
+              <script type="text/javascript">
+
+                  function checkAndActivate(domain, ctl) {
+                      fetch("https://" + domain).then(function (data) {
+                          ctl.style.display = null;
+                      }).catch(function (e) {
+                          return;
+                      });
+                  }
+
+                  var loc = document.location.hostname;
+                  loc = loc.toLowerCase();
+
+                  if (loc == "aide.altazion.com") {
+                      lnkSiteAide.classList.add("selected");
+                  }
+                  else if (loc == "www.altazion.dev")
+                      lnkSiteDev.classList.add("selected");
+                  else if (loc == "www.altazion-learning.com") {
+                      lnkSiteLearning.style.display = null;
+                      lnkSiteLearning.classList.add("selected");
+                  }
+                  else if (loc == "e-doc-dev.azurewebsites.net") {
+                      lnkSiteInterne.style.display = null;
+                      lnkSiteInterne.classList.add("selected");
+                  }
+
+                  checkAndActivate("www.altazion-learning.com", lnkSiteLearning);
+                  checkAndActivate("e-doc-dev.azurewebsites.net", lnkSiteInterne);
+
+              </script>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="purchaseorder">PurchaseOrder</h2>
+
+<p>La classe PurchaseOrder représente un en-tête de bon de commande avec ses informations relatives au client, aux montants, et aux dates.</p>
+<p>Propriétés publiques :</p>
+<ul>
+<li>Id : Identifiant unique du bon de commande (Guid).</li>
+<li>CustomerGuid : Identifiant unique du client (Guid).</li>
+<li>DeliveryAddressGuid : Identifiant unique optionnel de l'adresse de livraison (Guid?).</li>
+<li>OrderDate : Date de la commande (DateTimeOffset).</li>
+<li>Origin : Origine de la commande (ex: WEB, POS) (string).</li>
+<li>OrderNumber : Numéro de la commande (string).</li>
+<li>DisplayOrder : Ordre d'affichage ou de tri (short).</li>
+<li>TotalAmount : Montant total TTC (decimal).</li>
+<li>TotalAmountWOTax : Montant total HT (decimal).</li>
+<li>TotalAmountWOTaxBeforeDiscount : Montant HT avant remise (decimal).</li>
+<li>TotalAmountBeforeDiscount : Montant TTC avant remise (decimal).</li>
+<li>TotalDiscountsWOTax : Montant total des remises HT (decimal).</li>
+<li>TotalDiscounts : Montant total des remises TTC (decimal).</li>
+<li>GlobalDiscountWOTax : Montant de la remise globale HT (decimal).</li>
+<li>GlobalDiscount : Montant de la remise globale TTC (decimal).</li>
+<li>RailsState : État du traitement dans le workflow (string).</li>
+<li>IsLockedForProcessing : Indique si la commande est verrouillée pour traitement (bool).</li>
+<li>IsConfirmed : Indique si la commande est confirmée (bool).</li>
+<li>IsApproved : Indique si la commande est approuvée (bool).</li>
+<li>IsTriggered : Indique si la commande est déclenchée (bool).</li>
+<li>IsCompleted : Indique si la commande est terminée (bool).</li>
+<li>IsArchived : Indique si la commande est archivée (bool).</li>
+<li>IsInError : Indique si la commande est en erreur (bool).</li>
+<li>IsCancelled : Indique si la commande est annulée (bool).</li>
+<li>IsCancelledByCustomer : Indique si l'annulation a été demandée par le client (bool).</li>
+<li>CancellationReason : Raison de l'annulation (string).</li>
+<li>StoreGuid : Identifiant unique optionnel du magasin associé (Guid?).</li>
+<li>PickupPointGuid : Identifiant unique optionnel du point de livraison (Guid?).</li>
+<li>PickupPointRecipientName : Nom du destinataire au point de livraison (string).</li>
+<li>DeliveryModeGuid : Identifiant unique optionnel du mode de livraison (Guid?).</li>
+<li>OrderType : Type de commande (string).</li>
+<li>CustomerMessage : Message du client (string).</li>
+<li>BillingAddressGuid : Identifiant unique optionnel de l'adresse de facturation (Guid?).</li>
+<li>IsGuestMode : Indique si la commande est en mode invité (bool).</li>
+<li>ParentOrderGuid : Identifiant unique optionnel de la commande parente (Guid?).</li>
+<li>DeviceGuid : Identifiant unique optionnel du device ayant passé la commande (Guid?).</li>
+</ul>
+<h3 id="dclaration-typescript">D�claration TypeScript</h3>
+<pre><code class="lang-typescript">interface PurchaseOrder {
+  Id: string; // Guid
+  CustomerGuid: string; // Guid
+  DeliveryAddressGuid?: string; // Guid | null
+  OrderDate: string; // DateTimeOffset as ISO string
+  Origin: string | null;
+  OrderNumber: string | null;
+  DisplayOrder: number; // short
+  TotalAmount: number; // decimal
+  TotalAmountWOTax: number; // decimal
+  TotalAmountWOTaxBeforeDiscount: number; // decimal
+  TotalAmountBeforeDiscount: number; // decimal
+  TotalDiscountsWOTax: number; // decimal
+  TotalDiscounts: number; // decimal
+  GlobalDiscountWOTax: number; // decimal
+  GlobalDiscount: number; // decimal
+  RailsState: string | null;
+  IsLockedForProcessing: boolean;
+  IsConfirmed: boolean;
+  IsApproved: boolean;
+  IsTriggered: boolean;
+  IsCompleted: boolean;
+  IsArchived: boolean;
+  IsInError: boolean;
+  IsCancelled: boolean;
+  IsCancelledByCustomer: boolean;
+  CancellationReason: string | null;
+  StoreGuid?: string | null;
+  PickupPointGuid?: string | null;
+  PickupPointRecipientName: string | null;
+  DeliveryModeGuid?: string | null;
+  OrderType: string | null;
+  CustomerMessage: string | null;
+  BillingAddressGuid?: string | null;
+  IsGuestMode: boolean;
+  ParentOrderGuid?: string | null;
+  DeviceGuid?: string | null;
+}
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/altazion/altazion-dev/blob/master/fr-fr/reference/DataObjectBase/Core-Business/business/Altazion.Core.Extensibility/Logistique/PurchaseOrder/Altazion.Logistics.Model.PurchaseOrder.md/#L1" class="contribution-link">Aidez nous &#224; am&#233;liorer cette documentation</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5></h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../../../../../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../../../../../styles/main.js"></script>
+  </body>
+</html>
